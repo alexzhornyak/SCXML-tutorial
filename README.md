@@ -1,10 +1,13 @@
-# SCXML tutorial
+# SCXML Tutorial
 
 This project is an attempt to illustrate the current [SCXML standard](https://www.w3.org/TR/scxml)
 
+### Table of contents
 [1. Introduction](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Introduction.md)
 
 [2. \<scxml\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/scxml.md)
+
+# SCXML Overview
 
 ## Hello world
 
