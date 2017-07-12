@@ -7,6 +7,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [2. \<scxml\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/scxml.md)
 
+[3. \<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/state.md)
+
 # SCXML Overview
 
 ## Hello world
