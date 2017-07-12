@@ -2,7 +2,7 @@
 Transitions between states are triggered by events and conditionalized via guard conditions. They may contain executable content, which is executed when the transition is taken.
 
 ## 1. Attribute 'event'
-A space-separated list of event descriptors.
+A space-separated list of event descriptors. Like an event name, an event descriptor is a series of alphanumeric characters (optionally segmented into tokens by the "." character)
 
 ### 1.1. Event name not specified
 If condition is also not specified, transition will be executed immediately.
@@ -19,3 +19,19 @@ If condition is also not specified, transition will be executed immediately.
 ```
 
 ![2017-07-12 12 11 25](https://user-images.githubusercontent.com/18611095/28110712-e753ce14-66fb-11e7-8020-09b6114887f9.png)
+
+### 1.2. Event name fully case sensitive matched
+A transition matches an event if at least one of its event descriptors matches the event's name.
+
+![transition - event name match](https://user-images.githubusercontent.com/18611095/28114420-82ae1088-6709-11e7-9b2c-8ba661f11bd8.png)
+
+```
+<scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="State1">
+		<transition event="Step" target="State2"/>
+	</state>
+	<state id="State2"/>
+</scxml>
+```
+
+![transition - event name match - callstack](https://user-images.githubusercontent.com/18611095/28114425-874255e6-6709-11e7-8109-4f26d0bd978b.png)
