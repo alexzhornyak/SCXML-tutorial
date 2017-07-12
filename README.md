@@ -11,6 +11,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [4. \<parallel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/parallel.md)
 
+[5. \<transition\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md)
+
 # SCXML Overview
 
 ## Hello world
