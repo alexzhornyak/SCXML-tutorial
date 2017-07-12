@@ -3,11 +3,11 @@
 This project is an attempt to illustrate the current [SCXML standard](https://www.w3.org/TR/scxml)
 
 ### Table of contents
-[1. Introduction](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Introduction.md)
+[1. Introduction](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md)
 
-[2. \<scxml\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/scxml.md)
+[2. \<scxml\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/scxml.md)
 
-[3. \<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/state.md)
+[3. \<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md)
 
 # SCXML Overview
 
