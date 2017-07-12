@@ -121,7 +121,7 @@ Represents the default initial state for a complex \<state\> element
 </scxml>
 ```
 
-# Final state
+## Final state
 
 Represents a final state of an \<scxml\> or compound \<state\> element.
 
