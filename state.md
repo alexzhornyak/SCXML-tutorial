@@ -15,6 +15,8 @@ The identifier for this state.
 ## Attribute 'initial'
 The id of the default initial state (or states) for this state.
 
+**Example: 'State1' is specified as initial**
+
 ![state - initial 1](https://user-images.githubusercontent.com/18611095/28105233-51cbe67e-66e7-11e7-9c54-faf01ace8496.png)
 
 ```
@@ -44,6 +46,8 @@ The id of the default initial state (or states) for this state.
 
 Output:
 > [Log] State 1: "Hello!"
+
+**Example: 'State3' is specified as initial**
 
 ![state - initial 2](https://user-images.githubusercontent.com/18611095/28105301-918f4896-66e7-11e7-9ead-d3c70e4543b1.png)
 
