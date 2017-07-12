@@ -115,3 +115,63 @@ Output:
 Output:
 > Issue (FATAL) at //state[@id="StateAtomic"]: Initial attribute has invalid target state with id 'StateXXX'
 
+## Atomic state
+Has no \<state\>, \<parallel\> or \<final\> children.
+
+![state - atomic](https://user-images.githubusercontent.com/18611095/28104861-bbb59528-66e5-11e7-8141-94691d7dab44.png)
+
+## Compound state
+Has \<state\>, \<parallel\>, or \<final\> children (or a combination of these).
+
+![state - compaund - atomic](https://user-images.githubusercontent.com/18611095/28106158-5e12a338-66eb-11e7-8c0b-92637a6275a1.png)
+
+```
+<scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="StateCompaund">
+		<state id="StateAtomic"/>
+	</state>
+</scxml>
+```
+
+## Default initial state
+Specified by the 'initial' attribute or \<initial\> element, if either is present. Otherwise it is the state's first child state in document order.
+
+**Example 1**
+
+![state - initial - default](https://user-images.githubusercontent.com/18611095/28106356-3efebcb0-66ec-11e7-801d-fcbc3584d13f.png)
+
+```
+<scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="Work" initial="State2">
+		<state id="State1">
+			<transition event="Step" target="State2"/>
+		</state>
+		<state id="State2">
+			<onentry>
+				<log expr="I am initial!" label="State 1"/>
+			</onentry>
+			<transition event="Step" target="State1"/>
+		</state>
+	</state>
+</scxml>
+```
+
+**Example 2**
+
+![state - initial - default - document order](https://user-images.githubusercontent.com/18611095/28106438-7cc8a240-66ec-11e7-9cf6-9402f8a3edab.png)
+
+```
+<scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="Work">
+		<state id="State1">
+			<onentry>
+				<log expr="I am initial!" label="State 1"/>
+			</onentry>
+			<transition event="Step" target="State2"/>
+		</state>
+		<state id="State2">
+			<transition event="Step" target="State1"/>
+		</state>
+	</state>
+</scxml>
+```
