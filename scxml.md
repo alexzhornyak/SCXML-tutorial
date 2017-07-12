@@ -4,7 +4,7 @@
 
 The top-level wrapper element, which carries version information. The actual state machine consists of its children. 
 
-### 1. Initial
+### 1. Attribute 'initial'
 
 The id of the initial state(s) for the document. If not specified, the default initial state is the first child state in document order.
 
@@ -53,7 +53,7 @@ Output:
   > Issue (WARNING) at //state[@id="Start"]: State with id 'Start' is unreachable  
   >  [Log] "Hello from 'work'"
 
-### 2. Datamodel
+### 2. Attribute 'datamodel'
 The datamodel that this document requires. "null" denotes the Null datamodel, "ecmascript" the ECMAScript datamodel, and "xpath" the XPath datamodel or other platform-defined values.
 ![scxml - datamodel](https://user-images.githubusercontent.com/18611095/28104254-cf2e29e2-66e2-11e7-84ff-669b4fde192d.png)
 
@@ -69,7 +69,7 @@ The datamodel that this document requires. "null" denotes the Null datamodel, "e
 Output:
 > [Log] "Datamodel based on [Lua 5.3]"
 
-### 3. Binding
+### 3. Attribute 'binding'
 The data binding to use.
 
 ![scxml - binding](https://user-images.githubusercontent.com/18611095/28104477-e64e97f0-66e3-11e7-922b-93164f933ce3.png)
