@@ -9,6 +9,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [3. \<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md)
 
+[4. \<parallel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/parallel.md)
+
 # SCXML Overview
 
 ## Hello world
