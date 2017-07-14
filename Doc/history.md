@@ -76,3 +76,42 @@ Active state: **Expecting**
 ![history - after deep pause](https://user-images.githubusercontent.com/18611095/28218825-68aa707c-68c2-11e7-9211-f91395d83c66.png)
 
 Active states: **Airplane, Engines, Left, Right, LeftOn, RightOn**
+
+```
+<scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="Airplane">
+		<transition event="Pause" target="Expecting"/>
+		<initial>
+			<transition target="HistoryPoint"/>
+		</initial>
+		<history id="HistoryPoint" type="deep">
+			<transition target="Refuel"/>
+		</history>
+		<parallel id="Engines">
+			<transition event="NoFuel" target="Refuel"/>
+			<state id="Left" initial="LeftOff">
+				<state id="LeftOff">
+					<transition event="Startup.Left" target="LeftOn"/>
+				</state>
+				<state id="LeftOn">
+					<transition event="Shutdown.Left" target="LeftOff"/>
+				</state>
+			</state>
+			<state id="Right" initial="RightOff">
+				<state id="RightOff">
+					<transition event="Startup.Right" target="RightOn"/>
+				</state>
+				<state id="RightOn">
+					<transition event="Shutdown.Right" target="RightOff"/>
+				</state>
+			</state>
+		</parallel>
+		<state id="Refuel">
+			<transition event="Finished" target="Engines"/>
+		</state>
+	</state>
+	<state id="Expecting">
+		<transition event="Resume" target="HistoryPoint"/>
+	</state>
+</scxml>
+```
