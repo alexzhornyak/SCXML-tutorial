@@ -21,7 +21,7 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [9. \<onexit\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onexit.md)
 
-[10. \<onexit\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/history.md)
+[10. \<history\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/history.md)
 
 # SCXML Overview
 
