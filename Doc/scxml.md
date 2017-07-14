@@ -74,7 +74,7 @@ The data binding to use.
 
 ![scxml - binding](https://user-images.githubusercontent.com/18611095/28104477-e64e97f0-66e3-11e7-922b-93164f933ce3.png)
 
-**3.1. Early**
+#### 3.1. Early
 When 'binding' is assigned the value "early" (the default), the SCXML Processor must create all data elements and assign their initial values at document initialization time.
 
 ```
@@ -96,7 +96,7 @@ When 'binding' is assigned the value "early" (the default), the SCXML Processor 
 Output:
 > [Log] VarA: 1
 
-**3.2. Late**
+#### 3.2. Late
 When 'binding' is assigned the value "late", the SCXML Processor must create the data elements at document initialization time, but must assign the specified initial value to a given data element only when the state that contains it is entered for the first time, before any <onentry> markup.
 
 ```
