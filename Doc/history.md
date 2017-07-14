@@ -6,17 +6,17 @@ If the 'type' of a <history> element is "shallow", the SCXML processor must reco
 
 **Example:**
 #### 1.1. Configuration before pause
-![history](/Images/history%20-%20shallow%20-%20before%20pause.png)
+![history - shallow - before pause](https://user-images.githubusercontent.com/18611095/28218713-08c93242-68c2-11e7-9760-a964c10b9e83.png)
 
 Active states: **Airplane, Engines, Left, Right, LeftOn, RightOn**
 
 #### 1.2. Configuration after pause
-![history](/Images/history%20-%20shallow%20pause.png)
+![history - shallow pause](https://user-images.githubusercontent.com/18611095/28218759-35ba1bcc-68c2-11e7-917e-3d4af3eb133c.png)
 
 Active state: **Expecting**
 
 #### 1.3. Configuration after resume
-![history](/Images/history%20-%20shallow%20after%20pause.png)
+![history - shallow after pause](https://user-images.githubusercontent.com/18611095/28218798-5361ae06-68c2-11e7-9451-f0a1544c7a51.png)
 
 Active states: **Airplane, Engines, Left, Right, LeftOff, RightOff**
 
@@ -63,16 +63,16 @@ Active states: **Airplane, Engines, Left, Right, LeftOff, RightOff**
 If the 'type' of a <history> element is "deep", the SCXML processor must record the active atomic descendants of the parent before taking any transition that exits the parent.
 
 #### 2.1. Configuration before pause
-![history](/Images/history%20-%20after%20deep%20pause.png)
+![history - after deep pause](https://user-images.githubusercontent.com/18611095/28218825-68aa707c-68c2-11e7-9211-f91395d83c66.png)
 
 Active states: **Airplane, Engines, Left, Right, LeftOn, RightOn**
 
 #### 2.2. Configuration after pause
-![history](/Images/history%20-%20deep%20pause.png)
+![history - deep pause](https://user-images.githubusercontent.com/18611095/28218826-68ab72ce-68c2-11e7-8923-234263c9df8b.png)
 
 Active state: **Expecting**
 
 #### 2.3. Configuration after resume
-![history](/Images/history%20-%20after%20deep%20pause.png)
+![history - after deep pause](https://user-images.githubusercontent.com/18611095/28218825-68aa707c-68c2-11e7-9211-f91395d83c66.png)
 
 Active states: **Airplane, Engines, Left, Right, LeftOn, RightOn**
