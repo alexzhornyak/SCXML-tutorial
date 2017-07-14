@@ -19,6 +19,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [8. \<onentry\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onentry.md)
 
+[9. \<onexit\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onexit.md)
+
 # SCXML Overview
 
 ## Hello world
