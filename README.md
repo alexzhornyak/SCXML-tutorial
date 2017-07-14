@@ -17,6 +17,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [7. \<final\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md#final-state)
 
+[8. \<onentry\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onentry.md)
+
 # SCXML Overview
 
 ## Hello world
