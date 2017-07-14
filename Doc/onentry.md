@@ -38,11 +38,7 @@ A wrapper element containing executable content to be executed when the state is
 
 Output:
 >[Log] "Hello from 'State1'!"
-
 >[Log] "Hello from 'Container'!"
-
 >[Log] "Hello from 'State2'!"
-
 >[Log] "Hello from 'State3'!"
-
 >[Log] "Hello from 'End'!"
