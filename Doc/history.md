@@ -6,17 +6,17 @@ If the 'type' of a <history> element is "shallow", the SCXML processor must reco
 
 **Example:**
 #### 1.1. Configuration before pause
-![history - before pause - shallow](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/history%20-%20shallow%20-%20before%20pause.png?raw=true)
+<img src="/Images/history%20-%20shallow%20-%20before%20pause.png?raw=true" align="left" width="903" height="523"/>
 
 Active states: **Airplane, Engines, Left, Right, LeftOn, RightOn**
 
 #### 1.2. Configuration after pause
-![history - after pause - shallow](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/history%20-%20shallow%20pause.png?raw=true)
+<img src="/Images/history%20-%20shallow%20pause.png?raw=true" align="left" width="903" height="523"/>
 
 Active state: **Expecting**
 
 #### 1.3. Configuration after resume
-![history - after resume - shallow](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/history%20-%20shallow%20after%20pause.png?raw=true)
+<img src="/Images/history%20-%20shallow%20after%20pause.png?raw=true" align="left" width="903" height="523"/>
 
 Active states: **Airplane, Engines, Left, Right, LeftOff, RightOff**
 
@@ -63,16 +63,16 @@ Active states: **Airplane, Engines, Left, Right, LeftOff, RightOff**
 If the 'type' of a <history> element is "deep", the SCXML processor must record the active atomic descendants of the parent before taking any transition that exits the parent.
 
 #### 2.1. Configuration before pause
-![history - before pause - deep](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/history%20-%20after%20deep%20pause.png?raw=true)
+<img src="/Images/history%20-%20after%20deep%20pause.png?raw=true" align="left" width="903" height="523"/>
 
 Active states: **Airplane, Engines, Left, Right, LeftOn, RightOn**
 
 #### 2.2. Configuration after pause
-![history - after pause 2](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/history%20-%20deep%20pause.png?raw=true)
+<img src="/Images/history%20-%20deep%20pause.png?raw=true" align="left" width="903" height="523"/>
 
 Active state: **Expecting**
 
 #### 2.3. Configuration after resume
-![history - after resume - deep](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/history%20-%20after%20deep%20pause.png?raw=true)
+<img src="/Images/history%20-%20after%20deep%20pause.png?raw=true" align="left" width="903" height="523"/>
 
 Active states: **Airplane, Engines, Left, Right, LeftOn, RightOn**
