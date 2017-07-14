@@ -35,3 +35,10 @@ A transition matches an event if at least one of its event descriptors matches t
 ```
 
 ![transition - event name match - callstack](https://user-images.githubusercontent.com/18611095/28114425-874255e6-6709-11e7-8109-4f26d0bd978b.png)
+
+### 1.3. Event name case sensitive matched by token
+An event descriptor matches an event name if its string of tokens is an exact match or a prefix of the set of tokens in the event's name. In all cases, the token matching is case sensitive.
+
+![transition - partial match](https://user-images.githubusercontent.com/18611095/28201126-3c34b4e8-6878-11e7-9f87-6b5be9f74e8b.png)
+
+In this example, a transition will match event names "Step", "Step.Next", "Step.Next.Completed", etc. but would not match events named "Steps.My.Custom", "StepHandler.mistake", etc.
