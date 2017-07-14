@@ -62,7 +62,7 @@ May contain nested <state> elements and the nesting may proceed to any depth
 
 The <parallel> element represents a state whose children are executed in parallel.
 
-![parallel states 3](https://user-images.githubusercontent.com/18611095/28067259-208edae2-6649-11e7-9273-b209163233ff.png)
+<img src="https://user-images.githubusercontent.com/18611095/28067259-208edae2-6649-11e7-9273-b209163233ff.png?raw=true" align="left" width="909" height="516"/>
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
