@@ -13,6 +13,10 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [5. \<transition\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md)
 
+[6. \<initial\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md#initial-state)
+
+[7. \<final\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md#final-state)
+
 # SCXML Overview
 
 ## Hello world
