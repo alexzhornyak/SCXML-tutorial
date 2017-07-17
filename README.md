@@ -25,6 +25,12 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [11. \<raise\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/raise.md)
 
+[12. \<if\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#if)
+
+[13. \<else\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#else)
+
+[14. \<elseif\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#elseif)
+
 # SCXML Overview
 
 ## Hello world
