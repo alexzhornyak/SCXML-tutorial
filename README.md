@@ -2,6 +2,20 @@
 
 This project is an attempt to illustrate the current [SCXML standard](https://www.w3.org/TR/scxml)
 
+## Hello world
+
+![hello world](https://user-images.githubusercontent.com/18611095/28060853-2d653f4e-6631-11e7-8d42-acc6f556028b.png)
+
+```
+<scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<final id="Final">
+		<onentry>
+			<log expr="Hello, world!" label="Final"/>
+		</onentry>
+	</final>
+</scxml>
+```
+
 ### Table of contents
 [1. Introduction](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md)
 
@@ -33,22 +47,9 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [15. \<foreach\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md)
 
+[16. \<log\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/log.md)
+
 # SCXML Overview
-
-## Hello world
-
-![hello world](https://user-images.githubusercontent.com/18611095/28060853-2d653f4e-6631-11e7-8d42-acc6f556028b.png)
-
-```
-<scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
-	<final id="Final">
-		<onentry>
-			<log expr="Hello, world!" label="Final"/>
-		</onentry>
-	</final>
-</scxml>
-```
-
 
 ## Basic State Machine Notation
 
