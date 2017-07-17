@@ -23,6 +23,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [10. \<history\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/history.md)
 
+[11. \<raise\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/raise.md)
+
 # SCXML Overview
 
 ## Hello world
