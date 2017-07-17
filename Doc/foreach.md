@@ -1,12 +1,14 @@
 # \<foreach\>
 Allows an SCXML application to iterate through a collection in the data model and to execute the actions contained within it for each item in the collection.
 
+## Attribute Details
 Name	|Required	|Type	|Default Value	|Valid Values	|Description|
 ---|---|---|---|---|---|
 array	|true		|Value expression	|none	|A value expression that evaluates to an iterable collection.	|The \<foreach\> element will iterate over a shallow copy of this collection.
 item	|true		|xsd:string	|none	|Any variable name that is valid in the specified data model.	|A variable that stores a different item of the collection in each iteration of the loop.
 index	|false		|xsd:string	|none	|Any variable name that is valid in the specified data model.	|A variable that stores the current iteration index upon each iteration of the foreach loop.
 
+## Example
 ![foreach](https://user-images.githubusercontent.com/18611095/28258527-57452600-6ada-11e7-9102-8260dbaecb19.png)
 
 ```
