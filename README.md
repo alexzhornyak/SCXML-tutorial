@@ -49,6 +49,10 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [16. \<log\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/log.md)
 
+[17. \<datamodel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/datamodel.md)
+
+[18. \<data\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/datamodel.md#data)
+
 # SCXML Overview
 
 ## Basic State Machine Notation
