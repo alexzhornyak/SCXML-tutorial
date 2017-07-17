@@ -124,3 +124,12 @@ In a conformant SCXML document, a \<data\> element may have either a 'src' or an
 	<final id="End"/>
 </scxml>
 ```
+
+**Output:**
+>[Log] VarTable: "Value=[table: 0083F5E8] Type=[table]"
+>
+>[Log] itemTable: 1
+>
+>[Log] itemTable: true
+>
+>[Log] itemTable: "This is a string!"
