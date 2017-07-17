@@ -31,6 +31,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [14. \<elseif\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#elseif)
 
+[15. \<foreach\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md)
+
 # SCXML Overview
 
 ## Hello world
