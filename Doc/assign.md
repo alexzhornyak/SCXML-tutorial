@@ -83,8 +83,6 @@ If the location expression of an assign denotes a valid location in the datamode
 ![test287](https://user-images.githubusercontent.com/18611095/28419375-71e90212-6d67-11e7-9ed1-c70b94948af7.png)
 
 ### [3. Test 487](https://www.w3.org/Voice/2013/scxml-irp/487/test487.txml)
-If the value specified (by 'expr' or children) is not a legal value for the location specified, the processor MUST place the error error.execution in the internal event queue.
+If the value specified (by 'expr' or children) is not a legal value for the location specified, the processor MUST place the error **error.execution** in the internal event queue.
 
 ![test487](https://user-images.githubusercontent.com/18611095/28419614-39236b7e-6d68-11e7-9303-bf2aaf0dd5e9.png)
-
-
