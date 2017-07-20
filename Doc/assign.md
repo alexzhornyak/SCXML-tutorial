@@ -1,5 +1,5 @@
 # \<assign\>
-Is used to modify the data model.
+The element is used to modify the data model.
 
 ## Attribute Details
 Name	|Required	|Attribute Constraints	|Type	|Default Value	|Valid Values	|Description
@@ -12,7 +12,7 @@ The children of the \<assign\> element provide an in-line specification of the l
 
 ## Examples:
 
-### 1. Data is modified by 'expr' attribute.
+### 1. Assigning data by value from 'expr' attribute.
 ![assign - location expr](https://user-images.githubusercontent.com/18611095/28417848-4934c91e-6d62-11e7-9225-63e33609e087.png)
 
 ```
@@ -45,3 +45,27 @@ The children of the \<assign\> element provide an in-line specification of the l
 >
 >[Log] Var1: 150
 
+### 2. Multi-level location and assigning data by children element value.
+![assign - location to table](https://user-images.githubusercontent.com/18611095/28418385-2adfba8a-6d64-11e7-9c6d-f57765c1a46a.png)
+
+```
+<scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data expr="{ Name=&quot;default&quot; }" id="VarTable"/>
+	</datamodel>
+	<state id="Shape1">
+		<onentry>
+			<log expr="VarTable.Name" label="VarTable.Name"/>
+			<assign location="VarTable.Name">&quot;new name&quot;</assign>
+			<log expr="VarTable.Name" label="VarTable.Name"/>
+		</onentry>
+		<transition target="End"/>
+	</state>
+	<final id="End"/>
+</scxml>
+```
+
+**Output:**
+>[Log] VarTable.Name: "default"
+>
+>[Log] VarTable.Name: "new name"
