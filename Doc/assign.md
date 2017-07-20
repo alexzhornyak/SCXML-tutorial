@@ -69,3 +69,22 @@ The children of the \<assign\> element provide an in-line specification of the l
 >[Log] VarTable.Name: "default"
 >
 >[Log] VarTable.Name: "new name"
+
+## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
+
+### [1. Test 286](https://www.w3.org/Voice/2013/scxml-irp/286/test286.txml)
+If the location expression of an assign does not denote a valid location in the datamodel the processor MUST place the error **error.execution** in the internal event queue.
+
+![test286](https://user-images.githubusercontent.com/18611095/28419058-9a6dcf70-6d66-11e7-8cc1-01e7babaab85.png)
+
+### [2. Test 287](https://www.w3.org/Voice/2013/scxml-irp/287/test287.txml)
+If the location expression of an assign denotes a valid location in the datamodel and if the value specified by 'expr' is a legal value for the location specified, the processor MUST place the specified value at the specified location.
+
+![test287](https://user-images.githubusercontent.com/18611095/28419375-71e90212-6d67-11e7-9ed1-c70b94948af7.png)
+
+### [3. Test 487](https://www.w3.org/Voice/2013/scxml-irp/487/test487.txml)
+If the value specified (by 'expr' or children) is not a legal value for the location specified, the processor MUST place the error error.execution in the internal event queue.
+
+![test487](https://user-images.githubusercontent.com/18611095/28419614-39236b7e-6d68-11e7-9303-bf2aaf0dd5e9.png)
+
+
