@@ -53,6 +53,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [18. \<data\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/datamodel.md#data)
 
+[19. \<assign\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/assign.md)
+
 # SCXML Overview
 
 ## Basic State Machine Notation
