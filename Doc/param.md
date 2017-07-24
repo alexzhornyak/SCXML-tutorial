@@ -5,8 +5,61 @@ The \<param\> tag provides a general way of identifying a key and a dynamically 
 Name	|Required	|Attribute Constraints	|Type	|Default Value	|Valid Values	|Description
 ---|---|---|---|---|---|---|
 name	|true		||NMTOKEN	|none	|A string literal	|The name of the key.
-expr	|false	|May not occur with 'location'	|value expression	|none	|Valid value expression	|A value expression (see 5.9.3 Legal Data Values and Value Expressions) that is evaluated to provide the value.
-location	|false	|May not occur with 'expr'	|location expression	|none	|Valid location expression	|A location expression (see 5.9.2 Location Expressions) that specifies the location in the datamodel to retrieve the value from.
+expr	|false	|May not occur with 'location'	|value expression	|none	|Valid value expression	|A value expression (see [5.9.3 Legal Data Values and Value Expressions](https://www.w3.org/TR/scxml/#ValueExpressions)) that is evaluated to provide the value.
+location	|false	|May not occur with 'expr'	|location expression	|none	|Valid location expression	|A location expression (see [5.9.2 Location Expressions](https://www.w3.org/TR/scxml/#LocationExpressions)) that specifies the location in the datamodel to retrieve the value from.
+
+## Examples:
+### 1. Value is provided by 'expr' attribute.
+![param - expr](https://user-images.githubusercontent.com/18611095/28515986-4b5121da-7068-11e7-84b9-80f4f8de9ab1.png)
+
+```
+<scxml datamodel="lua" initial="s0" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="s0" initial="s01">
+		<transition cond="_event.data.someParam==1" event="done.state.s0" target="End"/>
+		<state id="s01">
+			<transition target="s02"/>
+		</state>
+		<final id="s02">
+			<donedata>
+				<param expr="1" name="someParam"/>
+			</donedata>
+		</final>
+	</state>
+	<final id="End">
+		<onentry>
+			<log expr="'Pass'" label="Outcome"/>
+		</onentry>
+	</final>
+</scxml>
+```
+
+### 2. Value is provided by 'location' attribute.
+![param - location](https://user-images.githubusercontent.com/18611095/28516123-c39f7038-7068-11e7-8c2c-083e82e31f4c.png)
+
+```
+<scxml datamodel="lua" initial="s0" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data expr="1" id="VarA"/>
+	</datamodel>
+	<state id="s0" initial="s01">
+		<transition cond="_event.data.someParam==1 and
+_event.data.someParam==VarA" event="done.state.s0" target="End"/>
+		<state id="s01">
+			<transition target="s02"/>
+		</state>
+		<final id="s02">
+			<donedata>
+				<param location="VarA" name="someParam"/>
+			</donedata>
+		</final>
+	</state>
+	<final id="End">
+		<onentry>
+			<log expr="'Pass'" label="Outcome"/>
+		</onentry>
+	</final>
+</scxml>
+```
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
