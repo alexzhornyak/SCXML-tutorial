@@ -55,6 +55,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [19. \<assign\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/assign.md)
 
+[20. \<donedata\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/donedata.md)
+
 # SCXML Overview
 
 ## Basic State Machine Notation
