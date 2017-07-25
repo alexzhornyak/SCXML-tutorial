@@ -63,6 +63,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [23. \<script\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/script.md)
 
+[24. \<send\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md)
+
 # SCXML Overview
 
 ## Basic State Machine Notation
