@@ -67,6 +67,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [25. \<cancel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/cancel.md)
 
+[26. \<invoke\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md)
+
 # SCXML Overview
 
 ## Basic State Machine Notation
