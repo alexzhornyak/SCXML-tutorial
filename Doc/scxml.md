@@ -1,7 +1,4 @@
-# \<scxml\>
-
-[Description](https://www.w3.org/TR/scxml/#scxml)
-
+# [\<scxml\>](https://www.w3.org/TR/scxml/#scxml)
 The top-level wrapper element, which carries version information. The actual state machine consists of its children. 
 
 ### 1. Attribute 'initial'
@@ -26,7 +23,7 @@ The id of the initial state(s) for the document. If not specified, the default i
 	  </state>
   </scxml>
   ```
-  Output:
+  **Output:**
   > [Log] "Hello from 'start'"  
   [Log] "Hello from 'work'"
   
@@ -49,7 +46,7 @@ The id of the initial state(s) for the document. If not specified, the default i
 	</state>
 </scxml>
 ```
-Output:
+**Output:**
   > Issue (WARNING) at //state[@id="Start"]: State with id 'Start' is unreachable  
   >  [Log] "Hello from 'work'"
 
@@ -66,7 +63,7 @@ The datamodel that this document requires. "null" denotes the Null datamodel, "e
 	</final>
 </scxml>
 ```
-Output:
+**Output:**
 > [Log] "Datamodel based on [Lua 5.3]"
 
 ### 3. Attribute 'binding'
@@ -93,7 +90,7 @@ When 'binding' is assigned the value "early" (the default), the SCXML Processor 
 </scxml>
 ```
 
-Output:
+**Output:**
 > [Log] VarA: 1
 
 #### 3.2. Late
@@ -115,5 +112,17 @@ When 'binding' is assigned the value "late", the SCXML Processor must create the
 </scxml>
 ```
 
-Output:
+**Output:**
 > [Log] VarA: nil
+
+## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
+
+### [1. Test 355](https://www.w3.org/Voice/2013/scxml-irp/355/test355.txml)
+At system initialization time, if the 'initial' attribute is not present, the Processor MUST enter the first state in document order.
+
+![test355](https://user-images.githubusercontent.com/18611095/28626528-e61ed548-7227-11e7-929f-403a5d55b41b.png)
+
+### [2. Test 576](https://www.w3.org/Voice/2013/scxml-irp/576/test576.txml)
+At system initialization time, the SCXML Processor MUST enter the states specified by the 'initial' attribute, if it is present.
+
+![test576](https://user-images.githubusercontent.com/18611095/28627166-b208e760-7229-11e7-9810-7dbb56b9a34d.png)
