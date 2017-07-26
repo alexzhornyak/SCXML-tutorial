@@ -80,3 +80,67 @@ When the invoke element is executed, the SCXML Processor MUST start a new logica
 
 ![test226sub1](https://user-images.githubusercontent.com/18611095/28574247-0a91d22c-7156-11e7-9775-ef94be48730d.png)
 
+### [8. Test 228](https://www.w3.org/Voice/2013/scxml-irp/228/test228.txml)
+The Processor MUST keep track of the unique invokeid and insure that it is included in all events that the invoked service returns to the invoking session.
+
+![test228](https://user-images.githubusercontent.com/18611095/28610411-eba946a6-71f0-11e7-8cef-3121565e4c22.png)
+
+![test220 - child](https://user-images.githubusercontent.com/18611095/28573226-a3fa0b72-7152-11e7-8bfd-376306be4b9e.png)
+
+### [9. Test 229](https://www.w3.org/Voice/2013/scxml-irp/229/test229.txml)
+When the 'autoforward' attribute is set to true, the SCXML Processor MUST send an exact copy of every external event it receives to the invoked process.
+
+![test229](https://user-images.githubusercontent.com/18611095/28610868-90f781da-71f2-11e7-9e31-741633bc0b81.png)
+
+![test 229 - child](https://user-images.githubusercontent.com/18611095/28610869-916c0c08-71f2-11e7-97f9-2cbf12b46c43.png)
+
+
+When the SCXML Processor autoforwards an event to the invoked process, all the fields specified in [5.10.1 The Internal Structure of Events](https://www.w3.org/TR/scxml/#SystemVariables) MUST have the same values in the forwarded copy of the event.
+
+![test230](https://user-images.githubusercontent.com/18611095/28611718-64081808-71f5-11e7-8acd-3805f4d89eb3.png)
+
+![test230 - child](https://user-images.githubusercontent.com/18611095/28611717-6406d8ee-71f5-11e7-85de-ca45e77cc3b0.png)
+
+**Output:**
+```
+External Event: childToParent, interpreter [Scxml_Test230]
+[Log] name is : "childToParent"
+[Log] type is : "external"
+[Log] sendid is : nil
+External Event: childToParent, interpreter [ScxmlChild]
+[Log] origin is : "#_scxml_35ebd509-4b45-419f-b021-3df9060f38cf"
+[Log] origintype is : "http://www.w3.org/TR/scxml/#SCXMLEventProcessor"
+[Log] name is : "childToParent"
+[Log] invokeid is : "s0.3b6c2a1a-8bdf-42fe-bc0d-386cd510bf74"
+[Log] type is : "external"
+[Log] data is : nil
+[Log] sendid is : nil
+[Log] origin is : "#_scxml_35ebd509-4b45-419f-b021-3df9060f38cf"
+[Log] origintype is : "http://www.w3.org/TR/scxml/#SCXMLEventProcessor"
+[Log] invokeid is : "s0.3b6c2a1a-8bdf-42fe-bc0d-386cd510bf74"
+[Log] data is : nil
+Platform Event: done.invoke.s0.3b6c2a1a-8bdf-42fe-bc0d-386cd510bf74, interpreter [Scxml_Test230]
+```
+
+### [11. Test 232](https://www.w3.org/Voice/2013/scxml-irp/232/test232.txml)
+The invoked external service MAY return multiple events while it is processing.
+
+![test232](https://user-images.githubusercontent.com/18611095/28612131-ea94794c-71f6-11e7-890d-7e8ffa59af10.png)
+
+![test232 - child](https://user-images.githubusercontent.com/18611095/28612132-ea94e8f0-71f6-11e7-9cf6-4b2223c86657.png)
+
+### [12. Test 233](https://www.w3.org/Voice/2013/scxml-irp/233/test233.txml)
+If there is a finalize handler in the instance of invoke that created the service that generated the event, the SCXML Processor MUST execute the code in that finalize handler right before it removes the event from the event queue for processing.
+
+![test233](https://user-images.githubusercontent.com/18611095/28613137-249c9806-71fa-11e7-8f70-c6788e704253.png)
+
+![test233 - child](https://user-images.githubusercontent.com/18611095/28613136-249b354c-71fa-11e7-95f7-29181ac699b6.png)
+
+### [13. Test 234](https://www.w3.org/Voice/2013/scxml-irp/234/test234.txml)
+It MUST NOT execute the finalize handler in any other instance of invoke besides the one in the instance of invoke that created the service that generated the event.
+  
+![test234](https://user-images.githubusercontent.com/18611095/28613739-e94d6b70-71fb-11e7-921d-52fec13157ec.png)
+  
+![test234 - child 1](https://user-images.githubusercontent.com/18611095/28613738-e94b73c4-71fb-11e7-8363-76d5dbd7adb3.png)
+
+![test234 - child 2](https://user-images.githubusercontent.com/18611095/28613740-e9505a4c-71fb-11e7-9062-324039466305.png)
