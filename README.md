@@ -69,6 +69,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [26. \<invoke\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md)
 
+[27. \<finalize\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md)
+
 # SCXML Overview
 
 ## Basic State Machine Notation
