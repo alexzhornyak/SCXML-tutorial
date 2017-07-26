@@ -94,7 +94,7 @@ When the 'autoforward' attribute is set to true, the SCXML Processor MUST send a
 
 ![test 229 - child](https://user-images.githubusercontent.com/18611095/28610869-916c0c08-71f2-11e7-97f9-2cbf12b46c43.png)
 
-
+### [10. Test 230](https://www.w3.org/Voice/2013/scxml-irp/230/test230.txml)
 When the SCXML Processor autoforwards an event to the invoked process, all the fields specified in [5.10.1 The Internal Structure of Events](https://www.w3.org/TR/scxml/#SystemVariables) MUST have the same values in the forwarded copy of the event.
 
 ![test230](https://user-images.githubusercontent.com/18611095/28611718-64081808-71f5-11e7-8acd-3805f4d89eb3.png)
