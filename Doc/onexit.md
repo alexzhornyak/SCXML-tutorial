@@ -48,3 +48,15 @@ The SCXML processor must execute the <onexit> handlers of a state in document or
 >[Log] "Bye from 'Container'!"
 >
 >[Log] "Bye from 'End'!"
+
+## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
+
+### [1. Test 377](https://www.w3.org/Voice/2013/scxml-irp/377/test377.txml)
+The SCXML processor MUST execute the onexit handlers of a state in document order when the state is exited.
+
+![test377](https://user-images.githubusercontent.com/18611095/28672971-dbaccf6c-72e9-11e7-89d8-ab5dd13f3c71.png)
+
+### [2. Test 378](https://www.w3.org/Voice/2013/scxml-irp/378/test378.txml)
+The SCXML processor MUST treat each \<onexit\> handler as a separate block of executable content.
+
+![test378](https://user-images.githubusercontent.com/18611095/28673165-88fb15ac-72ea-11e7-9b6d-111105f7d3d9.png)
