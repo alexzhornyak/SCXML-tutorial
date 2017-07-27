@@ -1,4 +1,4 @@
-# \<onentry\>
+# [\<onentry\>](https://www.w3.org/TR/scxml/#onentry)
 A wrapper element containing executable content to be executed when the state is entered.
 
 The SCXML processor must execute the \<onentry\> handlers of a state in document order when the state is entered. In doing so, it must treat each handler as a separate block of executable content.
