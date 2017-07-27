@@ -178,3 +178,6 @@ Specified by the 'initial' attribute or \<initial\> element, if either is presen
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
 ### [Test 364](https://www.w3.org/Voice/2013/scxml-irp/364/test364.txml)
+Definition: The default initial state(s) of a compound state are those specified by the 'initial' attribute or initial element, if either is present. Otherwise it is the state's first child state in document order. If a compound state is entered either as an initial state or as the target of a transition (i.e. and no descendent of it is specified), then the SCXML Processor MUST enter the default initial state(s) after it enters the parent state.
+
+![test364](https://user-images.githubusercontent.com/18611095/28660772-1240d0c8-72bd-11e7-9009-ed74c9a95a23.png)
