@@ -1,4 +1,4 @@
-# \<invoke\>
+# [\<invoke\>](https://www.w3.org/TR/scxml/#invoke)
 The element is used to create an instance of an external service.
 
 ## Attribute Details
