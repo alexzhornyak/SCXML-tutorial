@@ -1,4 +1,4 @@
-# \<history\>
+# [\<history\>](https://www.w3.org/TR/scxml/#history)
 Allows a state machine to remember its state configuration. A <transition> taking the <history> state as its target will return the state machine to this recorded configuration.
 
 ## 1. Shallow history
@@ -115,3 +115,24 @@ Active states: **Airplane, Engines, Left, Right, LeftOn, RightOn**
 	</state>
 </scxml>
 ```
+## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
+
+### [1. Test 387](https://www.w3.org/Voice/2013/scxml-irp/387/test387.txml)
+Before the parent state has been visited for the first time, if a transition is executed that takes the history state as its target, the SCXML processor MUST behave as if the transition had taken the default stored state configuration as its target.
+
+![test387](https://user-images.githubusercontent.com/18611095/28674707-dc8cd9c2-72ee-11e7-9aaf-a63002f87687.png)
+
+### [2. Test 579](https://www.w3.org/Voice/2013/scxml-irp/579/test579.txml)
+Before the parent state has been visited for the first time, if a transition is executed that takes the history state as its target, the SCXML processor MUST execute any executable content in the transition after the parent state's onentry content and any content in a possible initial transition.
+
+![test579](https://user-images.githubusercontent.com/18611095/28675631-1dead9a8-72f1-11e7-8868-bb84bb81bc75.png)
+
+### [3. Test 580](https://www.w3.org/Voice/2013/scxml-irp/580/test580.txml)
+It follows from the semantics of history states that they never end up in the state configuration.
+
+![test580](https://user-images.githubusercontent.com/18611095/28676685-f2a728e8-72f3-11e7-9ab1-291ec3f13877.png)
+
+### [4. Test 388](https://www.w3.org/Voice/2013/scxml-irp/388/test388.txml)
+After the parent state has been visited for the first time, if a transition is executed that takes the history state as its target, the SCXML processor MUST behave as if the transition had taken the stored state configuration as its target.
+
+![test388](https://user-images.githubusercontent.com/18611095/28677984-d164acd8-72f7-11e7-9ba6-80696f4fc960.png)
