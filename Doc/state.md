@@ -1,4 +1,4 @@
-# \<state\>
+# [\<state\>](https://www.w3.org/TR/scxml/#state)
 Holds the representation of a state.
 
 ![state - atomic](https://user-images.githubusercontent.com/18611095/28104861-bbb59528-66e5-11e7-8141-94691d7dab44.png)
@@ -175,3 +175,6 @@ Specified by the 'initial' attribute or \<initial\> element, if either is presen
 	</state>
 </scxml>
 ```
+## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
+
+### [Test 364](https://www.w3.org/Voice/2013/scxml-irp/364/test364.txml)
