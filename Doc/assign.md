@@ -1,4 +1,4 @@
-# \<assign\>
+# [\<assign\>](https://www.w3.org/TR/scxml/#assign)
 The element is used to modify the data model.
 
 ## Attribute Details
