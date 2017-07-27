@@ -17,59 +17,57 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 ```
 
 ### Table of contents
-[1. Introduction](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md)
+[1. \<scxml\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/scxml.md)
 
-[2. \<scxml\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/scxml.md)
+[2. \<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md)
 
-[3. \<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md)
+[3. \<parallel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/parallel.md)
 
-[4. \<parallel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/parallel.md)
+[4. \<transition\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md)
 
-[5. \<transition\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md)
+[5. \<initial\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md#initial-state)
 
-[6. \<initial\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md#initial-state)
+[6. \<final\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/final.md)
 
-[7. \<final\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md#final-state)
+[7. \<onentry\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onentry.md)
 
-[8. \<onentry\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onentry.md)
+[8. \<onexit\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onexit.md)
 
-[9. \<onexit\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onexit.md)
+[9. \<history\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/history.md)
 
-[10. \<history\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/history.md)
+[10. \<raise\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/raise.md)
 
-[11. \<raise\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/raise.md)
+[11. \<if\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#if)
 
-[12. \<if\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#if)
+[12. \<else\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#else)
 
-[13. \<else\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#else)
+[13. \<elseif\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#elseif)
 
-[14. \<elseif\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#elseif)
+[14. \<foreach\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md)
 
-[15. \<foreach\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md)
+[15. \<log\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/log.md)
 
-[16. \<log\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/log.md)
+[16. \<datamodel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/datamodel.md)
 
-[17. \<datamodel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/datamodel.md)
+[17. \<data\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/datamodel.md#data)
 
-[18. \<data\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/datamodel.md#data)
+[18. \<assign\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/assign.md)
 
-[19. \<assign\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/assign.md)
+[19. \<donedata\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/donedata.md)
 
-[20. \<donedata\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/donedata.md)
+[20. \<content\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/content.md)
 
-[21. \<content\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/content.md)
+[21. \<param\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/param.md)
 
-[22. \<param\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/param.md)
+[22. \<script\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/script.md)
 
-[23. \<script\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/script.md)
+[23. \<send\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md)
 
-[24. \<send\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md)
+[24. \<cancel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/cancel.md)
 
-[25. \<cancel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/cancel.md)
+[25. \<invoke\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md)
 
-[26. \<invoke\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md)
-
-[27. \<finalize\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md)
+[26. \<finalize\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md)
 
 # SCXML Overview
 
