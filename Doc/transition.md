@@ -1,4 +1,4 @@
-# \<transition\>
+# [\<transition\>](https://www.w3.org/TR/scxml/#transition)
 Transitions between states are triggered by events and conditionalized via guard conditions. They may contain executable content, which is executed when the transition is taken.
 
 ## 1. Attribute 'event'
