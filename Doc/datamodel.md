@@ -163,3 +163,16 @@ If the 'expr' attribute is present, the Platform MUST evaluate the corresponding
 
 ![test550](https://user-images.githubusercontent.com/18611095/28817796-fd176b6e-76b1-11e7-9f7f-0d5a066a50b3.png)
 
+### [6. Test 551](https://www.w3.org/Voice/2013/scxml-irp/551/test551.txml)
+If child content is specified, the Platform MUST assign it as the value of the data element at the time specified by the 'binding' attribute of scxml.
+
+![test551](https://user-images.githubusercontent.com/18611095/28819233-38d9b34c-76b6-11e7-8902-9fd89b4c7ffa.png)
+
+### [7. Test 552](https://www.w3.org/Voice/2013/scxml-irp/552/test552.txml)
+If the 'src' attribute is present, the Platform MUST fetch the specified object at the time specified by the 'binding' attribute of scxml and MUST assign it as the value of the data element.
+
+![test552](https://user-images.githubusercontent.com/18611095/28819667-a37e78e4-76b7-11e7-98d2-739a613349d7.png)
+
+**test552.txt**
+
+`1`
