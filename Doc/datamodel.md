@@ -1,7 +1,7 @@
-# \<datamodel\>
+# [\<datamodel\>](https://www.w3.org/TR/scxml/#datamodel)
 Wrapper element which encapsulates any number of \<data\> elements, each of which defines a single data object. The exact nature of the data object depends on the data model language used.
 
-# \<data\>
+# [\<data\>](https://www.w3.org/TR/scxml/#data)
 The element is used to declare and populate portions of the data model.
 
 ## Attribute Details
@@ -133,3 +133,33 @@ In a conformant SCXML document, a \<data\> element may have either a 'src' or an
 >[Log] itemTable: true
 >
 >[Log] itemTable: "This is a string!"
+
+## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
+
+### [1. Test 276](https://www.w3.org/Voice/2013/scxml-irp/276/test276.txml)
+The SCXML Processor MUST allow the environment to provide values for top-level data elements at instantiation time. (Top-level data elements are those that are children of the datamodel element that is a child of scxml). Specifically, the Processor MUST use the values provided at instantiation time instead of those contained in these data elements.
+
+![test276](https://user-images.githubusercontent.com/18611095/28817008-8e09fae0-76af-11e7-8a9b-00c1c7aa70a1.png)
+
+![test276sub1](https://user-images.githubusercontent.com/18611095/28817007-8e0193c8-76af-11e7-82f1-9527a2fb1e57.png)
+
+### [2. Test 277](https://www.w3.org/Voice/2013/scxml-irp/277/test277.txml)
+If the value specified for a data element (by 'src', children, or the environment) is not a legal data value, the SCXML Processor MUST raise place **error.execution** in the internal event queue and MUST create an empty data element in the data model with the specified id.
+
+![test277](https://user-images.githubusercontent.com/18611095/28817301-70d8accc-76b0-11e7-961d-641c81821b84.png)
+
+### [3. Test 279](https://www.w3.org/Voice/2013/scxml-irp/279/test279.txml)
+When 'binding' attribute on the scxml element is assigned the value "early" (the default), the SCXML Processor MUST create all data elements and assign their initial values at document initialization time.
+
+![test279](https://user-images.githubusercontent.com/18611095/28817456-f25c6bbc-76b0-11e7-9d07-ff6300feaf65.png)
+
+### [4. Test 280](https://www.w3.org/Voice/2013/scxml-irp/280/test280.txml)
+When 'binding' attribute on the scxml element is assigned the value "late", the SCXML Processor MUST create the data elements at document initialization time, but MUST assign the specified initial value to a given data element only when the state that contains it is entered for the first time, before any onentry markup.
+
+![test280](https://user-images.githubusercontent.com/18611095/28817638-8c3ae83a-76b1-11e7-97b0-cb06b7276a99.png)
+
+### [5. Test 550](https://www.w3.org/Voice/2013/scxml-irp/550/test550.txml)
+If the 'expr' attribute is present, the Platform MUST evaluate the corresponding expression at the time specified by the 'binding' attribute of scxml and MUST assign the resulting value as the value of the data element.
+
+![test550](https://user-images.githubusercontent.com/18611095/28817796-fd176b6e-76b1-11e7-9f7f-0d5a066a50b3.png)
+
