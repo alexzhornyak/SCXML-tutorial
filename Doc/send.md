@@ -1,4 +1,4 @@
-# \<send\>
+# [\<send\>](https://www.w3.org/TR/scxml/#send)
 The element is used to send events and data to external systems, including external SCXML Interpreters, or to raise events in the current SCXML session.
 
 ## Attribute Details
