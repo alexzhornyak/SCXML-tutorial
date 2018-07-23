@@ -1,4 +1,4 @@
-# \<script\>
+# [\<script\>](https://www.w3.org/TR/scxml/#script)
 The \<script\> element adds scripting capability to the state machine.
 
 ## Attribute Details
