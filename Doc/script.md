@@ -1,4 +1,7 @@
 # [\<script\>](https://www.w3.org/TR/scxml/#script)
+
+**[Video version](https://youtu.be/-TP8vQ3oZc0)**
+
 The \<script\> element adds scripting capability to the state machine.
 
 ## Attribute Details
