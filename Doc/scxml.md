@@ -1,4 +1,7 @@
 # [\<scxml\>](https://www.w3.org/TR/scxml/#scxml)
+
+**[Video version](https://youtu.be/0CYftU1-7Ns)**
+
 The top-level wrapper element, which carries version information. The actual state machine consists of its children. 
 
 ### 1. Attribute 'initial'
