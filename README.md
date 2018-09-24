@@ -2,6 +2,8 @@
 
 This project is an attempt to illustrate the current [SCXML standard](https://www.w3.org/TR/scxml)
 
+**New!** [Video version of the tutorial](https://youtu.be/0CYftU1-7Ns?list=PLUbY_L_9E-b_YuK-IWjUWYxcpcKccSX1N)
+
 ## Hello world
 
 ![hello world](https://user-images.githubusercontent.com/18611095/28060853-2d653f4e-6631-11e7-8d42-acc6f556028b.png)
