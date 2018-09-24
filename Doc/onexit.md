@@ -1,4 +1,7 @@
 # [\<onexit>](https://www.w3.org/TR/scxml/#onexit)
+
+**[Video version](https://youtu.be/CLj1mYw5b7M)**
+
 A wrapper element containing executable content to be executed when the state is exited.
 
 The SCXML processor must execute the <onexit> handlers of a state in document order when the state is exited. In doing so, it must treat each handler as a separate block of executable content.
