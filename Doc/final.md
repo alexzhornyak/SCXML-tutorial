@@ -1,4 +1,7 @@
 # [\<final\>](https://www.w3.org/TR/scxml/#final)
+
+**[Video version](https://youtu.be/VOKu7TYXN_s)**
+
 Represents a final state of an \<scxml\> or compound \<state\> element.
 
 ![final](https://user-images.githubusercontent.com/18611095/28068129-d5bdb836-664c-11e7-8655-f4a7e6ed9eeb.png)
