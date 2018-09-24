@@ -1,4 +1,7 @@
 # [\<state\>](https://www.w3.org/TR/scxml/#state)
+
+**[Video version](https://youtu.be/VUTCY4E0ta8)**
+
 Holds the representation of a state.
 
 ![state - atomic](https://user-images.githubusercontent.com/18611095/28104861-bbb59528-66e5-11e7-8141-94691d7dab44.png)
