@@ -1,4 +1,7 @@
-# \<param\>
+# [\<param\>](https://www.w3.org/TR/scxml/#param)
+
+**[Video version](https://youtu.be/V9hqU9smirw)**
+
 The \<param\> tag provides a general way of identifying a key and a dynamically calculated value which can be passed to an external service or included in an event.
 
 ## Attribute Details
