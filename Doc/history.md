@@ -1,4 +1,7 @@
 # [\<history\>](https://www.w3.org/TR/scxml/#history)
+
+**[Video version](https://youtu.be/PyWD-aI6EmE)**
+
 Allows a state machine to remember its state configuration. A <transition> taking the <history> state as its target will return the state machine to this recorded configuration.
 
 ## 1. Shallow history
