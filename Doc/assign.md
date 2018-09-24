@@ -1,6 +1,6 @@
 # [\<assign\>](https://www.w3.org/TR/scxml/#assign)
 
-**[Video version](https://youtu.be/5_GQeRFCe8M)
+**[Video version](https://youtu.be/5_GQeRFCe8M)**
 
 The element is used to modify the data model.
 
