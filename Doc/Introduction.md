@@ -32,7 +32,7 @@ The most basic state machine concepts are **\<state\>**, **\<transition\>** and 
 ```
 
 
-## Atomic state
+## [Atomic state](https://youtu.be/VUTCY4E0ta8)
 
 Does not contain any child states
 ![2017-07-11 14 35 15](https://user-images.githubusercontent.com/18611095/28066584-3fa428cc-6646-11e7-8a79-e179ee535540.png)
@@ -43,7 +43,7 @@ Does not contain any child states
 ```
 
 
-## Compound states
+## [Compound states](https://youtu.be/VUTCY4E0ta8)
 
 May contain nested <state> elements and the nesting may proceed to any depth
 ![2017-07-11 14 26 24](https://user-images.githubusercontent.com/18611095/28066426-87307bb0-6645-11e7-8b93-6fd2844d2082.png)
@@ -58,7 +58,7 @@ May contain nested <state> elements and the nesting may proceed to any depth
 ```
 
 
-## Parallel states
+## [Parallel states](https://youtu.be/VOKu7TYXN_s)
 
 The <parallel> element represents a state whose children are executed in parallel.
 
@@ -87,7 +87,7 @@ The <parallel> element represents a state whose children are executed in paralle
 </scxml>
 ```
 
-## Initial state
+## [Initial state](https://youtu.be/VOKu7TYXN_s)
 
 Represents the default initial state for a complex \<state\> element
 
@@ -104,7 +104,7 @@ Represents the default initial state for a complex \<state\> element
 </scxml>
 ```
 
-# Final state
+# [Final state](https://youtu.be/VOKu7TYXN_s)
 
 Represents a final state of an \<scxml\> or compound \<state\> element.
 
@@ -122,7 +122,7 @@ Represents a final state of an \<scxml\> or compound \<state\> element.
 </scxml>
 ```
 
-## History state
+## [History state](https://youtu.be/PyWD-aI6EmE)
 
 The \<history\> pseudo-state allows a state machine to remember its state configuration. A \<transition\> taking the <history> state as its target will return the state machine to this recorded configuration.
 
@@ -151,7 +151,7 @@ The \<history\> pseudo-state allows a state machine to remember its state config
 </scxml>
 ```
 
-## Transitions
+## [Transitions](https://youtu.be/-AtkiRAzRRE)
 Transitions between states are triggered by events and conditionalized via guard conditions. They may contain executable content, which is executed when the transition is taken.
 
 ![transitions](https://user-images.githubusercontent.com/18611095/28069895-c481268c-6653-11e7-9ede-f7651fa14aac.png)
