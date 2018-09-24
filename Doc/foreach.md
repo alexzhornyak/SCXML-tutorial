@@ -1,4 +1,7 @@
 # [\<foreach\>](https://www.w3.org/TR/scxml/#foreach)
+
+**[Video version](https://youtu.be/pWLSQczu-mo)**
+
 Allows an SCXML application to iterate through a collection in the data model and to execute the actions contained within it for each item in the collection.
 
 ## Attribute Details
