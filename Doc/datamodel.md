@@ -1,4 +1,7 @@
 # [\<datamodel\>](https://www.w3.org/TR/scxml/#datamodel)
+
+**[Video version](https://youtu.be/M_hmklnfgXg)**
+
 Wrapper element which encapsulates any number of \<data\> elements, each of which defines a single data object. The exact nature of the data object depends on the data model language used.
 
 # [\<data\>](https://www.w3.org/TR/scxml/#data)
