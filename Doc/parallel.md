@@ -1,4 +1,6 @@
-# \<parallel\>
+# [\<parallel\>](https://www.w3.org/TR/scxml/#parallel)
+
+**[Video version](https://youtu.be/VOKu7TYXN_s)**
 
 The element represents a state whose children are executed in parallel. Children are simultaneously active when the parent element is active.
 
