@@ -1,4 +1,7 @@
-# \<log\>
+# [\<log\>](https://www.w3.org/TR/scxml/#log)
+
+**[Video version](https://youtu.be/tbFZsiTfOKA)**
+
 Allows an application to generate a logging or debug message.
 
 ## Attribute Details
