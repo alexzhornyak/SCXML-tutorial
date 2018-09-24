@@ -1,4 +1,7 @@
-# \<content\>
+# [\<content\>](https://www.w3.org/TR/scxml/#content)
+
+**[Video version](https://youtu.be/V9hqU9smirw)**
+
 A container element holding data to be passed to an external service.
 
 ## Attribute Details
