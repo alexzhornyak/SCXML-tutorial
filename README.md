@@ -71,6 +71,9 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [26. \<finalize\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md)
 
+#### Examples
+[27. Microwave owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/microwave_example.md)
+
 # SCXML Overview
 
 ## Basic State Machine Notation
