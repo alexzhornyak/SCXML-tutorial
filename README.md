@@ -74,6 +74,10 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 #### Examples
 [27. Microwave owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/microwave_example.md)
 
+[28. Microwave owen (using parallel)](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/microwave_parallel.md)
+
+[29. Calculator](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/calculator.md)
+
 # SCXML Overview
 
 ## Basic State Machine Notation
@@ -239,3 +243,7 @@ Transitions between states are triggered by events and conditionalized via guard
 	<final id="Fail"/>
 </scxml>
 ```
+
+## [Microwave owen example](https://github.com/alexzhornyak/SCXML-tutorial/edit/master/Doc/microwave_example.md)
+
+![microwave_owen](https://user-images.githubusercontent.com/18611095/46279565-1390cb00-c572-11e8-822b-9ca541aa87d9.png)
