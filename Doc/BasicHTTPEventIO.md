@@ -62,8 +62,104 @@ The SCXML Processor adds the received message to the appropriate event queue and
 ## Sending Events
 An SCXML implementation can send events with the Basic HTTP Event I/O Processor using the **\<send\> element** (see [6.2 \<send\>](https://www.w3.org/TR/scxml/#send)) with the type attribute set to **"http://www.w3.org/TR/scxml/#BasicHTTPEventProcessor"** and the target attribute set to **the access URI of the target**. 
 
+The SCXML Processor must attempt to deliver the message using **HTTP method "POST"** and with parameter values encoded by default in an **application/x-www-form-urlencoded** body (POST method). An SCXML Processor may support other encodings, and allow them to be specified in a platform-specific way.
+
+If the **'event'** parameter of **\<send\>** is defined, the SCXML Processor must use its value as the value of the HTTP POST parameter **_scxmleventname**.
+
 ![test534](https://user-images.githubusercontent.com/18611095/57127917-7feadb80-6d9a-11e9-8260-6997145ac026.png)
 
 If neither the **'target'** nor the **'targetexpr'** attribute is specified, the SCXML Processor must add the event **error.communication** to the internal event queue of the sending session.
 
 ![test577](https://user-images.githubusercontent.com/18611095/57128378-ddcbf300-6d9b-11e9-8efe-741119c981ac.png)
+
+### Namelist
+If the **namelist** attribute is defined, the SCXML Processor must map its variable names and values to HTTP POST parameters.
+
+![test518](https://user-images.githubusercontent.com/18611095/57134191-06f57f00-6dae-11e9-9a56-1937e169a96b.png)
+
+```
+<scxml datamodel="lua" initial="s0" name="ScxmlTest518" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" xmlns:conf="http://www.w3.org/2005/scxml-conformance">
+	<datamodel>
+		<data expr="2" id="Var1"/>
+	</datamodel>
+	<state id="s0">
+		<onentry>
+			<send delay="30s" event="timeout"/>
+			<send event="test" namelist="Var1" targetexpr="_ioprocessors.basichttp.location" type="http://www.w3.org/TR/scxml/#BasicHTTPEventProcessor"/>
+		</onentry>
+		<transition cond="string.find(_event.raw, 'Var1=2')" event="test" target="pass"/>
+		<transition event="*" target="fail"/>
+	</state>
+	<final id="pass">
+		<onentry>
+			<log expr="'pass'" label="Outcome"/>
+		</onentry>
+	</final>
+	<final id="fail">
+		<onentry>
+			<log expr="'fail'" label="Outcome"/>
+		</onentry>
+	</final>
+</scxml>
+```
+
+### Params
+If one or more **\<param\>** children are present, the SCXML Processor must map their names (i.e. name attributes) and values to HTTP POST parameters.
+
+![test519](https://user-images.githubusercontent.com/18611095/57134353-9b5fe180-6dae-11e9-9c18-a3225993b27b.png)
+
+```
+<scxml datamodel="lua" initial="s0" name="ScxmlTest519" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" xmlns:conf="http://www.w3.org/2005/scxml-conformance">
+	<state id="s0">
+		<onentry>
+			<send delay="30s" event="timeout"/>
+			<send event="test" targetexpr="_ioprocessors.basichttp.location" type="http://www.w3.org/TR/scxml/#BasicHTTPEventProcessor">
+				<param expr="1" name="param1"/>
+			</send>
+		</onentry>
+		<transition cond="string.find(_event.raw, 'param1=1')" event="test" target="pass"/>
+		<transition event="*" target="fail"/>
+	</state>
+	<final id="pass">
+		<onentry>
+			<log expr="'pass'" label="Outcome"/>
+		</onentry>
+	</final>
+	<final id="fail">
+		<onentry>
+			<log expr="'fail'" label="Outcome"/>
+		</onentry>
+	</final>
+</scxml>
+```
+
+### Content
+If a **\<content\>** child is present, the SCXML Processor must use its value as **the body of the message**.
+
+![test520](https://user-images.githubusercontent.com/18611095/57134516-16c19300-6daf-11e9-93cf-f3b40a207eb3.png)
+
+```
+<scxml datamodel="lua" initial="s0" name="ScxmlTest520" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" xmlns:conf="http://www.w3.org/2005/scxml-conformance">
+	<state id="s0">
+		<onentry>
+			<send delay="30s" event="timeout"/>
+			<send targetexpr="_ioprocessors.basichttp.location" type="http://www.w3.org/TR/scxml/#BasicHTTPEventProcessor">
+				<content>&quot;this is some content&quot;</content>
+			</send>
+		</onentry>
+		<transition cond="string.find(_event.raw, 'this+is+some+content')" event="HTTP.POST" target="pass"/>
+		<transition cond="string.find(_event.raw, 'this%%20is%%20some%%20content')" event="HTTP.POST" target="pass"/>
+		<transition event="*" target="fail"/>
+	</state>
+	<final id="pass">
+		<onentry>
+			<log expr="'pass'" label="Outcome"/>
+		</onentry>
+	</final>
+	<final id="fail">
+		<onentry>
+			<log expr="'fail'" label="Outcome"/>
+		</onentry>
+	</final>
+</scxml>
+```
