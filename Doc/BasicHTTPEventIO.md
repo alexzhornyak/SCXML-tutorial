@@ -1,5 +1,5 @@
 # [Basic HTTP Event I/O Processor](https://www.w3.org/TR/scxml/#BasicHTTPEventProcessor)
-The Basic HTTP Event I/O Processor is intended as a minimal interoperable mechanism for sending and receiving events to and from external components and SCXML 1.0 implementations. Support for the Basic HTTP Event I/O Processor is optional.
+The Basic HTTP Event I/O Processor is intended as a minimal interoperable mechanism for sending and receiving events to and from external components and SCXML 1.0 implementations. **Support for the Basic HTTP Event I/O Processor is optional.**
 
 ## Receiving Events
 An SCXML Processor that supports the Basic HTTP Event I/O Processor must accept messages at the access URI as **HTTP POST requests** (see [RFC 2616](https://www.w3.org/TR/scxml/#HTTP)).
@@ -39,4 +39,21 @@ The processor must use **any message content** other than **'_scxmleventname'** 
 
 ![dataGui](https://user-images.githubusercontent.com/18611095/57125253-685b2500-6d91-11e9-822b-5d06b8820164.png)
 
-If the parameter '_scxmleventname' is not present, the SCXML Processor must use the name of the HTTP method that was used to deliver the message as the name of the event that it raises.
+### How to handle request if '_scxmleventname' is not present
+If the parameter **'_scxmleventname' is not present**, the SCXML Processor must use the name of the HTTP method that was used to deliver the message as the name of the event that it raises.
+
+![withoutEvent](https://user-images.githubusercontent.com/18611095/57125825-7a3dc780-6d93-11e9-92fc-a3fdb3f59bc1.png)
+
+![scxmleventname_not_present](https://user-images.githubusercontent.com/18611095/57125950-00f2a480-6d94-11e9-883f-8c03116ccc5d.png)
+
+### Indication of the HTTP Request result
+The SCXML Processor adds the received message to the appropriate event queue and must then indicate the result to the external component via **a success response code 2XX**. Note that this response is sent before the event is removed from the queue and processed. In the cases where the message cannot be formed into an SCXML event, the Processor must return **an HTTP error code** as defined in [RFC 2616](https://www.w3.org/TR/scxml/#HTTP).
+
+**Example 1: Successfull request**
+
+![SuccessfulRequest](https://user-images.githubusercontent.com/18611095/57126597-30a2ac00-6d96-11e9-9dd9-628bba455394.png)
+
+
+**Example 2: Wrong location**
+
+![WrongLocation](https://user-images.githubusercontent.com/18611095/57126864-292fd280-6d97-11e9-914a-62f4f88277d8.png)
