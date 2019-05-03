@@ -57,3 +57,13 @@ The SCXML Processor adds the received message to the appropriate event queue and
 **Example 2: Wrong location**
 
 ![WrongLocation](https://user-images.githubusercontent.com/18611095/57126864-292fd280-6d97-11e9-914a-62f4f88277d8.png)
+
+
+## Sending Events
+An SCXML implementation can send events with the Basic HTTP Event I/O Processor using the **\<send\> element** (see [6.2 \<send\>](https://www.w3.org/TR/scxml/#send)) with the type attribute set to **"http://www.w3.org/TR/scxml/#BasicHTTPEventProcessor"** and the target attribute set to **the access URI of the target**. 
+
+![test534](https://user-images.githubusercontent.com/18611095/57127917-7feadb80-6d9a-11e9-8260-6997145ac026.png)
+
+If neither the **'target'** nor the **'targetexpr'** attribute is specified, the SCXML Processor must add the event **error.communication** to the internal event queue of the sending session.
+
+![test577](https://user-images.githubusercontent.com/18611095/57128378-ddcbf300-6d9b-11e9-8efe-741119c981ac.png)
