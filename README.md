@@ -2,7 +2,7 @@
 
 This project is an attempt to illustrate the current [SCXML standard](https://www.w3.org/TR/scxml)
 
-**New!** [Video version of the tutorial](https://youtu.be/0CYftU1-7Ns?list=PLUbY_L_9E-b_YuK-IWjUWYxcpcKccSX1N)
+**New!** [Video version of the tutorial](https://youtu.be/5ebxa-nIpiE?list=PLUbY_L_9E-b_YuK-IWjUWYxcpcKccSX1N)
 
 ## Hello world
 
