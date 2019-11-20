@@ -12,7 +12,7 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<final id="Final">
 		<onentry>
-			<log expr="Hello, world!" label="Final"/>
+			<log expr="Hello, world!" label="INFO"/>
 		</onentry>
 	</final>
 </scxml>
@@ -91,7 +91,7 @@ The most basic state machine concepts are [**\<state\>**](https://github.com/ale
 <scxml initial="Start" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<final id="Final">
 		<onentry>
-			<log expr="Finished!" label="Final"/>
+			<log expr="Finished!" label="INFO"/>
 		</onentry>
 	</final>
 	<state id="Start">
@@ -138,18 +138,18 @@ The <parallel> element represents a state whose children are executed in paralle
 	<parallel id="Airplane_Engines">
 		<state id="Engine_1" initial="Engine_1_Off">
 			<state id="Engine_1_Off">
-				<transition event="Start" target="Engine_1_On"/>
+				<transition event="Start.1" target="Engine_1_On"/>
 			</state>
 			<state id="Engine_1_On">
-				<transition event="Shutdown" target="Engine_1_Off"/>
+				<transition event="Shutdown.1" target="Engine_1_Off"/>
 			</state>
 		</state>
 		<state id="Engine_2" initial="Engine_2_Off">
 			<state id="Engine_2_Off">
-				<transition event="Start" target="Engine_2_On"/>
+				<transition event="Start.2" target="Engine_2_On"/>
 			</state>
 			<state id="Engine_2_On">
-				<transition event="Shutdown" target="Engine_2_Off"/>
+				<transition event="Shutdown.2" target="Engine_2_Off"/>
 			</state>
 		</state>
 	</parallel>
