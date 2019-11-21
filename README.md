@@ -160,7 +160,7 @@ The <parallel> element represents a state whose children are executed in paralle
 
 Represents the default initial state for a complex [\<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md) element
 
-![initial](https://user-images.githubusercontent.com/18611095/28067799-7478e088-664b-11e7-9abf-f38379757be8.png)
+![initial](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/7%20-%20Initial.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -177,7 +177,7 @@ Represents the default initial state for a complex [\<state\>](https://github.co
 
 Represents a final state of an [\<scxml\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/scxml.md) or compound [\<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md) element.
 
-![final](https://user-images.githubusercontent.com/18611095/28068129-d5bdb836-664c-11e7-8655-f4a7e6ed9eeb.png)
+![final](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/4%20-%20Final.gif)
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Work">
@@ -195,7 +195,7 @@ Represents a final state of an [\<scxml\>](https://github.com/alexzhornyak/SCXML
 
 The \<history\> pseudo-state allows a state machine to remember its state configuration. A [\<transition\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md) taking the <history> state as its target will return the state machine to this recorded configuration.
 
-![history](https://user-images.githubusercontent.com/18611095/28068981-738e73ea-6650-11e7-9455-95e9225ca315.png)
+![history](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/5%20-%20History.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -223,7 +223,7 @@ The \<history\> pseudo-state allows a state machine to remember its state config
 ## [Transitions](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md)
 Transitions between states are triggered by events and conditionalized via guard conditions. They may contain executable content, which is executed when the transition is taken.
 
-![transitions](https://user-images.githubusercontent.com/18611095/28069895-c481268c-6653-11e7-9ede-f7651fa14aac.png)
+![transitions](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/8%20-%20Intro%20-%20Transitions.gif)
 
 ```
 <scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -248,4 +248,4 @@ Transitions between states are triggered by events and conditionalized via guard
 
 ## [Microwave owen example](https://github.com/alexzhornyak/SCXML-tutorial/edit/master/Doc/microwave_example.md)
 
-![microwave_owen](https://user-images.githubusercontent.com/18611095/46279565-1390cb00-c572-11e8-822b-9ca541aa87d9.png)
+![microwave_owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/6%20-%20Microwave%20Owen.gif)
