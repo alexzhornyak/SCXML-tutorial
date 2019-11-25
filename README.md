@@ -80,6 +80,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [3. Calculator](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/calculator.md)
 
+[4. Salus RT500 (Digital Room Thermostat) Simulator](https://github.com/alexzhornyak/Salus-RT500-Simulator)
+
 # SCXML Overview
 
 ## Basic State Machine Notation
