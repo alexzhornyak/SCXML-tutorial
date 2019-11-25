@@ -20,7 +20,7 @@ The id of the default initial state (or states) for this state.
 
 **Example: 'State1' is specified as initial**
 
-![state - initial 1](https://user-images.githubusercontent.com/18611095/28105233-51cbe67e-66e7-11e7-9c54-faf01ace8496.png)
+![state - initial 1](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/9%20-%20state%20-%20initial.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -52,7 +52,7 @@ Output:
 
 **Example: 'State3' is specified as initial**
 
-![state - initial 2](https://user-images.githubusercontent.com/18611095/28105301-918f4896-66e7-11e7-9ead-d3c70e4543b1.png)
+![state - initial 2](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/10%20-%20state%20-%20initial%20-%202.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -81,7 +81,7 @@ Output:
 
 ### Warning!
 **1. MUST NOT be specified in conjunction with the \<initial\> element.**
-![state - initial - warning 1](https://user-images.githubusercontent.com/18611095/28105509-575f14a2-66e8-11e7-8802-accaccf223a5.png)
+![state - initial - warning 1](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/state%20-%20initial%20attr%20and%20element.png)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
