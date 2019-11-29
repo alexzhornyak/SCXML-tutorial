@@ -6,7 +6,7 @@ A wrapper element containing executable content to be executed when the state is
 
 The SCXML processor must execute the \<onentry\> handlers of a state in document order when the state is entered. In doing so, it must treat each handler as a separate block of executable content.
 
-![onentry-onexit - onentry](https://user-images.githubusercontent.com/18611095/28201740-131de090-687b-11e7-8e8e-a01a8cccc347.png)
+![onentry-onexit - onentry](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/onentry%20-%201.gif)
 
 ```
 <scxml initial="State1" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
