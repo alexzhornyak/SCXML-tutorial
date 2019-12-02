@@ -106,6 +106,7 @@ The most basic state machine concepts are [**\<state\>**](https://github.com/ale
 ## [Atomic state](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md#atomic-state)
 
 Does not contain any child states
+
 ![atomic_state_img](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/readme%20-%20atomic.gif)
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -117,6 +118,7 @@ Does not contain any child states
 ## [Compound states](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md#compound-state)
 
 May contain nested <state> elements and the nesting may proceed to any depth
+	
 ![compound_state_img](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/readme%20-%20compound.gif)
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
