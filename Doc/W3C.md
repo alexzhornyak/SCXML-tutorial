@@ -6,6 +6,12 @@ Test|Description|Source|
 [Test 147](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#1-test-147)|\<if\>, \<elseif\> 'cond'|https://www.w3.org/Voice/2013/scxml-irp/147/test147.txml
 [Test 148](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#2-test-148)|\<else\>|https://www.w3.org/Voice/2013/scxml-irp/148/test148.txml
 [Test 149](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#3-test-149)|\<if\> without else|https://www.w3.org/Voice/2013/scxml-irp/149/test149.txml
+[Test 150](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#1-test-150)|\<foreach\> 'item' not defined|https://www.w3.org/Voice/2013/scxml-irp/150/test150.txml
+[Test 151](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#2-test-151)|\<foreach\> 'index'|https://www.w3.org/Voice/2013/scxml-irp/151/test151.txml
+[Test 152](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#3-test-152)|\<foreach\> illegal 'array' or 'item'|https://www.w3.org/Voice/2013/scxml-irp/152/test152.txml
+[Test 153](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#4-test-153)|\<foreach\> right order|https://www.w3.org/Voice/2013/scxml-irp/153/test153.txml
+[Test 155](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#5-test-155)|\<foreach\> executable content|https://www.w3.org/Voice/2013/scxml-irp/155/test155.txml
+[Test 156](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#6-test-156)|\<foreach\> child eval error|https://www.w3.org/Voice/2013/scxml-irp/156/test156.txml
 [Test 172](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#1-test-172)|\<send\> 'eventexpr'|https://www.w3.org/Voice/2013/scxml-irp/172/test172.txml
 [Test 173](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#2-test-173)|\<send\> 'targetexpr'|https://www.w3.org/Voice/2013/scxml-irp/173/test173.txml
 [Test 174](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#3-test-174)|\<send\> 'typeexpr'|https://www.w3.org/Voice/2013/scxml-irp/174/test174.txml
@@ -23,4 +29,5 @@ Test|Description|Source|
 [Test 200](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#15-test-200)|\<send\> SCXML Event I/O|https://www.w3.org/Voice/2013/scxml-irp/200/test200.txml
 [Test 201](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#16-test-201)|\<send\> Basic HTTP Event I/O|https://www.w3.org/Voice/2013/scxml-irp/201/test201.txml
 [Test 521](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#17-test-521)|\<send\> non-existent target|https://www.w3.org/Voice/2013/scxml-irp/521/test521.txml
+[Test 525](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#7-test-525)|\<foreach\> shallow copy|https://www.w3.org/Voice/2013/scxml-irp/525/test525.txml
 [Test 553](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#18-test-553)|\<send\> evaluation error|https://www.w3.org/Voice/2013/scxml-irp/553/test553.txml
