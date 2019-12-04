@@ -33,6 +33,8 @@ Test|Description|Source|
 [Test 403.b](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#b-no-transition-conflicts-with-another-transition-in-the-set)|\<transition\> no conflicts|https://www.w3.org/Voice/2013/scxml-irp/403/test403b.txml
 [Test 403.c](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#c-there-is-no-optimally-enabled-transition-outside-the-set-that-has-a-higher-priority-than-some-member-of-the-set)|\<transition\> optimally enabled set|https://www.w3.org/Voice/2013/scxml-irp/403/test403c.txml
 [Test 404](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#2-test-404)|\<transition\> exit order|https://www.w3.org/Voice/2013/scxml-irp/404/test404.txml
+[Test 405](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#3-test-405)|\<transition\> exec content order|https://www.w3.org/Voice/2013/scxml-irp/405/test405.txml
+[Test 406](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#4-test-406)|\<transition\> exec content order|https://www.w3.org/Voice/2013/scxml-irp/406/test406.txml
 [Test 521](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#17-test-521)|\<send\> non-existent target|https://www.w3.org/Voice/2013/scxml-irp/521/test521.txml
 [Test 525](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#7-test-525)|\<foreach\> shallow copy|https://www.w3.org/Voice/2013/scxml-irp/525/test525.txml
 [Test 553](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#18-test-553)|\<send\> evaluation error|https://www.w3.org/Voice/2013/scxml-irp/553/test553.txml
