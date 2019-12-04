@@ -28,6 +28,11 @@ Test|Description|Source|
 [Test 199](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#14-test-199)|\<send\> unsupported type|https://www.w3.org/Voice/2013/scxml-irp/199/test199.txml
 [Test 200](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#15-test-200)|\<send\> SCXML Event I/O|https://www.w3.org/Voice/2013/scxml-irp/200/test200.txml
 [Test 201](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#16-test-201)|\<send\> Basic HTTP Event I/O|https://www.w3.org/Voice/2013/scxml-irp/201/test201.txml
+[Test 364](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md#test-364)|\<state\> 'initial'|https://www.w3.org/Voice/2013/scxml-irp/364/test364.txml
+[Test 403.a](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#a-each-transition-in-the-set-is-optimally-enabled-by-e-in-an-atomic-state-in-c)|\<transition\> optimal enablement|https://www.w3.org/Voice/2013/scxml-irp/403/test403a.txml
+[Test 403.b](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#b-no-transition-conflicts-with-another-transition-in-the-set)|\<transition\> no conflicts|https://www.w3.org/Voice/2013/scxml-irp/403/test403b.txml
+[Test 403.c](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#c-there-is-no-optimally-enabled-transition-outside-the-set-that-has-a-higher-priority-than-some-member-of-the-set)|\<transition\> optimally enabled set|https://www.w3.org/Voice/2013/scxml-irp/403/test403c.txml
+[Test 404](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#2-test-404)|\<transition\> exit order|https://www.w3.org/Voice/2013/scxml-irp/404/test404.txml
 [Test 521](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#17-test-521)|\<send\> non-existent target|https://www.w3.org/Voice/2013/scxml-irp/521/test521.txml
 [Test 525](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#7-test-525)|\<foreach\> shallow copy|https://www.w3.org/Voice/2013/scxml-irp/525/test525.txml
 [Test 553](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#18-test-553)|\<send\> evaluation error|https://www.w3.org/Voice/2013/scxml-irp/553/test553.txml
