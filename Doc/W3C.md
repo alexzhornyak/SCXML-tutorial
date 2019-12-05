@@ -29,6 +29,9 @@ Test|Description|Source|
 [Test 200](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#15-test-200)|\<send\> SCXML Event I/O|https://www.w3.org/Voice/2013/scxml-irp/200/test200.txml
 [Test 201](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#16-test-201)|\<send\> Basic HTTP Event I/O|https://www.w3.org/Voice/2013/scxml-irp/201/test201.txml
 [Test 364](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md#test-364)|\<state\> 'initial'|https://www.w3.org/Voice/2013/scxml-irp/364/test364.txml
+[Test 372](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/final.md#1-test-372)|\<final\> 'done.state.id'|https://www.w3.org/Voice/2013/scxml-irp/372/test372.txml
+[Test 375](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onentry.md#1-test-375)|\<onentry\> document order|https://www.w3.org/Voice/2013/scxml-irp/375/test375.txml
+[Test 376](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onentry.md#2-test-376)|\<onentry\> separate blocks|https://www.w3.org/Voice/2013/scxml-irp/376/test376.txml
 [Test 403.a](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#a-each-transition-in-the-set-is-optimally-enabled-by-e-in-an-atomic-state-in-c)|\<transition\> optimal enablement|https://www.w3.org/Voice/2013/scxml-irp/403/test403a.txml
 [Test 403.b](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#b-no-transition-conflicts-with-another-transition-in-the-set)|\<transition\> no conflicts|https://www.w3.org/Voice/2013/scxml-irp/403/test403b.txml
 [Test 403.c](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#c-there-is-no-optimally-enabled-transition-outside-the-set-that-has-a-higher-priority-than-some-member-of-the-set)|\<transition\> optimally enabled set|https://www.w3.org/Voice/2013/scxml-irp/403/test403c.txml
@@ -38,3 +41,4 @@ Test|Description|Source|
 [Test 521](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#17-test-521)|\<send\> non-existent target|https://www.w3.org/Voice/2013/scxml-irp/521/test521.txml
 [Test 525](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#7-test-525)|\<foreach\> shallow copy|https://www.w3.org/Voice/2013/scxml-irp/525/test525.txml
 [Test 553](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#18-test-553)|\<send\> evaluation error|https://www.w3.org/Voice/2013/scxml-irp/553/test553.txml
+[Test 570](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/final.md#2-test-570)|\<final\> 'done.state.id' in parallel|https://www.w3.org/Voice/2013/scxml-irp/570/test570.txml
