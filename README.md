@@ -82,6 +82,9 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [4. Salus RT500 (Digital Room Thermostat) Simulator](https://github.com/alexzhornyak/Salus-RT500-Simulator)
 
+### Articles
+[1. Inheritance (Visual) in SCXML (State Machines)](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Inheritance_SCXML.md)
+
 ## [W3C IRP tests](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/W3C.md)
 
 # SCXML Overview
