@@ -255,6 +255,35 @@ Transitions between states are triggered by events and conditionalized via guard
 </scxml>
 ```
 
+## Time generator example
+![TimeGenerator](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/TimerGenerator.gif)
+```
+<scxml datamodel="lua" initial="Off" name="ScxmlTimeGenerator" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data expr="0" id="tm_ELAPSED"/>
+	</datamodel>
+	<state id="Off">
+		<transition event="Start" target="Generator"/>
+	</state>
+	<state id="Generator">
+		<onentry>
+			<assign expr="os.clock()" location="tm_ELAPSED"/>
+		</onentry>
+		<onexit>
+			<cancel sendid="ID_TIMER"/>
+		</onexit>
+		<transition event="Stop" target="Off"/>
+		<state id="StateShape1">
+			<onentry>
+				<log expr="string.format(&quot;Elapsed:%.2fs&quot;, os.clock() - tm_ELAPSED)" label="INFO"/>
+				<send delay="1000ms" event="Do.Timer" id="ID_TIMER"/>
+			</onentry>
+			<transition event="Do.Timer" target="StateShape1"/>
+		</state>
+	</state>
+</scxml>
+```
+
 ## [Microwave owen example](https://github.com/alexzhornyak/SCXML-tutorial/edit/master/Doc/microwave_example.md)
 
 ![microwave_owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/6%20-%20Microwave%20Owen.gif)
