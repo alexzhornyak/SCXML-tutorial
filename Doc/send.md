@@ -1,6 +1,34 @@
 # [\<send\>](https://www.w3.org/TR/scxml/#send)
 The element is used to send events and data to external systems, including external SCXML Interpreters, or to raise events in the current SCXML session.
 
+![send_example](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/TimerGenerator.gif)
+```
+<scxml datamodel="lua" initial="Off" name="ScxmlTimeGenerator" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data expr="0" id="tm_ELAPSED"/>
+	</datamodel>
+	<state id="Off">
+		<transition event="Start" target="Generator"/>
+	</state>
+	<state id="Generator">
+		<onentry>
+			<assign expr="os.clock()" location="tm_ELAPSED"/>
+		</onentry>
+		<onexit>
+			<cancel sendid="ID_TIMER"/>
+		</onexit>
+		<transition event="Stop" target="Off"/>
+		<state id="StateShape1">
+			<onentry>
+				<log expr="string.format(&quot;Elapsed:%.2fs&quot;, os.clock() - tm_ELAPSED)" label="INFO"/>
+				<send delay="1000ms" event="Do.Timer" id="ID_TIMER"/>
+			</onentry>
+			<transition event="Do.Timer" target="StateShape1"/>
+		</state>
+	</state>
+</scxml>
+```
+
 ## Attribute Details
 ### 1. 'event'
 A string indicating the name of message being generated. Must not occur with 'eventexpr'. If the type is http://www.w3.org/TR/scxml/#SCXMLEventProcessor, either this attribute or 'eventexpr' must be present.
