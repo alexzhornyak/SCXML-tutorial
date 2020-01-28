@@ -287,3 +287,5 @@ Transitions between states are triggered by events and conditionalized via guard
 ## [Microwave owen example](https://github.com/alexzhornyak/SCXML-tutorial/edit/master/Doc/microwave_example.md)
 
 ![microwave_owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/6%20-%20Microwave%20Owen.gif)
+
+## [Traffic light example](https://github.com/alexzhornyak/UscxmlCLib/blob/master/Examples/Images/TrafficLight.gif)
