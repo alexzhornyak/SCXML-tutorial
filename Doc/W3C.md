@@ -28,6 +28,8 @@ Test|Description|Source|
 [Test 199](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#14-test-199)|\<send\> unsupported type|https://www.w3.org/Voice/2013/scxml-irp/199/test199.txml
 [Test 200](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#15-test-200)|\<send\> SCXML Event I/O|https://www.w3.org/Voice/2013/scxml-irp/200/test200.txml
 [Test 201](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#16-test-201)|\<send\> Basic HTTP Event I/O|https://www.w3.org/Voice/2013/scxml-irp/201/test201.txml
+[Test 233](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md#1-test-233)|\<finalize\> finalize before event processed|https://www.w3.org/Voice/2013/scxml-irp/233/test233.txml
+[Test 234](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md#2-test-234)|\<finalize\> execute first finalize|https://www.w3.org/Voice/2013/scxml-irp/234/test234.txml
 [Test 364](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md#test-364)|\<state\> 'initial'|https://www.w3.org/Voice/2013/scxml-irp/364/test364.txml
 [Test 372](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/final.md#1-test-372)|\<final\> 'done.state.id'|https://www.w3.org/Voice/2013/scxml-irp/372/test372.txml
 [Test 375](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onentry.md#1-test-375)|\<onentry\> document order|https://www.w3.org/Voice/2013/scxml-irp/375/test375.txml
