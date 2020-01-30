@@ -28,8 +28,33 @@ Test|Description|Source|
 [Test 199](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#14-test-199)|\<send\> unsupported type|https://www.w3.org/Voice/2013/scxml-irp/199/test199.txml
 [Test 200](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#15-test-200)|\<send\> SCXML Event I/O|https://www.w3.org/Voice/2013/scxml-irp/200/test200.txml
 [Test 201](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#16-test-201)|\<send\> Basic HTTP Event I/O|https://www.w3.org/Voice/2013/scxml-irp/201/test201.txml
-[Test 233](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md#1-test-233)|\<finalize\> finalize before event processed|https://www.w3.org/Voice/2013/scxml-irp/233/test233.txml
-[Test 234](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md#2-test-234)|\<finalize\> execute first finalize|https://www.w3.org/Voice/2013/scxml-irp/234/test234.txml
+[Test 215](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#1-test-215)|\<invoke\> 'typeexpr'|https://www.w3.org/Voice/2013/scxml-irp/215/test215.txml
+[Test 216](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#2-test-216)|\<invoke\> 'srcexpr'|https://www.w3.org/Voice/2013/scxml-irp/216/test216.txml
+[Test 220](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#3-test-220)|\<invoke\> 'type'|https://www.w3.org/Voice/2013/scxml-irp/220/test220.txml
+[Test 223](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#4-test-223)|\<invoke\> 'idlocation'|https://www.w3.org/Voice/2013/scxml-irp/223/test223.txml
+[Test 224](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#5-test-224)|\<invoke\> stateid.platformid|https://www.w3.org/Voice/2013/scxml-irp/224/test224.txml
+[Test 225](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#6-test-225)|\<invoke\> unique 'platformid'|https://www.w3.org/Voice/2013/scxml-irp/225/test225.txml
+[Test 226](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#7-test-226)|\<invoke\> pass data to invoked|https://www.w3.org/Voice/2013/scxml-irp/226/test226.txml
+[Test 228](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#8-test-228)|\<invoke\> unique invokeid|https://www.w3.org/Voice/2013/scxml-irp/228/test228.txml
+[Test 229](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#9-test-229)|\<invoke\> 'autoforward'|https://www.w3.org/Voice/2013/scxml-irp/229/test229.txml
+[Test 230](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#10-test-230)|\<invoke\> same fields in autoforwarded|https://www.w3.org/Voice/2013/scxml-irp/230/test230.txml
+[Test 232](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#11-test-232)|\<invoke\> multiple events from child|https://www.w3.org/Voice/2013/scxml-irp/232/test232.txml
+[Test 233](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md#1-test-233)|\<finalize\> before event processed|https://www.w3.org/Voice/2013/scxml-irp/233/test233.txml
+[Test 234](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md#2-test-234)|\<finalize\> execute first|https://www.w3.org/Voice/2013/scxml-irp/234/test234.txml
+[Test 235](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#14-test-235)|\<invoke\> 'done.invoke.id'|https://www.w3.org/Voice/2013/scxml-irp/235/test235.txml
+[Test 236](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#15-test-236)|\<invoke\> check 'done.invoke.id' last|https://www.w3.org/Voice/2013/scxml-irp/236/test236.txml
+[Test 237](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#16-test-237)|\<invoke\> cancelling the invoked|https://www.w3.org/Voice/2013/scxml-irp/237/test237.txml
+[Test 239](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#17-test-239)|\<invoke\> content or 'src'|https://www.w3.org/Voice/2013/scxml-irp/239/test239.txml
+[Test 240](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#18-test-240)|\<invoke\> param or 'namelist'|https://www.w3.org/Voice/2013/scxml-irp/240/test240.txml
+[Test 241](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#19-test-241)|\<invoke\> param and namelist identically|https://www.w3.org/Voice/2013/scxml-irp/241/test241.txml
+[Test 242](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#20-test-242)|\<invoke\> 'src' and content identically|https://www.w3.org/Voice/2013/scxml-irp/242/test242.txml
+[Test 243](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#21-test-243)|\<invoke\> param 'name' matches data 'id'|https://www.w3.org/Voice/2013/scxml-irp/243/test243.txml
+[Test 244](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#22-test-244)|\<invoke\> namelist matches data 'id'|https://www.w3.org/Voice/2013/scxml-irp/244/test244.txml
+[Test 245](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#23-test-245)|\<invoke\> param, namelist mismatch|https://www.w3.org/Voice/2013/scxml-irp/245/test245.txml
+[Test 247](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#24-test-247)|\<invoke\> 'done.invoke.id'|https://www.w3.org/Voice/2013/scxml-irp/247/test247.txml
+[Test 250](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#25-test-250)|\<invoke\> onexit handlers in invoked|https://www.w3.org/Voice/2013/scxml-irp/250/test250.txml
+[Test 252](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#26-test-252)|\<invoke\> not process after cancel|https://www.w3.org/Voice/2013/scxml-irp/252/test252.txml
+[Test 253](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#27-test-253)|\<invoke\> type 'scxml'|https://www.w3.org/Voice/2013/scxml-irp/253/test253.txml
 [Test 364](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md#test-364)|\<state\> 'initial'|https://www.w3.org/Voice/2013/scxml-irp/364/test364.txml
 [Test 372](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/final.md#1-test-372)|\<final\> 'done.state.id'|https://www.w3.org/Voice/2013/scxml-irp/372/test372.txml
 [Test 375](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onentry.md#1-test-375)|\<onentry\> document order|https://www.w3.org/Voice/2013/scxml-irp/375/test375.txml
@@ -42,5 +67,7 @@ Test|Description|Source|
 [Test 406](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md#4-test-406)|\<transition\> exec content order|https://www.w3.org/Voice/2013/scxml-irp/406/test406.txml
 [Test 521](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#17-test-521)|\<send\> non-existent target|https://www.w3.org/Voice/2013/scxml-irp/521/test521.txml
 [Test 525](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md#7-test-525)|\<foreach\> shallow copy|https://www.w3.org/Voice/2013/scxml-irp/525/test525.txml
+[Test 530](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#28-test-530)|\<invoke\> child content|https://www.w3.org/Voice/2013/scxml-irp/530/test530.txml
 [Test 553](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md#18-test-553)|\<send\> evaluation error|https://www.w3.org/Voice/2013/scxml-irp/553/test553.txml
+[Test 554](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md#29-test-554)|\<invoke\> arguments error|https://www.w3.org/Voice/2013/scxml-irp/554/test554.txml
 [Test 570](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/final.md#2-test-570)|\<final\> 'done.state.id' in parallel|https://www.w3.org/Voice/2013/scxml-irp/570/test570.txml
