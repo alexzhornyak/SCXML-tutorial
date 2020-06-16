@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Morse.svg</file>
+        <file>morseNull.scxml</file>
+        <file>morseNullDecoderC.scxml</file>
+        <file>morseCodeReference.json</file>
+        <file>morseEcma.scxml</file>
+    </qresource>
+</RCC>
