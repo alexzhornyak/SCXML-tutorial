@@ -1,7 +1,11 @@
 # Qt SCXML Morse Code Trainer
-This example demonstrates different techniques of using SCXML data models in applications 
+This example demonstrates different techniques of using SCXML data models in applications
 
-## 1. Pure NULL datamodel
+![morse_widget](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/morse.gif)
+
+## Table of contents
+
+### 1. Pure NULL datamodel
 ![morse_null](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/morseNull.png)
 
 **Proc:**
@@ -11,7 +15,7 @@ This example demonstrates different techniques of using SCXML data models in app
 **Cons:**
 - encoding logic is too difficult for designing
 
-## 2. Null datamodel with parser written on application side
+### 2. Null datamodel with parser written on application side
 ![morse_null_c](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/morseNullDecoderC.png)
 
 **Consists of 2 parts:**
@@ -25,7 +29,7 @@ This example demonstrates different techniques of using SCXML data models in app
 **Cons:**
 - not portable to other languages except C++
 
-## 3. EcmaScript datamodel
+### 3. EcmaScript datamodel
 ![morse_ecma](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/morseEcma.png)
 
 **Proc:**
