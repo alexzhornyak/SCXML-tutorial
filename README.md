@@ -82,6 +82,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [4. Salus RT500 (Digital Room Thermostat) Simulator](https://github.com/alexzhornyak/Salus-RT500-Simulator)
 
+[5. Morse Code Trainer](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/Morse)
+
 ### Articles
 [1. Inheritance (Visual) in SCXML (State Machines)](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Inheritance_SCXML.md)
 
@@ -287,6 +289,6 @@ Transitions between states are triggered by events and conditionalized via guard
 </scxml>
 ```
 
-## [Microwave owen example](https://github.com/alexzhornyak/SCXML-tutorial/edit/master/Doc/microwave_example.md)
+## [Microwave owen example](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/microwave_example.md)
 
 ![microwave_owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/6%20-%20Microwave%20Owen.gif)
