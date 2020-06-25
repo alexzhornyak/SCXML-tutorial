@@ -257,6 +257,10 @@ Transitions between states are triggered by events and conditionalized via guard
 </scxml>
 ```
 
+## [Invoke](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md)
+SCXML provides an element **\<invoke\>** which can create external services. For example: it can create instances of external state machines
+![invoked_example](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/simple_tasks_invoked_example.gif)
+
 ## [Traffic light example](https://github.com/alexzhornyak/UscxmlCLib/blob/master/Examples/StateCharts/TrafficLight.scxml)
 ![traffic_light](https://github.com/alexzhornyak/UscxmlCLib/blob/master/Examples/Images/TrafficLight.gif)
 
