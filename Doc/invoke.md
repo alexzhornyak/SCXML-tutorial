@@ -1,5 +1,14 @@
 # [\<invoke\>](https://www.w3.org/TR/scxml/#invoke)
-The element is used to create an instance of an external service.
+The element is used to create an instance of an external service (for example: nested state machine)
+
+### Simple Example
+Suppose you have multiple blocks with the same state machine logic
+
+![tasks](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/simple_tasks_example.gif)
+
+You may put similar logic into external state machine, define params which should be passed from the main state machine. And then you may create multiple instances using **\<invoke\>** element. You just need to path individual parameters for each external state machine
+
+![tasks_invoked](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/simple_tasks_invoked_example.gif)
 
 ## Attribute Details
 
