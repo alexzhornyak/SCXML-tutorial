@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Qml/main.qml</file>
+        <file>Qml/MainWidget.ui.qml</file>
+		<file>Qml/EncoderDial.qml</file>
+        <file>Qml/qtquickcontrols2.conf</file>
+        <file>Qml/Images/BtnRadio.png</file>
+        <file>Qml/Images/BtnCar.png</file>
+        <file>Qml/Images/BtnMedia.png</file>
+        <file>Qml/Images/BtnMenu.png</file>
+        <file>Qml/Images/BtnPhone.png</file>
+        <file>Qml/Images/BtnSetup.png</file>
+        <file>Qml/Images/BtnSound.png</file>
+        <file>Qml/Images/BtnVoice.png</file>
+        <file>Qml/Images/MainWidget.png</file>        
+        <file>Qml/Images/BtnOnOff.png</file>
+        <file>Qml/Images/ImgEncoder.png</file>
+        <file>Qml/Images/BtnEncoder.png</file>
+    </qresource>
+</RCC>
