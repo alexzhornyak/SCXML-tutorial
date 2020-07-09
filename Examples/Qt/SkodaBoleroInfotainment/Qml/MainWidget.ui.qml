@@ -1,196 +1,121 @@
 import QtQuick 2.7
-import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.3
-import QtQuick.Extras 1.4
-import Example 1.0
+import QtQuick.Controls 2.2
 
 Item {
     id: itemMainWidget
     width: 1397
     height: 743
     visible: true
+    clip: true
 
     property real d_BTN_SCALE: 0.95
     property real d_BTN_OPACITY: 0.9
 
+    property alias container: container
+
+    Rectangle {
+        id: display
+        x: 398
+        y: 117
+        width: 600
+        height: 360
+        color: "#434449"
+
+        StackView {
+            id: container
+            anchors.fill: parent
+        }
+    }
+
     Image {
         id: imageMainWidget
-        anchors.fill: parent
         fillMode: Image.Pad
         source: "Images/MainWidget.png"
 
-        Image {
+        DeviceButton {
             id: imgBtnRadio
+            name: "Radio"
             x: 85
             y: 91
             width: 186
             height: 83
-            source: "Images/BtnRadio.png"
-
-            scale: btnRadioArea.pressed ? d_BTN_SCALE : 1.0
-            opacity: btnRadioArea.containsMouse ? d_BTN_OPACITY : 1.0
-
-            MaskedMouseArea {
-                id: btnRadioArea
-                anchors.fill: parent
-                alphaThreshold: 0.4
-                maskSource: imgBtnRadio.source
-            }
         }
 
-        Image {
+        DeviceButton {
             id: imgBtnMedia
+            name: "Media"
             x: 96
             y: 172
             width: 169
             height: 72
-            source: "Images/BtnMedia.png"
-
-            scale: btnMediaArea.pressed ? d_BTN_SCALE : 1.0
-            opacity: btnMediaArea.containsMouse ? d_BTN_OPACITY : 1.0
-
-            MaskedMouseArea {
-                id: btnMediaArea
-                anchors.fill: parent
-                alphaThreshold: 0.4
-                maskSource: imgBtnMedia.source
-            }
         }
 
-        Image {
-            id: imgBtnPhone
+        DeviceButton {
+            id: imgBtnMute
+            name: "Mute"
             x: 107
             y: 248
             width: 158
             height: 71
-            source: "Images/BtnPhone.png"
-
-            scale: btnPhoneArea.pressed ? d_BTN_SCALE : 1.0
-            opacity: btnPhoneArea.containsMouse ? d_BTN_OPACITY : 1.0
-
-            MaskedMouseArea {
-                id: btnPhoneArea
-                anchors.fill: parent
-                alphaThreshold: 0.4
-                maskSource: imgBtnPhone.source
-            }
         }
 
-        Image {
-            id: imgBtnVoice
+        DeviceButton {
+            id: imgBtnTP
+            name: "TP"
             x: 120
             y: 322
             width: 145
             height: 70
-            source: "Images/BtnVoice.png"
-
-            scale: btnVoiceArea.pressed ? d_BTN_SCALE : 1.0
-            opacity: btnVoiceArea.containsMouse ? d_BTN_OPACITY : 1.0
-
-            MaskedMouseArea {
-                id: btnVoiceArea
-                anchors.fill: parent
-                alphaThreshold: 0.4
-                maskSource: imgBtnVoice.source
-            }
         }
 
-        Image {
+        DeviceButton {
             id: imgBtnSetup
+            name: "Setup"
             x: 1131
             y: 96
             width: 176
             height: 74
-            source: "Images/BtnSetup.png"
-
-            scale: btnSetupArea.pressed ? d_BTN_SCALE : 1.0
-            opacity: btnSetupArea.containsMouse ? d_BTN_OPACITY : 1.0
-
-            MaskedMouseArea {
-                id: btnSetupArea
-                anchors.fill: parent
-                alphaThreshold: 0.4
-                maskSource: imgBtnSetup.source
-            }
         }
 
-        Image {
+        DeviceButton {
             id: imgBtnSound
+            name: "Sound"
             x: 1127
             y: 168
             width: 178
             height: 82
-            source: "Images/BtnSound.png"
-
-            scale: btnSoundArea.pressed ? d_BTN_SCALE : 1.0
-            opacity: btnSoundArea.containsMouse ? d_BTN_OPACITY : 1.0
-
-            MaskedMouseArea {
-                id: btnSoundArea
-                anchors.fill: parent
-                alphaThreshold: 0.4
-                maskSource: imgBtnSound.source
-            }
         }
 
-        Image {
+        DeviceButton {
             id: imgBtnCar
+            name: "Car"
             x: 1127
             y: 243
             width: 168
             height: 82
-            source: "Images/BtnCar.png"
-
-            scale: btnCarArea.pressed ? d_BTN_SCALE : 1.0
-            opacity: btnCarArea.containsMouse ? d_BTN_OPACITY : 1.0
-
-            MaskedMouseArea {
-                id: btnCarArea
-                anchors.fill: parent
-                alphaThreshold: 0.4
-                maskSource: imgBtnCar.source
-            }
         }
 
-        Image {
+        DeviceButton {
             id: imgBtnMenu
+            name: "Menu"
             x: 1127
             y: 317
             width: 155
             height: 80
-            source: "Images/BtnMenu.png"
-
-            scale: btnMenuArea.pressed ? d_BTN_SCALE : 1.0
-            opacity: btnMenuArea.containsMouse ? d_BTN_OPACITY : 1.0
-
-            MaskedMouseArea {
-                id: btnMenuArea
-                anchors.fill: parent
-                alphaThreshold: 0.4
-                maskSource: imgBtnMenu.source
-            }
         }
 
         EncoderDial {
             id: dialOnOff
+            name: "OnOff"
             x: 155
             y: 460
-            isOnOff: true
         }
 
         EncoderDial {
             id: dialSelect
+            name: "Select"
             x: 1117
             y: 460
-            isOnOff: false
-        }
-
-        Item {
-            id: item1
-            x: 401
-            y: 119
-            width: 594
-            height: 354
         }
     }
 }

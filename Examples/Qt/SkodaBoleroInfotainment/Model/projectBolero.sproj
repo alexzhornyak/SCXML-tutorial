@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf8"?>
+<scxmlproject>
+	<scxmlunit path="bolero.scxml" scxmlname="ScxmlBolero" build_root="1"/>
+</scxmlproject>
