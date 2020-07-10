@@ -1,10 +1,11 @@
 import QtQuick 2.7
 import MaskedMouseArea 1.0
+import "BoleroConstants.js" as Consts
 
 Image {
 
-    scale: btnMouseArea.pressed ? d_BTN_SCALE : 1.0
-    opacity: btnMouseArea.containsMouse ? d_BTN_OPACITY : 1.0
+    scale: btnMouseArea.pressed ? Consts.d_BTN_SCALE : 1.0
+    opacity: btnMouseArea.containsMouse ? Consts.d_BTN_OPACITY : 1.0
 
     property string name: ""
     source: "Images/Btn" + name + ".png"

@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import MaskedMouseArea 1.0
+import "BoleroConstants.js" as Consts
 
 Item {
     id: encoder
@@ -22,8 +23,8 @@ Item {
         anchors.fill: parent
         rotation: 0
 
-        scale: pressArea.pressed ? d_BTN_SCALE : 1.0
-        opacity: mouseRotateArea.containsMouse ? d_BTN_OPACITY : 1.0
+        scale: pressArea.pressed ? Consts.d_BTN_SCALE : 1.0
+        opacity: mouseRotateArea.containsMouse ? Consts.d_BTN_OPACITY : 1.0
 
         MouseArea {
             id: mouseRotateArea
@@ -96,7 +97,7 @@ Item {
             source: "Images/Btn" + encoder.name + ".png"
             anchors.centerIn: imgBackground
 
-            opacity: pressArea.containsMouse ? d_BTN_OPACITY : 1.0
+            opacity: pressArea.containsMouse ? Consts.d_BTN_OPACITY : 1.0
 
             MaskedMouseArea {
                 id: pressArea

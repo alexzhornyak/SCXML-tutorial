@@ -3,6 +3,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 import ScxmlBolero 1.0
 import QtScxml 5.8
+import "Radio"
 
 ApplicationWindow {
     id: applicationWindow
@@ -19,18 +20,18 @@ ApplicationWindow {
     ScxmlBolero {
         id: scxmlBolero
         running: true
-
-        onModeRadioChanged: {
-            if (active) {
-                mainWidget.container.push("FrameRadio.ui.qml")
-            } else {
-                mainWidget.container.clear()
-            }
-        }
     }
 
     MainWidget {
         id: mainWidget
         anchors.centerIn: parent
+
+        FrameRadio {
+            id: radio
+            parent: mainWidget.container
+            visible: scxmlBolero.modeRadio
+        }
     }
+
+
 }

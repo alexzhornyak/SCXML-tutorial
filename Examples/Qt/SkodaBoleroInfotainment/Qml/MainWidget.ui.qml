@@ -5,13 +5,9 @@ Item {
     id: itemMainWidget
     width: 1397
     height: 743
-    visible: true
-    clip: true
+    visible: true    
 
-    property real d_BTN_SCALE: 0.95
-    property real d_BTN_OPACITY: 0.9
-
-    property alias container: container
+    property alias container: display
 
     Rectangle {
         id: display
@@ -20,11 +16,6 @@ Item {
         width: 600
         height: 360
         color: "#434449"
-
-        StackView {
-            id: container
-            anchors.fill: parent
-        }
     }
 
     Image {

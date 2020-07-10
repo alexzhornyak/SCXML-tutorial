@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>Qml/main.qml</file>
         <file>Qml/MainWidget.ui.qml</file>
         <file>Qml/EncoderDial.qml</file>
         <file>Qml/qtquickcontrols2.conf</file>
@@ -15,11 +14,20 @@
         <file>Qml/Images/MainWidget.png</file>
         <file>Qml/Images/BtnOnOff.png</file>
         <file>Qml/Images/ImgEncoder.png</file>
-        <file>Qml/RadioForm.ui.qml</file>
         <file>Qml/DeviceButton.qml</file>
         <file>Qml/Images/BtnMute.png</file>
         <file>Qml/Images/BtnTP.png</file>
         <file>Qml/Images/BtnSelect.png</file>
-        <file>Qml/FrameRadio.ui.qml</file>
+        <file>Qml/main.qml</file>
+        <file>Qml/BoleroBackground.qml</file>
+        <file>Qml/BoleroConstants.js</file>
+        <file>Qml/Radio/RadioBottomButtons.qml</file>
+        <file>Qml/Radio/FocusButton.qml</file>
+        <file>Qml/Radio/FocusButtonForm.ui.qml</file>
+        <file>Qml/Radio/FrameRadioForm.ui.qml</file>
+        <file>Qml/Radio/FrameRadio.qml</file>
+        <file>Qml/Images/ImgBtnSettings.png</file>
+        <file>Qml/Images/RadioManual.png</file>
+        <file>Qml/Images/RadioStations.png</file>
     </qresource>
 </RCC>
