@@ -14,7 +14,8 @@ Item {
 
     /* user */
     property real verticalImageOffset: scxmlBolero.radioCaptionsOn ? -footer.height / 2 : 0
-    property real verticalFooterOffset: scxmlBolero.radioCaptionsOn ? 0 : -height
+    property real verticalFooterOffset: scxmlBolero.radioCaptionsOn ? 0 + 3 : -height + 3
+    property string name: ""
 
     Rectangle {
 
@@ -49,7 +50,7 @@ Item {
         color: "#ffffff"
         anchors.centerIn: parent
         visible: !image.visible
-        text: "FM"
+        text: scxmlBolero.bandTypeFM ? "FM" : "AM" /* untranslatable */
         anchors.verticalCenterOffset: verticalImageOffset
         style: Text.Outline
         verticalAlignment: Text.AlignVCenter
@@ -65,7 +66,7 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottomMargin: verticalFooterOffset
-        text: "ModelData"
+        text: "Undefined"
         style: Text.Outline
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter

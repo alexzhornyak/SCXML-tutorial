@@ -8,6 +8,7 @@
 			<ExeName>.\QtScxmlTester\QtScxmlTester.exe</ExeName>
 			<WorkDir/>
 			<CMDParams/>
+			<ScxmlMonitorLog>true</ScxmlMonitorLog>
 		</TestSettings>
 		<Triggers/>
 		<ProjectPostBuild>

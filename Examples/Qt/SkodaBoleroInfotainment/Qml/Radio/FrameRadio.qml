@@ -6,7 +6,7 @@ FrameRadioForm {
     radioMouseArea {
         id: radioMouseArea
         onHoveredChanged: {
-            scxmlBolero.submitEvent("Inp.App.RadioCaptions", radioMouseArea.containsMouse ? 1:0)
+            scxmlBolero.submitEvent("Inp.App.Radio.Captions", radioMouseArea.containsMouse ? 1:0)
         }
     }
 }

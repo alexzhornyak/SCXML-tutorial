@@ -29,5 +29,6 @@
         <file>Qml/Images/ImgBtnSettings.png</file>
         <file>Qml/Images/RadioManual.png</file>
         <file>Qml/Images/RadioStations.png</file>
+        <file>Qml/Radio/StationRectangle.qml</file>
     </qresource>
 </RCC>

@@ -82,20 +82,21 @@ Pane {
                     id: stationsRow
                     spacing: paneRadio.i_ROW_SPACING
 
-                    readonly property int stationsIndex: index
+                    readonly property int groupIndex: index
 
                     Repeater {
                         id: repeater
                         model: 5
 
-                        delegate: Rectangle {
+                        delegate: StationRectangle {
+                            stationIndex: (stationsRow.groupIndex * 5) + index
                             width: viewStations.width / repeater.model
                                    - (paneRadio.i_ROW_SPACING
                                       - (paneRadio.i_ROW_SPACING / repeater.model))
                             height: width
 
-                            color: stationsRow.stationsIndex
-                                   === 0 ? "yellow" : stationsRow.stationsIndex === 1 ? "red" : "blue"
+                            color: stationsRow.groupIndex
+                                   === 0 ? "yellow" : stationsRow.groupIndex === 1 ? "red" : "blue"
                         }
                     }
                 }
