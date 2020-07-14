@@ -1,9 +1,10 @@
-import QtQuick 2.7
-import QtQuick.Controls 2.0
+import QtQuick 2.9
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import ScxmlBolero 1.0
 import QtScxml 5.8
 import "Radio"
+import "BoleroConstants.js" as Consts
 
 ApplicationWindow {
     id: applicationWindow
@@ -57,6 +58,39 @@ ApplicationWindow {
             parent: mainWidget.container
             visible: scxmlBolero.displayRadio
         }
+
+        Popup {
+            id: popupRadioBands
+            x: 0
+            y: 0
+            width: 228
+            height: 126
+            focus: true
+            closePolicy: Popup.NoAutoClose
+
+            ColumnLayout {
+                anchors.fill: parent
+                SelectButton {
+                    Text {
+                        anchors.fill: parent
+                        text: qsTr("FM")
+                    }
+                }
+                SelectButton {
+                    Text {
+                        anchors.fill: parent
+                        text: qsTr("AM")
+                    }
+                }
+            }
+
+            background: BalloonCanvas {
+                id: canvasRadioBands
+                anchors.fill: parent
+                strokeStyle: Consts.cl_ITEM_BORDER
+                fillStyle: Consts.cl_BACKGROUND
+            }
+       }
     }
 
 

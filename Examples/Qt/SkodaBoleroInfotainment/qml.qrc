@@ -30,5 +30,7 @@
         <file>Qml/Images/RadioManual.png</file>
         <file>Qml/Images/RadioStations.png</file>
         <file>Qml/Radio/StationRectangle.qml</file>
+        <file>Qml/SelectButton.qml</file>
+        <file>Qml/BalloonCanvas.qml</file>
     </qresource>
 </RCC>

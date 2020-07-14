@@ -2,8 +2,11 @@ import QtQuick 2.8
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import ScxmlBolero 1.0
+import "../"
+import "../BoleroConstants.js" as Consts
 
 FocusButtonForm {
+    id: focusBtn
 
     Behavior on verticalFooterOffset {
         NumberAnimation { duration: 500 }
@@ -13,28 +16,27 @@ FocusButtonForm {
         NumberAnimation { duration: 500 }
     }
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            //scxmlBolero.submitEvent("Inp.App.Radio." + name)
-            popup.open()
+    Component.onCompleted: {
+        if (name === "Band") {
+            scxmlBolero.onRadioPopupBandsChanged.connect(openPopupBands)
         }
     }
 
-    Popup {
-            id: popup
-//            x: parent.left
-//            y: parent.bottom + 200
-//            width: 200
-//            height: 300
-            //modal: true
-            focus: true
-            closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+    function openPopupBands(active) {
+        if (active) {
+            popupRadioBands.x = focusBtn.x + focusBtn.width / 2 - (canvasRadioBands.triangleOffsetX + canvasRadioBands.triangleEdge)
+            popupRadioBands.y = focusBtn.y - popupRadioBands.height
+            popupRadioBands.parent = focusBtn
+            popupRadioBands.open()
+        } else {
+            popupRadioBands.close()
+        }
+    }
 
-            ColumnLayout {
-                    anchors.fill: parent
-                    CheckBox { text: qsTr("FM") }
-                    CheckBox { text: qsTr("AM") }
-            }
-   }
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            scxmlBolero.submitEvent("Inp.App.Radio.Btn." + name)
+        }
+    }
 }

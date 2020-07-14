@@ -24,6 +24,7 @@ Rectangle {
         }
 
         onPaint: {
+            context.save()
             context.lineWidth = 2
 
             var widthOffset = width/2
@@ -35,6 +36,7 @@ Rectangle {
                 /* bottom lines */
                 drawLines(context, i, height, i / widthOffset + widthOffset, height/2)
             }
+            context.restore()
         }
     }
 }

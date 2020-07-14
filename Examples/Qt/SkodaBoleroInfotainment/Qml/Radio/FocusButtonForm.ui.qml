@@ -1,5 +1,6 @@
 import QtQuick 2.8
 import ScxmlBolero 1.0
+import "../"
 
 Item {
 
@@ -17,24 +18,9 @@ Item {
     property real verticalFooterOffset: scxmlBolero.radioCaptionsOn ? 0 + 3 : -height + 3
     property string name: ""
 
-    Rectangle {
-
+    SelectButton {
+        id: selectButton
         anchors.fill: parent
-
-        Rectangle {
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.right: parent.right
-
-            color: "#bfffffff"
-
-            height: 3
-        }
-
-        color: "#19ffffff"
-        radius: 3
-        border.width: 1
-        border.color: "#bfffffff"
     }
 
     Image {
