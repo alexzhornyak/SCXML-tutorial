@@ -1,44 +1,54 @@
-import QtQuick 2.0
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 import "BoleroConstants.js" as Consts
 
-Rectangle {
+Button {
+    id: button
 
     property bool itemSelected: false
+    property bool topBorderVisible: true
 
-    Rectangle {
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
+    property string gradientColor: Consts.cl_ITEM_COLOR
 
-        border.color: (mouseArea.pressed || itemSelected) ? Consts.cl_SELECTION : Consts.cl_ITEM_BORDER
+    Layout.fillWidth: true
+    Layout.fillHeight: true
 
-        height: 3
-    }
+    background: Rectangle {
+        id: backRectangle
 
-    gradient: Gradient {
-        GradientStop {
-            position: 0
-            color: Consts.cl_ITEM_COLOR
+        Rectangle {
+            id: topBorderRect
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+
+            border.color: (button.pressed || itemSelected) ? Consts.cl_SELECTION : Consts.cl_ITEM_BORDER
+
+            height: 3
+            visible: topBorderVisible
         }
 
-        GradientStop {
-            position: 0.1
-            color: mouseArea.pressed ? Consts.cl_SELECTION_OPACITY : Consts.cl_ITEM_COLOR
+        gradient: Gradient {
+            GradientStop {
+                position: 0
+                color: Consts.cl_ITEM_COLOR
+            }
+
+            GradientStop {
+                position: 0.05
+                color: button.pressed ? Consts.cl_SELECTION_OPACITY : gradientColor
+            }
+
+            GradientStop {
+                position: 1
+                color: Consts.cl_ITEM_COLOR
+            }
         }
 
-        GradientStop {
-            position: 1
-            color: Consts.cl_ITEM_COLOR
-        }
+        radius: 3
+        border.width: (button.pressed || itemSelected) ? 3 : 1
+        border.color: (button.pressed || itemSelected) ? Consts.cl_SELECTION : Consts.cl_ITEM_BORDER
     }
 
-    radius: 3
-    border.width: (mouseArea.pressed || itemSelected) ? 2 : 1
-    border.color: (mouseArea.pressed || itemSelected) ? Consts.cl_SELECTION : Consts.cl_ITEM_BORDER
-
-    MouseArea {
-        id: mouseArea
-
-        anchors.fill: parent
-    }
 }

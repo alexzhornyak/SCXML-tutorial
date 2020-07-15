@@ -1,7 +1,8 @@
-import QtQuick 2.8
-import QtQuick.Controls 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 
-Row {
+RowLayout {
     id: rowButtons
 
     clip: true
@@ -18,9 +19,7 @@ Row {
             name: modelData.name
             text: qsTr(modelData.name)
             imageSource: index!=0 ? modelData.img : imageSource
-            imageVisible: index!=0
-            width: rowButtons.width / repeaterButtons.model.length - (paneRadio.i_ROW_SPACING - (paneRadio.i_ROW_SPACING/repeaterButtons.model.length) )
-            height: rowButtons.height
+            imageVisible: index!=0            
         }
     }
 }

@@ -1,6 +1,6 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.2
-import QtQuick.Extras 1.4
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 import "../"
 import "../BoleroConstants.js" as Consts
 
@@ -11,12 +11,14 @@ Pane {
     opacity: 1
     padding: 8
     clip: true
-    anchors.fill: parent
 
     readonly property int i_ROW_SPACING: 3
 
     property alias viewStations: viewStations
     property alias radioMouseArea: radioMouseArea
+
+    property alias currentTimeText: textTime.text
+    property alias currentTemperatureText: textTemperature.text
 
     background: BoleroBackground {
         anchors.fill: parent
@@ -30,10 +32,10 @@ Pane {
         RadioBottomButtons {
             id: rowButtons
             height: parent.height / 6
+            spacing: 3
             visible: true
-            spacing: i_ROW_SPACING
-            anchors.right: parent.right
             anchors.left: parent.left
+            anchors.right: parent.right
             anchors.bottom: parent.bottom
         }
 
@@ -50,6 +52,7 @@ Pane {
             currentIndex: viewStations.currentIndex
 
             delegate: Rectangle {
+                id: delegateItemPageIndicator
                 y: parent.height / 2
                 implicitWidth: viewStations.width / 5
                 implicitHeight: parent.height / 10
@@ -59,6 +62,13 @@ Pane {
                               === index ? Consts.cl_SELECTION : Consts.cl_BACKGROUND_LIGHT
 
                 color: Consts.cl_BACKGROUND_LIGHT
+
+                MouseArea {
+                    anchors.fill: parent
+                    anchors.topMargin: -20
+                    anchors.bottomMargin: -20
+                    onClicked: viewStations.currentIndex = index
+                }
             }
         }
 
@@ -78,9 +88,9 @@ Pane {
                 id: stations
                 model: 3
 
-                delegate: Row {
+                delegate: RowLayout {
                     id: stationsRow
-                    spacing: paneRadio.i_ROW_SPACING
+                    spacing: 5
 
                     readonly property int groupIndex: index
 
@@ -88,19 +98,57 @@ Pane {
                         id: repeater
                         model: 5
 
-                        delegate: StationRectangle {
+                        delegate: RadioStation {
                             stationIndex: (stationsRow.groupIndex * 5) + index
-                            width: viewStations.width / repeater.model
-                                   - (paneRadio.i_ROW_SPACING
-                                      - (paneRadio.i_ROW_SPACING / repeater.model))
-                            height: width
-
-                            color: stationsRow.groupIndex
-                                   === 0 ? "yellow" : stationsRow.groupIndex === 1 ? "red" : "blue"
                         }
                     }
                 }
             }
         }
+
+        Item {
+            id: headerPanel
+            height: 36
+            anchors.right: parent.right
+            anchors.left: parent.left
+            anchors.top: parent.top
+
+            Text {
+                id: textTime
+                text: "00:00"
+                font.family: "Tahoma"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.pixelSize: 16
+                style: Text.Outline
+                color: Consts.cl_ITEM_TEXT
+            }
+
+            Text {
+                id: textTemperature
+                text: "15 °C"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                font.family: "Tahoma"
+                font.pixelSize: 16
+                style: Text.Outline
+                color: Consts.cl_ITEM_TEXT
+            }
+        }
+
+        RadioSelectAndInfoRow {
+            id: rowTopSelect
+            anchors.top: headerPanel.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: paneRadio.height / 6
+        }
     }
 }
+
+/*##^##
+Designer {
+    D{i:14;anchors_y:12}D{i:12;anchors_width:200;anchors_x:97;anchors_y:8}
+}
+##^##*/
+

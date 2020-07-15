@@ -1,6 +1,7 @@
 import QtQuick 2.8
 import ScxmlBolero 1.0
 import "../"
+import "../BoleroConstants.js" as Consts
 
 Item {
 
@@ -12,15 +13,19 @@ Item {
     property alias imageVisible: image.visible
     property alias text: footer.text
     property alias footer: footer
+    property alias selectButton: selectButton
 
     /* user */
-    property real verticalImageOffset: scxmlBolero.radioCaptionsOn ? -footer.height / 2 : 0
-    property real verticalFooterOffset: scxmlBolero.radioCaptionsOn ? 0 + 3 : -height + 3
+    readonly property bool areCaptionsEnabled: (scxmlBolero.radioMouseEnterOn
+                                                || scxmlBolero.radioModal)
+    property real verticalImageOffset: areCaptionsEnabled ? -footer.height / 2 : 0
+    property real verticalFooterOffset: areCaptionsEnabled ? 0 + 3 : -height + 3
     property string name: ""
 
     SelectButton {
         id: selectButton
         anchors.fill: parent
+        topBorderVisible: areCaptionsEnabled
     }
 
     Image {
@@ -33,7 +38,7 @@ Item {
 
     Text {
         id: bandText
-        color: "#ffffff"
+        color: Consts.cl_ITEM_TEXT
         anchors.centerIn: parent
         visible: !image.visible
         text: scxmlBolero.bandTypeFM ? "FM" : "AM" /* untranslatable */
@@ -47,7 +52,7 @@ Item {
 
     Text {
         id: footer
-        color: "#ffffff"
+        color: Consts.cl_ITEM_TEXT
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right

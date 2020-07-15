@@ -29,8 +29,9 @@
         <file>Qml/Images/ImgBtnSettings.png</file>
         <file>Qml/Images/RadioManual.png</file>
         <file>Qml/Images/RadioStations.png</file>
-        <file>Qml/Radio/StationRectangle.qml</file>
+        <file>Qml/Radio/RadioStation.qml</file>
         <file>Qml/SelectButton.qml</file>
         <file>Qml/BalloonCanvas.qml</file>
+        <file>Qml/Radio/RadioSelectAndInfoRow.qml</file>
     </qresource>
 </RCC>
