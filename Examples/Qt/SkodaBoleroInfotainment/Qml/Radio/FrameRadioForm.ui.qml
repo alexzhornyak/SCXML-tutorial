@@ -14,7 +14,7 @@ Pane {
 
     readonly property int i_ROW_SPACING: 3
 
-    property alias viewStations: viewStations
+    property alias swipeStations: swipeStations
     property alias radioMouseArea: radioMouseArea
 
     property alias currentTimeText: textTime.text
@@ -29,10 +29,9 @@ Pane {
         hoverEnabled: true
         anchors.fill: parent
 
-        RadioBottomButtons {
+        RadioBottomPanel {
             id: rowButtons
             height: parent.height / 6
-            spacing: 3
             visible: true
             anchors.left: parent.left
             anchors.right: parent.right
@@ -46,15 +45,14 @@ Pane {
             font.family: "Tahoma"
             padding: 0
             leftPadding: width / 6
-            anchors.right: parent.right
             anchors.left: parent.left
+            anchors.right: parent.right
             anchors.bottom: rowButtons.top
-            currentIndex: viewStations.currentIndex
+            currentIndex: swipeStations.currentIndex
 
             delegate: Rectangle {
-                id: delegateItemPageIndicator
                 y: parent.height / 2
-                implicitWidth: viewStations.width / 5
+                implicitWidth: swipeStations.width / 5
                 implicitHeight: parent.height / 10
 
                 border.width: 2
@@ -67,43 +65,18 @@ Pane {
                     anchors.fill: parent
                     anchors.topMargin: -20
                     anchors.bottomMargin: -20
-                    onClicked: viewStations.currentIndex = index
+                    onClicked: swipeStations.currentIndex = index
                 }
             }
         }
 
-        SwipeView {
-            id: viewStations
+        SwipeStations {
+            id: swipeStations
             clip: true
-            padding: 0
-            currentIndex: 0
             height: parent.height / 3
-            visible: true
-            anchors.right: parent.right
             anchors.left: parent.left
+            anchors.right: parent.right
             anchors.bottom: pageIndicator.top
-            hoverEnabled: true
-
-            Repeater {
-                id: stations
-                model: 3
-
-                delegate: RowLayout {
-                    id: stationsRow
-                    spacing: 5
-
-                    readonly property int groupIndex: index
-
-                    Repeater {
-                        id: repeater
-                        model: 5
-
-                        delegate: RadioStation {
-                            stationIndex: (stationsRow.groupIndex * 5) + index
-                        }
-                    }
-                }
-            }
         }
 
         Item {
@@ -136,7 +109,7 @@ Pane {
             }
         }
 
-        RadioSelectAndInfoRow {
+        RadioTop2Panel {
             id: rowTopSelect
             anchors.top: headerPanel.bottom
             anchors.left: parent.left
@@ -145,10 +118,3 @@ Pane {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:14;anchors_y:12}D{i:12;anchors_width:200;anchors_x:97;anchors_y:8}
-}
-##^##*/
-

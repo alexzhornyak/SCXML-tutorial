@@ -21,7 +21,7 @@
         <file>Qml/main.qml</file>
         <file>Qml/BoleroBackground.qml</file>
         <file>Qml/BoleroConstants.js</file>
-        <file>Qml/Radio/RadioBottomButtons.qml</file>
+        <file>Qml/Radio/RadioBottomPanel.qml</file>
         <file>Qml/Radio/FocusButton.qml</file>
         <file>Qml/Radio/FocusButtonForm.ui.qml</file>
         <file>Qml/Radio/FrameRadioForm.ui.qml</file>
@@ -32,6 +32,8 @@
         <file>Qml/Radio/RadioStation.qml</file>
         <file>Qml/SelectButton.qml</file>
         <file>Qml/BalloonCanvas.qml</file>
-        <file>Qml/Radio/RadioSelectAndInfoRow.qml</file>
+        <file>Qml/Radio/RadioTop2Panel.qml</file>
+        <file>Qml/Radio/SwipeStations.qml</file>
+        <file>Qml/SelectDirectionButton.qml</file>
     </qresource>
 </RCC>

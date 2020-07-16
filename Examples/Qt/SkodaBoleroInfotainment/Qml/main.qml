@@ -25,10 +25,6 @@ ApplicationWindow {
         id: scxmlBolero
         running: true
 
-        function isRadioFM() {
-            return scxmlBolero.settings.BandType === "FM"
-        }
-
         function getRadioFreq(index) {
             if (index!==-1) {
                 var bandType = scxmlBolero.settings.BandType
@@ -47,13 +43,23 @@ ApplicationWindow {
         function getCurrentRadioFreq() {
             var bandType = scxmlBolero.settings.BandType
             var currentBand = scxmlBolero.settings.Bands[bandType]
+            if (currentBand && currentBand.CurrentFreq !== undefined) {
+                return currentBand.CurrentFreq
+            }
+
+            return 0
+        }
+
+        function getSelectedRadioFreq() {
+            var bandType = scxmlBolero.settings.BandType
+            var currentBand = scxmlBolero.settings.Bands[bandType]
             if (currentBand) {
                 var index = currentBand.Selected
 
-                if (index!=undefined && index!=-1) {
-                    var currentFreq = currentBand.Stations[index]["Freq"]
-                    if (currentFreq) {
-                        return currentFreq
+                if (index !== undefined && index !== -1) {
+                    var selectedFreq = currentBand.Stations[index].Freq
+                    if (selectedFreq !== undefined) {
+                        return selectedFreq
                     }
                 }
             }
@@ -63,7 +69,7 @@ ApplicationWindow {
         }
 
         function getRadioPrecision() {
-            return isRadioFM() ? 1 : 0
+            return scxmlBolero.bandTypeFM ? 1 : 0
         }
 
         function getCaption(d_freq, s_freqFontSize, s_measureFontSize) {
@@ -73,7 +79,7 @@ ApplicationWindow {
                 out += d_freq.toFixed(scxmlBolero.getRadioPrecision()).toString() + " "
                 out += "</span>"
                 out += "<span style='font-size: " + s_measureFontSize + "px;'>"
-                out += scxmlBolero.isRadioFM() ? qsTr("MHz") : qsTr("kHz")
+                out += scxmlBolero.bandTypeFM ? qsTr("MHz") : qsTr("kHz")
                 out += "</span>"
 
                 return out
@@ -88,12 +94,12 @@ ApplicationWindow {
         id: mainWidget
         anchors.centerIn: parent
 
+        /* we do not use Loader, because frames are loading with visible delay */
         FrameRadio {
             id: radio
             parent: mainWidget.container
             visible: scxmlBolero.displayRadio
         }
-
 
     }
 

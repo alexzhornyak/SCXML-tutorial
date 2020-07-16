@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf8"?>
 <scxmlproject>
-	<scxmlunit path="bolero.scxml" scxmlname="ScxmlBolero" build_root="1"/>
+	<scxmlunit path="bolero.scxml" scxmlname="ScxmlBolero" build_root="1" virtual_dependencies="_virtualRadio.scxml">
+		<scxmlunit path="_virtualRadio.scxml" scxmlname="ScxmldisplayRadio" virtual="1"/>
+	</scxmlunit>
 </scxmlproject>

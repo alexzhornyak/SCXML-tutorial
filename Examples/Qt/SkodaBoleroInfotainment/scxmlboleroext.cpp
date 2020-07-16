@@ -26,6 +26,10 @@ ScxmlBoleroExt::ScxmlBoleroExt(QObject *parent): ScxmlBolero(parent) {
     });
 }
 
+bool ScxmlBoleroExt::fileExists(const QString &sFile) {
+    return QFile::exists(sFile);
+}
+
 QVariant ScxmlBoleroExt::settings() {
     auto dm = this->dataModel();
     if (dm && dm->hasScxmlProperty(_literalSettings)) {

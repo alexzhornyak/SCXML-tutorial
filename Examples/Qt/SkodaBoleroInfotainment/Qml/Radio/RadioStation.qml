@@ -9,8 +9,21 @@ SelectButton {
 
     gradientColor: image.source ? "#80ffffff" : "white"
 
-    onPressedChanged: scxmlBolero.submitEvent("Inp.App.Radio.Station." + stationIndex,
-                                              pressed ? 1 : 0)
+    property real mousePressedX: 0
+    property real mousePressedY: 0
+
+    onPressed: {
+        scxmlBolero.submitEvent("Inp.App.Radio.StationPressed", stationIndex)
+    }
+
+    onReleased: {
+        scxmlBolero.submitEvent("Inp.App.Radio.StationReleased", stationIndex)
+    }
+
+    onCanceled: {
+        scxmlBolero.submitEvent("Inp.App.Radio.StationSwipe", stationIndex)
+    }
+
     itemSelected: scxmlBolero.settings.Bands[scxmlBolero.settings.BandType].Selected === stationIndex && stationIndex !== -1
 
     property int stationIndex: -1
@@ -27,25 +40,28 @@ SelectButton {
         style: Text.Outline
         font.family: "Tahoma"
         font.pixelSize: 16
-        // visible: frequency !== 0
+        visible: image.source == ""
     }
 
     Image {
         id: image
         anchors.centerIn: parent
-        width: station.width / 1.5
-        height: station.height / 1.5
+        anchors.verticalCenterOffset: -caption.height / 2
+        width: station.width / 1.2
+        height: station.height / 1.2
         antialiasing: true
 
         function getImageSource() {
-//            var imgSource = station.stationIndex
 
-//            if (imgSource!=undefined) {
-//                console.warn(Qt.resolvedUrl(imgSource))
-//                return imgSource
-//            }
+            if (station.stationIndex != -1 && scxmlBolero.settings.BandType !== undefined) {
+                var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
+                        + (station.stationIndex + 1).toString() + ".png"
+                if (scxmlBolero.fileExists(pathToImage)) {
+                    return "file:///" + pathToImage
+                }
+            }
 
-            return "file:///f:/RadioLogo/101_7_lux-fm.png"
+            return ""
         }
 
         source: getImageSource()

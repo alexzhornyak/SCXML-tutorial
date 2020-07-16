@@ -41,7 +41,7 @@ FrameRadioForm {
     function setSelectedSwipeIndex(active) {
         if (active) {
             var i_selected = scxmlBolero.settings.Bands[scxmlBolero.settings.BandType].Selected
-            viewStations.currentIndex =  Math.floor(i_selected/ 5)
+            swipeStations.currentIndex =  Math.floor(i_selected/ 5)
         }
     }
 

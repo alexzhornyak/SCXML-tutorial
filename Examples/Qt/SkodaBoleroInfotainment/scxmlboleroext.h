@@ -12,7 +12,9 @@ class ScxmlBoleroExt : public ScxmlBolero
 
 public:
 
-    Q_INVOKABLE ScxmlBoleroExt(QObject *parent = 0);    
+    Q_INVOKABLE ScxmlBoleroExt(QObject *parent = nullptr);
+
+    Q_INVOKABLE bool fileExists(const QString &sFile);
 
     QVariant settings();
 

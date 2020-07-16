@@ -15,17 +15,15 @@ Item {
     property alias footer: footer
     property alias selectButton: selectButton
 
-    /* user */
-    readonly property bool areCaptionsEnabled: (scxmlBolero.radioMouseEnterOn
-                                                || scxmlBolero.radioModal)
-    property real verticalImageOffset: areCaptionsEnabled ? -footer.height / 2 : 0
-    property real verticalFooterOffset: areCaptionsEnabled ? 0 + 3 : -height + 3
+    /* user */    
+    property real verticalImageOffset: scxmlBolero.radioAccentOn ? -footer.height / 2 : 0
+    property real verticalFooterOffset: scxmlBolero.radioAccentOn ? 0 + 3 : -height + 3
     property string name: ""
 
     SelectButton {
         id: selectButton
         anchors.fill: parent
-        topBorderVisible: areCaptionsEnabled
+        topBorderVisible: scxmlBolero.radioAccentOn
     }
 
     Image {
