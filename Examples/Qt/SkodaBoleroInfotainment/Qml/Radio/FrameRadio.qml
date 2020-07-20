@@ -18,7 +18,7 @@ FrameRadioForm {
 
         onClicked: {
             scxmlBolero.submitEvent("Inp.App.Radio.Clicked")
-        }
+        }        
     }
 
     /* we use this special overlay to prevent affect on whole application */

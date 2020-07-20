@@ -94,7 +94,7 @@ ApplicationWindow {
         id: mainWidget
         anchors.centerIn: parent
 
-        /* we do not use Loader, because frames are loading with visible delay */
+        /* we do not use Loader, because frames are loading too slowly */
         FrameRadio {
             id: radio
             parent: mainWidget.container

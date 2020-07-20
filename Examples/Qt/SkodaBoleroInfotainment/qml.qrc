@@ -35,5 +35,6 @@
         <file>Qml/Radio/RadioTop2Panel.qml</file>
         <file>Qml/Radio/SwipeStations.qml</file>
         <file>Qml/SelectDirectionButton.qml</file>
+        <file>Qml/Radio/RadioManualTuning.qml</file>
     </qresource>
 </RCC>

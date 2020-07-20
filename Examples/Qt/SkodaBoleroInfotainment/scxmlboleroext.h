@@ -8,6 +8,7 @@
 class ScxmlBoleroExt : public ScxmlBolero
 {
     Q_OBJECT
+    /* access only from State Machine DataModel */
     Q_PROPERTY(QVariant settings READ settings NOTIFY settingsChanged)
 
 public:

@@ -9,3 +9,4 @@ var cl_ITEM_COLOR = "#19ffffff"
 var d_BTN_SCALE = 0.95
 var d_BTN_OPACITY = 0.9
 
+var i_DISPLAY_PADDING = 8

@@ -25,9 +25,13 @@ Rectangle {
 
         onPaint: {
             context.save()
+
+            context.fillStyle = Consts.cl_BACKGROUND
+            context.fillRect(0,0,width,height)
+
             context.lineWidth = 2
 
-            var widthOffset = width/2
+            var widthOffset = width/2            
 
             for (var i = 0 - widthOffset; i < width + widthOffset;i+= width/60) {
                 /* top lines */
@@ -36,6 +40,7 @@ Rectangle {
                 /* bottom lines */
                 drawLines(context, i, height, i / widthOffset + widthOffset, height/2)
             }
+
             context.restore()
         }
     }
