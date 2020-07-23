@@ -50,6 +50,21 @@ ApplicationWindow {
             return 0
         }
 
+        function submitRadioFreq(d_freq) {
+            var dMin = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MIN : Consts.d_RADIO_AM_MIN
+            var dMax = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MAX : Consts.d_RADIO_AM_MAX
+
+            if (d_freq < dMin) {
+                d_freq = dMin
+            } else if (d_freq > dMax) {
+                d_freq = dMax
+            }
+
+            if (d_freq !== getCurrentRadioFreq()) {
+                scxmlBolero.submitEvent("Inp.App.Radio.SetFreq", d_freq)
+            }
+        }
+
         function getSelectedRadioFreq() {
             var bandType = scxmlBolero.settings.BandType
             var currentBand = scxmlBolero.settings.Bands[bandType]

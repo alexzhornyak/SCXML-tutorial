@@ -23,6 +23,8 @@ Rectangle {
             width: 80
             topBorderVisible: true
             isLeftDirection: true
+
+            onClicked: freqSlider.decrease()
         }
 
         SelectDirectionButton {
@@ -33,6 +35,8 @@ Rectangle {
             anchors.right: parent.right
             topBorderVisible: true
             isLeftDirection: false
+
+            onClicked: freqSlider.increase()
         }
 
         Slider {
@@ -43,19 +47,28 @@ Rectangle {
             anchors.top: parent.top
             anchors.bottom: parent.bottom
 
-            snapMode: Slider.SnapAlways
+            //snapMode: Slider.SnapAlways
 
             value: scxmlBolero.getCurrentRadioFreq()
 
-            onMoved: scxmlBolero.submitEvent("Inp.App.Radio.SetFreq", value)
+            onMoved: {
+                var dMin = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MIN : Consts.d_RADIO_AM_MIN
+                var dMax = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MAX : Consts.d_RADIO_AM_MAX
 
-            padding: 4
+                value = Consts.limitMinMax(value, dMin, dMax)
 
-            from: 86.0
-            to: 110.0
+                scxmlBolero.submitRadioFreq(value)
+            }
+
+            leftPadding: 6
+            rightPadding: 2
+
+            from: scxmlBolero.bandTypeFM ? 86.0 : 542
+            to: scxmlBolero.bandTypeFM ? 110.0 : 1022
             stepSize: 0.1
 
             background: Canvas {
+                id: radioScaleCanvas
                 onPaint: {
                     var ctx = getContext("2d")
                     ctx.reset()
@@ -63,13 +76,14 @@ Rectangle {
                     ctx.font = "16px tahoma"
                     ctx.textAlign = "center"
                     ctx.textBaseline = "top"
-                    var ratio = (freqSlider.availableWidth - freqSlider.leftPadding) / 55
 
-                    var curFreq = 84
+                    var ratio = freqSlider.availableWidth / 56
+
+                    var curFreq = scxmlBolero.bandTypeFM ? 84 : 540
                     for (var i=0;i<56;i++) {
                         ctx.fillStyle = (i % 4 === 0 && i>4 && i<52) ? Consts.cl_ITEM_BORDER : Consts.cl_BACKGROUND_LIGHT
 
-                        var x1 = freqSlider.leftPadding + i * ratio
+                        var x1 = freqSlider.leftPadding + i * ratio - 1
                         var y1 = freqSlider.topPadding + 10
                         var w = 3
                         var h = 20
@@ -81,7 +95,7 @@ Rectangle {
                                 h = 28
                                 y1 -= 4
 
-                                curFreq += 4
+                                curFreq += scxmlBolero.bandTypeFM ? 4 : 100
                                 textFreq = curFreq
 
                             } else if (i % 4 === 0) {
@@ -102,12 +116,23 @@ Rectangle {
                     ctx.fillStyle = Consts.cl_ITEM_BORDER
                     ctx.fillRect(0,2,freqSlider.width,2)
                 }
+
+                Component.onCompleted: {
+                    scxmlBolero.onBandTypeAMChanged.connect(updateCanvasOnBandChanged)
+                    scxmlBolero.onBandTypeFMChanged.connect(updateCanvasOnBandChanged)
+                }
+
+                function updateCanvasOnBandChanged(active) {
+                    if (active) {
+                        radioScaleCanvas.requestPaint()
+                    }
+                }
             }
 
             handle: Rectangle {
                 id: backRectangle
 
-                x: freqSlider.leftPadding + freqSlider.visualPosition * (freqSlider.availableWidth - width) + 3 /* tickWidth */
+                x: freqSlider.leftPadding + freqSlider.visualPosition * (freqSlider.availableWidth - width)// + 2 /* tickWidth */
                 y: freqSlider.topPadding + freqSlider.availableHeight / 2 - height / 2
                 implicitWidth: freqSlider.availableWidth / 56 * 8
                 implicitHeight: freqSlider.availableHeight
@@ -153,7 +178,7 @@ Rectangle {
                 }
 
                 radius: 3
-                border.width: 1
+                border.width: freqSlider.pressed ? 2:1
                 border.color: Consts.cl_ITEM_BORDER
             }
         }
