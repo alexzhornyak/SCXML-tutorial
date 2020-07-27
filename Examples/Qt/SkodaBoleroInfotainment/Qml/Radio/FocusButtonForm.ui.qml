@@ -1,7 +1,7 @@
 import QtQuick 2.8
 import ScxmlBolero 1.0
 import "../"
-import "../BoleroConstants.js" as Consts
+import "../AppConstants.js" as AppConsts
 
 Item {
 
@@ -36,7 +36,7 @@ Item {
 
     Text {
         id: bandText
-        color: Consts.cl_ITEM_TEXT
+        color: AppConsts.cl_ITEM_TEXT
         anchors.centerIn: parent
         visible: !image.visible
         text: scxmlBolero.bandTypeFM ? "FM" : "AM" /* untranslatable */
@@ -50,7 +50,7 @@ Item {
 
     Text {
         id: footer
-        color: Consts.cl_ITEM_TEXT
+        color: AppConsts.cl_ITEM_TEXT
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right

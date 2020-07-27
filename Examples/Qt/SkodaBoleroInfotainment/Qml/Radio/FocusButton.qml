@@ -3,7 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import ScxmlBolero 1.0
 import "../"
-import "../BoleroConstants.js" as Consts
+import "../AppConstants.js" as AppConsts
 
 FocusButtonForm {
     id: focusBtn
@@ -69,7 +69,7 @@ FocusButtonForm {
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                         style: Text.Outline
-                        color: Consts.cl_ITEM_TEXT
+                        color: AppConsts.cl_ITEM_TEXT
                         font.family: "Tahoma"
                         font.pixelSize: 20
                     }
@@ -81,8 +81,8 @@ FocusButtonForm {
         background: BalloonCanvas {
             id: canvasRadioBands
             anchors.fill: parent
-            strokeStyle: Consts.cl_ITEM_BORDER
-            fillStyle: Consts.cl_BACKGROUND
+            strokeStyle: AppConsts.cl_ITEM_BORDER
+            fillStyle: AppConsts.cl_BACKGROUND
         }
    }
 }

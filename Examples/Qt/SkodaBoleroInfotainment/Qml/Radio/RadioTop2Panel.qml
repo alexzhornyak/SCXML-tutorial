@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import "../"
-import "../BoleroConstants.js" as Consts
+import "../AppConstants.js" as AppConsts
 
 Item {
     id: rowTopSelect
@@ -11,7 +11,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         textFormat: Text.RichText
-        color: Consts.cl_ITEM_TEXT
+        color: AppConsts.cl_ITEM_TEXT
         style: Text.Outline
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -28,6 +28,8 @@ Item {
         width: 80
         topBorderVisible: scxmlBolero.radioAccentOn
         isLeftDirection: true
+
+        onPressedChanged: scxmlBolero.submitEvent("Inp.App.Radio.TopBtn.Left", pressed ? 1:0 )
     }
 
     SelectDirectionButton {
@@ -38,5 +40,7 @@ Item {
         anchors.right: parent.right
         topBorderVisible: scxmlBolero.radioAccentOn
         isLeftDirection: false
+
+        onPressedChanged: scxmlBolero.submitEvent("Inp.App.Radio.TopBtn.Right", pressed ? 1:0 )
     }
 }

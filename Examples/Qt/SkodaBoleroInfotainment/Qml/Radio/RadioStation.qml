@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import ScxmlBolero 1.0
 import "../"
-import "../BoleroConstants.js" as Consts
+import "../AppConstants.js" as AppConsts
 
 SelectButton {
     id: station
@@ -24,7 +24,8 @@ SelectButton {
         scxmlBolero.submitEvent("Inp.App.Radio.StationSwipe", stationIndex)
     }
 
-    itemSelected: scxmlBolero.settings.Bands[scxmlBolero.settings.BandType].Selected === stationIndex && stationIndex !== -1
+    itemSelected: (scxmlBolero.settings.Bands[scxmlBolero.settings.BandType].Selected === stationIndex && stationIndex !== -1) &&
+                  (scxmlBolero.getRadioFreq(station.stationIndex) === scxmlBolero.getCurrentRadioFreq())
 
     property int stationIndex: -1
     readonly property real frequency: scxmlBolero.getRadioFreq(station.stationIndex)    
@@ -36,7 +37,7 @@ SelectButton {
         anchors.top: parent.top
         anchors.topMargin: 8
         text: station.stationIndex + 1
-        color: Consts.cl_ITEM_TEXT
+        color: AppConsts.cl_ITEM_TEXT
         style: Text.Outline
         font.family: "Tahoma"
         font.pixelSize: 16
@@ -76,7 +77,7 @@ SelectButton {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 3
 
-        color: Consts.cl_ITEM_TEXT
+        color: AppConsts.cl_ITEM_TEXT
         style: Text.Outline
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter

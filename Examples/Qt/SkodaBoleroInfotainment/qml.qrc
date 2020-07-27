@@ -20,7 +20,7 @@
         <file>Qml/Images/BtnSelect.png</file>
         <file>Qml/main.qml</file>
         <file>Qml/BoleroBackground.qml</file>
-        <file>Qml/BoleroConstants.js</file>
+        <file>Qml/AppConstants.js</file>
         <file>Qml/Radio/RadioBottomPanel.qml</file>
         <file>Qml/Radio/FocusButton.qml</file>
         <file>Qml/Radio/FocusButtonForm.ui.qml</file>
@@ -36,5 +36,6 @@
         <file>Qml/Radio/SwipeStations.qml</file>
         <file>Qml/SelectDirectionButton.qml</file>
         <file>Qml/Radio/RadioManualTuning.qml</file>
+        <file>Model/CommonConstants.js</file>
     </qresource>
 </RCC>

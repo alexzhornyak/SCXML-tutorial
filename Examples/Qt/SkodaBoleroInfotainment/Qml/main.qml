@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.3
 import ScxmlBolero 1.0
 import QtScxml 5.8
 import "Radio"
-import "BoleroConstants.js" as Consts
+import "AppConstants.js" as AppConsts
 
 ApplicationWindow {
     id: applicationWindow
@@ -50,21 +50,6 @@ ApplicationWindow {
             return 0
         }
 
-        function submitRadioFreq(d_freq) {
-            var dMin = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MIN : Consts.d_RADIO_AM_MIN
-            var dMax = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MAX : Consts.d_RADIO_AM_MAX
-
-            if (d_freq < dMin) {
-                d_freq = dMin
-            } else if (d_freq > dMax) {
-                d_freq = dMax
-            }
-
-            if (d_freq !== getCurrentRadioFreq()) {
-                scxmlBolero.submitEvent("Inp.App.Radio.SetFreq", d_freq)
-            }
-        }
-
         function getSelectedRadioFreq() {
             var bandType = scxmlBolero.settings.BandType
             var currentBand = scxmlBolero.settings.Bands[bandType]
@@ -90,8 +75,11 @@ ApplicationWindow {
         function getCaption(d_freq, s_freqFontSize, s_measureFontSize) {
 
             if (d_freq !== 0) {
+
+                d_freq = d_freq.toFixed(scxmlBolero.getRadioPrecision())
+
                 var out = "<span style='font-size: " + s_freqFontSize + "px;'>"
-                out += d_freq.toFixed(scxmlBolero.getRadioPrecision()).toString() + " "
+                out += d_freq.toString() + " "
                 out += "</span>"
                 out += "<span style='font-size: " + s_measureFontSize + "px;'>"
                 out += scxmlBolero.bandTypeFM ? qsTr("MHz") : qsTr("kHz")
@@ -102,6 +90,19 @@ ApplicationWindow {
 
 
             return qsTr("Empty")
+        }
+
+        function isRadioStationSelected() {
+            return (scxmlBolero.settings.Bands[scxmlBolero.settings.BandType].CurrentFreq > 0) &&
+            (scxmlBolero.settings.Bands[scxmlBolero.settings.BandType].Selected === stationIndex && stationIndex !== -1)
+        }
+
+        EventConnection {
+            stateMachine: scxmlBolero
+            events: ["Out.Radio.ScanRequest"]
+            onOccurred: {
+                scxmlBolero.submitEvent("Inp.App.Radio.Scan.Continue")
+            }
         }
     }
 
@@ -147,8 +148,8 @@ ApplicationWindow {
         background: BalloonCanvas {
             id: canvasRadioBands
             anchors.fill: parent
-            strokeStyle: Consts.cl_ITEM_BORDER
-            fillStyle: Consts.cl_BACKGROUND
+            strokeStyle: AppConsts.cl_ITEM_BORDER
+            fillStyle: AppConsts.cl_BACKGROUND
         }
    }
 }

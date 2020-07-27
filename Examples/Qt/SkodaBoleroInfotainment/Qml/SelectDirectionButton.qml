@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import "BoleroConstants.js" as Consts
+import "AppConstants.js" as AppConsts
 
 SelectButton {
     id: btnSelectDirection
@@ -25,7 +25,7 @@ SelectButton {
             context.closePath();
 
             // the fill color
-            context.fillStyle = Consts.cl_ITEM_TEXT;
+            context.fillStyle = AppConsts.cl_ITEM_TEXT;
             context.fill();
         }
     }

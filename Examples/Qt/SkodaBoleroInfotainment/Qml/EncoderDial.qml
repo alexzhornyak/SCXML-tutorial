@@ -1,7 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import MaskedMouseArea 1.0
-import "BoleroConstants.js" as Consts
+import "AppConstants.js" as AppConsts
 
 Item {
     id: encoder
@@ -23,8 +23,8 @@ Item {
         anchors.fill: parent
         rotation: 0
 
-        scale: pressArea.pressed ? Consts.d_BTN_SCALE : 1.0
-        opacity: mouseRotateArea.containsMouse ? Consts.d_BTN_OPACITY : 1.0
+        scale: pressArea.pressed ? AppConsts.d_BTN_SCALE : 1.0
+        opacity: mouseRotateArea.containsMouse ? AppConsts.d_BTN_OPACITY : 1.0
 
         MouseArea {
             id: mouseRotateArea
@@ -36,7 +36,7 @@ Item {
             function submitRotation(wasRotation) {
                 var deltaRot = imgBackground.rotation - wasRotation
 
-                if (deltaRot != 0.0) {
+                if (deltaRot !== 0.0) {
 
                     if (deltaRot > 180.0) {
                         deltaRot -= 360.0
@@ -97,7 +97,7 @@ Item {
             source: "Images/Btn" + encoder.name + ".png"
             anchors.centerIn: imgBackground
 
-            opacity: pressArea.containsMouse ? Consts.d_BTN_OPACITY : 1.0
+            opacity: pressArea.containsMouse ? AppConsts.d_BTN_OPACITY : 1.0
 
             MaskedMouseArea {
                 id: pressArea

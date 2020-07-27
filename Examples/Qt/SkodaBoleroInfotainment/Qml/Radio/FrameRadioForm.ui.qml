@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import "../"
-import "../BoleroConstants.js" as Consts
+import "../AppConstants.js" as AppConsts
 
 Pane {
     id: paneRadio
@@ -32,7 +32,7 @@ Pane {
         Item {
             id: contentPaddingItem
             anchors.fill: parent
-            anchors.margins: Consts.i_DISPLAY_PADDING
+            anchors.margins: AppConsts.i_DISPLAY_PADDING
 
             RadioBottomPanel {
                 id: bottomPanel
@@ -62,9 +62,9 @@ Pane {
 
                     border.width: 2
                     border.color: pageIndicator.currentIndex
-                                  === index ? Consts.cl_SELECTION : Consts.cl_BACKGROUND_LIGHT
+                                  === index ? AppConsts.cl_SELECTION : AppConsts.cl_BACKGROUND_LIGHT
 
-                    color: Consts.cl_BACKGROUND_LIGHT
+                    color: AppConsts.cl_BACKGROUND_LIGHT
 
                     MouseArea {
                         anchors.fill: parent
@@ -99,7 +99,7 @@ Pane {
                     anchors.horizontalCenter: parent.horizontalCenter
                     font.pixelSize: 16
                     style: Text.Outline
-                    color: Consts.cl_ITEM_TEXT
+                    color: AppConsts.cl_ITEM_TEXT
                 }
 
                 Text {
@@ -110,7 +110,7 @@ Pane {
                     font.family: "Tahoma"
                     font.pixelSize: 16
                     style: Text.Outline
-                    color: Consts.cl_ITEM_TEXT
+                    color: AppConsts.cl_ITEM_TEXT
                 }
             }
 
@@ -126,7 +126,7 @@ Pane {
         RadioManualTuning {
             id: manualTuning
             visible: scxmlBolero.radioTuneFreqOn
-            height: parent.height / 6 + Consts.i_DISPLAY_PADDING
+            height: parent.height / 6 + AppConsts.i_DISPLAY_PADDING
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom

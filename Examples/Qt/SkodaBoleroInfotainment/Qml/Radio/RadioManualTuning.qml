@@ -1,19 +1,21 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.12
+import QtScxml 5.8
 import "../"
-import "../BoleroConstants.js" as Consts
+import "../AppConstants.js" as AppConsts
+import "../../Model/CommonConstants.js" as Consts
 
 Rectangle {
     id: manualTuning
 
-    color: Consts.cl_BACKGROUND
+    color: AppConsts.cl_BACKGROUND
 
     Item {
         id: content
         anchors.fill: parent
-        anchors.leftMargin: Consts.i_DISPLAY_PADDING
-        anchors.rightMargin: Consts.i_DISPLAY_PADDING
-        anchors.bottomMargin: Consts.i_DISPLAY_PADDING
+        anchors.leftMargin: AppConsts.i_DISPLAY_PADDING
+        anchors.rightMargin: AppConsts.i_DISPLAY_PADDING
+        anchors.bottomMargin: AppConsts.i_DISPLAY_PADDING
 
         SelectDirectionButton {
             id: btnSelectLeft
@@ -24,7 +26,7 @@ Rectangle {
             topBorderVisible: true
             isLeftDirection: true
 
-            onClicked: freqSlider.decrease()
+            onPressedChanged: scxmlBolero.submitEvent("Inp.App.Radio.Freq.Decrement", btnSelectLeft.pressed ? 1:0 )
         }
 
         SelectDirectionButton {
@@ -36,7 +38,7 @@ Rectangle {
             topBorderVisible: true
             isLeftDirection: false
 
-            onClicked: freqSlider.increase()
+            onPressedChanged: scxmlBolero.submitEvent("Inp.App.Radio.Freq.Increment", btnSelectRight.pressed ? 1:0 )
         }
 
         Slider {
@@ -47,25 +49,45 @@ Rectangle {
             anchors.top: parent.top
             anchors.bottom: parent.bottom
 
-            //snapMode: Slider.SnapAlways
+            /* Slider min-max differs from radio receiver min-max ! */
+            readonly property real d_FM_MIN: 88.0
+            readonly property real d_FM_MAX: 108.0
+            readonly property real d_FM_STEP: (d_FM_MAX - d_FM_MIN) / 10.0
+            readonly property real d_AM_MIN: 540.0
+            readonly property real d_AM_MAX: 1600.0
+            readonly property real d_AM_STEP: (d_AM_MAX - d_AM_MIN) / 10.0
 
-            value: scxmlBolero.getCurrentRadioFreq()
+            Component.onCompleted: {
+                /* 'value = scxmlBolero.getCurrentRadioFreq()' does not work for Slider */
+                scxmlBolero.settingsChanged.connect(function(){
+                    value = scxmlBolero.getCurrentRadioFreq()
+                })
+            }
 
             onMoved: {
-                var dMin = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MIN : Consts.d_RADIO_AM_MIN
-                var dMax = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MAX : Consts.d_RADIO_AM_MAX
+                var wasValue = value
 
+                var dMin = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MIN :
+                                                    Consts.d_RADIO_AM_MIN
+                var dMax = scxmlBolero.bandTypeFM ? Consts.d_RADIO_FM_MAX :
+                                                    Consts.d_RADIO_AM_MAX
+
+                /* set value here, otherwise Slider may set position out of limit */
                 value = Consts.limitMinMax(value, dMin, dMax)
 
-                scxmlBolero.submitRadioFreq(value)
+                scxmlBolero.submitEvent("Inp.App.Radio.SetFreq", value)
             }
 
             leftPadding: 6
             rightPadding: 2
 
-            from: scxmlBolero.bandTypeFM ? 86.0 : 542
-            to: scxmlBolero.bandTypeFM ? 110.0 : 1022
-            stepSize: 0.1
+            readonly property real bandStep: scxmlBolero.bandTypeFM ? d_FM_STEP : d_AM_STEP
+
+            from: scxmlBolero.bandTypeFM ? (d_FM_MIN - d_FM_STEP) :
+                                           (d_AM_MIN - d_AM_STEP)
+            to: scxmlBolero.bandTypeFM ? (d_FM_MAX + d_FM_STEP) :
+                                         (d_AM_MAX + d_AM_STEP)
+            stepSize: bandStep / 20.0
 
             background: Canvas {
                 id: radioScaleCanvas
@@ -79,9 +101,9 @@ Rectangle {
 
                     var ratio = freqSlider.availableWidth / 56
 
-                    var curFreq = scxmlBolero.bandTypeFM ? 84 : 540
+                    var curFreq = freqSlider.from - (scxmlBolero.bandTypeFM ? freqSlider.d_FM_STEP : freqSlider.d_AM_STEP)
                     for (var i=0;i<56;i++) {
-                        ctx.fillStyle = (i % 4 === 0 && i>4 && i<52) ? Consts.cl_ITEM_BORDER : Consts.cl_BACKGROUND_LIGHT
+                        ctx.fillStyle = (i % 4 === 0 && i>4 && i<52) ? AppConsts.cl_ITEM_BORDER : AppConsts.cl_BACKGROUND_LIGHT
 
                         var x1 = freqSlider.leftPadding + i * ratio - 1
                         var y1 = freqSlider.topPadding + 10
@@ -95,7 +117,7 @@ Rectangle {
                                 h = 28
                                 y1 -= 4
 
-                                curFreq += scxmlBolero.bandTypeFM ? 4 : 100
+                                curFreq += scxmlBolero.bandTypeFM ? freqSlider.d_FM_STEP*2 : freqSlider.d_AM_STEP*2
                                 textFreq = curFreq
 
                             } else if (i % 4 === 0) {
@@ -107,13 +129,18 @@ Rectangle {
                         ctx.fillRect(x1, y1, w, h)
 
                         if (textFreq !== undefined) {
-                            ctx.fillStyle = Consts.cl_ITEM_TEXT
-                            ctx.fillText(textFreq.toFixed(), x1, y1 + h)
+                            ctx.fillStyle = AppConsts.cl_ITEM_TEXT
+
+                            if (scxmlBolero.bandTypeAM) {
+                                textFreq = Math.trunc(textFreq / 10.0)*10.0
+                            }
+
+                            ctx.fillText(textFreq.toPrecision(), x1, y1 + h)
                         }
                     }
 
                     /* top horizontal line */
-                    ctx.fillStyle = Consts.cl_ITEM_BORDER
+                    ctx.fillStyle = AppConsts.cl_ITEM_BORDER
                     ctx.fillRect(0,2,freqSlider.width,2)
                 }
 
@@ -124,6 +151,7 @@ Rectangle {
 
                 function updateCanvasOnBandChanged(active) {
                     if (active) {
+                        freqSlider.value = scxmlBolero.getCurrentRadioFreq()
                         radioScaleCanvas.requestPaint()
                     }
                 }
@@ -132,7 +160,7 @@ Rectangle {
             handle: Rectangle {
                 id: backRectangle
 
-                x: freqSlider.leftPadding + freqSlider.visualPosition * (freqSlider.availableWidth - width)// + 2 /* tickWidth */
+                x: freqSlider.leftPadding + freqSlider.visualPosition * (freqSlider.availableWidth - width)
                 y: freqSlider.topPadding + freqSlider.availableHeight / 2 - height / 2
                 implicitWidth: freqSlider.availableWidth / 56 * 8
                 implicitHeight: freqSlider.availableHeight
@@ -145,7 +173,7 @@ Rectangle {
                     width: 2
                     height: parent.height - 4
 
-                    color: Consts.cl_SELECTION
+                    color: AppConsts.cl_SELECTION
                 }
 
                 Rectangle {
@@ -154,7 +182,7 @@ Rectangle {
                     anchors.left: parent.left
                     anchors.right: parent.right
 
-                    border.color: freqSlider.pressed ? Consts.cl_SELECTION : Consts.cl_ITEM_BORDER
+                    border.color: freqSlider.pressed ? AppConsts.cl_SELECTION : AppConsts.cl_ITEM_BORDER
 
                     height: 3
                     visible: freqSlider.hovered
@@ -163,23 +191,23 @@ Rectangle {
                 gradient: Gradient {
                     GradientStop {
                         position: 0
-                        color: Consts.cl_ITEM_COLOR
+                        color: AppConsts.cl_ITEM_COLOR
                     }
 
                     GradientStop {
                         position: 0.05
-                        color: freqSlider.pressed ? Consts.cl_SELECTION_OPACITY : Consts.cl_ITEM_COLOR
+                        color: freqSlider.pressed ? AppConsts.cl_SELECTION_OPACITY : AppConsts.cl_ITEM_COLOR
                     }
 
                     GradientStop {
                         position: 1
-                        color: Consts.cl_ITEM_COLOR
+                        color: AppConsts.cl_ITEM_COLOR
                     }
                 }
 
                 radius: 3
                 border.width: freqSlider.pressed ? 2:1
-                border.color: Consts.cl_ITEM_BORDER
+                border.color: AppConsts.cl_ITEM_BORDER
             }
         }
 

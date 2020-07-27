@@ -1,9 +1,9 @@
 import QtQuick 2.0
-import "BoleroConstants.js" as Consts
+import "AppConstants.js" as AppConsts
 
 Rectangle {
     id: background
-    color: Consts.cl_BACKGROUND
+    color: AppConsts.cl_BACKGROUND
 
     Canvas {
         id: canvas
@@ -13,8 +13,8 @@ Rectangle {
 
         function drawLines(ctx, x0,y0,x1,y1) {
             var gradient = ctx.createLinearGradient(x0,y0,x1,y1)
-            gradient.addColorStop(0, Consts.cl_BACKGROUND_LIGHT)
-            gradient.addColorStop(0.4, Consts.cl_BACKGROUND)
+            gradient.addColorStop(0, AppConsts.cl_BACKGROUND_LIGHT)
+            gradient.addColorStop(0.4, AppConsts.cl_BACKGROUND)
             ctx.strokeStyle = gradient
 
             ctx.beginPath()
@@ -26,7 +26,7 @@ Rectangle {
         onPaint: {
             context.save()
 
-            context.fillStyle = Consts.cl_BACKGROUND
+            context.fillStyle = AppConsts.cl_BACKGROUND
             context.fillRect(0,0,width,height)
 
             context.lineWidth = 2
