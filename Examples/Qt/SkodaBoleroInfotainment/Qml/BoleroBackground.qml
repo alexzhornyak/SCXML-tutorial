@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import "AppConstants.js" as AppConsts
 
+/* this element is heavy for render, so if display fixed it is better to use 'BoleroBackroundRender.qml' */
 Rectangle {
     id: background
     color: AppConsts.cl_BACKGROUND
@@ -31,7 +32,7 @@ Rectangle {
 
             context.lineWidth = 2
 
-            var widthOffset = width/2            
+            var widthOffset = width/2
 
             for (var i = 0 - widthOffset; i < width + widthOffset;i+= width/60) {
                 /* top lines */
@@ -45,4 +46,3 @@ Rectangle {
         }
     }
 }
-

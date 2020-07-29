@@ -37,5 +37,16 @@
         <file>Qml/SelectDirectionButton.qml</file>
         <file>Qml/Radio/RadioManualTuning.qml</file>
         <file>Model/CommonConstants.js</file>
+        <file>Qml/Radio/FrameRadioSettings.qml</file>
+        <file>Qml/SelectBackButton.qml</file>
+        <file>Qml/Images/ImgArrowBack.png</file>
+        <file>Qml/SetupButton.qml</file>
+        <file>Qml/Images/ImgCheckMark.png</file>
+        <file>Qml/Images/ImgCheckRect.png</file>
+        <file>Qml/Images/ImgBoleroBackground.png</file>
+        <file>Qml/BoleroBackgroundRender.qml</file>
+        <file>Qml/Images/ImgArrowDropDown.png</file>
+        <file>Qml/FrameSettings.qml</file>
+        <file>Qml/Radio/FrameRadioAdvanced.qml</file>
     </qresource>
 </RCC>

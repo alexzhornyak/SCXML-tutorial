@@ -4,12 +4,10 @@ import QtQuick.Layouts 1.12
 import "../"
 import "../AppConstants.js" as AppConsts
 
-Pane {
+BoleroBackgroundRender {
     id: paneRadio
     width: 600
     height: 360
-    opacity: 1
-    padding: 0
     clip: true
 
     readonly property int i_ROW_SPACING: 3
@@ -19,10 +17,6 @@ Pane {
 
     property alias currentTimeText: textTime.text
     property alias currentTemperatureText: textTemperature.text
-
-    background: BoleroBackground {
-        anchors.fill: parent
-    }
 
     MouseArea {
         id: radioMouseArea

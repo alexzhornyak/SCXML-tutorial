@@ -5,9 +5,9 @@ Item {
     id: itemMainWidget
     width: 1397
     height: 743
-    visible: true    
+    visible: true
 
-    property alias container: display
+    property alias container: display.data
 
     Rectangle {
         id: display

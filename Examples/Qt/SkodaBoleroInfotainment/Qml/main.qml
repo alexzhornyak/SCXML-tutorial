@@ -110,13 +110,24 @@ ApplicationWindow {
         id: mainWidget
         anchors.centerIn: parent
 
-        /* we do not use Loader, because frames are loading too slowly */
-        FrameRadio {
-            id: radio
-            parent: mainWidget.container
-            visible: scxmlBolero.displayRadio
-        }
+        container: [
+            /* we do not use Loader for FrameRadio to display quickly */
+            FrameRadio {
+                id: radio
+                anchors.fill: parent
+                visible: scxmlBolero.displayRadio
 
+                Loader {
+                    anchors.fill: parent
+                    source: scxmlBolero.radioDisplaySettings ? "Radio/FrameRadioSettings.qml" : ""
+                }
+
+                Loader {
+                    anchors.fill: parent
+                    source: scxmlBolero.radioAdvancedSetup ? "Radio/FrameRadioAdvanced.qml" : ""
+                }
+            }
+        ]
     }
 
     Popup {

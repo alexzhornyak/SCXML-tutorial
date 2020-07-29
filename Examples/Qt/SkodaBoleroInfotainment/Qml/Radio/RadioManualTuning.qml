@@ -26,7 +26,7 @@ Rectangle {
             topBorderVisible: true
             isLeftDirection: true
 
-            onPressedChanged: scxmlBolero.submitEvent("Inp.App.Radio.Freq.Decrement", btnSelectLeft.pressed ? 1:0 )
+            onPressedChanged: scxmlBolero.submitEvent("Inp.App.Radio.BtnTune.Left", btnSelectLeft.pressed ? 1:0 )
         }
 
         SelectDirectionButton {
@@ -38,7 +38,7 @@ Rectangle {
             topBorderVisible: true
             isLeftDirection: false
 
-            onPressedChanged: scxmlBolero.submitEvent("Inp.App.Radio.Freq.Increment", btnSelectRight.pressed ? 1:0 )
+            onPressedChanged: scxmlBolero.submitEvent("Inp.App.Radio.BtnTune.Right", btnSelectRight.pressed ? 1:0 )
         }
 
         Slider {
