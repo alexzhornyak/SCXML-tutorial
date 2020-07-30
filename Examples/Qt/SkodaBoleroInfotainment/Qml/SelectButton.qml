@@ -37,7 +37,7 @@ Button {
 
             GradientStop {
                 position: 0.05
-                color: button.pressed ? AppConsts.cl_SELECTION_OPACITY : gradientColor
+                color: (button.pressed || itemSelected) ? AppConsts.cl_SELECTION_OPACITY : gradientColor
             }
 
             GradientStop {

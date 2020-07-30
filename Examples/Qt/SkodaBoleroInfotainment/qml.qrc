@@ -48,5 +48,7 @@
         <file>Qml/Images/ImgArrowDropDown.png</file>
         <file>Qml/FrameSettings.qml</file>
         <file>Qml/Radio/FrameRadioAdvanced.qml</file>
+        <file>Qml/BalloonPopup.qml</file>
+        <file>Qml/Radio/RadioPopupBandsLoader.qml</file>
     </qresource>
 </RCC>

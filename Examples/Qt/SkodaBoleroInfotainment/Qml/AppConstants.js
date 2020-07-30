@@ -11,6 +11,8 @@ var cl_ITEM_COLOR = "#19ffffff"
 var d_BTN_SCALE = 0.95
 var d_BTN_OPACITY = 0.9
 
+var d_MODAL_OPACITY = 0.75
+
 var i_DISPLAY_PADDING = 8
 
 var i_SETTINGS_BUTTON_OFFSET = 20

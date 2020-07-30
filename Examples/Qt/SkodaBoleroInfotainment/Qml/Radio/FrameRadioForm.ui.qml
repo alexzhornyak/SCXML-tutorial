@@ -14,6 +14,7 @@ BoleroBackgroundRender {
 
     property alias swipeStations: swipeStations
     property alias radioMouseArea: radioMouseArea
+    property alias radioModalOverlayMouseArea: radioModalOverlayMouseArea
 
     property alias currentTimeText: textTime.text
     property alias currentTemperatureText: textTemperature.text
@@ -25,17 +26,13 @@ BoleroBackgroundRender {
 
         Item {
             id: contentPaddingItem
-            anchors.fill: parent
-            anchors.margins: AppConsts.i_DISPLAY_PADDING
-
-            RadioBottomPanel {
-                id: bottomPanel
-                height: parent.height / 6
-                visible: true
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-            }
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: bottomPanel.top
+            anchors.leftMargin: AppConsts.i_DISPLAY_PADDING
+            anchors.topMargin: AppConsts.i_DISPLAY_PADDING
+            anchors.rightMargin: AppConsts.i_DISPLAY_PADDING
 
             PageIndicator {
                 id: pageIndicator
@@ -46,7 +43,7 @@ BoleroBackgroundRender {
                 leftPadding: width / 6
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.bottom: bottomPanel.top
+                anchors.bottom: parent.bottom
                 currentIndex: swipeStations.currentIndex
 
                 delegate: Rectangle {
@@ -72,7 +69,7 @@ BoleroBackgroundRender {
             SwipeStations {
                 id: swipeStations
                 clip: true
-                height: parent.height / 3
+                height: paneRadio.height / 3 - AppConsts.i_DISPLAY_PADDING
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.bottom: pageIndicator.top
@@ -117,10 +114,37 @@ BoleroBackgroundRender {
             }
         }
 
+        /* we use this special overlay to prevent affect on whole application */
+        Rectangle {
+            id: radioModalOverlay
+            color: AppConsts.cl_BACKGROUND
+            opacity: AppConsts.d_MODAL_OPACITY
+            anchors.fill: parent
+
+            visible: scxmlBolero.radioModal
+
+            MouseArea {
+                id: radioModalOverlayMouseArea
+                anchors.fill: parent
+            }
+        }
+
+        RadioBottomPanel {
+            id: bottomPanel
+            height: paneRadio.height / 6 - AppConsts.i_DISPLAY_PADDING
+            visible: true
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: AppConsts.i_DISPLAY_PADDING
+            anchors.leftMargin: AppConsts.i_DISPLAY_PADDING
+            anchors.rightMargin: AppConsts.i_DISPLAY_PADDING
+        }
+
         RadioManualTuning {
             id: manualTuning
             visible: scxmlBolero.radioTuneFreqOn
-            height: parent.height / 6 + AppConsts.i_DISPLAY_PADDING
+            height: paneRadio.height / 6 + AppConsts.i_DISPLAY_PADDING
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom

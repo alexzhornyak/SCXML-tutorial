@@ -5,39 +5,41 @@ import "AppConstants.js" as AppConsts
 SelectButton {
     id: btnSetup
 
-    property string eventName: ""
+    text: qsTr(modelData.text)
+    enabled: modelData.enabled === undefined ? true : modelData.enabled
+    visible: modelData.visible === undefined ? true : modelData.visible
+
+    property bool textKeyCentered: modelData.textKeyCentered === undefined ? false : modelData.textKeyCentered
 
     /* With CheckBox */
-    property bool showCheckBox: false
+    property bool showCheckBox: modelData.isChecked !== undefined
     // we do not use native 'checked',
     // because it mustn't set on button clicked,
     // only through State Machine
-    property bool isChecked: false;
+    property bool isChecked: modelData.isChecked === undefined ? false : modelData.isChecked
 
     /* With ValueText */
-    property bool showValueText: false
-    property string valueText: ""
-    property real valueTextMargin: 0
+    property bool showValueText: modelData.valueText !== undefined
+    property string valueText: modelData.valueText === undefined ? "" : qsTr(modelData.valueText)
+    property real valueTextMargin: modelData.valueTextMargin === undefined ? 0 : modelData.valueTextMargin
 
     Layout.fillHeight: true
     Layout.fillWidth: true
     Layout.preferredHeight: 50
+    Layout.columnSpan: modelData.colSpan === undefined ? 1 : modelData.colSpan
 
     onEnabledChanged: opacity = enabled ? 1.0 : 0.5
 
-    onClicked: {
-        if (eventName != "") {
-            scxmlBolero.submitEvent("Inp.App.BtnSetup." + eventName)
-        }
-    }
+    onClicked: scxmlBolero.submitBtnSetupEvent(modelData.eventName, modelData.eventData)
 
     contentItem: Item {
         anchors.fill: btnSetup
 
         Text {
             id: textKey
-            anchors.left: parent.left
+            anchors.left: textKeyCentered ? undefined : parent.left
             anchors.leftMargin: 20
+            anchors.horizontalCenter: textKeyCentered ? parent.horizontalCenter : undefined
             anchors.verticalCenter: parent.verticalCenter
             verticalAlignment: Text.AlignVCenter
             style: Text.Outline

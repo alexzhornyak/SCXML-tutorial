@@ -3,10 +3,10 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
 SwipeView {
-    id: _swipeStations
+    id: swipeStations
     clip: true
     padding: 0
-    currentIndex: 0
+    currentIndex:  Math.floor(scxmlBolero.getSelectedStation()/ 5)
     hoverEnabled: true
 
     Repeater {

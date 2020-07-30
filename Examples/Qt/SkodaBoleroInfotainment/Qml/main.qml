@@ -25,6 +25,15 @@ ApplicationWindow {
         id: scxmlBolero
         running: true
 
+        function getSelectedStation() {
+            var bandType = scxmlBolero.settings.BandType
+            var currentBand = scxmlBolero.settings.Bands[bandType]
+            if (currentBand) {
+                return currentBand.Selected
+            }
+            return -1
+        }
+
         function getRadioFreq(index) {
             if (index!==-1) {
                 var bandType = scxmlBolero.settings.BandType
@@ -97,10 +106,21 @@ ApplicationWindow {
             (scxmlBolero.settings.Bands[scxmlBolero.settings.BandType].Selected === stationIndex && stationIndex !== -1)
         }
 
+        function submitBtnSetupEvent(eventName, eventData) {
+            var sEventName = "Inp.App.BtnSetup." + eventName
+            if (eventData !== undefined)
+               scxmlBolero.submitEvent(sEventName, eventData)
+            else
+               scxmlBolero.submitEvent(sEventName)
+        }
+
         EventConnection {
             stateMachine: scxmlBolero
             events: ["Out.Radio.ScanRequest"]
             onOccurred: {
+                // we get here new frequency and require check is there something on it
+
+                /* reserved until radio receiver is used */
                 scxmlBolero.submitEvent("Inp.App.Radio.Scan.Continue")
             }
         }
@@ -126,41 +146,12 @@ ApplicationWindow {
                     anchors.fill: parent
                     source: scxmlBolero.radioAdvancedSetup ? "Radio/FrameRadioAdvanced.qml" : ""
                 }
+
+                /* Popups */
+                RadioPopupBandsLoader {
+                    id: radioPopupBandsLoader
+                }
             }
         ]
     }
-
-    Popup {
-        id: popupRadioBands
-        x: 0
-        y: 0
-        width: 228
-        height: 126
-        focus: true
-        closePolicy: Popup.NoAutoClose
-        modal: true
-
-        ColumnLayout {
-            anchors.fill: parent
-            SelectButton {
-                Text {
-                    anchors.fill: parent
-                    text: qsTr("FM")
-                }
-            }
-            SelectButton {
-                Text {
-                    anchors.fill: parent
-                    text: qsTr("AM")
-                }
-            }
-        }
-
-        background: BalloonCanvas {
-            id: canvasRadioBands
-            anchors.fill: parent
-            strokeStyle: AppConsts.cl_ITEM_BORDER
-            fillStyle: AppConsts.cl_BACKGROUND
-        }
-   }
 }

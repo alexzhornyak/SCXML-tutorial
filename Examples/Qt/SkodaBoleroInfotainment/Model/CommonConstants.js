@@ -14,3 +14,15 @@ function limitMinMax(d_val, d_min, d_max) {
 
     return d_val
 }
+
+function incrementMinMaxWrap(d_val, d_increment, d_min, d_max) {
+    d_val += d_increment
+
+    if (d_val>=d_max) {
+        d_val = d_min
+    } else if (d_val<d_min) {
+        d_val = d_max - 1
+    }
+
+    return d_val
+}

@@ -26,6 +26,8 @@ Item {
         scale: pressArea.pressed ? AppConsts.d_BTN_SCALE : 1.0
         opacity: mouseRotateArea.containsMouse ? AppConsts.d_BTN_OPACITY : 1.0
 
+        property real lastRotation: 0
+
         MouseArea {
             id: mouseRotateArea
             anchors.fill: parent
@@ -33,8 +35,8 @@ Item {
 
             property real wheelRatio: 3.0
 
-            function submitRotation(wasRotation) {
-                var deltaRot = imgBackground.rotation - wasRotation
+            function submitRotation(bForce) {
+                var deltaRot = imgBackground.rotation - imgBackground.lastRotation
 
                 if (deltaRot !== 0.0) {
 
@@ -44,18 +46,23 @@ Item {
                         deltaRot += 360.0
                     }
 
-                    scxmlBolero.submitEvent("Inp.Rotate." + encoder.name, deltaRot)
+                    /* reducing sends to StateMachine */
+                    var bRequireSend = Math.abs(imgBackground.rotation - imgBackground.lastRotation) > 30.0
+                    if (bForce || bRequireSend) {
+                        imgBackground.lastRotation = imgBackground.rotation
+                        scxmlBolero.submitEvent("Inp.Rotate." + encoder.name, deltaRot)
+                    }
                 }
             }
 
             onPositionChanged:  {
-                if (pressed) {
+                if (pressed && !pressArea.containsMouse) {
                     var point =  mapToItem (encoder, mouse.x, mouse.y);
                     var diffX = (point.x - encoder.centerX);
                     var diffY = -1 * (point.y - encoder.centerY);
                     var rad = Math.atan (diffY / diffX);
                     var deg = (rad * 180 / Math.PI);
-                    var wasRotation = imgBackground.rotation
+
                     if (diffX > 0 && diffY > 0) {
                         imgBackground.rotation = 90 - Math.abs (deg);
                     }
@@ -69,22 +76,23 @@ Item {
                         imgBackground.rotation = 270 - Math.abs (deg);
                     }
 
-                    submitRotation(wasRotation)
+                    submitRotation()
                 }
             }
 
             onWheel: {
-                var wasRotation = imgBackground.rotation
-                wasRotation -= (wheel.angleDelta.y / 120.0) * wheelRatio
-                if (wasRotation > 360.0) {
-                    wasRotation -= 360.0
-                } else if (wasRotation < 0) {
-                    wasRotation += 360.0
+                var dRotation = imgBackground.rotation
+
+                dRotation -= (wheel.angleDelta.y / 120.0) * wheelRatio
+                if (dRotation > 360.0) {
+                    dRotation -= 360.0
+                } else if (dRotation < 0) {
+                    dRotation += 360.0
                 }
 
-                imgBackground.rotation = wasRotation
+                imgBackground.rotation = dRotation
 
-                submitRotation(wasRotation)
+                submitRotation(true/* every wheel rotation */)
             }
 
         }
