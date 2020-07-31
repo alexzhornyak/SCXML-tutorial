@@ -4,7 +4,14 @@ var d_RADIO_FM_MAX = 108.0;
 var d_RADIO_FM_STEP = 0.1
 var d_RADIO_AM_MIN = 531.0;
 var d_RADIO_AM_MAX = 1602.0;
-var d_RADIO_AM_STEP = 5
+var d_RADIO_AM_STEP = 5;
+
+var t_RADIO_SETUP_DEPENDENCY = {
+    "RadioRDS": [ "RadioAF", "RadioAutoSaveLogos", "RadioText", "RadioTraffic" ]
+};
+
+var t_RADIO_ARROWS = [ "Preset list", "Station list" ]
+var t_RADIO_REGIONAL_RDS = [ "Fixed", "Automatic" ]
 
 function limitMinMax(d_val, d_min, d_max) {
     if (d_val < d_min)

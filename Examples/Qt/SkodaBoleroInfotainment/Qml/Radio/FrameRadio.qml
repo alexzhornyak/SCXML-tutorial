@@ -13,15 +13,4 @@ FrameRadioForm {
     radioMouseArea.onHoveredChanged: scxmlBolero.submitEvent("Inp.App.Radio.Hovered", radioMouseArea.containsMouse ? 1:0)
 
     radioModalOverlayMouseArea.onClicked: scxmlBolero.submitEvent("Inp.App.Radio.ModalOverlay.Clicked")
-
-//    function setSelectedSwipeIndex(active) {
-//        if (active) {
-//            var i_selected = scxmlBolero.settings.Bands[scxmlBolero.settings.BandType].Selected
-//            swipeStations.currentIndex =  Math.floor(i_selected/ 5)
-//        }
-//    }
-
-//    Component.onCompleted: {
-//        scxmlBolero.onRadioInputChanged.connect(setSelectedSwipeIndex)
-//    }
 }

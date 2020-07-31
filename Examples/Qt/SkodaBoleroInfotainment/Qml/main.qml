@@ -139,12 +139,12 @@ ApplicationWindow {
 
                 Loader {
                     anchors.fill: parent
-                    source: scxmlBolero.radioDisplaySettings ? "Radio/FrameRadioSettings.qml" : ""
+                    source: scxmlBolero.radioDisplaySetupMain ? "Radio/FrameRadioSettings.qml" : ""
                 }
 
                 Loader {
                     anchors.fill: parent
-                    source: scxmlBolero.radioAdvancedSetup ? "Radio/FrameRadioAdvanced.qml" : ""
+                    source: scxmlBolero.radioDisplayAdvancedSetup ? "Radio/FrameRadioAdvanced.qml" : ""
                 }
 
                 /* Popups */

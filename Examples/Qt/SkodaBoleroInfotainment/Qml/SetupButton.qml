@@ -5,6 +5,7 @@ import "AppConstants.js" as AppConsts
 SelectButton {
     id: btnSetup
 
+    highlightBackgroundWhenSelected: true
     text: qsTr(modelData.text)
     enabled: modelData.enabled === undefined ? true : modelData.enabled
     visible: modelData.visible === undefined ? true : modelData.visible
@@ -30,7 +31,7 @@ SelectButton {
 
     onEnabledChanged: opacity = enabled ? 1.0 : 0.5
 
-    onClicked: scxmlBolero.submitBtnSetupEvent(modelData.eventName, modelData.eventData)
+    onReleased: scxmlBolero.submitBtnSetupEvent(modelData.eventName, modelData.eventData)
 
     contentItem: Item {
         anchors.fill: btnSetup

@@ -5,15 +5,35 @@
 #include <QJsonObject>
 #include <QFile>
 #include <QDir>
+#include <QThread>
 
-ScxmlBoleroExt::ScxmlBoleroExt(QObject *parent): ScxmlBolero(parent) {
+/* ScxmlJS */
+
+void ScxmlJS::logD(const QString &sMessage) {
+    qDebug() << "USER> " << sMessage;
+}
+
+void ScxmlJS::logW(const QString &sMessage) {
+    qWarning() << "USER> " << " " << sMessage;
+}
+
+void ScxmlJS::logE(const QString &sMessage) {
+    qCritical() << "USER> " << " " << sMessage;
+}
+
+/* ScxmlBoleroExt */
+
+ScxmlBoleroExt::ScxmlBoleroExt(QObject *parent): ScxmlBolero(parent), _scxmlJS(new ScxmlJS(this)) {
+
+    QVariantMap initials;
 
     QVariant outSettings;
-    if (loadSettings(outSettings)) {
-        QVariantMap initials;
+    if (loadSettings(outSettings)) {        
         initials.insert(_literalSettings, outSettings);
-        setInitialValues(initials);
     }
+
+    initials.insert("_G", QVariant::fromValue(_scxmlJS));
+    setInitialValues(initials);
 
     connectToState("end", [this](bool active){
         if (active) {
@@ -70,4 +90,3 @@ bool ScxmlBoleroExt::loadSettings(QVariant &outSettings){
 
     return true;
 }
-

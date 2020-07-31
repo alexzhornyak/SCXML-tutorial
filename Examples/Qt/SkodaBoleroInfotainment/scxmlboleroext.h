@@ -5,6 +5,19 @@
 
 #include "bolero.h"
 
+class ScxmlJS: public QObject {
+    Q_OBJECT
+public:
+    Q_INVOKABLE ScxmlJS(QObject *parent = nullptr):QObject(parent) {
+    }
+    virtual ~ScxmlJS() {}
+
+    Q_INVOKABLE void logD(const QString &sMessage);
+    Q_INVOKABLE void logW(const QString &sMessage);
+    Q_INVOKABLE void logE(const QString &sMessage);
+};
+
+
 class ScxmlBoleroExt : public ScxmlBolero
 {
     Q_OBJECT
@@ -17,7 +30,7 @@ public:
 
     Q_INVOKABLE bool fileExists(const QString &sFile);
 
-    QVariant settings();
+    QVariant settings();    
 
 signals:
 
@@ -31,6 +44,8 @@ private:
     bool saveSettings();
 
     const QString _literalSettings = "t_SETTINGS";
+
+    ScxmlJS *_scxmlJS = nullptr;
 };
 
 #endif // SCXMLBOLEROEXT_H

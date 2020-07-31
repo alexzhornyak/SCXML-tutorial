@@ -4,45 +4,23 @@ import QtQuick.Layouts 1.12
 import QtScxml 5.8
 import "../"
 import "AppConstants.js" as AppConsts
-import "../Model/CommonConstants.js" as Consts
 
 BoleroBackgroundRender {
     id: frame
 
     property string caption: ""
-    property alias repeater: repeater
+    property alias repeater: repeaterSettings
 
     property real modalY0: 0
     property real modalY1: 0
     property real modalRightMargin: AppConsts.i_DISPLAY_PADDING + AppConsts.i_SETTINGS_BUTTON_OFFSET
     property alias showModal: modalLayout.visible
+    property alias showDialog: confirmDialog.visible
 
     readonly property real headerHeight: height/6 - AppConsts.i_DISPLAY_PADDING
     property alias viewLayout: viewLayout
 
-    property int selectedIndex: -1
-
-    EventConnection {
-        stateMachine: scxmlBolero
-        events: ["Inp.Rotate.Select"]
-        onOccurred: {
-            var dDelta = parseFloat(event.data)
-
-            frame.selectedIndex = Consts.incrementMinMaxWrap(frame.selectedIndex,
-                                                                dDelta>0 ? 1 : (dDelta<0 ? -1 : 0),
-                                                                0, repeater.count)
-        }
-    }
-
-    EventConnection {
-        stateMachine: scxmlBolero
-        events: ["Inp.Enc.Select"]
-        onOccurred: {
-//            if (frame.selectedIndex!==-1)
-//                scxmlBolero.submitBtnSetupEvent(model[repeater.selectedIndex].eventName, model[repeater.selectedIndex].eventData)
-        }
-    }
-
+    property QtObject selectedObject: null
 
     Item {
         id: layerItem
@@ -82,6 +60,8 @@ BoleroBackgroundRender {
         ScrollView {
             id: view
 
+            visible: !frame.showDialog
+
             anchors.top: header.bottom
             anchors.bottom: parent.bottom
             anchors.left: parent.left
@@ -92,6 +72,15 @@ BoleroBackgroundRender {
             ScrollBar.vertical.policy: ScrollBar.AlwaysOn
             ScrollBar.vertical.interactive: false
 
+            EncoderHighlighter {
+                id: highlighter
+                rotateEnabled: !frame.showModal && !frame.showDialog
+                selectEnabled: !frame.showDialog
+                count: repeaterSettings.count
+                eventName: selectedIndex!==-1 ? repeaterSettings.model[selectedIndex].eventName : ""
+                eventData: selectedIndex!==-1 ? repeaterSettings.model[selectedIndex].eventData : ""
+            }
+
             GridLayout {
                 id: viewLayout
                 columnSpacing: AppConsts.i_SETTINGS_GRID_SPACING
@@ -100,16 +89,38 @@ BoleroBackgroundRender {
                 width: view.availableWidth - AppConsts.i_SETTINGS_BUTTON_OFFSET
 
                 Repeater {
-                    id: repeater
+                    id: repeaterSettings
 
                     delegate: SetupButton {
                         id: button
-                        itemSelected: index === frame.selectedIndex
+                        itemSelected: index === highlighter.selectedIndex || pressed
+                        onItemSelectedChanged: {
+                            if (itemSelected) {
 
-                        onPressed: {
-                            var coordinates = viewLayout.mapToItem(frame, 0, button.y)
-                            frame.modalY0 = coordinates.y
-                            frame.modalY1 = coordinates.y + button.height + viewLayout.columnSpacing
+                                frame.selectedObject = button
+
+                                var coordinates = button.mapToItem(frame, 0, 0)
+
+                                frame.modalY0 = coordinates.y
+                                frame.modalY1 = coordinates.y + button.height
+
+                                if (modelData.confirmationText) {
+                                    dialogTextElement.text = modelData.confirmationText
+                                }
+
+                                if (modelData.menu) {
+                                    balloonLoader.sourceComponent = balloonComponent
+                                }
+                            }
+                        }
+
+                        Component {
+                            id: balloonComponent
+                            BalloonPopup {
+                                id: balloon
+                                balloonDirection: BalloonCanvas.BalloonDirection.Left
+                                model: modelData.menu
+                            }
                         }
                     }
                 }
@@ -154,7 +165,7 @@ BoleroBackgroundRender {
 
             anchors.top:  parent.top
             anchors.left: rectLeft.right
-            anchors.right: rectRight.left
+            anchors.right: rectRight.left            
 
             height: frame.modalY0
 
@@ -170,11 +181,12 @@ BoleroBackgroundRender {
             color: AppConsts.cl_BACKGROUND
             opacity: AppConsts.d_MODAL_OPACITY
 
+            anchors.top: parent.top
             anchors.bottom:  parent.bottom
             anchors.left: rectLeft.right
             anchors.right: rectRight.left
 
-            height: frame.modalY1
+            anchors.topMargin: frame.modalY1
 
             MouseArea {
                 id: modalLayer2
@@ -182,8 +194,104 @@ BoleroBackgroundRender {
                 onClicked: scxmlBolero.submitEvent("Inp.App.Setup.ModalClick")
             }
         }
-    }
 
+        Loader {
+            id: balloonLoader
+
+            x: viewLayout.width / 2
+            y: modalY0
+            width: viewLayout.width / 2// + offsetX
+        }
+    }    
+
+    Rectangle {
+        id: confirmDialog
+
+        color: AppConsts.cl_BACKGROUND_OPACITY
+
+        visible: false
+        anchors.fill: parent
+
+        MouseArea {
+
+            anchors.fill: parent
+
+            Rectangle {
+                id: dialog
+
+                color: AppConsts.cl_BACKGROUND
+                border.color: AppConsts.cl_ITEM_BORDER
+                border.width: 3
+                radius: 3
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+
+                anchors.leftMargin: AppConsts.i_DISPLAY_PADDING
+                anchors.rightMargin: AppConsts.i_DISPLAY_PADDING
+                anchors.bottomMargin: AppConsts.i_DISPLAY_PADDING
+
+                height: dialogContentLayout.height
+
+                EncoderHighlighter {
+                    id: highlighterDialog
+                    rotateEnabled: frame.showDialog
+                    selectEnabled: frame.showDialog
+                    count: repeaterDialog.count
+                    eventName: selectedIndex!==-1 ? repeaterDialog.model[selectedIndex].eventName : ""
+                    eventData: selectedIndex!==-1 ? repeaterDialog.model[selectedIndex].eventData : ""
+                }
+
+                ColumnLayout {
+                    id: dialogContentLayout
+
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+
+                    anchors.margins: dialog.border.width * 2
+
+                    Text {
+                        id: dialogTextElement
+                        verticalAlignment: Text.AlignVCenter
+                        style: Text.Outline
+                        color: AppConsts.cl_ITEM_TEXT
+                        font.family: "Tahoma"
+                        font.pixelSize: 24
+                        lineHeight: 1.5
+
+                        Layout.leftMargin: 20
+                        Layout.topMargin: 10
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                    }
+
+
+                    RowLayout {
+
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+
+                        Repeater {
+                            id: repeaterDialog
+                            model: [
+                                { text: "Cancel", eventName: "Modal.Result", eventData: 0, textKeyCentered: true },
+                                { text: "Deactivate", eventName: "Modal.Result", eventData: 1, textKeyCentered: true }
+                            ]
+
+                            delegate: SetupButton {
+                                itemSelected: index === highlighterDialog.selectedIndex
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+    }
 }
 
 

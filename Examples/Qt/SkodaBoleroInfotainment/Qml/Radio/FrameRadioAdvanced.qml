@@ -10,28 +10,45 @@ FrameSettings {
 
     viewLayout.columns: 1
 
-    repeater.model: [
+    showModal: scxmlBolero.radioAdvancedSetupModal
+    showDialog: scxmlBolero.radioAdvancedSetupConfirmation
 
+    repeater.model: [
         {
             text: "Alternative frequency (AF)",
             eventName: "Radio.AF",
-            showCheckBox: true
+            eventData: { checkName: "RadioAF", isConfirmation: 1 },
+            isChecked: scxmlBolero.settings.RadioAF === true,
+            enabled: scxmlBolero.settings.RadioRDS === true,
+            confirmationText: "Deactivate alternative\n" +
+                              "frequency - are you sure?\n" +
+                              "Reception quality may\n" +
+                              "be reduced."
         },
         {
             text: "Radio Data System (RDS)",
             eventName: "Radio.RDS",
-            showCheckBox: true
+            eventData: { checkName: "RadioRDS", isConfirmation: 1 },
+            isChecked: scxmlBolero.settings.RadioRDS === true,
+            confirmationText: "Deactivate RDS - are you sure?\n" +
+                              "Without FM RDS, additional info\n" +
+                              "cannot be received and station\n" +
+                              "tracking will not be possible via\n" +
+                              "alternative frequencies."
         },
         {
             text: "RDS Regional",
             eventName: "Radio.RegionalRDS",
-            valueText: scxmlBolero.settings.RegionalRDS
+            eventData: { isModal: 1 },
+            valueText: scxmlBolero.settings.RegionalRDS,
+            enabled: scxmlBolero.settings.RadioRDS === true
         },
         {
             text: "Auto-save station logos",
             eventName: "Radio.AutoSaveLogos",
-            enabled: false,
-            isChecked: scxmlBolero.settings.RadioTraffic === true
+            eventData: { checkName: "RadioAutoSaveLogos" },
+            enabled: scxmlBolero.settings.RadioRDS === true,
+            isChecked: scxmlBolero.settings.RadioAutoSaveLogos === true
         }
     ]
 

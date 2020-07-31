@@ -50,5 +50,6 @@
         <file>Qml/Radio/FrameRadioAdvanced.qml</file>
         <file>Qml/BalloonPopup.qml</file>
         <file>Qml/Radio/RadioPopupBandsLoader.qml</file>
+        <file>Qml/EncoderHighlighter.qml</file>
     </qresource>
 </RCC>

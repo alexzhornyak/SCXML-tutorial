@@ -1,6 +1,7 @@
 .pragma library
 
 var cl_BACKGROUND = "#2e2a2b"
+var cl_BACKGROUND_OPACITY = "#802e2a2b"
 var cl_BACKGROUND_LIGHT = "#4e4a4b"
 var cl_SELECTION = "#3fb93b"
 var cl_SELECTION_OPACITY = "#603fb93b"

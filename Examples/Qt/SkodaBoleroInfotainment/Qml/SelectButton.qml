@@ -8,6 +8,7 @@ Button {
 
     property bool itemSelected: false
     property bool topBorderVisible: true
+    property bool highlightBackgroundWhenSelected: false
 
     property string gradientColor: AppConsts.cl_ITEM_COLOR
 
@@ -37,7 +38,7 @@ Button {
 
             GradientStop {
                 position: 0.05
-                color: (button.pressed || itemSelected) ? AppConsts.cl_SELECTION_OPACITY : gradientColor
+                color: (button.pressed || (itemSelected && button.highlightBackgroundWhenSelected)) ? AppConsts.cl_SELECTION_OPACITY : gradientColor
             }
 
             GradientStop {

@@ -7,6 +7,7 @@ import "../Model/CommonConstants.js" as Consts
 
 BalloonCanvas {
     id: balloon
+    implicitHeight: layout.height + layout.columnSpacing * 2
     strokeStyle: AppConsts.cl_ITEM_BORDER
     fillStyle: AppConsts.cl_BACKGROUND
 
@@ -36,7 +37,8 @@ BalloonCanvas {
     contentData: [
         GridLayout {
             id: layout
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
 
             Repeater {
                 id: repeater

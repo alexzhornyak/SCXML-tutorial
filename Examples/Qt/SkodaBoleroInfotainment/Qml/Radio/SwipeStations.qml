@@ -6,7 +6,7 @@ SwipeView {
     id: swipeStations
     clip: true
     padding: 0
-    currentIndex:  Math.floor(scxmlBolero.getSelectedStation()/ 5)
+    currentIndex:  0
     hoverEnabled: true
 
     Repeater {
@@ -28,5 +28,15 @@ SwipeView {
                 }
             }
         }
+    }
+
+    function setSelectedSwipeIndex(active) {
+        if (active) {
+            swipeStations.currentIndex = Math.floor(scxmlBolero.getSelectedStation() / 5)
+        }
+    }
+
+    Component.onCompleted: {
+        scxmlBolero.onRadioInputChanged.connect(setSelectedSwipeIndex)
     }
 }

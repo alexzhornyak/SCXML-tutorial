@@ -12,8 +12,8 @@ Canvas {
     property alias contentData: content.data
 
     property int radius: 4
-    property int rectx: x + offsetX + lineWidth
-    property int recty: y + lineWidth
+    property int rectx: offsetX + lineWidth
+    property int recty: lineWidth
     property int rectWidth: width - lineWidth * 2 - offsetX
     property int rectHeight: height - offsetY - lineWidth
 

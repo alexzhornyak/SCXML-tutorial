@@ -21,6 +21,7 @@ Loader {
     Component {
         id: popupComponent
         BalloonPopup {
+            id: balloon
             balloonDirection: BalloonCanvas.BalloonDirection.Bottom
 
             model: [
@@ -29,7 +30,7 @@ Loader {
             ]
 
             Component.onCompleted: {
-                popupLoader.offsetX = -1.0 * (triangleOffset + triangleEdge + lineWidth)
+                popupLoader.offsetX = -1.0 * (balloon.triangleOffset + balloon.triangleEdge + balloon.lineWidth)
             }
         }
     }
