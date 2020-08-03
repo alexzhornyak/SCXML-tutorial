@@ -24,10 +24,10 @@ SelectButton {
         scxmlBolero.submitEvent("Inp.App.Radio.StationSwipe", stationIndex)
     }
 
-    itemSelected: (scxmlBolero.getSelectedStation() === stationIndex && stationIndex !== -1) &&
+    itemSelected: (scxmlBolero.getSelectedStation() === stationIndex) &&
                   (scxmlBolero.getRadioFreq(station.stationIndex) === scxmlBolero.getCurrentRadioFreq())
 
-    property int stationIndex: -1
+    property int stationIndex: 0
     readonly property real frequency: scxmlBolero.getRadioFreq(station.stationIndex)    
 
     Text {

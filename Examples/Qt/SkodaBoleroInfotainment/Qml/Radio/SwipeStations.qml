@@ -10,7 +10,7 @@ SwipeView {
     hoverEnabled: true
 
     Repeater {
-        id: stations
+        id: repeaterPresets
         model: 3
 
         delegate: RowLayout {
@@ -20,7 +20,7 @@ SwipeView {
             readonly property int groupIndex: index
 
             Repeater {
-                id: repeater
+                id: repeaterStations
                 model: 5
 
                 delegate: RadioStation {
@@ -32,7 +32,10 @@ SwipeView {
 
     function setSelectedSwipeIndex(active) {
         if (active) {
-            swipeStations.currentIndex = Math.floor(scxmlBolero.getSelectedStation() / 5)
+            var iIndex = scxmlBolero.getSelectedStation()
+            if (iIndex !== -1) {
+                swipeStations.currentIndex = Math.floor(iIndex / 5)
+            }
         }
     }
 

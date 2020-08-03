@@ -38,8 +38,8 @@ ApplicationWindow {
             if (index!==-1) {
                 var bandType = scxmlBolero.settings.BandType
                 var currentBand = scxmlBolero.settings.Bands[bandType]
-                if (currentBand) {
-                    var currentFreq = currentBand.Stations[index]["Freq"]
+                if (currentBand && currentBand.Presets) {
+                    var currentFreq = currentBand.Presets[index]["Freq"]
                     if (currentFreq) {
                         return currentFreq
                     }
@@ -62,11 +62,11 @@ ApplicationWindow {
         function getSelectedRadioFreq() {
             var bandType = scxmlBolero.settings.BandType
             var currentBand = scxmlBolero.settings.Bands[bandType]
-            if (currentBand) {
+            if (currentBand && currentBand.Presets) {
                 var index = currentBand.Selected
 
                 if (index !== undefined && index !== -1) {
-                    var selectedFreq = currentBand.Stations[index].Freq
+                    var selectedFreq = currentBand.Presets[index].Freq
                     if (selectedFreq !== undefined) {
                         return selectedFreq
                     }
@@ -107,11 +107,13 @@ ApplicationWindow {
         }
 
         function submitBtnSetupEvent(eventName, eventData) {
-            var sEventName = "Inp.App.BtnSetup." + eventName
-            if (eventData !== undefined)
-               scxmlBolero.submitEvent(sEventName, eventData)
-            else
-               scxmlBolero.submitEvent(sEventName)
+            if (eventName!=="") {
+                var sEventName = "Inp.App.BtnSetup." + eventName
+                if (eventData !== undefined)
+                    scxmlBolero.submitEvent(sEventName, eventData)
+                else
+                    scxmlBolero.submitEvent(sEventName)
+            }
         }
 
         EventConnection {

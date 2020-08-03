@@ -23,10 +23,11 @@ Loader {
         BalloonPopup {
             id: balloon
             balloonDirection: BalloonCanvas.BalloonDirection.Bottom
+            eventName: "Radio.BandType"
 
             model: [
-                { text: "FM", eventName: "Radio.BandType", eventData: "FM", textKeyCentered: true },
-                { text: "AM", eventName: "Radio.BandType", eventData: "AM", textKeyCentered: true, row: 1 }
+                { text: "FM", eventData: "FM", textKeyCentered: true },
+                { text: "AM", eventData: "AM", textKeyCentered: true, row: 1 }
             ]
 
             Component.onCompleted: {

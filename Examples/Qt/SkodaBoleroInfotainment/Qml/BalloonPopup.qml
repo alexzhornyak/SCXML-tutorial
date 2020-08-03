@@ -12,26 +12,13 @@ BalloonCanvas {
     fillStyle: AppConsts.cl_BACKGROUND
 
     property alias model: repeater.model
+    property alias eventName: highlighter.eventName
+    readonly property int selectedIndex: highlighter.selectedIndex
 
-    EventConnection {
-        stateMachine: scxmlBolero
-        events: ["Inp.Rotate.Select"]
-        onOccurred: {
-            var dDelta = parseFloat(event.data)
-
-            repeater.selectedIndex = Consts.incrementMinMaxWrap(repeater.selectedIndex,
-                                                                dDelta>0 ? 1 : (dDelta<0 ? -1 : 0),
-                                                                0, model.length)
-        }
-    }
-
-    EventConnection {
-        stateMachine: scxmlBolero
-        events: ["Inp.Enc.Select"]
-        onOccurred: {
-            if (repeater.selectedIndex!=-1)
-                scxmlBolero.submitBtnSetupEvent(model[repeater.selectedIndex].eventName, model[repeater.selectedIndex].eventData)
-        }
+    EncoderHighlighter {
+        id: highlighter
+        count: repeater.model.length
+        eventData: selectedIndex!==-1 ? repeater.model[selectedIndex].eventData : undefined
     }
 
     contentData: [
@@ -43,11 +30,12 @@ BalloonCanvas {
             Repeater {
                 id: repeater
 
-                property int selectedIndex: -1
-
                 delegate: SetupButton {
 
-                    itemSelected: index === repeater.selectedIndex
+                    itemSelected: index === highlighter.selectedIndex
+
+                    eventName: highlighter.eventName
+                    eventData: modelData.eventData
 
                     Layout.column: modelData.col === undefined ? 0 : modelData.col
                     Layout.row: modelData.row === undefined ? 0 : modelData.row

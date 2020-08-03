@@ -2,7 +2,6 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtScxml 5.8
-import "../"
 import "AppConstants.js" as AppConsts
 
 BoleroBackgroundRender {
@@ -14,13 +13,11 @@ BoleroBackgroundRender {
     property real modalY0: 0
     property real modalY1: 0
     property real modalRightMargin: AppConsts.i_DISPLAY_PADDING + AppConsts.i_SETTINGS_BUTTON_OFFSET
-    property alias showModal: modalLayout.visible
-    property alias showDialog: confirmDialog.visible
+    property bool showModal: false
+    property bool showDialog: false
 
     readonly property real headerHeight: height/6 - AppConsts.i_DISPLAY_PADDING
     property alias viewLayout: viewLayout
-
-    property QtObject selectedObject: null
 
     Item {
         id: layerItem
@@ -74,11 +71,10 @@ BoleroBackgroundRender {
 
             EncoderHighlighter {
                 id: highlighter
-                rotateEnabled: !frame.showModal && !frame.showDialog
-                selectEnabled: !frame.showDialog
+                enabled: !frame.showModal && !frame.showDialog
                 count: repeaterSettings.count
                 eventName: selectedIndex!==-1 ? repeaterSettings.model[selectedIndex].eventName : ""
-                eventData: selectedIndex!==-1 ? repeaterSettings.model[selectedIndex].eventData : ""
+                eventData: selectedIndex!==-1 ? repeaterSettings.model[selectedIndex].eventData : undefined
             }
 
             GridLayout {
@@ -92,12 +88,15 @@ BoleroBackgroundRender {
                     id: repeaterSettings
 
                     delegate: SetupButton {
-                        id: button
+                        id: button                        
                         itemSelected: index === highlighter.selectedIndex || pressed
+                        onPressed: {
+                            highlighter.selectedIndex = -1
+                        }
                         onItemSelectedChanged: {
                             if (itemSelected) {
 
-                                frame.selectedObject = button
+                                /* prepare data for dynamically loaded components */
 
                                 var coordinates = button.mapToItem(frame, 0, 0)
 
@@ -105,23 +104,16 @@ BoleroBackgroundRender {
                                 frame.modalY1 = coordinates.y + button.height
 
                                 if (modelData.confirmationText) {
-                                    dialogTextElement.text = modelData.confirmationText
+                                    confirmDialogLoader.text = modelData.confirmationText
                                 }
 
                                 if (modelData.menu) {
-                                    balloonLoader.sourceComponent = balloonComponent
+                                    balloonLoader.model = modelData.menu
+                                    balloonLoader.eventName = modelData.eventName
                                 }
                             }
-                        }
+                        }                        
 
-                        Component {
-                            id: balloonComponent
-                            BalloonPopup {
-                                id: balloon
-                                balloonDirection: BalloonCanvas.BalloonDirection.Left
-                                model: modelData.menu
-                            }
-                        }
                     }
                 }
             }
@@ -132,7 +124,7 @@ BoleroBackgroundRender {
     Item {
         id: modalLayout
         anchors.fill: parent
-        visible: false
+        visible: frame.showModal
 
         Rectangle {
             id: rectLeft
@@ -193,104 +185,51 @@ BoleroBackgroundRender {
                 anchors.fill: parent
                 onClicked: scxmlBolero.submitEvent("Inp.App.Setup.ModalClick")
             }
-        }
-
-        Loader {
-            id: balloonLoader
-
-            x: viewLayout.width / 2
-            y: modalY0
-            width: viewLayout.width / 2// + offsetX
-        }
+        }        
     }    
 
-    Rectangle {
-        id: confirmDialog
+    Loader {
+        id: balloonLoader
 
-        color: AppConsts.cl_BACKGROUND_OPACITY
+        parent: frame
+        y: modalY0 - 6 /* top to accent rectangle: 4-spacing, 2-line width */
+        anchors.left: parent.left
+        anchors.leftMargin: viewLayout.width/2 - AppConsts.i_SETTINGS_GRID_SPACING/2
+        anchors.right: parent.right
+        anchors.rightMargin: AppConsts.i_DISPLAY_PADDING + AppConsts.i_SETTINGS_BUTTON_OFFSET - AppConsts.i_SETTINGS_GRID_SPACING/2
 
-        visible: false
-        anchors.fill: parent
+        property variant model: null
+        property string eventName: ""
 
-        MouseArea {
+        sourceComponent: frame.showModal ? balloonComponent : undefined
 
-            anchors.fill: parent
+        Component {
+            id: balloonComponent
 
-            Rectangle {
-                id: dialog
-
-                color: AppConsts.cl_BACKGROUND
-                border.color: AppConsts.cl_ITEM_BORDER
-                border.width: 3
-                radius: 3
-
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-
-                anchors.leftMargin: AppConsts.i_DISPLAY_PADDING
-                anchors.rightMargin: AppConsts.i_DISPLAY_PADDING
-                anchors.bottomMargin: AppConsts.i_DISPLAY_PADDING
-
-                height: dialogContentLayout.height
-
-                EncoderHighlighter {
-                    id: highlighterDialog
-                    rotateEnabled: frame.showDialog
-                    selectEnabled: frame.showDialog
-                    count: repeaterDialog.count
-                    eventName: selectedIndex!==-1 ? repeaterDialog.model[selectedIndex].eventName : ""
-                    eventData: selectedIndex!==-1 ? repeaterDialog.model[selectedIndex].eventData : ""
-                }
-
-                ColumnLayout {
-                    id: dialogContentLayout
-
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-
-                    anchors.margins: dialog.border.width * 2
-
-                    Text {
-                        id: dialogTextElement
-                        verticalAlignment: Text.AlignVCenter
-                        style: Text.Outline
-                        color: AppConsts.cl_ITEM_TEXT
-                        font.family: "Tahoma"
-                        font.pixelSize: 24
-                        lineHeight: 1.5
-
-                        Layout.leftMargin: 20
-                        Layout.topMargin: 10
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                    }
-
-
-                    RowLayout {
-
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-
-                        Repeater {
-                            id: repeaterDialog
-                            model: [
-                                { text: "Cancel", eventName: "Modal.Result", eventData: 0, textKeyCentered: true },
-                                { text: "Deactivate", eventName: "Modal.Result", eventData: 1, textKeyCentered: true }
-                            ]
-
-                            delegate: SetupButton {
-                                itemSelected: index === highlighterDialog.selectedIndex
-                            }
-                        }
-                    }
-                }
-
+            BalloonPopup {
+                balloonDirection: BalloonCanvas.BalloonDirection.Left
+                model: balloonLoader.model
+                eventName: balloonLoader.eventName
             }
         }
+    }
 
+    Loader {
+        id: confirmDialogLoader
 
+        anchors.fill: parent
+
+        sourceComponent: frame.showDialog ? confirmDialogComponent : undefined
+        property string text: ""
+
+        Component {
+            id: confirmDialogComponent
+            ConfirmDialog {
+                id: confirmDialog
+                anchors.fill: parent
+                dialogText: confirmDialogLoader.text
+            }
+        }
     }
 }
 

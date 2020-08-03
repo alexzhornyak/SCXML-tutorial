@@ -33,3 +33,14 @@ function incrementMinMaxWrap(d_val, d_increment, d_min, d_max) {
 
     return d_val
 }
+
+function incrementArrayWrapCondition(i_val, i_increment, i_max, func_condition) {
+	var i_was_val = i_val
+    for (var it=0; it<i_max; it++) {
+        i_val = incrementMinMaxWrap(i_val, i_increment, 0, i_max)
+
+		if (func_condition(i_val))
+			return i_val
+    }
+	return i_was_val
+}

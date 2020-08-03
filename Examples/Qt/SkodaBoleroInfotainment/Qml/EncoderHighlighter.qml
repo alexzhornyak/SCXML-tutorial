@@ -10,14 +10,11 @@ Item {
     required property string eventName
     required property variant eventData
 
-    required property bool rotateEnabled
-    required property bool selectEnabled
-
     EventConnection {
         stateMachine: scxmlBolero
         events: ["Inp.Rotate.Select"]
         onOccurred: {
-            if (rotateEnabled) {
+            if (encoder.enabled) {
                 var dDelta = parseFloat(event.data)
 
                 encoder.selectedIndex =
@@ -32,10 +29,10 @@ Item {
         stateMachine: scxmlBolero
         events: ["Inp.Enc.Select"]
         onOccurred: {
-            if (selectEnabled) {
-                if (event.data) {
-                    if (encoder.selectedIndex!==-1)
-                        scxmlBolero.submitBtnSetupEvent(encoder.eventName, encoder.eventData)
+            if (encoder.enabled) {
+                // encoder pressed
+                if (event.data===1) {
+                    scxmlBolero.submitBtnSetupEvent(encoder.eventName, encoder.eventData)
                 }
             }
         }

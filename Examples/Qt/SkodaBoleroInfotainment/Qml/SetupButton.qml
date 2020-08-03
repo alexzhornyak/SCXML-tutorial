@@ -10,10 +10,14 @@ SelectButton {
     enabled: modelData.enabled === undefined ? true : modelData.enabled
     visible: modelData.visible === undefined ? true : modelData.visible
 
+    property string eventName: modelData.eventName
+    property variant eventData: modelData.eventData
+
     property bool textKeyCentered: modelData.textKeyCentered === undefined ? false : modelData.textKeyCentered
 
     /* With CheckBox */
-    property bool showCheckBox: modelData.isChecked !== undefined
+    property bool showCheckBox: modelData.showCheckBox === true
+    property bool showRadioBtn: modelData.showRadioBtn === true
     // we do not use native 'checked',
     // because it mustn't set on button clicked,
     // only through State Machine
@@ -31,7 +35,7 @@ SelectButton {
 
     onEnabledChanged: opacity = enabled ? 1.0 : 0.5
 
-    onReleased: scxmlBolero.submitBtnSetupEvent(modelData.eventName, modelData.eventData)
+    onReleased: scxmlBolero.submitBtnSetupEvent(eventName, eventData)
 
     contentItem: Item {
         anchors.fill: btnSetup
@@ -51,6 +55,9 @@ SelectButton {
             text: btnSetup.text
         }
 
+        /* optional elements */
+
+        /* Value Text */
         Text {
             id: textValue
             anchors.left: parent.left
@@ -66,6 +73,7 @@ SelectButton {
             text: btnSetup.valueText
         }
 
+        /* CheckBox */
         Image {
             visible: btnSetup.showCheckBox || btnSetup.showValueText
 
@@ -76,6 +84,35 @@ SelectButton {
             fillMode: Image.Pad
             source: btnSetup.showCheckBox ? (btnSetup.isChecked ? "Images/ImgCheckMark.png" : "Images/ImgCheckRect.png") :
                                             "Images/ImgArrowDropDown.png"
+        }
+
+        /* RadioButton */
+        Rectangle {
+            visible: btnSetup.showRadioBtn
+            antialiasing: true
+            anchors.right: parent.right
+            anchors.rightMargin: 25
+            anchors.verticalCenter: parent.verticalCenter
+
+            width: 20
+            height: width
+
+            radius: width/2
+
+            color: "transparent"
+            border.color: AppConsts.cl_ITEM_TEXT
+            border.width: 3
+
+            Rectangle {
+                visible: btnSetup.isChecked
+                anchors.centerIn: parent
+
+                width: 10
+                height: width
+                radius: width/2
+
+                color: AppConsts.cl_ITEM_TEXT
+            }
         }
     }
 }
