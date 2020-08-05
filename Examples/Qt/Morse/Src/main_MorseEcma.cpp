@@ -2,6 +2,7 @@
 #include <QApplication>
 
 #ifdef _SCXML_EXTERN_MONITOR_
+    /* https://github.com/alexzhornyak/ScxmlEditor-Tutorial/blob/master/Include/scxmlexternmonitor.h */
     #include "scxmlexternmonitor.h"
 #endif
 
