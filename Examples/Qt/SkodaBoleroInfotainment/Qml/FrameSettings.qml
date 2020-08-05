@@ -14,7 +14,7 @@ BoleroBackgroundRender {
     property real modalY1: 0
     property real modalRightMargin: AppConsts.i_DISPLAY_PADDING + AppConsts.i_SETTINGS_BUTTON_OFFSET
     property bool showModal: false
-    property bool showDialog: false
+    property bool showContent: true
 
     readonly property real headerHeight: height/6 - AppConsts.i_DISPLAY_PADDING
     property alias viewLayout: viewLayout
@@ -39,7 +39,7 @@ BoleroBackgroundRender {
         ScrollView {
             id: view
 
-            visible: !frame.showDialog
+            visible: frame.showContent
 
             anchors.top: header.bottom
             anchors.bottom: parent.bottom
@@ -53,7 +53,7 @@ BoleroBackgroundRender {
 
             EncoderHighlighter {
                 id: highlighter
-                enabled: !frame.showModal && !frame.showDialog
+                enabled: frame.showContent && !frame.showModal
                 count: repeaterSettings.count
                 eventName: selectedIndex!==-1 ? repeaterSettings.model[selectedIndex].eventName : ""
                 eventData: selectedIndex!==-1 ? repeaterSettings.model[selectedIndex].eventData : undefined
@@ -84,10 +84,6 @@ BoleroBackgroundRender {
 
                                 frame.modalY0 = coordinates.y
                                 frame.modalY1 = coordinates.y + button.height
-
-                                if (modelData.confirmationText) {
-                                    confirmDialogLoader.text = modelData.confirmationText
-                                }
 
                                 if (modelData.menu) {
                                     balloonLoader.model = modelData.menu
@@ -192,24 +188,6 @@ BoleroBackgroundRender {
                 balloonDirection: BalloonCanvas.BalloonDirection.Left
                 model: balloonLoader.model
                 eventName: balloonLoader.eventName
-            }
-        }
-    }
-
-    Loader {
-        id: confirmDialogLoader
-
-        anchors.fill: parent
-
-        sourceComponent: frame.showDialog ? confirmDialogComponent : undefined
-        property string text: ""
-
-        Component {
-            id: confirmDialogComponent
-            ConfirmDialog {
-                id: confirmDialog
-                anchors.fill: parent
-                dialogText: confirmDialogLoader.text
             }
         }
     }

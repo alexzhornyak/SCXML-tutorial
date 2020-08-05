@@ -38,18 +38,14 @@ BoleroBackgroundRender {
                 id: pageIndicator
                 count: 3
                 height: paneRadio.height / 6
-                font.family: "Tahoma"
-                padding: 0
-                leftPadding: width / 6
-                anchors.left: parent.left
-                anchors.right: parent.right
+                anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
                 currentIndex: swipeStations.currentIndex
 
                 delegate: Rectangle {
                     y: parent.height / 2
-                    implicitWidth: swipeStations.width / 5
-                    implicitHeight: parent.height / 10
+                    implicitWidth: contentPaddingItem.width / 5
+                    implicitHeight: 6
 
                     border.width: 2
                     border.color: pageIndicator.currentIndex

@@ -9,6 +9,7 @@ Rectangle {
 
     property string eventName: "Modal.Result"
     property alias dialogText: dialogTextElement.text
+    property alias dialogModel: repeaterDialog.model
 
     MouseArea {
 
@@ -69,11 +70,7 @@ Rectangle {
                     Layout.fillHeight: true
 
                     Repeater {
-                        id: repeaterDialog
-                        model: [
-                            { text: "Cancel", eventData: 0, textKeyCentered: true },
-                            { text: "Deactivate", eventData: 1, textKeyCentered: true }
-                        ]
+                        id: repeaterDialog                        
 
                         delegate: SetupButton {
                             eventName: confirmDialog.eventName

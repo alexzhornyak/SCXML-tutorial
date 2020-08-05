@@ -4,6 +4,7 @@ import "AppConstants.js" as AppConsts
 Item {
     id: header
     property alias caption: textCaption.text
+    property alias anchorBackLeft: btnBack.left
 
     Text {
         id: textCaption

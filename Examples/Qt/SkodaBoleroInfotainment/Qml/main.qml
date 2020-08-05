@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import ScxmlBolero 1.0
 import QtScxml 5.8
 import "Radio"
+import "Media"
 import "AppConstants.js" as AppConsts
 
 ApplicationWindow {
@@ -149,9 +150,59 @@ ApplicationWindow {
                     source: scxmlBolero.radioDisplayAdvancedSetup ? "Radio/FrameRadioAdvanced.qml" : ""
                 }
 
+                Loader {
+                    anchors.fill: parent
+                    sourceComponent: scxmlBolero.radioDeletePresets ? radioDeletePresetsComponent : undefined
+
+                    Component {
+                        id: radioDeletePresetsComponent
+                        FrameRadioDeleteGroup {
+                            deleteGroupType: FrameRadioDeleteGroup.DeleteGroupType.Presets
+                            contentVisible: scxmlBolero.radioDeletePresetsDefault
+                        }
+                    }
+                }
+
+                Loader {
+                    anchors.fill: parent
+                    sourceComponent: scxmlBolero.radioDeletePresets ? radioDeletePresetsComponent : undefined
+
+                    Component {
+                        id: radioDeleteLogosComponent
+                        FrameRadioDeleteGroup {
+                            deleteGroupType: FrameRadioDeleteGroup.DeleteGroupType.Logos
+                        }
+                    }
+                }
+
                 /* Popups */
                 RadioPopupBandsLoader {
                     id: radioPopupBandsLoader
+                }
+            },
+            FrameMedia {
+                anchors.fill: parent
+                visible: scxmlBolero.displayMedia
+            },
+            Loader {
+                id: confirmDialogLoader
+
+                anchors.fill: parent
+
+                EventConnection {
+                    stateMachine: scxmlBolero
+                    events: ["Out.ConfirmDialog"]
+                    onOccurred: {
+                        if (event.data) {
+                            confirmDialogLoader.setSource("ConfirmDialog.qml",
+                                                          {
+                                                              dialogText: event.data.confirmationText,
+                                                              dialogModel: event.data.confirmationModel
+                                                          })
+                        } else {
+                            confirmDialogLoader.source = ""
+                        }
+                    }
                 }
             }
         ]

@@ -12,32 +12,40 @@ FrameSettings {
     viewLayout.columns: 1
 
     showModal: scxmlBolero.radioAdvancedSetupModal
-    showDialog: scxmlBolero.radioAdvancedSetupConfirmation
+    showContent: !scxmlBolero.radioAdvancedSetupConfirmation
 
     repeater.model: [
         {
             text: "Alternative frequency (AF)",
             eventName: "Radio.AF",
-            eventData: { checkName: "RadioAF", isConfirmation: 1 },
+            eventData: { checkName: "RadioAF", isConfirmation: 1,
+                confirmationText: "Deactivate alternative\n" +
+                                  "frequency - are you sure?\n" +
+                                  "Reception quality may\n" +
+                                  "be reduced.",
+                confirmationModel: [
+                    { text: "Cancel", textKeyCentered: true },
+                    { text: "Deactivate", eventData: "RadioAF", textKeyCentered: true }]
+            },
             showCheckBox: true,
             isChecked: scxmlBolero.settings.RadioAF === true,
-            enabled: scxmlBolero.settings.RadioRDS === true,
-            confirmationText: "Deactivate alternative\n" +
-                              "frequency - are you sure?\n" +
-                              "Reception quality may\n" +
-                              "be reduced."
+            enabled: scxmlBolero.settings.RadioRDS === true
         },
         {
             text: "Radio Data System (RDS)",
             eventName: "Radio.RDS",
-            eventData: { checkName: "RadioRDS", isConfirmation: 1 },
+            eventData: { checkName: "RadioRDS", isConfirmation: 1,
+                confirmationText: "Deactivate RDS - are you sure?\n" +
+                                  "Without FM RDS, additional info\n" +
+                                  "cannot be received and station\n" +
+                                  "tracking will not be possible via\n" +
+                                  "alternative frequencies.",
+                confirmationModel: [
+                    { text: "Cancel", textKeyCentered: true },
+                    { text: "Deactivate", eventData: "RadioRDS", textKeyCentered: true }]
+            },
             showCheckBox: true,
-            isChecked: scxmlBolero.settings.RadioRDS === true,
-            confirmationText: "Deactivate RDS - are you sure?\n" +
-                              "Without FM RDS, additional info\n" +
-                              "cannot be received and station\n" +
-                              "tracking will not be possible via\n" +
-                              "alternative frequencies."
+            isChecked: scxmlBolero.settings.RadioRDS === true
         },
         {
             text: "RDS Regional",

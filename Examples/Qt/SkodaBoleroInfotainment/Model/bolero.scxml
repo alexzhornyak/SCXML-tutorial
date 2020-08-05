@@ -337,6 +337,7 @@ if (t_SETTINGS.RadioArrows == t_RADIO_ARROWS[0]) {
 									<transition event="Inp.App.Setup.ModalClick   Inp.App.BtnSetup.Radio.*" target="radioSetupMain"/>
 								</state>
 								<state id="radioSetupMain">
+									<transition event="Inp.App.BtnSetup.Radio.DeletePresets" target="radioDeletePresets"/>
 									<transition event="Inp.App.Btn.Back" target="radioInput"/>
 									<transition event="Inp.App.BtnSetup.Radio.Advanced" target="radioDisplayAdvancedSetup"/>
 									<transition cond="_event.data &amp;&amp;
@@ -347,15 +348,55 @@ _event.data.checkName" event="Inp.App.BtnSetup.Radio.*">
 										<send event="Out.SettingsChanged"/>
 									</transition>
 								</state>
+								<state id="radioDeletePresets" initial="radioDeletePresetsDefault">
+									<transition event="Inp.App.Btn.Back" target="radioSetupMain"/>
+									<state id="radioDeleteAllPresetsConfirmation">
+										<onentry>
+											<send event="Out.ConfirmDialog">
+												<content expr="_event.data"/>
+											</send>
+										</onentry>
+										<onexit>
+											<send event="Out.ConfirmDialog"/>
+										</onexit>
+										<transition event="Inp.App.BtnSetup.Modal.Result" target="radioDeletePresetsDefault">
+											<if cond="_event.data==1">
+												<script>// delete all presets</script>
+												<send event="Out.SettingsChanged"/>
+											</if>
+										</transition>
+									</state>
+									<state id="radioDeletePresetsDefault">
+										<transition event="Inp.App.Btn.DeleteAll" target="radioDeleteAllPresetsConfirmation"/>
+										<transition event="Inp.App.Radio.Station" target="radioDeletePresetConfirmation"/>
+									</state>
+									<state id="radioDeletePresetConfirmation">
+										<onentry>
+											<send event="Out.ConfirmDialog">
+												<content expr="_event.data"/>
+											</send>
+										</onentry>
+										<onexit>
+											<send event="Out.ConfirmDialog"/>
+										</onexit>
+									</state>
+								</state>
 							</state>
 							<state id="radioDisplayAdvancedSetup" initial="radioAdvancedSetup">
 								<state id="radioAdvancedSetupConfirmation">
-									<datamodel>
-										<data expr="&quot;&quot;" id="s_RADIO_SETUPCONFIRMNAME"/>
-									</datamodel>
+									<onentry>
+										<send event="Out.ConfirmDialog">
+											<content expr="_event.data"/>
+										</send>
+									</onentry>
+									<onexit>
+										<send event="Out.ConfirmDialog"/>
+									</onexit>
 									<transition event="Inp.App.BtnSetup.Modal.Result" target="radioAdvancedSetup">
-										<if cond="_event.data == 1">
-											<script>t_SETTINGS[s_RADIO_SETUPCONFIRMNAME] = false;
+										<if cond="_event.data">
+											<script>var s_RADIO_SETUPCONFIRMNAME = _event.data
+
+t_SETTINGS[s_RADIO_SETUPCONFIRMNAME] = false;
 
 /* there may be properties with dependencies */
 if (t_RADIO_SETUP_DEPENDENCY[s_RADIO_SETUPCONFIRMNAME]) {
@@ -382,9 +423,7 @@ if (t_RADIO_SETUP_DEPENDENCY[s_RADIO_SETUPCONFIRMNAME]) {
 _event.data.isModal" event="Inp.App.BtnSetup.Radio.*" target="radioAdvancedSetupModal"/>
 									<transition cond="_event.data &amp;&amp;
 _event.data.isConfirmation &amp;&amp;
-t_SETTINGS[_event.data.checkName]" event="Inp.App.BtnSetup.Radio.*" target="radioAdvancedSetupConfirmation">
-										<script>s_RADIO_SETUPCONFIRMNAME = _event.data.checkName</script>
-									</transition>
+t_SETTINGS[_event.data.checkName]===true" event="Inp.App.BtnSetup.Radio.*" target="radioAdvancedSetupConfirmation"/>
 									<transition cond="_event.data &amp;&amp;
 _event.data.checkName" event="Inp.App.BtnSetup.Radio.*">
 										<script>var sPropName = _event.data.checkName
@@ -473,13 +512,13 @@ if (t_SETTINGS[sPropName]) {
 		</onentry>
 	</final>
 </scxml><!--VFBGMAdUVHJlZUV4AARMZWZ0AhEDVG9wAhEFV2lkdGgDDAYGSGVpZ2h0A3sDCURlc2lnbmluZw
-kMR3JpZC5WaXNpYmxlCRFIb3J6U2Nyb2xsQmFyLk1heAPZBxFIb3J6U2Nyb2xsQmFyLk1pbgL/F
+kMR3JpZC5WaXNpYmxlCRFIb3J6U2Nyb2xsQmFyLk1heANfBxFIb3J6U2Nyb2xsQmFyLk1pbgL/F
 khvcnpTY3JvbGxCYXIuUGFnZVNpemUD9gUVSG9yelNjcm9sbEJhci5WaXNpYmxlCQtQYWdlLkhl
 aWdodAOOCApQYWdlLldpZHRoAxAPD1BhZ2UuVXNlUHJpbnRlcggUU2VsZWN0ZWQuSGFuZGxlQ29
 sb3IHCGNsU2lsdmVyFVNlbGVjdGVkLlNjcm9sbFRvVmlldwgOU2hvd0hpbnRTaGFwZXMIEVZlcn
 RTY3JvbGxCYXIuTWF4A1wEEVZlcnRTY3JvbGxCYXIuTWluAvwWVmVydFNjcm9sbEJhci5QYWdlU
 2l6ZQNlAxVWZXJ0U2Nyb2xsQmFyLlZpc2libGUJGVZpZXczRE9wdGlvbnMuSG9yaXpPZmZzZXQD
-HP4YVmlldzNET3B0aW9ucy5WZXJ0T2Zmc2V0AgQNWm9vbS5QZW4uTW9kZQcIcG1Ob3RYb3IFQWx
+9v4YVmlldzNET3B0aW9ucy5WZXJ0T2Zmc2V0AgQNWm9vbS5QZW4uTW9kZQcIcG1Ob3RYb3IFQWx
 pZ24HCGFsQ2xpZW50CFRhYk9yZGVyAgMRQm9va21hcmtzLlN0cmluZ3MBBitCdG5Cb29rbWFyaz
 E9U2NyaXB0U2hhcGUyX180MEU1N0YyRDhFNTk3Q0FCABJBcHBsaWNhdGlvblZlcnNpb24GCjIuM
 S4wLjEzNzAAC1RTY3htbFNoYXBlHVNjeG1sU2hhcGUxX180MEU1N0U1ODBFMDU5MzlFCEF1dG9T

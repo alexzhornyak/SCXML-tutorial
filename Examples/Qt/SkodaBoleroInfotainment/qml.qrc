@@ -52,7 +52,11 @@
         <file>Qml/Radio/RadioPopupBandsLoader.qml</file>
         <file>Qml/EncoderHighlighter.qml</file>
         <file>Qml/ConfirmDialog.qml</file>
-        <file>Qml/Radio/RadioDeletePresets.qml</file>
+        <file>Qml/Radio/FrameRadioDeleteGroup.qml</file>
         <file>Qml/SetupHeader.qml</file>
+        <file>Qml/Radio/RadioStationBase.qml</file>
+        <file>Qml/Images/ImgDelete.png</file>
+        <file>Qml/DeleteAllButton.qml</file>
+        <file>Qml/Media/FrameMedia.qml</file>
     </qresource>
 </RCC>

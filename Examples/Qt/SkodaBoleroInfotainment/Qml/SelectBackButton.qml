@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 SelectButton {
 
-    width: 90
+    implicitWidth: 90
 
     onClicked: scxmlBolero.submitEvent("Inp.App.Btn.Back")
 
