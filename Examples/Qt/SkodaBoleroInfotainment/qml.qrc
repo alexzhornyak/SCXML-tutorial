@@ -52,5 +52,7 @@
         <file>Qml/Radio/RadioPopupBandsLoader.qml</file>
         <file>Qml/EncoderHighlighter.qml</file>
         <file>Qml/ConfirmDialog.qml</file>
+        <file>Qml/Radio/RadioDeletePresets.qml</file>
+        <file>Qml/SetupHeader.qml</file>
     </qresource>
 </RCC>

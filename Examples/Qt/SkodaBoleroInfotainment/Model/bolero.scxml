@@ -239,8 +239,17 @@ function isFrequencySet(index) {
     return t_SETTINGS.Bands[t_SETTINGS.BandType].Presets[index].Freq !== 0    
 }
 
-var iIndex = incrementArrayWrapCondition(t_SETTINGS.Bands[t_SETTINGS.BandType].Selected, iIncrement, t_SETTINGS.Bands[t_SETTINGS.BandType].Presets.length, isFrequencySet)
-setRadioPresetStation(iIndex)
+/* Presets */
+if (t_SETTINGS.RadioArrows == t_RADIO_ARROWS[0]) {
+    var iIndex = incrementArrayWrapCondition(t_SETTINGS.Bands[t_SETTINGS.BandType].Selected, iIncrement, t_SETTINGS.Bands[t_SETTINGS.BandType].Presets.length, isFrequencySet)
+    setRadioPresetStation(iIndex)
+} else {
+/* Stations */
+    if (t_SETTINGS.Bands[t_SETTINGS.BandType].Stations.length&gt;0) {
+        var iIndex = incrementMinMaxWrap(t_SETTINGS.Bands[t_SETTINGS.BandType].Selected, iIncrement, 0, t_SETTINGS.Bands[t_SETTINGS.BandType].Stations.length)
+        setRadioFrequencyByValue(t_SETTINGS.Bands[t_SETTINGS.BandType].Stations[iIndex].Freq)
+    }
+}
 								</script>
 								<send event="Out.SettingsChanged"/>
 							</transition>
