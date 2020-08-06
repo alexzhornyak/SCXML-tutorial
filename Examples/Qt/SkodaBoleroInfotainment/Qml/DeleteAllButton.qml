@@ -10,7 +10,7 @@ SelectButton {
                                            confirmationText: button.confirmationText,
                                            confirmationModel: [
                                                { text: "Cancel", textKeyCentered: true },
-                                               { text: "Deactivate", eventData: "RadioAF", textKeyCentered: true }]
+                                               { text: "Delete", eventData: 1, textKeyCentered: true }]
                                        })
 
     Image {

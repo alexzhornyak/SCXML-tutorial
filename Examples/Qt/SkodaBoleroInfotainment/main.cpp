@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 #endif
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("s_APP_PATH", app.applicationDirPath());
+    engine.rootContext()->setContextProperty("s_APP_PATH", QCoreApplication::applicationDirPath());
     engine.load(QUrl(QLatin1String("qrc:/Qml/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;

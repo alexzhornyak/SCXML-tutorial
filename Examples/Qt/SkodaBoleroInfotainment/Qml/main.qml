@@ -3,8 +3,8 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import ScxmlBolero 1.0
 import QtScxml 5.8
-import "Radio"
-import "Media"
+import "Radio" as Radio
+import "Media" as Media
 import "AppConstants.js" as AppConsts
 
 ApplicationWindow {
@@ -107,6 +107,44 @@ ApplicationWindow {
             (scxmlBolero.settings.Bands[scxmlBolero.settings.BandType].Selected === stationIndex && stationIndex !== -1)
         }
 
+        function areRadioPresetsEmpty() {
+            var bandType = scxmlBolero.settings.BandType
+            var currentBand = scxmlBolero.settings.Bands[bandType]
+            if (currentBand && currentBand.Presets) {
+                for (var it=0;it<currentBand.Presets.length;it++) {
+                    if (currentBand.Presets[it].Freq!==undefined && currentBand.Presets[it].Freq>0) {
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+
+        function getRadioLogosSource(index) {
+            if (index !== -1 && scxmlBolero.settings.BandType !== undefined) {
+                var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
+                        + (index + 1).toString() + ".png"
+                if (scxmlBolero.fileExists(pathToImage)) {
+                    return "file:///" + pathToImage
+                }
+            }
+            return ""
+        }
+
+        function areRadioLogosEmpty() {
+            var bandType = scxmlBolero.settings.BandType
+            var currentBand = scxmlBolero.settings.Bands[bandType]
+            if (currentBand && currentBand.Presets) {
+                for (var it=0;it<currentBand.Presets.length;it++) {
+                    var pathToImage = s_APP_PATH + "/Images/" + bandType + "/"
+                            + (it + 1).toString() + ".png"
+                    if (scxmlBolero.fileExists(pathToImage))
+                        return false
+                }
+            }
+            return true
+        }
+
         function submitBtnSetupEvent(eventName, eventData) {
             if (eventName!=="") {
                 var sEventName = "Inp.App.BtnSetup." + eventName
@@ -127,6 +165,32 @@ ApplicationWindow {
                 scxmlBolero.submitEvent("Inp.App.Radio.Scan.Continue")
             }
         }
+
+        EventConnection {
+            stateMachine: scxmlBolero
+            events: ["Out.Radio.DeleteLogo"]
+            onOccurred: {
+                if (event.data) {
+                    var iIndex = parseInt(event.data)
+                    var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
+                            + (iIndex + 1).toString() + ".png"
+                    scxmlBolero.fileDelete(pathToImage)
+                }
+            }
+        }
+
+        EventConnection {
+            stateMachine: scxmlBolero
+            events: ["Out.Radio.DeleteAllLogos"]
+            onOccurred: {
+                for (var iIndex=0;iIndex<15;iIndex++) {
+                    var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
+                            + (iIndex + 1).toString() + ".png"
+                    scxmlBolero.fileDelete(pathToImage)
+                }
+
+            }
+        }
     }
 
     MainWidget {
@@ -135,7 +199,7 @@ ApplicationWindow {
 
         container: [
             /* we do not use Loader for FrameRadio to display quickly */
-            FrameRadio {
+            Radio.FrameRadio {
                 id: radio
                 anchors.fill: parent
                 visible: scxmlBolero.displayRadio
@@ -156,7 +220,7 @@ ApplicationWindow {
 
                     Component {
                         id: radioDeletePresetsComponent
-                        FrameRadioDeleteGroup {
+                        Radio.FrameRadioDeleteGroup {
                             deleteGroupType: FrameRadioDeleteGroup.DeleteGroupType.Presets
                             contentVisible: scxmlBolero.radioDeletePresetsDefault
                         }
@@ -165,24 +229,29 @@ ApplicationWindow {
 
                 Loader {
                     anchors.fill: parent
-                    sourceComponent: scxmlBolero.radioDeletePresets ? radioDeletePresetsComponent : undefined
+                    sourceComponent: scxmlBolero.radioDeleteLogos ? radioDeleteLogosComponent : undefined
 
                     Component {
                         id: radioDeleteLogosComponent
-                        FrameRadioDeleteGroup {
+                        Radio.FrameRadioDeleteGroup {
                             deleteGroupType: FrameRadioDeleteGroup.DeleteGroupType.Logos
+                            contentVisible: scxmlBolero.radioDeleteLogosDefault
                         }
                     }
                 }
 
                 /* Popups */
-                RadioPopupBandsLoader {
+                Radio.RadioPopupBandsLoader {
                     id: radioPopupBandsLoader
                 }
             },
-            FrameMedia {
+            Media.FrameMedia {
                 anchors.fill: parent
                 visible: scxmlBolero.displayMedia
+            },
+            FrameMenu {
+                anchors.fill: parent
+                visible: scxmlBolero.displayMenu
             },
             Loader {
                 id: confirmDialogLoader

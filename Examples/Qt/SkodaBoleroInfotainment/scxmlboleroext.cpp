@@ -50,6 +50,10 @@ bool ScxmlBoleroExt::fileExists(const QString &sFile) {
     return QFile::exists(sFile);
 }
 
+bool ScxmlBoleroExt::fileDelete(const QString &sFile) {
+    return QFile::remove(sFile);
+}
+
 QVariant ScxmlBoleroExt::settings() {
     auto dm = this->dataModel();
     if (dm && dm->hasScxmlProperty(_literalSettings)) {

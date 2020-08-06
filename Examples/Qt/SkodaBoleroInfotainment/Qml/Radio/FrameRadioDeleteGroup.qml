@@ -42,10 +42,16 @@ BoleroBackgroundRender {
             anchors.right: parent.right
 
             DeleteAllButton {
+
+                enabled: isDeleteAllEnabled()
+                opacity: enabled ? 1.0 : 0.5
+
                 anchors.right: header.anchorBackLeft
                 anchors.rightMargin: 4
                 anchors.top: parent.top
-                anchors.bottom: parent.bottom
+                anchors.bottom: parent.bottom                
+
+                confirmationText: getDeleteAllConfirmationText()
 
                 function getDeleteAllConfirmationText() {
                     switch (frame.deleteGroupType) {
@@ -59,7 +65,15 @@ BoleroBackgroundRender {
                     return ""
                 }
 
-                confirmationText: getDeleteAllConfirmationText()
+                function isDeleteAllEnabled() {
+                    switch (frame.deleteGroupType) {
+                    case FrameRadioDeleteGroup.DeleteGroupType.Presets:
+                        return !scxmlBolero.areRadioPresetsEmpty()
+                    case FrameRadioDeleteGroup.DeleteGroupType.Logos:
+                        return !scxmlBolero.areRadioLogosEmpty()
+                    }
+                    return false
+                }
             }
         }
 
@@ -104,13 +118,36 @@ BoleroBackgroundRender {
 
                                 onPressed: {
                                     if (imgDelete.visible) {
-                                        scxmlBolero.submitEvent("Inp.App.Radio.Station", stationIndex)
+
+                                        switch (frame.deleteGroupType) {
+                                        case FrameRadioDeleteGroup.DeleteGroupType.Presets:
+                                            scxmlBolero.submitEvent("Inp.App.Radio.Station", {
+                                                                        confirmationText: "Do you really want to\n" +
+                                                                                          "delete the stored station?",
+                                                                        confirmationModel: [
+                                                                            { text: "Cancel", textKeyCentered: true },
+                                                                            { text: "Delete", eventData: stationIndex, textKeyCentered: true }]
+                                                                    })
+                                            break;
+                                        case FrameRadioDeleteGroup.DeleteGroupType.Logos:
+                                            scxmlBolero.submitEvent("Inp.App.Radio.Station", {
+                                                                        confirmationText: "Do you really want to\n" +
+                                                                                          "delete the stored logo?",
+                                                                        confirmationModel: [
+                                                                            { text: "Cancel", textKeyCentered: true },
+                                                                            { text: "Delete", eventData: stationIndex, textKeyCentered: true }]
+
+                                                                    })
+                                            break;
+                                        }
+
+
                                     }
                                 }
 
                                 Image {
                                     id: imgDelete
-                                    visible: scxmlBolero.getRadioFreq(station.stationIndex)!==0
+                                    visible: isDeleteVisible()
 
                                     anchors.top: parent.top
                                     anchors.right: parent.right
@@ -120,6 +157,18 @@ BoleroBackgroundRender {
                                     source: "../Images/ImgDelete.png"
 
                                     fillMode: Image.Pad
+
+                                    function isDeleteVisible() {
+                                        switch (frame.deleteGroupType) {
+                                        case FrameRadioDeleteGroup.DeleteGroupType.Presets:
+                                            var dFreq = scxmlBolero.getRadioFreq(station.stationIndex)
+                                            return dFreq!==0
+                                        case FrameRadioDeleteGroup.DeleteGroupType.Logos:
+                                            var sLogo = scxmlBolero.getRadioLogosSource(station.stationIndex)
+                                            return sLogo!==""
+                                        }
+                                        return false
+                                    }
                                 }
                             }
                         }
@@ -148,6 +197,7 @@ BoleroBackgroundRender {
 
                     MouseArea {
                         anchors.fill: parent
+                        /* in real device area is greater than indicator rect */
                         anchors.topMargin: -20
                         anchors.bottomMargin: -20
                         onClicked: swipeStations.currentIndex = index

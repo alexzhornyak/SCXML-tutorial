@@ -30,6 +30,8 @@ public:
 
     Q_INVOKABLE bool fileExists(const QString &sFile);
 
+    Q_INVOKABLE bool fileDelete(const QString &sFile);
+
     QVariant settings();    
 
 signals:

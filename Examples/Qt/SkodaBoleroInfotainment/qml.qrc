@@ -58,5 +58,7 @@
         <file>Qml/Images/ImgDelete.png</file>
         <file>Qml/DeleteAllButton.qml</file>
         <file>Qml/Media/FrameMedia.qml</file>
+        <file>Qml/FrameMenu.qml</file>
+        <file>Qml/Images/ImgMenuRadio.png</file>
     </qresource>
 </RCC>

@@ -37,20 +37,7 @@ SelectButton {
         height: station.height / 1.2
         antialiasing: true
 
-        function getImageSource() {
-
-            if (station.stationIndex != -1 && scxmlBolero.settings.BandType !== undefined) {
-                var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
-                        + (station.stationIndex + 1).toString() + ".png"
-                if (scxmlBolero.fileExists(pathToImage)) {
-                    return "file:///" + pathToImage
-                }
-            }
-
-            return ""
-        }
-
-        source: getImageSource()
+        source: scxmlBolero.getRadioLogosSource(station.stationIndex)
         fillMode: Image.PreserveAspectFit
     }
 
