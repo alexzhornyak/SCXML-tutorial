@@ -22,16 +22,22 @@ function limitMinMax(d_val, d_min, d_max) {
     return d_val
 }
 
-function incrementMinMaxWrap(d_val, d_increment, d_min, d_max) {
-    d_val += d_increment
+function incrementMinMaxWrap(i_val, i_increment, i_min, i_max) {
+    if (i_increment===0)
+        return i_val
 
-    if (d_val>=d_max) {
-        d_val = d_min
-    } else if (d_val<d_min) {
-        d_val = d_max - 1
+    for (var it=0;it<Math.abs(i_increment);it++) {
+        var iStep = i_increment/Math.abs(i_increment)
+        i_val += iStep
+
+        if (i_val>=i_max) {
+            i_val = i_min
+        } else if (i_val<i_min) {
+            i_val = i_max - 1
+        }
     }
 
-    return d_val
+    return i_val
 }
 
 function incrementArrayWrapCondition(i_val, i_increment, i_max, func_condition) {

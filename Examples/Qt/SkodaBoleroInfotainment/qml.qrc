@@ -60,5 +60,8 @@
         <file>Qml/Media/FrameMedia.qml</file>
         <file>Qml/FrameMenu.qml</file>
         <file>Qml/Images/ImgMenuRadio.png</file>
+        <file>Qml/Images/ImgMenuVehicle.png</file>
+        <file>Qml/Images/ImgMenuSetup.png</file>
+        <file>Qml/Images/ImgMenuMedia.png</file>
     </qresource>
 </RCC>
