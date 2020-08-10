@@ -5,6 +5,9 @@ import ScxmlBolero 1.0
 import QtScxml 5.8
 import "Radio" as Radio
 import "Media" as Media
+import "Sound" as Sound
+import "System" as System
+import "Vehicle" as Vehicle
 import "AppConstants.js" as AppConsts
 
 ApplicationWindow {
@@ -221,7 +224,7 @@ ApplicationWindow {
                     Component {
                         id: radioDeletePresetsComponent
                         Radio.FrameRadioDeleteGroup {
-                            deleteGroupType: FrameRadioDeleteGroup.DeleteGroupType.Presets
+                            deleteGroupType: Radio.FrameRadioDeleteGroup.DeleteGroupType.Presets
                             contentVisible: scxmlBolero.radioDeletePresetsDefault
                         }
                     }
@@ -234,7 +237,7 @@ ApplicationWindow {
                     Component {
                         id: radioDeleteLogosComponent
                         Radio.FrameRadioDeleteGroup {
-                            deleteGroupType: FrameRadioDeleteGroup.DeleteGroupType.Logos
+                            deleteGroupType: Radio.FrameRadioDeleteGroup.DeleteGroupType.Logos
                             contentVisible: scxmlBolero.radioDeleteLogosDefault
                         }
                     }
@@ -249,9 +252,47 @@ ApplicationWindow {
                 anchors.fill: parent
                 visible: scxmlBolero.displayMedia
             },
-            FrameMenu {
+            Loader {
                 anchors.fill: parent
-                visible: scxmlBolero.displayMenu
+                source: scxmlBolero.displayMenu ? "FrameMenu.qml" : ""
+            },
+            Loader {
+                anchors.fill: parent
+                source: scxmlBolero.displayVehicle ? "Vehicle/FrameVehicle.qml" : ""
+            },
+            Loader {
+                anchors.fill: parent
+
+                EventConnection {
+                    stateMachine: scxmlBolero
+                    events: ["Out.DisplaySound"]
+                    onOccurred: {
+                        if (event.data === 1) {
+                            confirmDialogLoader.setSource("Sound/FrameSound.qml",
+                                                          {
+                                                              headerBtnBackVisible: !scxmlBolero.displaySound
+                                                          })
+                        } else {
+                            confirmDialogLoader.source = ""
+                        }
+                    }
+                }
+
+                Loader {
+                    anchors.fill: parent
+                    source: scxmlBolero.displaySoundHandlerVolume ? "Sound/FrameVolumeSetup.qml" : ""
+                }
+            },            
+            Loader {
+                anchors.fill: parent
+                sourceComponent: scxmlBolero.displaySetup ? frameSystemComponent : undefined
+
+                Component {
+                    id: frameSystemComponent
+                    System.FrameSystem {
+                        headerBtnBackVisible: false
+                    }
+                }
             },
             Loader {
                 id: confirmDialogLoader

@@ -63,5 +63,9 @@
         <file>Qml/Images/ImgMenuVehicle.png</file>
         <file>Qml/Images/ImgMenuSetup.png</file>
         <file>Qml/Images/ImgMenuMedia.png</file>
+        <file>Qml/Sound/FrameSound.qml</file>
+        <file>Qml/System/FrameSystem.qml</file>
+        <file>Qml/Vehicle/FrameVehicle.qml</file>
+        <file>Qml/Sound/FrameVolumeSetup.qml</file>
     </qresource>
 </RCC>

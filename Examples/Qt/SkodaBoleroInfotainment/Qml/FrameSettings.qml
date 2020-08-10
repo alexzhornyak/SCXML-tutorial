@@ -15,9 +15,11 @@ BoleroBackgroundRender {
     property real modalRightMargin: AppConsts.i_DISPLAY_PADDING + AppConsts.i_SETTINGS_BUTTON_OFFSET
     property bool showModal: false
     property bool showContent: true
+    property bool encoderHighliterEnabled: false
 
     readonly property real headerHeight: height/6 - AppConsts.i_DISPLAY_PADDING
     property alias viewLayout: viewLayout
+    property alias headerBtnBackVisible: header.btnBackVisible
 
     Item {
         id: layerItem
@@ -36,10 +38,12 @@ BoleroBackgroundRender {
             caption: frame.caption
         }
 
-        ScrollView {
+        Flickable {
             id: view
 
             visible: frame.showContent
+
+            clip: true
 
             anchors.top: header.bottom
             anchors.bottom: parent.bottom
@@ -48,12 +52,60 @@ BoleroBackgroundRender {
 
             anchors.topMargin: AppConsts.i_SETTINGS_GRID_SPACING
 
-            ScrollBar.vertical.policy: ScrollBar.AlwaysOn
-            ScrollBar.vertical.interactive: false
+            contentHeight: viewLayout.height
+
+            interactive: viewLayout.height > view.height
+
+            boundsBehavior: Flickable.StopAtBounds
+
+            ScrollBar.vertical: ScrollBar {
+                policy: ScrollBar.AlwaysOn
+
+                contentItem: Rectangle {
+                    visible: view.interactive
+                    implicitWidth: 8
+                    radius: width / 2
+                    border.color: AppConsts.cl_SELECTION
+                    border.width: 2
+                    color: AppConsts.cl_BACKGROUND
+                }
+
+                background: Rectangle {
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.horizontalCenterOffset: 1
+
+                    width: 3
+                    radius: 2
+
+                    gradient: Gradient {
+                        GradientStop {
+                            position: 0
+                            color: AppConsts.cl_BACKGROUND_LIGHT
+                        }
+
+                        GradientStop {
+                            position: 0.4
+                            color: AppConsts.cl_ITEM_BORDER
+                        }
+
+                        GradientStop {
+                            position: 0.6
+                            color: AppConsts.cl_ITEM_BORDER
+                        }
+
+                        GradientStop {
+                            position: 1
+                            color: AppConsts.cl_BACKGROUND_LIGHT
+                        }
+                    }
+                }
+            }
 
             EncoderHighlighter {
                 id: highlighter
-                enabled: frame.showContent && !frame.showModal
+                enabled: frame.enabled && frame.visible && frame.encoderHighliterEnabled
                 count: repeaterSettings.count
                 eventName: selectedIndex!==-1 ? repeaterSettings.model[selectedIndex].eventName : ""
                 eventData: selectedIndex!==-1 ? repeaterSettings.model[selectedIndex].eventData : undefined
@@ -64,14 +116,15 @@ BoleroBackgroundRender {
                 columnSpacing: AppConsts.i_SETTINGS_GRID_SPACING
                 rowSpacing: AppConsts.i_SETTINGS_GRID_SPACING
 
-                width: view.availableWidth - AppConsts.i_SETTINGS_BUTTON_OFFSET
+                width: view.width - AppConsts.i_SETTINGS_BUTTON_OFFSET
 
                 Repeater {
                     id: repeaterSettings
 
                     delegate: SetupButton {
-                        id: button                        
+                        id: button
                         itemSelected: index === highlighter.selectedIndex || pressed
+
                         onPressed: {
                             highlighter.selectedIndex = -1
                         }
@@ -90,11 +143,12 @@ BoleroBackgroundRender {
                                     balloonLoader.eventName = modelData.eventName
                                 }
                             }
-                        }                        
+                        }
 
                     }
                 }
             }
+
         }
     }
 
@@ -135,7 +189,7 @@ BoleroBackgroundRender {
 
             anchors.top:  parent.top
             anchors.left: rectLeft.right
-            anchors.right: rectRight.left            
+            anchors.right: rectRight.left
 
             height: frame.modalY0
 
@@ -163,8 +217,8 @@ BoleroBackgroundRender {
                 anchors.fill: parent
                 onClicked: scxmlBolero.submitEvent("Inp.App.Setup.ModalClick")
             }
-        }        
-    }    
+        }
+    }
 
     Loader {
         id: balloonLoader

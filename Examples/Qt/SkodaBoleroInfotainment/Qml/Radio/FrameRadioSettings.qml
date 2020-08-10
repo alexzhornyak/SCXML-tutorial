@@ -12,6 +12,7 @@ FrameSettings {
     caption: qsTr(scxmlBolero.settings.BandType + " setup")
 
     showModal: scxmlBolero.radioSetupMainModal
+    encoderHighliterEnabled: scxmlBolero.radioSetupMain
 
     viewLayout.columns: 2
 

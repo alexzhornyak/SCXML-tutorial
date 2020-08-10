@@ -13,6 +13,7 @@ FrameSettings {
 
     showModal: scxmlBolero.radioAdvancedSetupModal
     showContent: !scxmlBolero.radioAdvancedSetupConfirmation
+    encoderHighliterEnabled: scxmlBolero.radioAdvancedSetup
 
     repeater.model: [
         {

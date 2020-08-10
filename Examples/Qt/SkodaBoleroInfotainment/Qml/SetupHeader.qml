@@ -5,6 +5,7 @@ Item {
     id: header
     property alias caption: textCaption.text
     property alias anchorBackLeft: btnBack.left
+    property alias btnBackVisible: btnBack.visible
 
     Text {
         id: textCaption

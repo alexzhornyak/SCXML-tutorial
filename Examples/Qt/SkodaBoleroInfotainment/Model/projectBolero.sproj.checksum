@@ -1,3 +1,5 @@
-bolero.scxml=0x198F0
-_virtualRadio.scxml=0x2AD49
-_virtualRadioSetup.scxml=0x16C87
+bolero.scxml=0x1AC0D
+_virtualRadio.scxml=0x2E353
+_virtualRadioSetup.scxml=0x177E3
+_virtualMenu.scxml=0x9561
+_virtualDisplaySoundHandlerOn.scxml=0x1086C

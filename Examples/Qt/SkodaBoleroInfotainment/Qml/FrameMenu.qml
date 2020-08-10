@@ -1,12 +1,19 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import QtScxml 5.8
 import "AppConstants.js" as AppConsts
 import "../Model/CommonConstants.js" as Consts
 
 BoleroBackgroundRender {
     id: frameMenu
     clip: true
+
+    readonly property var t_MODEL: [
+        { event: "Radio", url: "Images/ImgMenuRadio.png"},
+        { event: "Media", url: "Images/ImgMenuMedia.png"},
+        { event: "Setup", url: "Images/ImgMenuSetup.png"},
+        { event: "Car", url: "Images/ImgMenuVehicle.png"}]
 
     Component {
         id: menuDelegate
@@ -42,36 +49,32 @@ BoleroBackgroundRender {
             Image {
                 anchors.centerIn: parent
 
-                source: getImage()
-
-                function getImage() {
-                    var t_IMAGES = ["Images/ImgMenuRadio.png",
-                                    "Images/ImgMenuMedia.png",
-                                    "Images/ImgMenuSetup.png",
-                                    "Images/ImgMenuVehicle.png"]
-
-                    return t_IMAGES[view.gridData[parent.index]]
-                }
+                source: frameMenu.t_MODEL[view.gridData[parent.index]].url
             }
 
             MouseArea {
                 id: mouseArea
                 anchors.fill: parent
-                onClicked: view.currentIndex = parent.index
+                onClicked: {
+                    /* if was selected, then apply immediately,
+                      otherwise wait 1 sec and then apply */
+
+                    var wasSelected = view.currentIndex === parent.index
+                    view.currentIndex = parent.index
+
+                    scxmlBolero.submitEvent("Inp.App.Menu", {
+                        display: frameMenu.t_MODEL[view.gridData[view.currentIndex]].event,
+                        selected: wasSelected
+                    })
+                }
             }
         }
     }
-
-//    Component {
-//        id: appHighlight
-//        Rectangle { width: 80; height: 80; color: "lightsteelblue" }
-//    }
 
     PathView {
         id: view
         anchors.fill: parent
         anchors.margins: AppConsts.i_DISPLAY_PADDING
-//        highlight: appHighlight
         preferredHighlightBegin: 0.5
         preferredHighlightEnd: 0.5
         focus: true
@@ -79,7 +82,7 @@ BoleroBackgroundRender {
         property int index4: 0
         property int index5: 0
 
-        property int centerIndex: 0
+        property int wasIndex: 0
 
         property variant gridData: [0,1,2,2,3]
 
@@ -101,7 +104,7 @@ BoleroBackgroundRender {
                     ]
             */
 
-            var delta = view.currentIndex - centerIndex
+            var delta = view.currentIndex - wasIndex
             if (delta > 2.5) {
                 delta -=5
             } else if (delta < -2.5) {
@@ -125,7 +128,7 @@ BoleroBackgroundRender {
 
             gridData = t_DATA
 
-            centerIndex = view.currentIndex
+            wasIndex = view.currentIndex
         }
 
         model: 5
@@ -157,6 +160,36 @@ BoleroBackgroundRender {
 
             PathAttribute{name:"elementZ";value:0}
             PathAttribute{name:"elementScale";value:0.5}
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Inp.Rotate.Select"]
+        onOccurred: {
+
+            var dDelta = parseFloat(event.data)
+
+            view.currentIndex =
+                    Consts.incrementMinMaxWrap(
+                        view.currentIndex,
+                        dDelta>0 ? 1 : (dDelta<0 ? -1 : 0), 0, view.model)
+
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Inp.Enc.Select"]
+        onOccurred: {
+                // encoder pressed
+                if (event.data===1) {
+                    scxmlBolero.submitEvent("Inp.App.Menu", {
+                        display: frameMenu.t_MODEL[view.gridData[view.currentIndex]].event,
+                        selected: true
+                    })
+                }
+
         }
     }
 }
