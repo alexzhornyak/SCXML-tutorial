@@ -67,5 +67,7 @@
         <file>Qml/System/FrameSystem.qml</file>
         <file>Qml/Vehicle/FrameVehicle.qml</file>
         <file>Qml/Sound/FrameVolumeSetup.qml</file>
+        <file>Qml/Radio/FrameStationList.qml</file>
+        <file>Qml/Images/ImgMute.png</file>
     </qresource>
 </RCC>

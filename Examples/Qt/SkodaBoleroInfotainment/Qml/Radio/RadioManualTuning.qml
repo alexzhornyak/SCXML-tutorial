@@ -50,11 +50,11 @@ Rectangle {
             anchors.bottom: parent.bottom
 
             /* Slider min-max differs from radio receiver min-max ! */
-            readonly property real d_FM_MIN: 88.0
-            readonly property real d_FM_MAX: 108.0
+            readonly property real d_FM_MIN: 88.0 * 1000000
+            readonly property real d_FM_MAX: 108.0 * 1000000
             readonly property real d_FM_STEP: (d_FM_MAX - d_FM_MIN) / 10.0
-            readonly property real d_AM_MIN: 540.0
-            readonly property real d_AM_MAX: 1600.0
+            readonly property real d_AM_MIN: 540.0 * 1000
+            readonly property real d_AM_MAX: 1600.0 * 1000
             readonly property real d_AM_STEP: (d_AM_MAX - d_AM_MIN) / 10.0
 
             Component.onCompleted: {
@@ -131,11 +131,13 @@ Rectangle {
                         if (textFreq !== undefined) {
                             ctx.fillStyle = AppConsts.cl_ITEM_TEXT
 
+                            textFreq = scxmlBolero.bandTypeFM ? textFreq / 1000000 : textFreq / 1000
+
                             if (scxmlBolero.bandTypeAM) {
                                 textFreq = Math.trunc(textFreq / 10.0)*10.0
                             }
 
-                            ctx.fillText(textFreq.toPrecision(), x1, y1 + h)
+                            ctx.fillText(textFreq.toFixed(), x1, y1 + h)
                         }
                     }
 

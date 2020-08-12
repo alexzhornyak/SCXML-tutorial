@@ -81,18 +81,16 @@ ApplicationWindow {
             return 0
         }
 
-        function getRadioPrecision() {
-            return scxmlBolero.bandTypeFM ? 1 : 0
+        function getRadioDisplayFreq(d_freq) {
+            d_freq = scxmlBolero.bandTypeFM ? d_freq / 1000000 : d_freq / 1000
+            return d_freq.toFixed(scxmlBolero.bandTypeFM ? 1 : 0)
         }
 
-        function getCaption(d_freq, s_freqFontSize, s_measureFontSize) {
+        function getRadioCaption(d_freq, s_freqFontSize, s_measureFontSize) {
 
             if (d_freq !== 0) {
-
-                d_freq = d_freq.toFixed(scxmlBolero.getRadioPrecision())
-
                 var out = "<span style='font-size: " + s_freqFontSize + "px;'>"
-                out += d_freq.toString() + " "
+                out += getRadioDisplayFreq(d_freq) + " "
                 out += "</span>"
                 out += "<span style='font-size: " + s_measureFontSize + "px;'>"
                 out += scxmlBolero.bandTypeFM ? qsTr("MHz") : qsTr("kHz")
@@ -243,6 +241,11 @@ ApplicationWindow {
                     }
                 }
 
+                Loader {
+                    anchors.fill: parent
+                    source: scxmlBolero.radioStationsList ? "Radio/FrameStationList.qml" : ""
+                }
+
                 /* Popups */
                 Radio.RadioPopupBandsLoader {
                     id: radioPopupBandsLoader
@@ -261,31 +264,24 @@ ApplicationWindow {
                 source: scxmlBolero.displayVehicle ? "Vehicle/FrameVehicle.qml" : ""
             },
             Loader {
+                id: soundSetupLoader
                 anchors.fill: parent
+                sourceComponent: scxmlBolero.displaySoundHandlerMain ? soundSetupComponent : undefined
 
-                EventConnection {
-                    stateMachine: scxmlBolero
-                    events: ["Out.DisplaySound"]
-                    onOccurred: {
-                        if (event.data === 1) {
-                            confirmDialogLoader.setSource("Sound/FrameSound.qml",
-                                                          {
-                                                              headerBtnBackVisible: !scxmlBolero.displaySound
-                                                          })
-                        } else {
-                            confirmDialogLoader.source = ""
-                        }
+                Component {
+                    id: soundSetupComponent
+                    Sound.FrameSound {
+                        headerBtnBackVisible: !scxmlBolero.displaySound
                     }
                 }
-
-                Loader {
-                    anchors.fill: parent
-                    source: scxmlBolero.displaySoundHandlerVolume ? "Sound/FrameVolumeSetup.qml" : ""
-                }
-            },            
+            },
             Loader {
                 anchors.fill: parent
-                sourceComponent: scxmlBolero.displaySetup ? frameSystemComponent : undefined
+                source: scxmlBolero.displaySoundHandlerVolume ? "Sound/FrameVolumeSetup.qml" : ""
+            },
+            Loader {
+                anchors.fill: parent
+                sourceComponent: scxmlBolero.displaySetupMain ? frameSystemComponent : undefined
 
                 Component {
                     id: frameSystemComponent

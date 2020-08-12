@@ -89,6 +89,15 @@ BoleroBackgroundRender {
                     color: AppConsts.cl_ITEM_TEXT
                 }
 
+                Image {
+                    id: imgMute
+                    visible: scxmlBolero.muteOn
+                    anchors.right: textTime.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: "../Images/ImgMute.png"
+                    fillMode: Image.Pad
+                }
+
                 Text {
                     id: textTemperature
                     text: "15 °C"

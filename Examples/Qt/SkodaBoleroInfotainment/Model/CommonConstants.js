@@ -1,10 +1,10 @@
 // true band settings
-var d_RADIO_FM_MIN = 87.5;
-var d_RADIO_FM_MAX = 108.0;
-var d_RADIO_FM_STEP = 0.1
-var d_RADIO_AM_MIN = 531.0;
-var d_RADIO_AM_MAX = 1602.0;
-var d_RADIO_AM_STEP = 5;
+var d_RADIO_FM_MIN = 87500000;
+var d_RADIO_FM_MAX = 108000000;
+var d_RADIO_FM_STEP = 100000;
+var d_RADIO_AM_MIN = 520000;
+var d_RADIO_AM_MAX = 1610000;
+var d_RADIO_AM_STEP = 5000;
 
 var t_RADIO_SETUP_DEPENDENCY = {
     "RadioRDS": [ "RadioAF", "RadioAutoSaveLogos", "RadioText", "RadioTraffic" ]

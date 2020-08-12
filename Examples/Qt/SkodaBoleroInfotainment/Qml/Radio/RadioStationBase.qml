@@ -43,7 +43,7 @@ SelectButton {
 
     Text {
         id: caption
-        text: scxmlBolero.getCaption(station.frequency, "16", "14")
+        text: scxmlBolero.getRadioCaption(station.frequency, "16", "14")
         textFormat: Text.RichText
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom

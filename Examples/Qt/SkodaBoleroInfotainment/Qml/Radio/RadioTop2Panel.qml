@@ -7,7 +7,7 @@ Item {
 
     Text {
         id: info
-        text: scxmlBolero.getCaption(scxmlBolero.getCurrentRadioFreq(), "26", "20")
+        text: scxmlBolero.getRadioCaption(scxmlBolero.getCurrentRadioFreq(), "26", "20")
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         textFormat: Text.RichText
