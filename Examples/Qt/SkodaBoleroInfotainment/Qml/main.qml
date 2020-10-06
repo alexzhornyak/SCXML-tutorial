@@ -217,28 +217,40 @@ ApplicationWindow {
 
                 Loader {
                     anchors.fill: parent
-                    sourceComponent: scxmlBolero.radioDeletePresets ? radioDeletePresetsComponent : undefined
+                    sourceComponent: scxmlBolero.radioManagePresets ? radioManagePresetsComponent : undefined
 
                     Component {
-                        id: radioDeletePresetsComponent
-                        Radio.FrameRadioDeleteGroup {
-                            deleteGroupType: Radio.FrameRadioDeleteGroup.DeleteGroupType.Presets
-                            contentVisible: scxmlBolero.radioDeletePresetsDefault
+                        id: radioManagePresetsComponent
+                        Radio.FrameRadioManageGroup {
+                            manageGroupType: Radio.FrameRadioManageGroup.ManageGroupType.Presets
+                            contentVisible: scxmlBolero.radioManagePresetsDefault
                         }
                     }
                 }
 
                 Loader {
                     anchors.fill: parent
-                    sourceComponent: scxmlBolero.radioDeleteLogos ? radioDeleteLogosComponent : undefined
+                    sourceComponent: scxmlBolero.radioManageLogos ? radioManageLogosComponent : undefined
 
                     Component {
-                        id: radioDeleteLogosComponent
-                        Radio.FrameRadioDeleteGroup {
-                            deleteGroupType: Radio.FrameRadioDeleteGroup.DeleteGroupType.Logos
-                            contentVisible: scxmlBolero.radioDeleteLogosDefault
+                        id: radioManageLogosComponent
+                        Radio.FrameRadioManageGroup {
+                            manageGroupType: Radio.FrameRadioManageGroup.ManageGroupType.Logos
+                            contentVisible: scxmlBolero.radioManageLogosDefault
                         }
                     }
+                }
+
+                Loader {
+                    id: radioSelectFileLogosLoader
+                    anchors.fill: parent                    
+
+                    source: scxmlBolero.radioManageLogosFiles ? "FrameSelectFiles.qml" : ""
+                }
+
+                Loader {
+                    anchors.fill: parent
+                    source: scxmlBolero.radioManageLogosDrives ? "FrameSelectDrives.qml" : ""
                 }
 
                 Loader {

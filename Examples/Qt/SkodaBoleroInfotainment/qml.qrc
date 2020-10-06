@@ -52,7 +52,7 @@
         <file>Qml/Radio/RadioPopupBandsLoader.qml</file>
         <file>Qml/EncoderHighlighter.qml</file>
         <file>Qml/ConfirmDialog.qml</file>
-        <file>Qml/Radio/FrameRadioDeleteGroup.qml</file>
+        <file>Qml/Radio/FrameRadioManageGroup.qml</file>
         <file>Qml/SetupHeader.qml</file>
         <file>Qml/Radio/RadioStationBase.qml</file>
         <file>Qml/Images/ImgDelete.png</file>
@@ -69,5 +69,15 @@
         <file>Qml/Sound/FrameVolumeSetup.qml</file>
         <file>Qml/Radio/FrameStationList.qml</file>
         <file>Qml/Images/ImgMute.png</file>
+        <file>Qml/FrameSelectFiles.qml</file>
+        <file>Qml/Images/ImgFolder.png</file>
+        <file>Qml/Images/ImgBtnTriangleCollapsed.png</file>
+        <file>Qml/Images/ImgBtnTriangleIndexed.png</file>
+        <file>Qml/Images/ImgBtnTriangleSide.png</file>
+        <file>Qml/Images/ImgFolderNumber.png</file>
+        <file>Qml/FrameSelectDrives.qml</file>
+        <file>Qml/Images/ImgSDCard.png</file>
+        <file>Qml/Images/ImgMenuMedia_64.png</file>
+        <file>Qml/Images/ImgUSB.png</file>
     </qresource>
 </RCC>

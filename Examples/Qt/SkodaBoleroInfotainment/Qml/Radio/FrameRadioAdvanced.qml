@@ -25,8 +25,8 @@ FrameSettings {
                                   "Reception quality may\n" +
                                   "be reduced.",
                 confirmationModel: [
-                    { text: "Cancel", textKeyCentered: true },
-                    { text: "Deactivate", eventData: "RadioAF", textKeyCentered: true }]
+                    { text: "Cancel", keyCentered: true },
+                    { text: "Deactivate", eventData: "RadioAF", keyCentered: true }]
             },
             showCheckBox: true,
             isChecked: scxmlBolero.settings.RadioAF === true,
@@ -42,8 +42,8 @@ FrameSettings {
                                   "tracking will not be possible via\n" +
                                   "alternative frequencies.",
                 confirmationModel: [
-                    { text: "Cancel", textKeyCentered: true },
-                    { text: "Deactivate", eventData: "RadioRDS", textKeyCentered: true }]
+                    { text: "Cancel", keyCentered: true },
+                    { text: "Deactivate", eventData: "RadioRDS", keyCentered: true }]
             },
             showCheckBox: true,
             isChecked: scxmlBolero.settings.RadioRDS === true
@@ -59,12 +59,12 @@ FrameSettings {
                     eventData: { setName: "RegionalRDS", setValue: Consts.t_RADIO_REGIONAL_RDS[0] },
                     showRadioBtn: true,
                     isChecked: scxmlBolero.settings.RegionalRDS === Consts.t_RADIO_REGIONAL_RDS[0],
-                    textKeyCentered: false },
+                    keyCentered: false },
                 { row: 1, text: Consts.t_RADIO_REGIONAL_RDS[1],
                     showRadioBtn: true,
                     eventData: { setName: "RegionalRDS", setValue: Consts.t_RADIO_REGIONAL_RDS[1] },
                     isChecked: scxmlBolero.settings.RegionalRDS === Consts.t_RADIO_REGIONAL_RDS[1],
-                    textKeyCentered: false }
+                    keyCentered: false }
             ]
         },
         {

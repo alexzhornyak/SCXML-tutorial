@@ -27,12 +27,12 @@ FrameSettings {
                     eventData: { setName: "RadioArrows", setValue: Consts.t_RADIO_ARROWS[0] },
                     showRadioBtn: true,
                     isChecked: scxmlBolero.settings.RadioArrows === Consts.t_RADIO_ARROWS[0],
-                    textKeyCentered: false },
+                    keyCentered: false },
                 { row: 1, text: Consts.t_RADIO_ARROWS[1],
                     eventData: { setName: "RadioArrows", setValue: Consts.t_RADIO_ARROWS[1] },
                     showRadioBtn: true,
                     isChecked: scxmlBolero.settings.RadioArrows === Consts.t_RADIO_ARROWS[1],
-                    textKeyCentered: false }
+                    keyCentered: false }
             ]
         },
 

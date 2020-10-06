@@ -7,13 +7,13 @@ import "../"
 BoleroBackgroundRender {
     id: frame
 
-    enum DeleteGroupType {
+    enum ManageGroupType {
             Presets,
             Logos
     }
 
     readonly property real headerHeight: height/6 - AppConsts.i_DISPLAY_PADDING    
-    required property int deleteGroupType
+    required property int manageGroupType
     property alias contentVisible: groupContent.visible
 
     Item {
@@ -25,10 +25,10 @@ BoleroBackgroundRender {
             id: header
 
             function getHeaderCaption() {
-                switch(frame.deleteGroupType) {
-                case FrameRadioDeleteGroup.DeleteGroupType.Presets:
+                switch(frame.manageGroupType) {
+                case FrameRadioManageGroup.ManageGroupType.Presets:
                     return qsTr(scxmlBolero.settings.BandType + " preset list")
-                case FrameRadioDeleteGroup.DeleteGroupType.Logos:
+                case FrameRadioManageGroup.ManageGroupType.Logos:
                     return qsTr("Manage st.logos")
                 }
                 return ""
@@ -54,11 +54,11 @@ BoleroBackgroundRender {
                 confirmationText: getDeleteAllConfirmationText()
 
                 function getDeleteAllConfirmationText() {
-                    switch (frame.deleteGroupType) {
-                    case FrameRadioDeleteGroup.DeleteGroupType.Presets:
+                    switch (frame.manageGroupType) {
+                    case FrameRadioManageGroup.ManageGroupType.Presets:
                         return "Delete all stored stations -\n" +
                                 "are you sure?"
-                    case FrameRadioDeleteGroup.DeleteGroupType.Logos:
+                    case FrameRadioManageGroup.ManageGroupType.Logos:
                         return "Delete all stored logos -\n" +
                                 "are you sure?"
                     }
@@ -66,10 +66,10 @@ BoleroBackgroundRender {
                 }
 
                 function isDeleteAllEnabled() {
-                    switch (frame.deleteGroupType) {
-                    case FrameRadioDeleteGroup.DeleteGroupType.Presets:
+                    switch (frame.manageGroupType) {
+                    case FrameRadioManageGroup.ManageGroupType.Presets:
                         return !scxmlBolero.areRadioPresetsEmpty()
-                    case FrameRadioDeleteGroup.DeleteGroupType.Logos:
+                    case FrameRadioManageGroup.ManageGroupType.Logos:
                         return !scxmlBolero.areRadioLogosEmpty()
                     }
                     return false
@@ -116,32 +116,34 @@ BoleroBackgroundRender {
                                 id: station
                                 stationIndex: (stationsRow.groupIndex * 5) + index
 
-                                onPressed: {
+                                onReleased: {
                                     if (imgDelete.visible) {
 
-                                        switch (frame.deleteGroupType) {
-                                        case FrameRadioDeleteGroup.DeleteGroupType.Presets:
-                                            scxmlBolero.submitEvent("Inp.App.Radio.Station", {
+                                        switch (frame.manageGroupType) {
+                                        case FrameRadioManageGroup.ManageGroupType.Presets:
+                                            scxmlBolero.submitEvent("Inp.App.Radio.DeleteElement", {
                                                                         confirmationText: "Do you really want to\n" +
                                                                                           "delete the stored station?",
                                                                         confirmationModel: [
-                                                                            { text: "Cancel", textKeyCentered: true },
-                                                                            { text: "Delete", eventData: stationIndex, textKeyCentered: true }]
+                                                                            { text: "Cancel", keyCentered: true },
+                                                                            { text: "Delete", eventData: stationIndex, keyCentered: true }]
                                                                     })
                                             break;
-                                        case FrameRadioDeleteGroup.DeleteGroupType.Logos:
-                                            scxmlBolero.submitEvent("Inp.App.Radio.Station", {
+                                        case FrameRadioManageGroup.ManageGroupType.Logos:
+                                            scxmlBolero.submitEvent("Inp.App.Radio.DeleteElement", {
                                                                         confirmationText: "Do you really want to\n" +
                                                                                           "delete the stored logo?",
                                                                         confirmationModel: [
-                                                                            { text: "Cancel", textKeyCentered: true },
-                                                                            { text: "Delete", eventData: stationIndex, textKeyCentered: true }]
+                                                                            { text: "Cancel", keyCentered: true },
+                                                                            { text: "Delete", eventData: stationIndex, keyCentered: true }]
 
                                                                     })
                                             break;
                                         }
 
 
+                                    } else {
+                                        scxmlBolero.submitEvent("Inp.App.Radio.ManageElement");
                                     }
                                 }
 
@@ -159,11 +161,11 @@ BoleroBackgroundRender {
                                     fillMode: Image.Pad
 
                                     function isDeleteVisible() {
-                                        switch (frame.deleteGroupType) {
-                                        case FrameRadioDeleteGroup.DeleteGroupType.Presets:
+                                        switch (frame.manageGroupType) {
+                                        case FrameRadioManageGroup.ManageGroupType.Presets:
                                             var dFreq = scxmlBolero.getRadioFreq(station.stationIndex)
                                             return dFreq!==0
-                                        case FrameRadioDeleteGroup.DeleteGroupType.Logos:
+                                        case FrameRadioManageGroup.ManageGroupType.Logos:
                                             var sLogo = scxmlBolero.getRadioLogosSource(station.stationIndex)
                                             return sLogo!==""
                                         }

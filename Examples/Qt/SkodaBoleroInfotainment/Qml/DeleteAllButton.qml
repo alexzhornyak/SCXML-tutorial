@@ -9,8 +9,8 @@ SelectButton {
     onClicked: scxmlBolero.submitEvent("Inp.App.Btn.DeleteAll", {
                                            confirmationText: button.confirmationText,
                                            confirmationModel: [
-                                               { text: "Cancel", textKeyCentered: true },
-                                               { text: "Delete", eventData: 1, textKeyCentered: true }]
+                                               { text: "Cancel", keyCentered: true },
+                                               { text: "Delete", eventData: 1, keyCentered: true }]
                                        })
 
     Image {

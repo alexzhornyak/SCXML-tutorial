@@ -6,14 +6,15 @@ SelectButton {
     id: btnSetup
 
     highlightBackgroundWhenSelected: true
-    text: qsTr(modelData.text)
+    text: modelData.text === undefined ? "" : qsTr(modelData.text)
     enabled: modelData.enabled === undefined ? true : modelData.enabled
     visible: modelData.visible === undefined ? true : modelData.visible
 
     property string eventName: modelData.eventName
     property variant eventData: modelData.eventData
 
-    property bool textKeyCentered: modelData.textKeyCentered === undefined ? false : modelData.textKeyCentered
+    property bool keyCentered: modelData.keyCentered === undefined ? false : modelData.keyCentered
+    property string imageKeySource: modelData.imageKeySource === undefined ? "" : modelData.imageKeySource
 
     /* With CheckBox */
     property bool showCheckBox: modelData.showCheckBox === true
@@ -30,7 +31,7 @@ SelectButton {
 
     Layout.fillHeight: true
     Layout.fillWidth: true
-    Layout.preferredHeight: 50
+    Layout.preferredHeight: modelData.buttonHeight === undefined ? 50 : modelData.buttonHeight
     Layout.columnSpan: modelData.colSpan === undefined ? 1 : modelData.colSpan
 
     onEnabledChanged: opacity = enabled ? 1.0 : 0.5
@@ -40,11 +41,26 @@ SelectButton {
     contentItem: Item {
         anchors.fill: btnSetup
 
+        Image {
+            id: imageKey
+
+            anchors.left: keyCentered ? undefined : parent.left
+            anchors.leftMargin: 20
+            anchors.horizontalCenter: keyCentered ? parent.horizontalCenter : undefined
+            anchors.verticalCenter: parent.verticalCenter
+
+            fillMode: Image.Pad
+
+            source: imageKeySource
+
+            visible: source!==""
+        }
+
         Text {
             id: textKey
-            anchors.left: textKeyCentered ? undefined : parent.left
+            anchors.left: imageKey.visible ? imageKey.right : keyCentered ? undefined : parent.left
             anchors.leftMargin: 20
-            anchors.horizontalCenter: textKeyCentered ? parent.horizontalCenter : undefined
+            anchors.horizontalCenter: imageKey.visible ? imageKey.right : keyCentered ? parent.horizontalCenter : undefined
             anchors.verticalCenter: parent.verticalCenter
             verticalAlignment: Text.AlignVCenter
             style: Text.Outline
