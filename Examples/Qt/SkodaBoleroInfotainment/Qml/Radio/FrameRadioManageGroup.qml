@@ -143,7 +143,9 @@ BoleroBackgroundRender {
 
 
                                     } else {
-                                        scxmlBolero.submitEvent("Inp.App.Radio.ManageElement");
+                                        if (scxmlBolero.getRadioFreq(stationIndex)!==0) {
+                                            scxmlBolero.submitEvent("Inp.App.Radio.ManageElement", stationIndex);
+                                        }
                                     }
                                 }
 

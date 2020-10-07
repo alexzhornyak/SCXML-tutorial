@@ -32,6 +32,12 @@ public:
 
     Q_INVOKABLE bool fileDelete(const QString &sFile);
 
+    Q_INVOKABLE bool fileCopy(const QString &sSource, const QString &sTarget);
+
+    Q_INVOKABLE QString urlToLocalFile(const QString &sUrl);
+
+    Q_INVOKABLE bool urlDirExists(const QString &sUrl);
+
     QVariant settings();    
 
 signals:

@@ -26,8 +26,8 @@ Loader {
             eventName: "Radio.BandType"
 
             model: [
-                { text: "FM", eventData: "FM", keyCentered: true },
-                { text: "AM", eventData: "AM", keyCentered: true, row: 1 }
+                { text: "FM", eventData: "FM", keyCentered: true, textKeyHorizAlign: Text.AlignHCenter },
+                { text: "AM", eventData: "AM", keyCentered: true, textKeyHorizAlign: Text.AlignHCenter, row: 1 }
             ]
 
             Component.onCompleted: {

@@ -79,5 +79,8 @@
         <file>Qml/Images/ImgSDCard.png</file>
         <file>Qml/Images/ImgMenuMedia_64.png</file>
         <file>Qml/Images/ImgUSB.png</file>
+        <file>Qml/Images/ImgSDCard_32.png</file>
+        <file>Qml/Images/ImgMenuMedia_32.png</file>
+        <file>Qml/Images/ImgUSB_32.png</file>
     </qresource>
 </RCC>

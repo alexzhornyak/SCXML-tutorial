@@ -62,6 +62,7 @@ SelectButton {
             anchors.leftMargin: 20
             anchors.horizontalCenter: imageKey.visible ? imageKey.right : keyCentered ? parent.horizontalCenter : undefined
             anchors.verticalCenter: parent.verticalCenter
+            horizontalAlignment: modelData.textKeyHorizAlign
             verticalAlignment: Text.AlignVCenter
             style: Text.Outline
             color: AppConsts.cl_ITEM_TEXT

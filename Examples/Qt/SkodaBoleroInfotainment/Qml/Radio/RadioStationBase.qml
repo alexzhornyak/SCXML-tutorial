@@ -33,9 +33,12 @@ SelectButton {
         id: image
         anchors.centerIn: parent
         anchors.verticalCenterOffset: -caption.height / 2
-        width: station.width / 1.2
-        height: station.height / 1.2
+        width: station.width / 1.3
+        height: station.height / 1.3
         antialiasing: true
+
+        /* do not use 'cache' ! because it does not update image immediately after logo copy */
+        cache: false
 
         source: scxmlBolero.getRadioLogosSource(station.stationIndex)
         fillMode: Image.PreserveAspectFit

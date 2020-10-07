@@ -192,6 +192,23 @@ ApplicationWindow {
 
             }
         }
+
+        EventConnection {
+            stateMachine: scxmlBolero
+            events: ["Out.Radio.CopyLogo"]
+            onOccurred: {
+                if (event.data) {
+                    var iIndex = parseInt(event.data.index)
+                    var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
+                            + (iIndex + 1).toString() + ".png"
+                    var sourcePath = scxmlBolero.urlToLocalFile(event.data.url)
+
+                    if (!scxmlBolero.fileCopy(sourcePath, pathToImage)) {
+                        console.error("Can not copy [", sourcePath, "] to [", pathToImage, "]")
+                    }
+                }
+            }
+        }
     }
 
     MainWidget {

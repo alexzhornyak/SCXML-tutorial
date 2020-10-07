@@ -23,9 +23,18 @@ BoleroBackgroundRender {
         Indexed
     }
 
+    enum DriveType {
+        Unknown,
+        CD,
+        SD,
+        USB
+    }
+
     FolderListModel {
         id: folderModel
         nameFilters: ["*.png"]
+
+        property int driveType: FrameSelectFiles.DriveType.Unknown
 
         function getSelectedEventName(i_index) {
             return isFolder(i_index) ?
@@ -69,8 +78,6 @@ BoleroBackgroundRender {
                     t_url = t_url.slice(0,i+1)
                     s_url += "file:///" + t_url.join("/")
 
-                    console.warn("i=",i,"s_url=", s_url, "file_part=", s_file_part)
-
                     t_folder.push({ filePart: s_file_part, mode: i_mode, id: i + 1, url: s_url})
                 }
             }
@@ -94,6 +101,22 @@ BoleroBackgroundRender {
         events: ["Out.DirSelected"]
         onOccurred: {            
             folderModel.folder = event.data
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.DriveSelected"]
+        onOccurred: {
+            if (event.data==="CD") {
+                folderModel.driveType = FrameSelectFiles.DriveType.CD
+            } else if (event.data==="SD") {
+                folderModel.driveType = FrameSelectFiles.DriveType.SD
+            } else if (event.data==="USB") {
+                folderModel.driveType = FrameSelectFiles.DriveType.USB
+            } else {
+                console.error("Drive type [",event.data,"] is not defined!")
+            }
         }
     }
 
@@ -150,9 +173,19 @@ BoleroBackgroundRender {
                             return undefined // mustn't occur
                         }
 
+                        function getDriveImage() {
+                            switch (folderModel.driveType) {
+                            case FrameSelectFiles.DriveType.CD: return "Images/ImgMenuMedia_32.png";
+                            case FrameSelectFiles.DriveType.SD: return "Images/ImgSDCard_32.png";
+                            case FrameSelectFiles.DriveType.USB: return "Images/ImgUSB_32.png";
+                            }
+
+                            return undefined // mustn't occur
+                        }
+
                         function getSubImageSource() {
                             switch(modelData.mode) {
-                            case FrameSelectFiles.SubFolderType.Side: return "";
+                            case FrameSelectFiles.SubFolderType.Side: return getDriveImage();
                             case FrameSelectFiles.SubFolderType.Indexed: return "Images/ImgFolderNumber.png";
                             case FrameSelectFiles.SubFolderType.Collapsed: return "";
                             }
@@ -171,6 +204,8 @@ BoleroBackgroundRender {
                         Image {
                             id: subFolderImage
                             anchors.centerIn: parent
+                            anchors.horizontalCenterOffset:
+                                modelData.mode === FrameSelectFiles.SubFolderType.Side ? -5 : 0
 
                             fillMode: Image.Pad
 
@@ -216,6 +251,7 @@ BoleroBackgroundRender {
                 anchors.left: foldersLayout.right
                 anchors.leftMargin: 10
                 anchors.right: btnBack.left
+                anchors.rightMargin: 10
                 anchors.verticalCenter: parent.verticalCenter
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
@@ -223,6 +259,7 @@ BoleroBackgroundRender {
                 color: AppConsts.cl_ITEM_TEXT
                 font.family: "Tahoma"
                 font.pixelSize: 20
+                clip: true
             }
 
             SelectBackButton {
@@ -358,6 +395,7 @@ BoleroBackgroundRender {
                                 color: AppConsts.cl_ITEM_TEXT
                                 font.family: "Tahoma"
                                 font.pixelSize: 20
+                                clip: true
 
                                 text: fileName
                             }

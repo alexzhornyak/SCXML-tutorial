@@ -54,6 +54,19 @@ bool ScxmlBoleroExt::fileDelete(const QString &sFile) {
     return QFile::remove(sFile);
 }
 
+bool ScxmlBoleroExt::fileCopy(const QString &sSource, const QString &sTarget) {
+    return QFile::copy(sSource, sTarget);
+}
+
+QString ScxmlBoleroExt::urlToLocalFile(const QString &sUrl) {
+    return QUrl(sUrl).toLocalFile();
+}
+
+bool ScxmlBoleroExt::urlDirExists(const QString &sUrl) {
+    QFileInfo info(QUrl(sUrl).toLocalFile());
+    return info.isRoot() || info.isDir();
+}
+
 QVariant ScxmlBoleroExt::settings() {
     auto dm = this->dataModel();
     if (dm && dm->hasScxmlProperty(_literalSettings)) {
