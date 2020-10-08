@@ -84,6 +84,9 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [5. Morse Code Trainer](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/Morse)
 
+[6. Infotainment Radio Bolero Simulator](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
+![Preview](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Examples/Qt/SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)
+
 ### Articles
 [1. Inheritance (Visual) in SCXML (State Machines)](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Inheritance_SCXML.md)
 
