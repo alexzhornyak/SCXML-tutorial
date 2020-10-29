@@ -22,7 +22,7 @@ SelectButton {
         source: "Images/ImgDelete.png"
     }
 
-    Text {
+    contentItem: Text {
         id: textCaption
         anchors.leftMargin: 10
         anchors.left: img.right

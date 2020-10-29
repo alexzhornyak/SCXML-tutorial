@@ -1,6 +1,6 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 import ScxmlBolero 1.0
 import QtScxml 5.8
 import "Radio" as Radio
@@ -224,12 +224,12 @@ ApplicationWindow {
 
                 Loader {
                     anchors.fill: parent
-                    source: scxmlBolero.radioDisplaySetupMain ? "Radio/FrameRadioSettings.qml" : ""
+                    source: scxmlBolero.radioDisplaySetupMain ? "Radio/FrameRadioSetup.qml" : ""
                 }
 
                 Loader {
                     anchors.fill: parent
-                    source: scxmlBolero.radioDisplayAdvancedSetup ? "Radio/FrameRadioAdvanced.qml" : ""
+                    source: scxmlBolero.radioDisplayAdvancedSetup ? "Radio/FrameRadioSetupAdvanced.qml" : ""
                 }
 
                 Loader {
@@ -307,6 +307,10 @@ ApplicationWindow {
             Loader {
                 anchors.fill: parent
                 source: scxmlBolero.displaySoundHandlerVolume ? "Sound/FrameVolumeSetup.qml" : ""
+            },
+            Loader {
+                anchors.fill: parent
+                source: scxmlBolero.displaySoundHandlerMidBassTreble ? "Sound/FrameBassMidTreble.qml" : ""
             },
             Loader {
                 anchors.fill: parent

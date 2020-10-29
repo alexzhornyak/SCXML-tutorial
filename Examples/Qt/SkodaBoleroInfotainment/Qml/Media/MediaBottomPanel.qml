@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import "../"
+import "../AppConstants.js" as AppConsts
 
 Item {
     id: bottomPanel
@@ -15,15 +16,15 @@ Item {
 
         Repeater {
             id: repeaterButtons
-            model: [    { name: "Band", caption: scxmlBolero.bandTypeFM ? "FM" : "AM" /* untranslatable */ },
-                        { name: "Stations", img: "qrc:/Qml/Images/RadioStations.png" },
-                        { name: "Manual", img: "qrc:/Qml/Images/RadioManual.png" },
-                        { name: "Setup", img: "qrc:/Qml/Images/ImgBtnSettings.png"}
+            model: [
+                { name: "Stations", img: "qrc:/Qml/Images/RadioStations.png" },
+                { name: "Manual", img: "qrc:/Qml/Images/RadioManual.png" },
+                { name: "Setup", img: "qrc:/Qml/Images/ImgBtnSettings.png"}
             ]
 
             delegate: FocusButton {
                 id: focusBtn
-                topBorderVisible: scxmlBolero.radioAccentOn
+                topBorderVisible: scxmlBolero.mediaAccentOn
                 footerText: qsTr(modelData.name)
                 imgSource: modelData.img ? modelData.img : ""
                 btnCaption: modelData.caption ? modelData.caption : ""
@@ -34,11 +35,9 @@ Item {
                         radioPopupBandsLoader.popupX = coordinates.x + focusBtn.width/2;
                         radioPopupBandsLoader.popupY = coordinates.y;
                     }
-                    scxmlBolero.submitEvent("Inp.App.Radio.Btn." + modelData.name)
+                    scxmlBolero.submitEvent("Inp.App.Media.Btn." + modelData.name)
                 }
             }
         }
     }
 }
-
-

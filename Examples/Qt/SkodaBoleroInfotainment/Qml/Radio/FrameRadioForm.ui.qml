@@ -16,9 +16,6 @@ BoleroBackgroundRender {
     property alias radioMouseArea: radioMouseArea
     property alias radioModalOverlayMouseArea: radioModalOverlayMouseArea
 
-    property alias currentTimeText: textTime.text
-    property alias currentTemperatureText: textTemperature.text
-
     MouseArea {
         id: radioMouseArea
         hoverEnabled: true
@@ -71,43 +68,12 @@ BoleroBackgroundRender {
                 anchors.bottom: pageIndicator.top
             }
 
-            Item {
+            HeaderPanel {
                 id: headerPanel
-                height: 36
+
                 anchors.right: parent.right
                 anchors.left: parent.left
                 anchors.top: parent.top
-
-                Text {
-                    id: textTime
-                    text: "00:00"
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.family: "Tahoma"
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    font.pixelSize: 16
-                    style: Text.Outline
-                    color: AppConsts.cl_ITEM_TEXT
-                }
-
-                Image {
-                    id: imgMute
-                    visible: scxmlBolero.muteOn
-                    anchors.right: textTime.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "../Images/ImgMute.png"
-                    fillMode: Image.Pad
-                }
-
-                Text {
-                    id: textTemperature
-                    text: "15 °C"
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                    font.family: "Tahoma"
-                    font.pixelSize: 16
-                    style: Text.Outline
-                    color: AppConsts.cl_ITEM_TEXT
-                }
             }
 
             RadioTop2Panel {
