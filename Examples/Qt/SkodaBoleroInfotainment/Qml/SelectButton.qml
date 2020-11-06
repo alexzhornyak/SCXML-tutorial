@@ -12,6 +12,8 @@ Button {
 
     property string gradientColor: AppConsts.cl_ITEM_COLOR
 
+    opacity: enabled ? 1.0 : 0.5
+
     Layout.fillWidth: true
     Layout.fillHeight: true
 

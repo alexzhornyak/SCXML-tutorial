@@ -4,6 +4,7 @@
 #include <QObject>
 
 #include "bolero.h"
+#include "filescanner.h"
 
 class ScxmlJS: public QObject {
     Q_OBJECT
@@ -38,11 +39,21 @@ public:
 
     Q_INVOKABLE bool urlDirExists(const QString &sUrl);
 
+    Q_INVOKABLE void scanDirAsync(const QString &sUrl, const QStringList &extensions);
+
+    Q_INVOKABLE void terminateScanDir(const QString &sUrl);
+
     QVariant settings();    
 
 signals:
 
     void settingsChanged(void);
+
+    void mediaScanCompleted(const QString &sUrl, const QStringList &outList);
+
+public slots:
+
+    void onScanCompleted(const QString &sUrl, const QStringList &outList);
 
 private:
 
@@ -54,6 +65,8 @@ private:
     const QString _literalSettings = "t_SETTINGS";
 
     ScxmlJS *_scxmlJS = nullptr;
+
+    QMap<QString,FileScanner*> _audioFileScanners;
 };
 
 #endif // SCXMLBOLEROEXT_H

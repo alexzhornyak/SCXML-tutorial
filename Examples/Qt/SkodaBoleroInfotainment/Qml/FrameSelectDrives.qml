@@ -8,23 +8,19 @@ FrameSettings {
 
     encoderHighliterEnabled: true
 
-    readonly property string driveCD: "file:///C:/"
-    readonly property string driveSD: "file:///D:/"
-    readonly property string driveUSB: "file:///F:/"
-
     repeater.model: [
         { imageKeySource: "Images/ImgMenuMedia_64.png", buttonHeight: 65,
-            keyCentered: true, eventName: "Drive.CD", eventData: driveCD,
-            enabled: scxmlBolero.urlDirExists(driveCD)
+            keyCentered: true, eventName: "Drive.CD", eventData: scxmlBolero.driveCD,
+            enabled: scxmlBolero.urlDirExists(scxmlBolero.driveCD)
         },
 
         { imageKeySource: "Images/ImgSDCard.png", buttonHeight: 65,
-            keyCentered: true, eventName: "Drive.SD", eventData: driveSD,
-            enabled: scxmlBolero.urlDirExists(driveSD)
+            keyCentered: true, eventName: "Drive.SD", eventData: scxmlBolero.driveSD,
+            enabled: scxmlBolero.urlDirExists(scxmlBolero.driveSD)
         },
         { imageKeySource: "Images/ImgUSB.png", buttonHeight: 65,
-            keyCentered: true, eventName: "Drive.USB", eventData: driveUSB,
-            enabled: scxmlBolero.urlDirExists(driveUSB)
+            keyCentered: true, eventName: "Drive.USB", eventData: scxmlBolero.driveUSB,
+            enabled: scxmlBolero.urlDirExists(scxmlBolero.driveUSB)
         }
     ]
 }

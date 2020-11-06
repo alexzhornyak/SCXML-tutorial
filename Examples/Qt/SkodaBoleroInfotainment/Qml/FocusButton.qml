@@ -42,6 +42,8 @@ SelectButton {
 
             source: focusBtn.imgSource
 
+            fillMode: Image.Pad
+
             width: 48
             height: 48
         }

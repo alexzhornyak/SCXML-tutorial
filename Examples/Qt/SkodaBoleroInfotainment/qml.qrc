@@ -84,8 +84,16 @@
         <file>Qml/Sound/Equalizer.qml</file>
         <file>Qml/SimpleSelectButton.qml</file>
         <file>Qml/HeaderPanel.qml</file>
-        <file>Qml/AudioPlayer.qml</file>
         <file>Qml/Media/MediaBottomPanel.qml</file>
         <file>Qml/FocusButton.qml</file>
+        <file>Qml/Media/AudioPlayer.qml</file>
+        <file>Qml/Media/MediaPopupSourceLoader.qml</file>
+        <file>Qml/Images/ImgTrackList_32.png</file>
+        <file>Qml/Images/ImgSD_32.png</file>
+        <file>Qml/Media/FrameMediaTrackList.qml</file>
+        <file>Qml/Images/ImgCD_32.png</file>
+        <file>Qml/Images/ImgSD1_32.png</file>
+        <file>Qml/Images/ImgAUX_32.png</file>
+        <file>Qml/Media/FrameMediaSetup.qml</file>
     </qresource>
 </RCC>

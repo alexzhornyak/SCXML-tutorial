@@ -4,6 +4,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtScxml 5.8
 import "AppConstants.js" as AppConsts
+import "../Model/CommonConstants.js" as Consts
 
 import Qt.labs.folderlistmodel 2.12
 import MaskedMouseArea 1.0
@@ -100,23 +101,18 @@ BoleroBackgroundRender {
         stateMachine: scxmlBolero
         events: ["Out.DirSelected"]
         onOccurred: {            
-            folderModel.folder = event.data
-        }
-    }
-
-    EventConnection {
-        stateMachine: scxmlBolero
-        events: ["Out.DriveSelected"]
-        onOccurred: {
-            if (event.data==="CD") {
+            var s_folder_url = event.data
+            if (Consts.strStartsText(s_folder_url, scxmlBolero.driveCD)) {
                 folderModel.driveType = FrameSelectFiles.DriveType.CD
-            } else if (event.data==="SD") {
+            } else if (Consts.strStartsText(s_folder_url, scxmlBolero.driveSD)) {
                 folderModel.driveType = FrameSelectFiles.DriveType.SD
-            } else if (event.data==="USB") {
+            } else if (Consts.strStartsText(s_folder_url, scxmlBolero.driveUSB)) {
                 folderModel.driveType = FrameSelectFiles.DriveType.USB
             } else {
                 console.error("Drive type [",event.data,"] is not defined!")
             }
+
+            folderModel.folder = s_folder_url
         }
     }
 
@@ -175,8 +171,8 @@ BoleroBackgroundRender {
 
                         function getDriveImage() {
                             switch (folderModel.driveType) {
-                            case FrameSelectFiles.DriveType.CD: return "Images/ImgMenuMedia_32.png";
-                            case FrameSelectFiles.DriveType.SD: return "Images/ImgSDCard_32.png";
+                            case FrameSelectFiles.DriveType.CD: return "Images/ImgCD_32.png";
+                            case FrameSelectFiles.DriveType.SD: return "Images/ImgSD_32.png";
                             case FrameSelectFiles.DriveType.USB: return "Images/ImgUSB_32.png";
                             }
 

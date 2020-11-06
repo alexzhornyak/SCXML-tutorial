@@ -16,10 +16,24 @@ Item {
 
         Repeater {
             id: repeaterButtons
+
+            function getMediaSourceImage() {
+                if (scxmlBolero.audioSourceCD)
+                    return "qrc:/Qml/Images/ImgCD_32.png"
+                if (scxmlBolero.audioSourceSD)
+                    return "qrc:/Qml/Images/ImgSD_32.png"
+                if (scxmlBolero.audioSourceUSB)
+                    return "qrc:/Qml/Images/ImgUSB_32.png"
+                if (scxmlBolero.audioSourceAUX)
+                    return "qrc:/Qml/Images/ImgAUX_32.png"
+
+                return "" // mustn't occur
+            }
+
             model: [
-                { name: "Stations", img: "qrc:/Qml/Images/RadioStations.png" },
-                { name: "Manual", img: "qrc:/Qml/Images/RadioManual.png" },
-                { name: "Setup", img: "qrc:/Qml/Images/ImgBtnSettings.png"}
+                { name: "Source", enabled: true, img: getMediaSourceImage() },
+                { name: "Selection", enabled: !scxmlBolero.audioSourceAUX, img: "qrc:/Qml/Images/ImgTrackList_32.png" },
+                { name: "Setup", enabled: true, img: "qrc:/Qml/Images/ImgBtnSettings.png"}
             ]
 
             delegate: FocusButton {
@@ -28,12 +42,13 @@ Item {
                 footerText: qsTr(modelData.name)
                 imgSource: modelData.img ? modelData.img : ""
                 btnCaption: modelData.caption ? modelData.caption : ""
+                enabled: modelData.enabled
 
                 onClicked: {
-                    if (modelData.name === "Band") {
-                        var coordinates = focusBtn.mapToItem(radioPopupBandsLoader.parent, 0, -radioPopupBandsLoader.height)
-                        radioPopupBandsLoader.popupX = coordinates.x + focusBtn.width/2;
-                        radioPopupBandsLoader.popupY = coordinates.y;
+                    if (modelData.name === "Source") {
+                        var coordinates = focusBtn.mapToItem(mediaPopupSourceLoader.parent, 0, -mediaPopupSourceLoader.height)
+                        mediaPopupSourceLoader.popupX = coordinates.x + focusBtn.width/2;
+                        mediaPopupSourceLoader.popupY = coordinates.y;
                     }
                     scxmlBolero.submitEvent("Inp.App.Media.Btn." + modelData.name)
                 }

@@ -13,6 +13,8 @@ var t_RADIO_SETUP_DEPENDENCY = {
 var t_RADIO_ARROWS = [ "Preset list", "Station list" ]
 var t_RADIO_REGIONAL_RDS = [ "Fixed", "Automatic" ]
 
+var t_MEDIA_AVAILABLE_EXTENSIIONS = [ "*.mp3", "*.wav", "*.aac", "*.wma" ]
+
 function limitMinMax(d_val, d_min, d_max) {
     if (d_val < d_min)
         d_val = d_min
@@ -49,4 +51,8 @@ function incrementArrayWrapCondition(i_val, i_increment, i_max, func_condition) 
 			return i_val
     }
 	return i_was_val
+}
+
+function strStartsText(s_str, s_text) {
+    return s_str.toLowerCase().indexOf(s_text.toLowerCase())===0
 }

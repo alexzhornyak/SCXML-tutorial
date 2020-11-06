@@ -34,8 +34,6 @@ SelectButton {
     Layout.preferredHeight: modelData.buttonHeight === undefined ? 50 : modelData.buttonHeight
     Layout.columnSpan: modelData.colSpan === undefined ? 1 : modelData.colSpan
 
-    onEnabledChanged: opacity = enabled ? 1.0 : 0.5
-
     onReleased: scxmlBolero.submitBtnSetupEvent(eventName, eventData)
 
     contentItem: Item {

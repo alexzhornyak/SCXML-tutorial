@@ -29,6 +29,11 @@ ApplicationWindow {
         id: scxmlBolero
         running: true
 
+        /* we assume that drives are fixed in the device */
+        readonly property string driveCD: "file:///C:/"
+        readonly property string driveSD: "file:///D:/"
+        readonly property string driveUSB: "file:///F:/"
+
         function getSelectedStation() {
             var bandType = scxmlBolero.settings.BandType
             var currentBand = scxmlBolero.settings.Bands[bandType]
@@ -211,6 +216,10 @@ ApplicationWindow {
         }
     }
 
+    Media.AudioPlayer {
+
+    }
+
     MainWidget {
         id: mainWidget
         anchors.centerIn: parent
@@ -283,6 +292,21 @@ ApplicationWindow {
             Media.FrameMedia {
                 anchors.fill: parent
                 visible: scxmlBolero.displayMedia
+
+                Loader {
+                    anchors.fill: parent
+                    source: scxmlBolero.mediaTrackList ? "Media/FrameMediaTrackList.qml" : ""
+                }
+
+                Loader {
+                    anchors.fill: parent
+                    source: scxmlBolero.mediaDisplaySetup ? "Media/FrameMediaSetup.qml" : ""
+                }
+
+                /* Popups */
+                Media.MediaPopupSourceLoader {
+                    id: mediaPopupSourceLoader
+                }
             },
             Loader {
                 anchors.fill: parent

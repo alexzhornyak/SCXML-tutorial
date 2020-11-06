@@ -5,7 +5,8 @@ _virtualMenu.scxml
 _virtualSetup.scxml
 _virtualMedia.scxml
 _virtualAudioModeMedia.scxml
-_virtualDisplaySoundHandlerOn.scxml">
+_virtualDisplaySoundHandlerOn.scxml
+_virtualDriveSources.scxml">
 		<scxmlunit path="_virtualRadio.scxml" scxmlname="ScxmldisplayRadio" virtual="1" virtual_dependencies="_virtualRadioSetup.scxml">
 			<scxmlunit path="_virtualRadioSetup.scxml" scxmlname="ScxmlradioDisplaySetup" virtual="1"/>
 		</scxmlunit>
@@ -14,5 +15,6 @@ _virtualDisplaySoundHandlerOn.scxml">
 		<scxmlunit path="_virtualSetup.scxml" scxmlname="ScxmldisplaySetup" virtual="1"/>
 		<scxmlunit path="_virtualMedia.scxml" scxmlname="ScxmldisplayMedia" virtual="1"/>
 		<scxmlunit path="_virtualAudioModeMedia.scxml" scxmlname="ScxmlaudioModeMedia" virtual="1"/>
+		<scxmlunit path="_virtualDriveSources.scxml" scxmlname="ScxmlDriveSources" virtual="1"/>
 	</scxmlunit>
 </scxmlproject>

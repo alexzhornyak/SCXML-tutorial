@@ -49,7 +49,7 @@ BoleroBackgroundRender {
             opacity: AppConsts.d_MODAL_OPACITY
             anchors.fill: parent
 
-            visible: false //scxmlBolero.radioModal
+            visible: scxmlBolero.mediaModal
 
             MouseArea {
                 anchors.fill: parent
