@@ -789,18 +789,13 @@ In(&quot;mediaModal&quot;))" target="mediaAccentOff"/>
 						</state>
 					</state>
 					<parallel id="audioModeMedia">
-						<state id="mediaPlayer" initial="mediaPrepare">
-							<state id="mediaPrepare">
-								<transition event="Inp.App.Media.SourceValid" target="mediaOperative"/>
-							</state>
-							<state id="mediaOperative" initial="mediaPlaying">
-								<transition event="Inp.App.Media.Error" target="mediaError"/>
+						<state id="mediaPlayer">
+							<state id="mediaActive" initial="mediaStopped">
 								<state id="mediaPlaying"/>
 								<state id="mediaStopped">
-									<transition target="mediaPlaying"/>
+									<transition event="test" target="mediaPlaying"/>
 								</state>
 							</state>
-							<state id="mediaError"/>
 						</state>
 						<state id="audioSource" initial="audioSourceCheck">
 							<transition event="Inp.App.BtnSetup.Media.SourceType   Do.DriveDetected">
@@ -860,17 +855,47 @@ In(&quot;driveSourceUSB_On&quot;)" target="audioSourceUSB"/>
 								</transition>
 							</state>
 							<state id="audioSourceDrives">
-								<state id="audioSourceCD">
+								<state id="audioSourceCD" initial="audioSourceCD_Init">
 									<transition cond="! (t_SETTINGS.AudioSource == &quot;CD&quot; &amp;&amp;
 In(&quot;driveSourceCD_On&quot;))" target="audioSourceCheck"/>
+									<state id="audioSourceCD_Ready">
+										<onentry>
+											<send event="Out.MediaSource.CD">
+												<content>t_SETTINGS.Drives.CD.MediaSource</content>
+											</send>
+										</onentry>
+									</state>
+									<state id="audioSourceCD_Init">
+										<transition cond="In(&quot;driveSourceCD_Ready&quot;)" target="audioSourceCD_Ready"/>
+									</state>
 								</state>
-								<state id="audioSourceSD">
+								<state id="audioSourceSD" initial="audioSourceSD_Init">
 									<transition cond="! (t_SETTINGS.AudioSource == &quot;SD&quot; &amp;&amp;
 In(&quot;driveSourceSD_On&quot;))" target="audioSourceCheck"/>
+									<state id="audioSourceSD_Init">
+										<transition cond="In(&quot;driveSourceSD_Ready&quot;)" target="audioSourceSD_Ready"/>
+									</state>
+									<state id="audioSourceSD_Ready">
+										<onentry>
+											<send event="Out.MediaSource.SD">
+												<content>t_SETTINGS.Drives.SD.MediaSource</content>
+											</send>
+										</onentry>
+									</state>
 								</state>
-								<state id="audioSourceUSB">
+								<state id="audioSourceUSB" initial="audioSourceUSB_Init">
 									<transition cond="! (t_SETTINGS.AudioSource == &quot;USB&quot; &amp;&amp;
 In(&quot;driveSourceUSB_On&quot;))" target="audioSourceCheck"/>
+									<state id="audioSourceUSB_Init">
+										<transition cond="In(&quot;driveSourceUSB_Ready&quot;)" target="audioSourceUSB_Ready"/>
+									</state>
+									<state id="audioSourceUSB_Ready">
+										<onentry>
+											<send event="Out.MediaSource.USB">
+												<content>t_SETTINGS.Drives.USB.MediaSource</content>
+											</send>
+										</onentry>
+									</state>
 								</state>
 							</state>
 						</state>

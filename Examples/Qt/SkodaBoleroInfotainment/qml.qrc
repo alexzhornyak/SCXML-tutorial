@@ -95,5 +95,16 @@
         <file>Qml/Images/ImgSD1_32.png</file>
         <file>Qml/Images/ImgAUX_32.png</file>
         <file>Qml/Media/FrameMediaSetup.qml</file>
+        <file>Qml/Media/AudioFunctionKeysPanel.qml</file>
+        <file>Qml/Images/ImgPause_48.png</file>
+        <file>Qml/Images/ImgPlay_48.png</file>
+        <file>Qml/Images/ImgRewindBack_48.png</file>
+        <file>Qml/Images/ImgRewindForward_48.png</file>
+        <file>Qml/Images/ImgShuffleOn_48.png</file>
+        <file>Qml/Images/ImgFolderRepeat_48.png</file>
+        <file>Qml/Media/MediaImage.qml</file>
+        <file>Qml/Images/ImgSD_128.png</file>
+        <file>Qml/Images/ImgUSB_128.png</file>
+        <file>Qml/Images/ImgAUX_128.png</file>
     </qresource>
 </RCC>

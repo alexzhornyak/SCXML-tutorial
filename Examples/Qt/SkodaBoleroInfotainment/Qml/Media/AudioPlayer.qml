@@ -10,6 +10,8 @@ import "qrc:/Model/CommonConstants.js" as Consts
 Item {
     id: name
 
+    property string currentPlayUrl: audio.playlist !== null ? audio.playlist.currentItemSource : ""
+
     Connections {
         target: scxmlBolero
 
@@ -34,11 +36,53 @@ Item {
             }
 
             if (playlist) {
+                playlist.clear()
                 for (var file of outList) {
                     playlist.addItem(Qt.resolvedUrl(file))
                 }
 
                 scxmlBolero.submitEvent("Inp.App.Media.DriveScanned." + source);
+            }
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.MediaSource.*"]
+        onOccurred: {
+            var playlist = undefined
+
+            if (event.name==="Out.MediaSource.CD") {
+                playlist = playlistCD
+            } else if (event.name==="Out.MediaSource.SD") {
+                playlist = playlistSD
+            } if (event.name==="Out.MediaSource.USB") {
+                playlist = playlistUSB
+            }
+
+            if (playlist) {
+                audio.playlist = playlist
+
+                var savedUrl = undefined
+
+                if (event.data) {
+                    for (var i=0;i<playlist.count;i++) {
+                        if (playlist.itemSource(i)===event.data) {
+                            savedUrl = playlist.itemSource(i)
+                            break;
+                        }
+                    }
+                }
+
+                if (savedUrl) {
+                    audio.playlist.currentItemSource = savedUrl
+                } else {
+                    if (playlist.count) {
+                        audio.playlist.currentIndex = 0
+                    }
+                }
+
+                audio.play()
             }
         }
     }

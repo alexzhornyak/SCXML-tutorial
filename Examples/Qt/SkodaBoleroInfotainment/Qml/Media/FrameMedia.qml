@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import "../"
-import "../AppConstants.js" as AppConsts
+import "qrc:/Qml/AppConstants.js" as AppConsts
 
 BoleroBackgroundRender {
     id: pane
@@ -11,6 +11,8 @@ BoleroBackgroundRender {
     clip: true
 
     readonly property int i_ROW_SPACING: 3
+
+    readonly property int panelHeight: height / 6 - AppConsts.i_DISPLAY_PADDING
 
 //    property alias swipeStations: swipeStations
 //    property alias radioMouseArea: radioMouseArea
@@ -40,6 +42,48 @@ BoleroBackgroundRender {
                 anchors.top: parent.top
             }
 
+            AudioFunctionKeysPanel {
+                id: functionKeys
+
+                anchors.right: parent.right
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+
+                anchors.bottomMargin: 10
+
+                height: pane.panelHeight
+            }
+
+            MediaImage {
+                id: imageSource
+                anchors.top: headerPanel.bottom
+                anchors.right: parent.right
+                width: 160
+                height: 160
+            }
+
+            Text {
+                id: textSource
+
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+
+                anchors.right: imageSource.left
+                anchors.rightMargin: 10
+
+                anchors.top: imageSource.top
+                anchors.bottom: imageSource.bottom
+
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignTop
+                style: Text.Outline
+                color: AppConsts.cl_ITEM_TEXT
+                font.family: "Tahoma"
+                font.pixelSize: 22
+                wrapMode: Text.WordWrap
+
+                text: audioPlayer.currentPlayUrl
+            }
         }
 
         /* we use this special overlay to prevent affect on whole application */
@@ -60,7 +104,7 @@ BoleroBackgroundRender {
 
         MediaBottomPanel {
             id: bottomPanel
-            height: pane.height / 6 - AppConsts.i_DISPLAY_PADDING
+            height: pane.panelHeight
             visible: true
             anchors.left: parent.left
             anchors.right: parent.right

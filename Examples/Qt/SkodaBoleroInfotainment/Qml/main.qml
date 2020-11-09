@@ -217,7 +217,7 @@ ApplicationWindow {
     }
 
     Media.AudioPlayer {
-
+        id: audioPlayer
     }
 
     MainWidget {
