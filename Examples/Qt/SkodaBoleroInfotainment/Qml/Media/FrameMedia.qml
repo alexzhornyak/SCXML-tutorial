@@ -42,7 +42,7 @@ BoleroBackgroundRender {
                 anchors.top: parent.top
             }
 
-            AudioFunctionKeysPanel {
+            MediaFunctionKeysPanel {
                 id: functionKeys
 
                 anchors.right: parent.right
@@ -52,6 +52,15 @@ BoleroBackgroundRender {
                 anchors.bottomMargin: 10
 
                 height: pane.panelHeight
+            }
+
+            MediaTimeline {
+                id: timeline
+
+                anchors.right: parent.right
+                anchors.left: parent.left
+                anchors.bottom: functionKeys.top
+                anchors.top: imageSource.bottom
             }
 
             MediaImage {

@@ -14,7 +14,9 @@ _virtualDriveSources.scxml">
 		<scxmlunit path="_virtualDisplaySoundHandlerOn.scxml" scxmlname="ScxmldisplaySoundHandlerOn" virtual="1"/>
 		<scxmlunit path="_virtualSetup.scxml" scxmlname="ScxmldisplaySetup" virtual="1"/>
 		<scxmlunit path="_virtualMedia.scxml" scxmlname="ScxmldisplayMedia" virtual="1"/>
-		<scxmlunit path="_virtualAudioModeMedia.scxml" scxmlname="ScxmlaudioModeMedia" virtual="1"/>
+		<scxmlunit path="_virtualAudioModeMedia.scxml" scxmlname="ScxmlaudioModeMedia" virtual="1" virtual_dependencies="_virtualMediaFuncBtns.scxml">
+			<scxmlunit path="_virtualMediaFuncBtns.scxml" scxmlname="ScxmlMediaFuncButtons" virtual="1"/>
+		</scxmlunit>
 		<scxmlunit path="_virtualDriveSources.scxml" scxmlname="ScxmlDriveSources" virtual="1"/>
 	</scxmlunit>
 </scxmlproject>

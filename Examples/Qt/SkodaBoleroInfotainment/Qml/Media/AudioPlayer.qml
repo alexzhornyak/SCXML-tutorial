@@ -11,6 +11,10 @@ Item {
     id: name
 
     property string currentPlayUrl: audio.playlist !== null ? audio.playlist.currentItemSource : ""
+    property alias currentPlayPos: audio.position
+    property alias currentPlayDuration: audio.duration
+
+    property alias currentAudio: audio
 
     Connections {
         target: scxmlBolero
@@ -19,8 +23,6 @@ Item {
 
             var playlist = undefined
             var source = undefined
-
-            audio.playlist = null
 
             if (sUrl===scxmlBolero.driveCD) {
                 playlist = playlistCD
@@ -63,32 +65,95 @@ Item {
             if (playlist) {
                 audio.playlist = playlist
 
-                var savedUrl = undefined
+                var savedIndex = undefined
 
                 if (event.data) {
-                    for (var i=0;i<playlist.count;i++) {
-                        if (playlist.itemSource(i)===event.data) {
-                            savedUrl = playlist.itemSource(i)
+                    for (var i=0;i<playlist.itemCount;i++) {
+                        var sUrlSource = Qt.resolvedUrl(playlist.itemSource(i))
+                        var sUrlEvent = Qt.resolvedUrl(event.data)
+                        if (sUrlSource === event.data) {
+                            savedIndex = i
                             break;
                         }
                     }
                 }
 
-                if (savedUrl) {
-                    audio.playlist.currentItemSource = savedUrl
-                } else {
-                    if (playlist.count) {
-                        audio.playlist.currentIndex = 0
-                    }
+                if (savedIndex) {
+                    audio.playlist.currentIndex = savedIndex
                 }
 
-                audio.play()
+
+                scxmlBolero.submitEvent("Inp.App.Media.Reload")
+
+                if (scxmlBolero.muteOn) {
+                    audio.pause()
+                } else {
+                    audio.play()
+                }
+            }
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.Media.Play"]
+        onOccurred: {
+            audio.play()
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.Media.Pause"]
+        onOccurred: {
+            audio.pause()
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.Media.Track.Next"]
+        onOccurred: {
+            if (audio.playlist!=null && audio.playlist.itemCount &&
+                    audio.playlist.currentIndex < audio.playlist.itemCount - 1) {
+
+                audio.playlist.currentIndex++
+                scxmlBolero.submitEvent("Inp.App.Media.State", audio.playbackState)
+            }
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.Media.Track.Previous"]
+        onOccurred: {
+            if (audio.playlist!=null && audio.playlist.itemCount &&
+                    audio.playlist.currentIndex > 0) {
+
+                audio.playlist.currentIndex--
+                scxmlBolero.submitEvent("Inp.App.Media.State", audio.playbackState)
+            }
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.Media.Track.Beginning"]
+        onOccurred: {
+            if (audio.playlist!=null && audio.playlist.itemCount) {
+
+                audio.seek(0)
+                scxmlBolero.submitEvent("Inp.App.Media.State", audio.playbackState)
             }
         }
     }
 
     Audio {
         id: audio
+
+        muted: scxmlBolero.muteOn
+
+        onPlaybackStateChanged: scxmlBolero.submitEvent("Inp.App.Media.State", audio.playbackState)
     }
 
     Playlist {
@@ -105,6 +170,8 @@ Item {
                 scxmlBolero.terminateScanDir(scxmlBolero.driveCD)
             }
         }
+
+        onCurrentItemSourceChanged: scxmlBolero.submitEvent("Inp.App.Media.Source.CD", currentItemSource)
     }
 
     Playlist {
@@ -121,6 +188,8 @@ Item {
                 scxmlBolero.terminateScanDir(scxmlBolero.driveSD)
             }
         }
+
+        onCurrentItemSourceChanged: scxmlBolero.submitEvent("Inp.App.Media.Source.SD", currentItemSource)
     }
 
     Playlist {
@@ -137,6 +206,9 @@ Item {
                 scxmlBolero.terminateScanDir(scxmlBolero.driveUSB)
             }
         }
+
+        onCurrentItemSourceChanged: scxmlBolero.submitEvent("Inp.App.Media.Source.USB", currentItemSource)
+
     }
 
     FolderListModel {

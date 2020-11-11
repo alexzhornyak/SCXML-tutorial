@@ -24,13 +24,14 @@ Item {
                 { eventName: "MediaFunc.Back", enabled: true, keyCentered: true,
                     imageKeySource: "qrc:/Qml/Images/ImgRewindBack_48.png" },
                 { eventName: "MediaFunc.Play", enabled: true, keyCentered: true,
-                    imageKeySource: true ? "qrc:/Qml/Images/ImgPlay_48.png" : "qrc:/Qml/Images/ImgPause_48.png" },
+                    imageKeySource: scxmlBolero.mediaPlaying ? "qrc:/Qml/Images/ImgPause_48.png" : "qrc:/Qml/Images/ImgPlay_48.png" },
                 { eventName: "MediaFunc.Forward", enabled: true, keyCentered: true,
                     imageKeySource: "qrc:/Qml/Images/ImgRewindForward_48.png"}
             ]
 
             delegate: SetupButton {
-
+                onPressed: scxmlBolero.submitBtnSetupEvent(eventName, 1)
+                onReleased: scxmlBolero.submitBtnSetupEvent(eventName, 0)
             }
         }
     }

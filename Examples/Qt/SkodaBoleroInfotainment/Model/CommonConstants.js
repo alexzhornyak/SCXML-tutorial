@@ -56,3 +56,4 @@ function incrementArrayWrapCondition(i_val, i_increment, i_max, func_condition) 
 function strStartsText(s_str, s_text) {
     return s_str.toLowerCase().indexOf(s_text.toLowerCase())===0
 }
+
