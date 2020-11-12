@@ -26,34 +26,14 @@ Item {
         scale: pressArea.pressed ? AppConsts.d_BTN_SCALE : 1.0
         opacity: mouseRotateArea.containsMouse ? AppConsts.d_BTN_OPACITY : 1.0
 
-        property real lastRotation: 0
-
         MouseArea {
             id: mouseRotateArea
             anchors.fill: parent
             hoverEnabled: true
 
-            property real wheelRatio: 3.0
-
-            function submitRotation(bForce) {
-                var deltaRot = imgBackground.rotation - imgBackground.lastRotation
-
-                if (deltaRot !== 0.0) {
-
-                    if (deltaRot > 180.0) {
-                        deltaRot -= 360.0
-                    } else if (deltaRot < -180.0) {
-                        deltaRot += 360.0
-                    }
-
-                    /* reducing sends to StateMachine */
-                    var bRequireSend = Math.abs(imgBackground.rotation - imgBackground.lastRotation) > 30.0
-                    if (bForce || bRequireSend) {
-                        imgBackground.lastRotation = imgBackground.rotation
-                        scxmlBolero.submitEvent("Inp.Rotate." + encoder.name, deltaRot)
-                    }
-                }
-            }
+            readonly property real wheelRatio: 3.0
+            readonly property int maxPositionSends: 5
+            property int positionSendsCount: 0
 
             onPositionChanged:  {
                 if (pressed && !pressArea.containsMouse) {
@@ -63,27 +43,52 @@ Item {
                     var rad = Math.atan (diffY / diffX);
                     var deg = (rad * 180 / Math.PI);
 
+                    var dRotation = imgBackground.rotation;
+
                     if (diffX > 0 && diffY > 0) {
-                        imgBackground.rotation = 90 - Math.abs (deg);
+                        dRotation = 90 - Math.abs (deg);
                     }
                     else if (diffX > 0 && diffY < 0) {
-                        imgBackground.rotation = 90 + Math.abs (deg);
+                        dRotation = 90 + Math.abs (deg);
                     }
                     else if (diffX < 0 && diffY > 0) {
-                        imgBackground.rotation = 270 + Math.abs (deg);
+                        dRotation = 270 + Math.abs (deg);
                     }
                     else if (diffX < 0 && diffY < 0) {
-                        imgBackground.rotation = 270 - Math.abs (deg);
+                        dRotation = 270 - Math.abs (deg);
                     }
 
-                    submitRotation()
+                    var deltaRot = imgBackground.rotation - dRotation
+                    if (deltaRot !== 0.0) {
+
+                        if (deltaRot > 180.0) {
+                            deltaRot -= 360.0
+                        } else if (deltaRot < -180.0) {
+                            deltaRot += 360.0
+                        }
+
+                        positionSendsCount++
+
+                        if (positionSendsCount>maxPositionSends) {
+                            positionSendsCount=0
+
+                            deltaRot = (deltaRot>0 ? -1 : 1) * wheelRatio
+
+                            scxmlBolero.submitEvent("Inp.Rotate." + encoder.name, deltaRot)
+                        }
+
+                    }
+
+                    imgBackground.rotation = dRotation
                 }
             }
 
             onWheel: {
                 var dRotation = imgBackground.rotation
 
-                dRotation -= (wheel.angleDelta.y / 120.0) * wheelRatio
+                var dDeltaRot = (wheel.angleDelta.y / 120.0) * wheelRatio
+
+                dRotation += dDeltaRot
                 if (dRotation > 360.0) {
                     dRotation -= 360.0
                 } else if (dRotation < 0) {
@@ -92,7 +97,9 @@ Item {
 
                 imgBackground.rotation = dRotation
 
-                submitRotation(true/* every wheel rotation */)
+                if (dDeltaRot) {
+                    scxmlBolero.submitEvent("Inp.Rotate." + encoder.name, dDeltaRot)
+                }
             }
 
         }

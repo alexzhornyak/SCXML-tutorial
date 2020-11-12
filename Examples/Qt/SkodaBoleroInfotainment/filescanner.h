@@ -2,12 +2,13 @@
 #define FILESCANNER_H
 
 #include <QObject>
+#include <QUrl>
 
 class FileScanner : public QObject
 {
     Q_OBJECT
 public:
-    explicit FileScanner(const QString &sSearchUrlDir,
+    explicit FileScanner(const QUrl &searchUrlDir,
                          const QStringList &extensions,
                          QObject *parent = nullptr);
 
@@ -17,11 +18,11 @@ public slots:
 
 signals:
     void finished();
-    void fileFound(const QString &sSearchUrl, const QString &sFile);
-    void scanCompleted(const QString &sUrl, const QStringList &outList);
+    void fileFound(const QUrl &searchUrlDir, const QUrl &file);
+    void scanCompleted(const QUrl &url, const QStringList &outList);
 
 private:
-    QString _searchUrlDir;
+    QUrl _searchUrlDir;
     QStringList _extensions;
 };
 

@@ -107,5 +107,7 @@
         <file>Qml/Images/ImgUSB_128.png</file>
         <file>Qml/Images/ImgAUX_128.png</file>
         <file>Qml/Media/MediaTimeline.qml</file>
+        <file>Qml/VolumePanel.qml</file>
+        <file>Qml/Images/ImgMusic.png</file>
     </qresource>
 </RCC>

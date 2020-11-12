@@ -17,20 +17,20 @@ Item {
     property alias currentAudio: audio
 
     Connections {
-        target: scxmlBolero
+        target: fileUtils
 
         function onMediaScanCompleted(sUrl, outList) {
 
             var playlist = undefined
             var source = undefined
 
-            if (sUrl===scxmlBolero.driveCD) {
+            if (sUrl===storageCD.urlPath) {
                 playlist = playlistCD
                 source = "CD"
-            } else if (sUrl===scxmlBolero.driveSD) {
+            } else if (sUrl===storageSD.urlPath) {
                 playlist = playlistSD
                 source = "SD"
-            } else if (sUrl===scxmlBolero.driveUSB) {
+            } else if (sUrl===storageUSB.urlPath) {
                 playlist = playlistUSB
                 source = "USB"
             } else {
@@ -40,7 +40,7 @@ Item {
             if (playlist) {
                 playlist.clear()
                 for (var file of outList) {
-                    playlist.addItem(Qt.resolvedUrl(file))
+                    playlist.addItem(fileUtils.urlFromLocalFile(file))
                 }
 
                 scxmlBolero.submitEvent("Inp.App.Media.DriveScanned." + source);
@@ -52,15 +52,15 @@ Item {
         stateMachine: scxmlBolero
         events: ["Out.MediaSource.*"]
         onOccurred: {
-            var playlist = undefined
+            var audioSource = event.name.replace("Out.MediaSource.", "")
 
-            if (event.name==="Out.MediaSource.CD") {
-                playlist = playlistCD
-            } else if (event.name==="Out.MediaSource.SD") {
-                playlist = playlistSD
-            } if (event.name==="Out.MediaSource.USB") {
-                playlist = playlistUSB
+            var t_Playlists = {
+                CD: playlistCD,
+                SD: playlistSD,
+                USB: playlistUSB
             }
+
+            var playlist = t_Playlists[audioSource]
 
             if (playlist) {
                 audio.playlist = playlist
@@ -69,9 +69,10 @@ Item {
 
                 if (event.data) {
                     for (var i=0;i<playlist.itemCount;i++) {
-                        var sUrlSource = Qt.resolvedUrl(playlist.itemSource(i))
-                        var sUrlEvent = Qt.resolvedUrl(event.data)
-                        if (sUrlSource === event.data) {
+                        var sUrlSource = playlist.itemSource(i)
+                        var sUrlEvent = event.data
+
+                        if (sUrlSource.toString().toLowerCase() === sUrlEvent.toString().toLowerCase()) {
                             savedIndex = i
                             break;
                         }
@@ -90,6 +91,16 @@ Item {
                 } else {
                     audio.play()
                 }
+
+                if (scxmlBolero.settings.Drives && scxmlBolero.settings.Drives[audioSource]) {
+                    var seekPos = scxmlBolero.settings.Drives[audioSource].MediaPosition
+
+                    if (seekPos!==undefined) {
+                        audio.seek(seekPos)
+                    }
+                }
+            } else {
+                audio.playlist = null
             }
         }
     }
@@ -152,8 +163,12 @@ Item {
         id: audio
 
         muted: scxmlBolero.muteOn
+        volume: scxmlBolero.getVolume()
 
         onPlaybackStateChanged: scxmlBolero.submitEvent("Inp.App.Media.State", audio.playbackState)
+        onPositionChanged: {
+            scxmlBolero.submitEvent("Inp.App.Media.Position", audio.position)
+        }
     }
 
     Playlist {
@@ -165,9 +180,9 @@ Item {
             this.clear()
 
             if (enabled) {
-                scxmlBolero.scanDirAsync(scxmlBolero.driveCD, Consts.t_MEDIA_AVAILABLE_EXTENSIIONS)
+                fileUtils.scanDirAsync(storageCD.urlPath, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
             } else {
-                scxmlBolero.terminateScanDir(scxmlBolero.driveCD)
+                fileUtils.terminateScanDir(storageCD.urlPath)
             }
         }
 
@@ -183,9 +198,9 @@ Item {
             this.clear()
 
             if (enabled) {
-                scxmlBolero.scanDirAsync(scxmlBolero.driveSD, Consts.t_MEDIA_AVAILABLE_EXTENSIIONS)
+                fileUtils.scanDirAsync(storageSD.urlPath, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
             } else {
-                scxmlBolero.terminateScanDir(scxmlBolero.driveSD)
+                fileUtils.terminateScanDir(storageSD.urlPath)
             }
         }
 
@@ -201,9 +216,9 @@ Item {
             this.clear()
 
             if (enabled) {
-                scxmlBolero.scanDirAsync(scxmlBolero.driveUSB, Consts.t_MEDIA_AVAILABLE_EXTENSIIONS)
+                fileUtils.scanDirAsync(storageUSB.urlPath, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
             } else {
-                scxmlBolero.terminateScanDir(scxmlBolero.driveUSB)
+                fileUtils.terminateScanDir(storageUSB.urlPath)
             }
         }
 
@@ -211,28 +226,20 @@ Item {
 
     }
 
-    FolderListModel {
-        id: audioFolders
-
-        nameFilters: Consts.t_MEDIA_AVAILABLE_EXTENSIIONS
-
-        folder: ""
-    }
-
     EventConnection {
         stateMachine: scxmlBolero
         events: ["Inp.App.Media.Btn.Selection"]
         onOccurred: {
 
-            var s_folder_url = scxmlBolero.settings.MediaFolder
+            var s_folder_url = fileUtils.urlExtractPath(currentPlayUrl)
 
-            if (!scxmlBolero.urlDirExists(s_folder_url)) {
+            if (!fileUtils.urlExists(s_folder_url)) {
                 if (scxmlBolero.audioSourceCD) {
-                    s_folder_url = scxmlBolero.driveCD
+                    s_folder_url = storageCD.urlPath
                 } else if (scxmlBolero.audioSourceSD) {
-                    s_folder_url = scxmlBolero.driveSD
+                    s_folder_url = storageSD.urlPath
                 } else if (scxmlBolero.audioSourceUSB) {
-                    s_folder_url = scxmlBolero.driveUSB
+                    s_folder_url = storageUSB.urlPath
                 }
             }
 
@@ -250,9 +257,9 @@ Item {
 
         onOccurred: {
 
-            var bCD = scxmlBolero.urlDirExists(scxmlBolero.driveCD)
-            var bSD = scxmlBolero.urlDirExists(scxmlBolero.driveSD)
-            var bUSB = scxmlBolero.urlDirExists(scxmlBolero.driveUSB)
+            var bCD = storageSD.enabled
+            var bSD = storageSD.enabled
+            var bUSB = storageSD.enabled
 
             if (bCD!==presentDriveCD) {
                 presentDriveCD = bCD

@@ -2,6 +2,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import ScxmlBolero 1.0
+import StorageInfo 1.0
+import FileUtils 1.0
 import QtScxml 5.8
 import "Radio" as Radio
 import "Media" as Media
@@ -9,6 +11,7 @@ import "Sound" as Sound
 import "System" as System
 import "Vehicle" as Vehicle
 import "AppConstants.js" as AppConsts
+import "qrc:/Model/CommonConstants.js" as Consts
 
 ApplicationWindow {
     id: applicationWindow
@@ -25,14 +28,37 @@ ApplicationWindow {
         scxmlBolero.submitEvent("Inp.Quit")
     }
 
+    /* we assume that drives are fixed in the device */
+    StorageInfo {
+        id: storageCD
+
+        urlPath: "file:///C:/"          /* MUST BE REPLACED WITH THE ORIGINAL DRIVE PATH */
+    }
+
+    StorageInfo {
+        id: storageSD
+
+        urlPath: "file:///D:/"          /* MUST BE REPLACED WITH THE ORIGINAL DRIVE PATH */
+    }
+
+    StorageInfo {
+        id: storageUSB
+
+        urlPath: "file:///F:/"          /* MUST BE REPLACED WITH THE ORIGINAL DRIVE PATH */
+    }
+
+    FileUtils {
+        id: fileUtils
+    }
+
     ScxmlBolero {
         id: scxmlBolero
         running: true
 
-        /* we assume that drives are fixed in the device */
-        readonly property string driveCD: "file:///C:/"
-        readonly property string driveSD: "file:///D:/"
-        readonly property string driveUSB: "file:///F:/"
+        function getVolume() {
+            return scxmlBolero.settings.Volume === undefined ?
+                        0.5 : scxmlBolero.settings.Volume
+        }
 
         function getSelectedStation() {
             var bandType = scxmlBolero.settings.BandType
@@ -130,8 +156,9 @@ ApplicationWindow {
             if (index !== -1 && scxmlBolero.settings.BandType !== undefined) {
                 var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
                         + (index + 1).toString() + ".png"
-                if (scxmlBolero.fileExists(pathToImage)) {
-                    return "file:///" + pathToImage
+                pathToImage = fileUtils.urlFromLocalFile(pathToImage)
+                if (fileUtils.urlExists(pathToImage)) {
+                    return pathToImage
                 }
             }
             return ""
@@ -144,7 +171,8 @@ ApplicationWindow {
                 for (var it=0;it<currentBand.Presets.length;it++) {
                     var pathToImage = s_APP_PATH + "/Images/" + bandType + "/"
                             + (it + 1).toString() + ".png"
-                    if (scxmlBolero.fileExists(pathToImage))
+                    pathToImage = fileUtils.urlFromLocalFile(pathToImage)
+                    if (fileUtils.urlExists(pathToImage))
                         return false
                 }
             }
@@ -180,7 +208,7 @@ ApplicationWindow {
                     var iIndex = parseInt(event.data)
                     var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
                             + (iIndex + 1).toString() + ".png"
-                    scxmlBolero.fileDelete(pathToImage)
+                    fileUtils.fileDelete(pathToImage)
                 }
             }
         }
@@ -192,7 +220,7 @@ ApplicationWindow {
                 for (var iIndex=0;iIndex<15;iIndex++) {
                     var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
                             + (iIndex + 1).toString() + ".png"
-                    scxmlBolero.fileDelete(pathToImage)
+                    fileUtils.fileDelete(pathToImage)
                 }
 
             }
@@ -206,9 +234,9 @@ ApplicationWindow {
                     var iIndex = parseInt(event.data.index)
                     var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
                             + (iIndex + 1).toString() + ".png"
-                    var sourcePath = scxmlBolero.urlToLocalFile(event.data.url)
+                    var sourcePath = fileUtils.urlToLocalFile(event.data.url)
 
-                    if (!scxmlBolero.fileCopy(sourcePath, pathToImage)) {
+                    if (!fileUtils.fileCopy(sourcePath, pathToImage)) {
                         console.error("Can not copy [", sourcePath, "] to [", pathToImage, "]")
                     }
                 }
@@ -271,7 +299,14 @@ ApplicationWindow {
                     id: radioSelectFileLogosLoader
                     anchors.fill: parent                    
 
-                    source: scxmlBolero.radioManageLogosFiles ? "FrameSelectFiles.qml" : ""
+                    sourceComponent: scxmlBolero.radioManageLogosFiles ? radioSelectFilesComponent : undefined
+
+                    Component {
+                        id: radioSelectFilesComponent
+                        FrameSelectFiles {
+                            folderNameFilters: Consts.t_IMAGE_AVAILABLE_EXTENSIONS
+                        }
+                    }
                 }
 
                 Loader {
@@ -367,6 +402,14 @@ ApplicationWindow {
                         }
                     }
                 }
+            },
+            Loader {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                height: parent.height/6
+
+                source: scxmlBolero.volumeShow ? "VolumePanel.qml" : ""
             }
         ]
     }

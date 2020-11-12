@@ -4,10 +4,10 @@
 #include <QUrl>
 #include <QThread>
 
-FileScanner::FileScanner(const QString &sSearchUrlDir,
+FileScanner::FileScanner(const QUrl &searchUrlDir,
                          const QStringList &extensions,
                          QObject *parent) :
-    QObject(parent), _searchUrlDir(sSearchUrlDir), _extensions(extensions)
+    QObject(parent), _searchUrlDir(searchUrlDir), _extensions(extensions)
 {
 
 }
@@ -16,19 +16,22 @@ void FileScanner::process()
 {
     QStringList out;
 
-    QDirIterator it(QUrl(_searchUrlDir).toLocalFile(), _extensions,
-                    QDir::Files, QDirIterator::Subdirectories);
-    while (it.hasNext()) {
+    const QString folder = _searchUrlDir.toLocalFile();
+    if (!folder.isEmpty()) {
+        QDirIterator it(folder, _extensions,
+                        QDir::Files, QDirIterator::Subdirectories);
+        while (it.hasNext()) {
 
-        if (this->thread()->isInterruptionRequested()) {
-            break;
+            if (this->thread()->isInterruptionRequested()) {
+                break;
+            }
+
+            out << it.next();
+            emit fileFound(_searchUrlDir, QUrl::fromLocalFile(out.last()));
         }
 
-        out << it.next();
-        emit fileFound(_searchUrlDir, out.last());
+        emit scanCompleted(_searchUrlDir, out);
     }
-
-    emit scanCompleted(_searchUrlDir, out);
 
     emit finished();
 }

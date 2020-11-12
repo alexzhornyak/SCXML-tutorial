@@ -5,8 +5,6 @@
 #include <QJsonObject>
 #include <QFile>
 #include <QDir>
-#include <QDirIterator>
-#include <QThread>
 
 /* ScxmlJS */
 
@@ -45,66 +43,6 @@ ScxmlBoleroExt::ScxmlBoleroExt(QObject *parent): ScxmlBolero(parent), _scxmlJS(n
     connectToEvent("Out.SettingsChanged", [this](const QScxmlEvent &){
         emit settingsChanged();
     });
-}
-
-bool ScxmlBoleroExt::fileExists(const QString &sFile) {
-    return QFile::exists(sFile);
-}
-
-bool ScxmlBoleroExt::fileDelete(const QString &sFile) {
-    return QFile::remove(sFile);
-}
-
-bool ScxmlBoleroExt::fileCopy(const QString &sSource, const QString &sTarget) {
-    return QFile::copy(sSource, sTarget);
-}
-
-QString ScxmlBoleroExt::urlToLocalFile(const QString &sUrl) {
-    return QUrl(sUrl).toLocalFile();
-}
-
-bool ScxmlBoleroExt::urlDirExists(const QString &sUrl) {
-    QFileInfo info(QUrl(sUrl).toLocalFile());
-    return info.isRoot() || info.isDir();
-}
-
-void ScxmlBoleroExt::terminateScanDir(const QString &sUrl)
-{
-    auto it = _audioFileScanners.find(sUrl);
-    if (it!=_audioFileScanners.end()) {
-        it.value()->terminate();
-    }
-}
-
-void ScxmlBoleroExt::scanDirAsync(const QString &sUrl, const QStringList &extensions) {
-    if (_audioFileScanners.find(sUrl)==_audioFileScanners.end()) {
-        FileScanner *scanner = new FileScanner(sUrl, extensions);
-        QThread *thread = new QThread;
-        scanner->moveToThread(thread);
-
-        _audioFileScanners.insert(sUrl, scanner);
-
-        connect(thread, SIGNAL(started()), scanner, SLOT(process()));
-        connect(scanner, SIGNAL(finished()), thread, SLOT(quit()));
-        connect(scanner, SIGNAL(finished()), scanner, SLOT(deleteLater()));
-        connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
-
-#if 0 // optional file by file search
-        connect(scanner, SIGNAL(fileFound(const QString&, const QString&)),
-                this, SLOT(onFileFound(const QString&, const QString&)));
-#endif
-        connect(scanner, SIGNAL(scanCompleted(const QString&, const QStringList&)),
-                this, SLOT(onScanCompleted(const QString&, const QStringList&)));
-
-        thread->start();
-    }
-}
-
-
-void ScxmlBoleroExt::onScanCompleted(const QString &sUrl, const QStringList &outList) {
-    _audioFileScanners.remove(sUrl);
-
-    emit mediaScanCompleted(sUrl, outList);
 }
 
 QVariant ScxmlBoleroExt::settings() {

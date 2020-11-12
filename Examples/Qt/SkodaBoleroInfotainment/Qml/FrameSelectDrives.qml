@@ -10,17 +10,16 @@ FrameSettings {
 
     repeater.model: [
         { imageKeySource: "Images/ImgMenuMedia_64.png", buttonHeight: 65,
-            keyCentered: true, eventName: "Drive.CD", eventData: scxmlBolero.driveCD,
-            enabled: scxmlBolero.urlDirExists(scxmlBolero.driveCD)
+            keyCentered: true, eventName: "Drive.CD", eventData: storageCD.urlPath,
+            enabled: storageCD.enabled
         },
-
         { imageKeySource: "Images/ImgSDCard.png", buttonHeight: 65,
-            keyCentered: true, eventName: "Drive.SD", eventData: scxmlBolero.driveSD,
-            enabled: scxmlBolero.urlDirExists(scxmlBolero.driveSD)
+            keyCentered: true, eventName: "Drive.SD", eventData: storageSD.urlPath,
+            enabled: storageCD.enabled
         },
         { imageKeySource: "Images/ImgUSB.png", buttonHeight: 65,
-            keyCentered: true, eventName: "Drive.USB", eventData: scxmlBolero.driveUSB,
-            enabled: scxmlBolero.urlDirExists(scxmlBolero.driveUSB)
+            keyCentered: true, eventName: "Drive.USB", eventData: storageUSB.urlPath,
+            enabled: storageUSB.enabled
         }
     ]
 }

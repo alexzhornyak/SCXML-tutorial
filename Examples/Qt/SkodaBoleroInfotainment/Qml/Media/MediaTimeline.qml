@@ -5,6 +5,16 @@ import "../"
 
 Item {
 
+    // Connections to change the position of status slider according to the position of the audio.
+    Connections {
+        target: audioPlayer
+        function onCurrentPlayPosChanged() {
+            if (!timeSlider.pressed) {
+                timeSlider.value = audioPlayer.currentPlayPos
+            }
+        }
+    }
+
     Slider {
         id: timeSlider
 
@@ -16,9 +26,31 @@ Item {
 
         from: 0
         to: audioPlayer.currentPlayDuration
-        value: audioPlayer.currentPlayPos
+        live: true
 
-        onMoved: audioPlayer.currentAudio.seek(timeSlider.value)
+        onMoved: {
+            audioPlayer.currentAudio.seek(timeSlider.valueAt(timeSlider.position))
+        }
+
+        background: Rectangle {
+            x: timeSlider.leftPadding
+            y: timeSlider.topPadding + timeSlider.availableHeight / 2 - height / 2
+            implicitWidth: 200
+            implicitHeight: 4
+            width: timeSlider.availableWidth
+            height: implicitHeight
+            radius: 2
+            color: AppConsts.cl_BACKGROUND_LIGHT
+
+            Rectangle {
+                width: timeSlider.visualPosition * parent.width
+                height: parent.height
+                color: AppConsts.cl_SELECTION
+                radius: 2
+            }
+        }
+
+        handle: null
     }
 
     function msToTime(s) {

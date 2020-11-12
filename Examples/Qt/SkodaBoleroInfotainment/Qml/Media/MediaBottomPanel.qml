@@ -32,7 +32,7 @@ Item {
 
             model: [
                 { name: "Source", enabled: true, img: getMediaSourceImage() },
-                { name: "Selection", enabled: !scxmlBolero.audioSourceAUX, img: "qrc:/Qml/Images/ImgTrackList_32.png" },
+                { name: "Selection", enabled: !scxmlBolero.audioSourceAUX && scxmlBolero.mediaReadyDriveSourcesOn, img: "qrc:/Qml/Images/ImgTrackList_32.png" },
                 { name: "Setup", enabled: true, img: "qrc:/Qml/Images/ImgBtnSettings.png"}
             ]
 

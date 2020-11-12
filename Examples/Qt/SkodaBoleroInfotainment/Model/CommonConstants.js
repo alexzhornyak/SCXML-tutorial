@@ -13,7 +13,8 @@ var t_RADIO_SETUP_DEPENDENCY = {
 var t_RADIO_ARROWS = [ "Preset list", "Station list" ]
 var t_RADIO_REGIONAL_RDS = [ "Fixed", "Automatic" ]
 
-var t_MEDIA_AVAILABLE_EXTENSIIONS = [ "*.mp3", "*.wav", "*.aac", "*.wma" ]
+var t_MEDIA_AVAILABLE_EXTENSIONS = [ "*.mp3", "*.wav", "*.aac", "*.wma" ]
+var t_IMAGE_AVAILABLE_EXTENSIONS = [ "*.png" ]
 
 function limitMinMax(d_val, d_min, d_max) {
     if (d_val < d_min)

@@ -17,6 +17,9 @@ BoleroBackgroundRender {
     readonly property real headerHeight: height/6 - AppConsts.i_DISPLAY_PADDING
     property alias viewLayout: viewLayout
     property alias folderRoot: folderModel.folder
+    property alias folderNameFilters: folderModel.nameFilters
+
+    property int fileListType: FrameSelectFiles.FileListType.RadioImages
 
     enum SubFolderType {
         Side,
@@ -31,9 +34,13 @@ BoleroBackgroundRender {
         USB
     }
 
+    enum FileListType {
+        RadioImages,
+        Media
+    }
+
     FolderListModel {
         id: folderModel
-        nameFilters: ["*.png"]
 
         property int driveType: FrameSelectFiles.DriveType.Unknown
 
@@ -102,14 +109,14 @@ BoleroBackgroundRender {
         events: ["Out.DirSelected"]
         onOccurred: {            
             var s_folder_url = event.data
-            if (Consts.strStartsText(s_folder_url, scxmlBolero.driveCD)) {
+            if (storageCD.hasPath(s_folder_url)) {
                 folderModel.driveType = FrameSelectFiles.DriveType.CD
-            } else if (Consts.strStartsText(s_folder_url, scxmlBolero.driveSD)) {
+            } else if (storageSD.hasPath(s_folder_url)) {
                 folderModel.driveType = FrameSelectFiles.DriveType.SD
-            } else if (Consts.strStartsText(s_folder_url, scxmlBolero.driveUSB)) {
+            } else if (storageUSB.hasPath(s_folder_url)) {
                 folderModel.driveType = FrameSelectFiles.DriveType.USB
             } else {
-                console.error("Drive type [",event.data,"] is not defined!")
+                console.error("Drive type [", event.data ,"] is not defined!")
             }
 
             folderModel.folder = s_folder_url
@@ -376,7 +383,15 @@ BoleroBackgroundRender {
                                 anchors.bottomMargin: 3
 
                                 fillMode: fileIsDir ? Image.Pad : Image.PreserveAspectFit
-                                source: fileIsDir ? "Images/ImgFolder.png" : fileUrl
+                                source: fileIsDir ? "Images/ImgFolder.png" :  getListElementIcon()
+
+                                function getListElementIcon() {
+                                    switch (frame.fileListType) {
+                                    case FrameSelectFiles.FileListType.RadioImages: return fileUrl
+                                    case FrameSelectFiles.FileListType.Media: return ""
+                                    }
+                                    return ""
+                                }
                             }
 
                             Text {

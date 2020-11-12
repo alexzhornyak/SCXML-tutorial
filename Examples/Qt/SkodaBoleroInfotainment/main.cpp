@@ -4,6 +4,8 @@
 
 #include "maskedmousearea.h"
 #include "scxmlboleroext.h"
+#include "storageinfo.h"
+#include "fileutils.h"
 
 #ifdef _SCXML_EXTERN_MONITOR_
     #include "scxmlexternmonitor.h"
@@ -16,6 +18,8 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<MaskedMouseArea>("MaskedMouseArea", 1, 0, "MaskedMouseArea");
     qmlRegisterType<ScxmlBoleroExt>("ScxmlBolero", 1, 0, "ScxmlBolero");
+    qmlRegisterType<StorageInfo>("StorageInfo", 1, 0, "StorageInfo");
+    qmlRegisterType<FileUtils>("FileUtils", 1, 0, "FileUtils");
 	
 #ifdef _SCXML_EXTERN_MONITOR_
     g_ScxmlStateMachineName = "ScxmlBolero";

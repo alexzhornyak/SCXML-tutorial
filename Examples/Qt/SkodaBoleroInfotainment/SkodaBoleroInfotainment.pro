@@ -4,8 +4,10 @@ CONFIG += c++11
 
 SOURCES += main.cpp \
     filescanner.cpp \
+    fileutils.cpp \
     maskedmousearea.cpp \
-    scxmlboleroext.cpp
+    scxmlboleroext.cpp \
+    storageinfo.cpp
 
 RESOURCES += qml.qrc
 
@@ -39,5 +41,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     filescanner.h \
+    fileutils.h \
     maskedmousearea.h \
-    scxmlboleroext.h
+    scxmlboleroext.h \
+    storageinfo.h

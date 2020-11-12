@@ -52,6 +52,10 @@ BoleroBackgroundRender {
                 anchors.bottomMargin: 10
 
                 height: pane.panelHeight
+
+                visible: scxmlBolero.audioSourceDrives
+                enabled: scxmlBolero.mediaReadyDriveSourcesOn
+                opacity: enabled ? 1 : 0.5
             }
 
             MediaTimeline {
@@ -61,6 +65,10 @@ BoleroBackgroundRender {
                 anchors.left: parent.left
                 anchors.bottom: functionKeys.top
                 anchors.top: imageSource.bottom
+
+                visible: scxmlBolero.audioSourceDrives
+                enabled: scxmlBolero.mediaReadyDriveSourcesOn
+                opacity: enabled ? 1 : 0.5
             }
 
             MediaImage {
@@ -88,10 +96,12 @@ BoleroBackgroundRender {
                 style: Text.Outline
                 color: AppConsts.cl_ITEM_TEXT
                 font.family: "Tahoma"
-                font.pixelSize: 22
+                font.pixelSize: 26
                 wrapMode: Text.WordWrap
 
-                text: audioPlayer.currentPlayUrl
+                text: fileUtils.urlExtractFileName(audioPlayer.currentPlayUrl);
+
+                visible: scxmlBolero.mediaReadyDriveSourcesOn
             }
         }
 
