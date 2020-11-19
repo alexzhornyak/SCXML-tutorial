@@ -60,6 +60,32 @@ ApplicationWindow {
                         0.5 : scxmlBolero.settings.Volume
         }
 
+        function getCurrentMedia() {
+            var audio_input = settings.AudioInput
+
+            if (settings.Drives && settings.Drives[audio_input]) {
+                return settings.Drives[audio_input]
+            }
+
+            return undefined
+        }
+
+        function getCurrentMediaUrl() {
+            var obj_media = getCurrentMedia()
+            if (obj_media!==undefined)
+                return obj_media.MediaSource
+
+            return ""
+        }
+
+        function getCurrentMediaRepeatFolderUrl() {
+            var obj_media = getCurrentMedia()
+            if (obj_media!==undefined)
+                return obj_media.MediaRepeatFolder
+
+            return ""
+        }
+
         function getSelectedStation() {
             var bandType = scxmlBolero.settings.BandType
             var currentBand = scxmlBolero.settings.Bands[bandType]
@@ -329,8 +355,30 @@ ApplicationWindow {
                 visible: scxmlBolero.displayMedia
 
                 Loader {
+                    id: mediaTrackListLoader
                     anchors.fill: parent
-                    source: scxmlBolero.mediaTrackList ? "Media/FrameMediaTrackList.qml" : ""
+
+                    sourceComponent: scxmlBolero.displayMedia ? mediaTrackListComponent : undefined
+
+                    Component {
+                        id: mediaTrackListComponent
+
+                        Media.FrameMediaTrackList {
+                            id: mediaTrackList
+                            enabled: scxmlBolero.mediaTrackList
+                            visible: false
+
+                            folderRoot: audioPlayer.currentPlayUrlPath
+
+                            onEnabledChanged: {
+                                if (enabled) {
+                                    folderRoot = audioPlayer.currentPlayUrlPath
+                                }
+
+                                visible = enabled
+                            }
+                        }
+                    }
                 }
 
                 Loader {

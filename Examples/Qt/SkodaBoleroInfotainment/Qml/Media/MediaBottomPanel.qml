@@ -18,13 +18,13 @@ Item {
             id: repeaterButtons
 
             function getMediaSourceImage() {
-                if (scxmlBolero.audioSourceCD)
+                if (scxmlBolero.audioInputCD)
                     return "qrc:/Qml/Images/ImgCD_32.png"
-                if (scxmlBolero.audioSourceSD)
+                if (scxmlBolero.audioInputSD)
                     return "qrc:/Qml/Images/ImgSD_32.png"
-                if (scxmlBolero.audioSourceUSB)
+                if (scxmlBolero.audioInputUSB)
                     return "qrc:/Qml/Images/ImgUSB_32.png"
-                if (scxmlBolero.audioSourceAUX)
+                if (scxmlBolero.audioInputAUX)
                     return "qrc:/Qml/Images/ImgAUX_32.png"
 
                 return "" // mustn't occur
@@ -32,7 +32,7 @@ Item {
 
             model: [
                 { name: "Source", enabled: true, img: getMediaSourceImage() },
-                { name: "Selection", enabled: !scxmlBolero.audioSourceAUX && scxmlBolero.mediaReadyDriveSourcesOn, img: "qrc:/Qml/Images/ImgTrackList_32.png" },
+                { name: "Selection", enabled: scxmlBolero.mediaPlayerNormal, img: "qrc:/Qml/Images/ImgTrackList_32.png" },
                 { name: "Setup", enabled: true, img: "qrc:/Qml/Images/ImgBtnSettings.png"}
             ]
 

@@ -28,8 +28,9 @@ Item {
         to: audioPlayer.currentPlayDuration
         live: true
 
-        onMoved: {
-            audioPlayer.currentAudio.seek(timeSlider.valueAt(timeSlider.position))
+        onPressedChanged: {
+            if (!pressed)
+                audioPlayer.currentAudio.seek(timeSlider.valueAt(timeSlider.position))
         }
 
         background: Rectangle {
@@ -50,7 +51,18 @@ Item {
             }
         }
 
-        handle: null
+        handle: Rectangle {
+            antialiasing: true
+            x: timeSlider.leftPadding + timeSlider.visualPosition * (timeSlider.availableWidth - width)
+            y: timeSlider.topPadding + timeSlider.availableHeight / 2 - height / 2
+            implicitWidth: radius * 2
+            implicitHeight: radius * 2
+            radius: 10
+            color: timeSlider.pressed ? AppConsts.cl_BACKGROUND_LIGHT : AppConsts.cl_BACKGROUND
+            border.color: AppConsts.cl_SELECTION
+            border.width: 3
+            visible: scxmlBolero.mediaAccentOn
+        }
     }
 
     function msToTime(s) {

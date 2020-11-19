@@ -21,7 +21,7 @@ Item {
             id: repeaterButtons
 
             model: [
-                { eventName: "MediaFunc.Back", enabled: true, keyCentered: true,
+                { eventName: "MediaFunc.Reverse", enabled: true, keyCentered: true,
                     imageKeySource: "qrc:/Qml/Images/ImgRewindBack_48.png" },
                 { eventName: "MediaFunc.Play", enabled: true, keyCentered: true,
                     imageKeySource: scxmlBolero.mediaPlaying ? "qrc:/Qml/Images/ImgPause_48.png" : "qrc:/Qml/Images/ImgPlay_48.png" },
@@ -29,7 +29,9 @@ Item {
                     imageKeySource: "qrc:/Qml/Images/ImgRewindForward_48.png"}
             ]
 
-            delegate: SetupButton {
+            delegate: SetupButton {                
+                topBorderVisible: scxmlBolero.mediaAccentOn
+
                 onPressed: scxmlBolero.submitBtnSetupEvent(eventName, 1)
                 onReleased: scxmlBolero.submitBtnSetupEvent(eventName, 0)
             }
@@ -43,12 +45,16 @@ Item {
 
         implicitWidth: 65
 
+        topBorderVisible: scxmlBolero.mediaAccentOn
+
         onReleased: scxmlBolero.submitBtnSetupEvent("MediaFunc.Repeat")
 
         Image {
             anchors.centerIn: parent
             fillMode: Image.Pad
-            source: "qrc:/Qml/Images/ImgFolderRepeat_48.png"
+            source: scxmlBolero.mediaRepeatTrack ? "qrc:/Qml/Images/ImgMediaTrackRepeat_48.png" :
+                    scxmlBolero.mediaRepeatFolder ? "qrc:/Qml/Images/ImgMediaFolderRepeat_48.png" :
+                                                    "qrc:/Qml/Images/ImgMediaNoRepeat_48.png"
         }
     }
 
@@ -59,12 +65,15 @@ Item {
 
         implicitWidth: 65
 
+        topBorderVisible: scxmlBolero.mediaAccentOn
+
         onReleased: scxmlBolero.submitBtnSetupEvent("MediaFunc.Shuffle")
 
         Image {
             anchors.centerIn: parent
             fillMode: Image.Pad
-            source: "qrc:/Qml/Images/ImgShuffleOn_48.png"
+            source: scxmlBolero.mediaPlayMixModeOn ? "qrc:/Qml/Images/ImgShuffleOn_48.png" :
+                                                     "qrc:/Qml/Images/ImgShuffleOff_48.png"
         }
     }
 

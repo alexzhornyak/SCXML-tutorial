@@ -13,7 +13,7 @@ var t_RADIO_SETUP_DEPENDENCY = {
 var t_RADIO_ARROWS = [ "Preset list", "Station list" ]
 var t_RADIO_REGIONAL_RDS = [ "Fixed", "Automatic" ]
 
-var t_MEDIA_AVAILABLE_EXTENSIONS = [ "*.mp3", "*.wav", "*.aac", "*.wma" ]
+var t_MEDIA_AVAILABLE_EXTENSIONS = [ "*.mp3" ]
 var t_IMAGE_AVAILABLE_EXTENSIONS = [ "*.png" ]
 
 function limitMinMax(d_val, d_min, d_max) {
@@ -57,4 +57,9 @@ function incrementArrayWrapCondition(i_val, i_increment, i_max, func_condition) 
 function strStartsText(s_str, s_text) {
     return s_str.toLowerCase().indexOf(s_text.toLowerCase())===0
 }
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 

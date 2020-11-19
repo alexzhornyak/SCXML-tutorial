@@ -37,7 +37,7 @@ QUrl FileUtils::urlExtractPath(const QUrl &url) {
     return QUrl::fromLocalFile(QFileInfo(url.toLocalFile()).absolutePath());
 }
 
-QUrl FileUtils::urlExtractFileName(const QUrl &url) {
+QString FileUtils::urlExtractFileName(const QUrl &url) {
     return url.fileName();
 }
 

@@ -36,6 +36,7 @@ Loader {
                     imageKeySource: "qrc:/Qml/Images/ImgUSB_32.png",
                     keyCentered: false, col: 0, row: 1 },
                 { text: "AUX", eventData: "AUX", imageKeySource: "qrc:/Qml/Images/ImgAUX_32.png",
+                    enabled: scxmlBolero.mediaAuxStateOn,
                     keyCentered: false, col: 1, row: 1 }
             ]
 

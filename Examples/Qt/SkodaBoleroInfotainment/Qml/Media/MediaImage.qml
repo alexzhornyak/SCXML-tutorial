@@ -36,13 +36,13 @@ Rectangle {
         cache: false
 
         function getMediaSourceImage() {
-            if (scxmlBolero.audioSourceCD)
+            if (scxmlBolero.audioInputCD)
                 return "qrc:/Qml/Images/ImgMenuMedia.png"
-            if (scxmlBolero.audioSourceSD)
+            if (scxmlBolero.audioInputSD)
                 return "qrc:/Qml/Images/ImgSD_128.png"
-            if (scxmlBolero.audioSourceUSB)
+            if (scxmlBolero.audioInputUSB)
                 return "qrc:/Qml/Images/ImgUSB_128.png"
-            if (scxmlBolero.audioSourceAUX)
+            if (scxmlBolero.audioInputAUX)
                 return "qrc:/Qml/Images/ImgAUX_128.png"
 
             return "" // mustn't occur
@@ -70,13 +70,13 @@ Rectangle {
         font.pixelSize: 22
 
         function getText() {
-            if (scxmlBolero.audioSourceCD)
+            if (scxmlBolero.audioInputCD)
                 return "CD"
-            if (scxmlBolero.audioSourceSD)
+            if (scxmlBolero.audioInputSD)
                 return "SD"
-            if (scxmlBolero.audioSourceUSB)
+            if (scxmlBolero.audioInputUSB)
                 return "USB"
-            if (scxmlBolero.audioSourceAUX)
+            if (scxmlBolero.audioInputAUX)
                 return "AUX"
 
             return ""

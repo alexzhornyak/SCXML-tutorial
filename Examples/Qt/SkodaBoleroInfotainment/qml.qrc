@@ -100,8 +100,8 @@
         <file>Qml/Images/ImgPlay_48.png</file>
         <file>Qml/Images/ImgRewindBack_48.png</file>
         <file>Qml/Images/ImgRewindForward_48.png</file>
-        <file>Qml/Images/ImgShuffleOn_48.png</file>
-        <file>Qml/Images/ImgFolderRepeat_48.png</file>
+        <file>Qml/Images/ImgShuffleOff_48.png</file>
+        <file>Qml/Images/ImgMediaNoRepeat_48.png</file>
         <file>Qml/Media/MediaImage.qml</file>
         <file>Qml/Images/ImgSD_128.png</file>
         <file>Qml/Images/ImgUSB_128.png</file>
@@ -109,5 +109,10 @@
         <file>Qml/Media/MediaTimeline.qml</file>
         <file>Qml/VolumePanel.qml</file>
         <file>Qml/Images/ImgMusic.png</file>
+        <file>Qml/Images/ImgPlaylistPlay_32.png</file>
+        <file>Qml/Images/ImgPlaylistPause_32.png</file>
+        <file>Qml/Images/ImgMediaFolderRepeat_48.png</file>
+        <file>Qml/Images/ImgMediaTrackRepeat_48.png</file>
+        <file>Qml/Images/ImgShuffleOn_48.png</file>
     </qresource>
 </RCC>

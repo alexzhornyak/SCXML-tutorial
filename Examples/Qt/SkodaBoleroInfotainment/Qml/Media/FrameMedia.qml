@@ -53,8 +53,8 @@ BoleroBackgroundRender {
 
                 height: pane.panelHeight
 
-                visible: scxmlBolero.audioSourceDrives
-                enabled: scxmlBolero.mediaReadyDriveSourcesOn
+                visible: scxmlBolero.audioInputDrives
+                enabled: scxmlBolero.mediaPlayerNormal
                 opacity: enabled ? 1 : 0.5
             }
 
@@ -66,8 +66,8 @@ BoleroBackgroundRender {
                 anchors.bottom: functionKeys.top
                 anchors.top: imageSource.bottom
 
-                visible: scxmlBolero.audioSourceDrives
-                enabled: scxmlBolero.mediaReadyDriveSourcesOn
+                visible: scxmlBolero.audioInputDrives
+                enabled: scxmlBolero.mediaPlayerNormal
                 opacity: enabled ? 1 : 0.5
             }
 
@@ -81,6 +81,8 @@ BoleroBackgroundRender {
 
             Text {
                 id: textSource
+
+                clip: true
 
                 anchors.left: parent.left
                 anchors.leftMargin: 10
@@ -99,9 +101,9 @@ BoleroBackgroundRender {
                 font.pixelSize: 26
                 wrapMode: Text.WordWrap
 
-                text: fileUtils.urlExtractFileName(audioPlayer.currentPlayUrl);
+                text: audioPlayer.currentPlayUrlFileName
 
-                visible: scxmlBolero.mediaReadyDriveSourcesOn
+                visible: scxmlBolero.mediaPlayerNormal
             }
         }
 

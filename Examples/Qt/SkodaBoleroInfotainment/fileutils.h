@@ -29,7 +29,7 @@ public:
 
     Q_INVOKABLE QUrl urlExtractPath(const QUrl &url);
 
-    Q_INVOKABLE QUrl urlExtractFileName(const QUrl &url);
+    Q_INVOKABLE QString urlExtractFileName(const QUrl &url);
 
     Q_INVOKABLE void scanDirAsync(const QUrl &url, const QStringList &extensions);
     Q_INVOKABLE void terminateScanDir(const QUrl &url);

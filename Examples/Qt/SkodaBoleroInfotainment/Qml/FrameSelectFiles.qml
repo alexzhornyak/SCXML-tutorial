@@ -7,6 +7,7 @@ import "AppConstants.js" as AppConsts
 import "../Model/CommonConstants.js" as Consts
 
 import Qt.labs.folderlistmodel 2.12
+import QtMultimedia 5.15
 import MaskedMouseArea 1.0
 
 BoleroBackgroundRender {
@@ -41,6 +42,9 @@ BoleroBackgroundRender {
 
     FolderListModel {
         id: folderModel
+
+        caseSensitive: false
+        sortField: FolderListModel.Type
 
         property int driveType: FrameSelectFiles.DriveType.Unknown
 
@@ -95,31 +99,34 @@ BoleroBackgroundRender {
             return t_folder
         }
 
-        onFolderChanged: {            
-            folderCaption.text = "Loading..."
+        function updatePathModel() {
+            if (folder.toString() !== "") {
+                if (storageCD.hasPath(folder)) {
+                    folderModel.driveType = FrameSelectFiles.DriveType.CD
+                } else if (storageSD.hasPath(folder)) {
+                    folderModel.driveType = FrameSelectFiles.DriveType.SD
+                } else if (storageUSB.hasPath(folder)) {
+                    folderModel.driveType = FrameSelectFiles.DriveType.USB
+                } else {
+                    console.error("Drive type [", folder ,"] is not defined!")
+                }
 
-            foldersRepeater.model = getPathModel()
+                foldersRepeater.model = getPathModel()
 
-            highlighter.selectedIndex = -1
+                highlighter.selectedIndex = -1
+            }
         }
+
+        onFolderChanged: updatePathModel()
     }
+
+    onVisibleChanged: folderModel.updatePathModel()
 
     EventConnection {
         stateMachine: scxmlBolero
         events: ["Out.DirSelected"]
         onOccurred: {            
-            var s_folder_url = event.data
-            if (storageCD.hasPath(s_folder_url)) {
-                folderModel.driveType = FrameSelectFiles.DriveType.CD
-            } else if (storageSD.hasPath(s_folder_url)) {
-                folderModel.driveType = FrameSelectFiles.DriveType.SD
-            } else if (storageUSB.hasPath(s_folder_url)) {
-                folderModel.driveType = FrameSelectFiles.DriveType.USB
-            } else {
-                console.error("Drive type [", event.data ,"] is not defined!")
-            }
-
-            folderModel.folder = s_folder_url
+            folderModel.folder = event.data
         }
     }
 
@@ -149,7 +156,7 @@ BoleroBackgroundRender {
                 Repeater {
                     id: foldersRepeater
 
-                    /* do not bind 'model' here because it assign 'folder' twice on creation ! */
+                    /* do not bind 'model' here because it assigns 'folder' twice on creation ! */
 
                     delegate: Image {
                         id: imageFolder
@@ -173,7 +180,7 @@ BoleroBackgroundRender {
                             case FrameSelectFiles.SubFolderType.Collapsed: return "Images/ImgBtnTriangleCollapsed.png";
                             }
 
-                            return undefined // mustn't occur
+                            return "" // mustn't occur
                         }
 
                         function getDriveImage() {
@@ -183,7 +190,7 @@ BoleroBackgroundRender {
                             case FrameSelectFiles.DriveType.USB: return "Images/ImgUSB_32.png";
                             }
 
-                            return undefined // mustn't occur
+                            return "" // mustn't occur
                         }
 
                         function getSubImageSource() {
@@ -193,7 +200,7 @@ BoleroBackgroundRender {
                             case FrameSelectFiles.SubFolderType.Collapsed: return "";
                             }
 
-                            return undefined // mustn't occur
+                            return "" // mustn't occur
                         }
 
                         width: sourceSize.width
@@ -342,10 +349,26 @@ BoleroBackgroundRender {
 
             EncoderHighlighter {
                 id: highlighter
-                enabled: true
+                enabled: frame.enabled
                 count: folderModel.count
                 eventName: selectedIndex!==-1 ? folderModel.getSelectedEventName(selectedIndex) : ""
                 eventData: selectedIndex!==-1 ? folderModel.get(selectedIndex, "fileUrl") : undefined
+            }
+
+            function ensureVisible(item) {
+                if (moving || dragging)
+                    return;
+
+                var ypos = item.mapToItem(contentItem, 0, 0).y
+                var ext = item.height + ypos
+                if ( ypos < contentY // begins before
+                        || ypos > contentY + height // begins after
+                        || ext < contentY // ends before
+                        || ext > contentY + height) { // ends after
+                    // don't exceed bounds
+                    var i_ensure_bottom = Math.max(0, Math.min(ypos - height + item.height, contentHeight - height))
+                    contentY = i_ensure_bottom
+                }
             }
 
             GridLayout {
@@ -366,14 +389,62 @@ BoleroBackgroundRender {
                         id: button
                         itemSelected: index === highlighter.selectedIndex || pressed
 
-                        Layout.preferredHeight: 65
+                        onItemSelectedChanged: if (itemSelected) view.ensureVisible(button)
+
+                        function getBtnHeight() {
+                            switch (frame.fileListType) {
+                            case FrameSelectFiles.FileListType.RadioImages: return 65
+                            }
+                            return 50
+                        }
+
+                        Layout.preferredHeight: getBtnHeight()
+
+                        readonly property bool currentItem: isCurrentItem()
+                        onCurrentItemChanged: if (currentItem) view.ensureVisible(button)
+
+                        function isCurrentItem() {
+                            switch (frame.fileListType) {
+                            case FrameSelectFiles.FileListType.Media:
+                                if (fileUrl.toString().toLowerCase()===
+                                        audioPlayer.currentPlayUrl.toString().toLowerCase())
+                                    return true;
+                            }
+                            return false
+                        }
 
                         contentItem: Item {
                             anchors.fill: button
 
                             Image {
                                 id: imgIcon
-                                width: 80
+
+                                function getWidth() {
+                                    switch (frame.fileListType) {
+                                    case FrameSelectFiles.FileListType.RadioImages: return 80
+                                    }
+                                    return 32
+                                }
+
+                                function getListElementIcon() {
+                                    switch (frame.fileListType) {
+                                    case FrameSelectFiles.FileListType.RadioImages: return fileUrl
+                                    case FrameSelectFiles.FileListType.Media:
+                                        if (button.isCurrentItem()) {
+                                            switch (audioPlayer.currentAudio.playbackState) {
+                                            case Audio.PlayingState:
+                                                return "qrc:/Qml/Images/ImgPlaylistPlay_32.png"
+                                            case Audio.PausedState:
+                                            case Audio.StoppedState:
+                                                return "qrc:/Qml/Images/ImgPlaylistPause_32.png"
+                                            }
+                                        }
+                                    break
+                                    }
+                                    return ""
+                                }
+
+                                width: getWidth()
 
                                 anchors.left: parent.left
                                 anchors.leftMargin: 15
@@ -382,22 +453,15 @@ BoleroBackgroundRender {
                                 anchors.bottom: parent.bottom
                                 anchors.bottomMargin: 3
 
-                                fillMode: fileIsDir ? Image.Pad : Image.PreserveAspectFit
+                                fillMode: fileIsDir || frame.fileListType === FrameSelectFiles.FileListType.Media ?
+                                              Image.Pad : Image.PreserveAspectFit
                                 source: fileIsDir ? "Images/ImgFolder.png" :  getListElementIcon()
-
-                                function getListElementIcon() {
-                                    switch (frame.fileListType) {
-                                    case FrameSelectFiles.FileListType.RadioImages: return fileUrl
-                                    case FrameSelectFiles.FileListType.Media: return ""
-                                    }
-                                    return ""
-                                }
                             }
 
                             Text {
                                 id: textCaption
                                 anchors.left: imgIcon.right
-                                anchors.leftMargin: 20
+                                anchors.leftMargin: 15
                                 anchors.right: parent.right
                                 anchors.rightMargin: 15
                                 anchors.verticalCenter: parent.verticalCenter
