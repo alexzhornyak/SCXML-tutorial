@@ -1,8 +1,8 @@
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import ScxmlBolero 1.0
-import "../"
-import "../AppConstants.js" as AppConsts
+import "qrc:/Qml"
+import "qrc:/Qml/AppConstants.js" as AppConsts
 
 SelectButton {
     id: station

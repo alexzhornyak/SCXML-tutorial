@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import "qrc:/Qml/AppConstants.js" as AppConsts
-import "../"
+import "qrc:/Qml"
 
 Item {
 

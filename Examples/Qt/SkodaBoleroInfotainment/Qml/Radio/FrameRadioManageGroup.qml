@@ -1,8 +1,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import "../AppConstants.js" as AppConsts
-import "../"
+import "qrc:/Qml/AppConstants.js" as AppConsts
+import "qrc:/Qml"
 
 BoleroBackgroundRender {
     id: frame
@@ -158,7 +158,7 @@ BoleroBackgroundRender {
                                     anchors.topMargin: 6
                                     anchors.rightMargin: 3
 
-                                    source: "../Images/ImgDelete.png"
+                                    source: "qrc:/Qml/Images/ImgDelete.png"
 
                                     fillMode: Image.Pad
 

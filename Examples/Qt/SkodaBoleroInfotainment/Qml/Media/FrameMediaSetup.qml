@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import "../"
+import "qrc:/Qml"
 
 FrameSettings {
     caption: qsTr("Media setup")

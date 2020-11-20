@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.12
 import QtScxml 5.8
 import "AppConstants.js" as AppConsts
-import "../Model/CommonConstants.js" as Consts
+import "qrc:/Model/CommonConstants.js" as Consts
 
 
 BalloonCanvas {

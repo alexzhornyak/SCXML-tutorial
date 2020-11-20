@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import "../"
+import "qrc:/Qml"
 
 Item {
     id: panel
@@ -38,43 +38,20 @@ Item {
         }
     }
 
-    SelectButton {
+    MediaRepeatButton {
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 
         implicitWidth: 65
-
-        topBorderVisible: scxmlBolero.mediaAccentOn
-
-        onReleased: scxmlBolero.submitBtnSetupEvent("MediaFunc.Repeat")
-
-        Image {
-            anchors.centerIn: parent
-            fillMode: Image.Pad
-            source: scxmlBolero.mediaRepeatTrack ? "qrc:/Qml/Images/ImgMediaTrackRepeat_48.png" :
-                    scxmlBolero.mediaRepeatFolder ? "qrc:/Qml/Images/ImgMediaFolderRepeat_48.png" :
-                                                    "qrc:/Qml/Images/ImgMediaNoRepeat_48.png"
-        }
     }
 
-    SelectButton {
+    MediaShuffleButton {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 
         implicitWidth: 65
-
-        topBorderVisible: scxmlBolero.mediaAccentOn
-
-        onReleased: scxmlBolero.submitBtnSetupEvent("MediaFunc.Shuffle")
-
-        Image {
-            anchors.centerIn: parent
-            fillMode: Image.Pad
-            source: scxmlBolero.mediaPlayMixModeOn ? "qrc:/Qml/Images/ImgShuffleOn_48.png" :
-                                                     "qrc:/Qml/Images/ImgShuffleOff_48.png"
-        }
     }
 
 }

@@ -67,7 +67,6 @@
         <file>Qml/Sound/FrameVolumeSetup.qml</file>
         <file>Qml/Radio/FrameStationList.qml</file>
         <file>Qml/Images/ImgMute.png</file>
-        <file>Qml/FrameSelectFiles.qml</file>
         <file>Qml/Images/ImgFolder.png</file>
         <file>Qml/Images/ImgBtnTriangleCollapsed.png</file>
         <file>Qml/Images/ImgBtnTriangleIndexed.png</file>
@@ -114,5 +113,9 @@
         <file>Qml/Images/ImgMediaFolderRepeat_48.png</file>
         <file>Qml/Images/ImgMediaTrackRepeat_48.png</file>
         <file>Qml/Images/ImgShuffleOn_48.png</file>
+        <file>Qml/FrameSelectFilesBase.qml</file>
+        <file>Qml/Media/MediaRepeatButton.qml</file>
+        <file>Qml/Media/MediaShuffleButton.qml</file>
+        <file>Qml/Radio/FrameRadioLogosSelect.qml</file>
     </qresource>
 </RCC>

@@ -4,7 +4,7 @@ import QtMultimedia 5.12
 import Qt.labs.folderlistmodel 2.12
 import ScxmlBolero 1.0
 import QtScxml 5.8
-import "../"
+import "qrc:/Qml"
 import "qrc:/Model/CommonConstants.js" as Consts
 
 Item {
@@ -45,13 +45,6 @@ Item {
                     audio.playlists[audio_input].All.push(fileUtils.urlFromLocalFile(file))
                 }
 
-                if (scxmlBolero.settings.Drives && scxmlBolero.settings.Drives[audio_input]) {
-                    var repeat_folder = scxmlBolero.settings.Drives[audio_input].MediaRepeatFolder
-                    if (repeat_folder!==undefined) {
-                        audio.updateRepeatFolderList(repeat_folder)
-                    }
-                }
-
                 scxmlBolero.submitEvent("Inp.App.Media.DriveScanned." + audio_input);
             }
         }
@@ -78,6 +71,11 @@ Item {
                     audio.source = url
 
                     if (event.name === "Out.Media.Source.Restore") {
+
+                        if (scxmlBolero.mediaRepeatFolder) {
+                            audio.updateRepeatFolderList(currentPlayUrlPath)
+                        }
+
                         var media = scxmlBolero.getCurrentMedia()
                         if (media!==undefined) {
                             var seekPos = media.MediaPosition

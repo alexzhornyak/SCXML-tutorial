@@ -322,15 +322,19 @@ ApplicationWindow {
                 }
 
                 Loader {
-                    id: radioSelectFileLogosLoader
-                    anchors.fill: parent                    
+                    id: radioSelectLogosLoader
 
-                    sourceComponent: scxmlBolero.radioManageLogosFiles ? radioSelectFilesComponent : undefined
+                    property url drivePath: ""
 
-                    Component {
-                        id: radioSelectFilesComponent
-                        FrameSelectFiles {
-                            folderNameFilters: Consts.t_IMAGE_AVAILABLE_EXTENSIONS
+                    anchors.fill: parent
+
+                    source: scxmlBolero.radioManageLogosFiles ? "Radio/FrameRadioLogosSelect.qml" : ""
+
+                    EventConnection {
+                        stateMachine: scxmlBolero
+                        events: ["Inp.App.BtnSetup.Drive.*"]
+                        onOccurred: {
+                            radioSelectLogosLoader.drivePath = event.data
                         }
                     }
                 }
@@ -358,27 +362,7 @@ ApplicationWindow {
                     id: mediaTrackListLoader
                     anchors.fill: parent
 
-                    sourceComponent: scxmlBolero.displayMedia ? mediaTrackListComponent : undefined
-
-                    Component {
-                        id: mediaTrackListComponent
-
-                        Media.FrameMediaTrackList {
-                            id: mediaTrackList
-                            enabled: scxmlBolero.mediaTrackList
-                            visible: false
-
-                            folderRoot: audioPlayer.currentPlayUrlPath
-
-                            onEnabledChanged: {
-                                if (enabled) {
-                                    folderRoot = audioPlayer.currentPlayUrlPath
-                                }
-
-                                visible = enabled
-                            }
-                        }
-                    }
+                    source: scxmlBolero.displayMedia ? "Media/FrameMediaTrackList.qml" : ""
                 }
 
                 Loader {

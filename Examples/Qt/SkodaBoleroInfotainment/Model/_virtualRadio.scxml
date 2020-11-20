@@ -349,11 +349,7 @@ setRadioPresetStationFreq(iIndex, 0)
 						</state>
 						<state id="radioManageLogosDrives">
 							<transition event="Inp.App.Btn.Back" target="radioManageLogosDefault"/>
-							<transition event="Inp.App.BtnSetup.Drive.*" target="radioManageLogosFiles">
-								<send delay="16ms" event="Out.DirSelected">
-									<content expr="_event.data"/>
-								</send>
-							</transition>
+							<transition event="Inp.App.BtnSetup.Drive.*" target="radioManageLogosFiles"/>
 						</state>
 					</state>
 					<state id="radioSetupSound">
@@ -474,13 +470,13 @@ if (t_SETTINGS[sPropName]) {
 			</state>
 		</state>
 	</parallel>
-</scxml><!--VFBGMAdUVHJlZUV4AARMZWZ0AhEDVG9wAhEFV2lkdGgDDAYGSGVpZ2h0A7MDCURlc2lnbmluZw
+</scxml><!--VFBGMAdUVHJlZUV4AARMZWZ0AhEDVG9wAhEFV2lkdGgDDAYGSGVpZ2h0A3sDCURlc2lnbmluZw
 kMR3JpZC5WaXNpYmxlCRFIb3J6U2Nyb2xsQmFyLk1heAPeCRFIb3J6U2Nyb2xsQmFyLk1pbgL/F
-khvcnpTY3JvbGxCYXIuUGFnZVNpemUD9gUVSG9yelNjcm9sbEJhci5WaXNpYmxlCQtQYWdlLkhl
+khvcnpTY3JvbGxCYXIuUGFnZVNpemUDDAYVSG9yelNjcm9sbEJhci5WaXNpYmxlCQtQYWdlLkhl
 aWdodAPTCgpQYWdlLldpZHRoA5MXD1BhZ2UuVXNlUHJpbnRlcggUU2VsZWN0ZWQuSGFuZGxlQ29
 sb3IHCGNsU2lsdmVyFVNlbGVjdGVkLlNjcm9sbFRvVmlldwgOU2hvd0hpbnRTaGFwZXMIEVZlcn
 RTY3JvbGxCYXIuTWF4A44FEVZlcnRTY3JvbGxCYXIuTWluAv8WVmVydFNjcm9sbEJhci5QYWdlU
-2l6ZQOdAxVWZXJ0U2Nyb2xsQmFyLlZpc2libGUJGVZpZXczRE9wdGlvbnMuSG9yaXpPZmZzZXQD
+2l6ZQNlAxVWZXJ0U2Nyb2xsQmFyLlZpc2libGUJGVZpZXczRE9wdGlvbnMuSG9yaXpPZmZzZXQD
 Bf0YVmlldzNET3B0aW9ucy5WZXJ0T2Zmc2V0At0NWm9vbS5QZW4uTW9kZQcIcG1Ob3RYb3IFQWx
 pZ24HCGFsQ2xpZW50CFRhYk9yZGVyAgMRQm9va21hcmtzLlN0cmluZ3MBBi5CdG5Cb29rbWFyaz
 E9RGF0YUNoaWxkU2hhcGU0X180MEU1ODBGOTdERDM1NTE2ABJBcHBsaWNhdGlvblZlcnNpb24GC
