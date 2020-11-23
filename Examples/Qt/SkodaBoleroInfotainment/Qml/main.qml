@@ -14,7 +14,7 @@ import "AppConstants.js" as AppConsts
 import "qrc:/Model/CommonConstants.js" as Consts
 
 ApplicationWindow {
-    id: applicationWindow
+    id: application
     visible: true
     width: 1397
     height: 743
@@ -32,19 +32,34 @@ ApplicationWindow {
     StorageInfo {
         id: storageCD
 
-        urlPath: "file:///C:/"          /* MUST BE REPLACED WITH THE ORIGINAL DRIVE PATH */
+        function getRoot() {
+            var root = scxmlBolero.getMediaRoot("CD")
+            return root ? root : "file:///C:/"
+        }
+
+        urlPath: getRoot()          /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
     }
 
     StorageInfo {
         id: storageSD
 
-        urlPath: "file:///D:/"          /* MUST BE REPLACED WITH THE ORIGINAL DRIVE PATH */
+        function getRoot() {
+            var root = scxmlBolero.getMediaRoot("SD")
+            return root ? root : "file:///D:/"
+        }
+
+        urlPath: getRoot()          /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
     }
 
     StorageInfo {
         id: storageUSB
 
-        urlPath: "file:///F:/"          /* MUST BE REPLACED WITH THE ORIGINAL DRIVE PATH */
+        function getRoot() {
+            var root = scxmlBolero.getMediaRoot("USB")
+            return root ? root : "file:///E:/"
+        }
+
+        urlPath: getRoot()          /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
     }
 
     FileUtils {
@@ -60,6 +75,14 @@ ApplicationWindow {
                         0.5 : scxmlBolero.settings.Volume
         }
 
+        function getMediaRoot(audio_input) {
+            if (settings.Drives && settings.Drives[audio_input] && settings.Drives[audio_input].Root) {
+                return settings.Drives[audio_input].Root
+            }
+
+            return undefined
+        }
+
         function getCurrentMedia() {
             var audio_input = settings.AudioInput
 
@@ -72,7 +95,7 @@ ApplicationWindow {
 
         function getCurrentMediaUrl() {
             var obj_media = getCurrentMedia()
-            if (obj_media!==undefined)
+            if (obj_media && obj_media.MediaSource)
                 return obj_media.MediaSource
 
             return ""
@@ -80,7 +103,7 @@ ApplicationWindow {
 
         function getCurrentMediaRepeatFolderUrl() {
             var obj_media = getCurrentMedia()
-            if (obj_media!==undefined)
+            if (obj_media && obj_media.MediaRepeatFolder)
                 return obj_media.MediaRepeatFolder
 
             return ""
@@ -411,6 +434,23 @@ ApplicationWindow {
                     id: frameSystemComponent
                     System.FrameSystem {
                         headerBtnBackVisible: false
+                    }
+                }
+            },
+            /* This is service option only and must be disabled in original device */
+            Loader {
+                id: selectDriveSourceLoader
+
+                anchors.fill: parent
+                source: scxmlBolero.displaySelectDriveSource ? "FrameSelectDriveSource.qml" : ""
+
+                property string driveInput: ""
+
+                EventConnection {
+                    stateMachine: scxmlBolero
+                    events: ["Inp.App.BtnSetup.System.SelectRoot"]
+                    onOccurred: {
+                        selectDriveSourceLoader.driveInput = event.data
                     }
                 }
             },

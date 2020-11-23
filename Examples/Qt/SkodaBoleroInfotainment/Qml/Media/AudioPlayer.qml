@@ -57,8 +57,10 @@ Item {
             var url = scxmlBolero.getCurrentMediaUrl()
             var list = audio.getPlaylist()
 
-            if (!list || list.length===0)
+            if (!list || list.length===0) {
                 scxmlBolero.submitEvent("Inp.App.Media.Error")
+                console.error("No valid media")
+            }
             else {
                 var index = audio.getSourceIndex(url, list)
 
@@ -347,27 +349,34 @@ Item {
     Connections {
         target: scxmlBolero
 
+        property url pathCD: ""
+        property url pathSD: ""
+        property url pathUSB: ""
+
         function onDriveSourceCD_OnChanged(enter) {
             if (enter) {
-                fileUtils.scanDirAsync(storageCD.urlPath, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
+                pathCD = storageCD.urlPath
+                fileUtils.scanDirAsync(pathCD, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
             } else {
-                fileUtils.terminateScanDir(storageCD.urlPath)
+                fileUtils.terminateScanDir(pathCD)
             }
         }
 
         function onDriveSourceSD_OnChanged(enter) {
             if (enter) {
-                fileUtils.scanDirAsync(storageSD.urlPath, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
+                pathSD = storageSD.urlPath
+                fileUtils.scanDirAsync(pathSD, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
             } else {
-                fileUtils.terminateScanDir(storageSD.urlPath)
+                fileUtils.terminateScanDir(pathSD)
             }
         }
 
         function onDriveSourceUSB_OnChanged(enter) {
             if (enter) {
-                fileUtils.scanDirAsync(storageUSB.urlPath, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
+                pathUSB = storageUSB.urlPath
+                fileUtils.scanDirAsync(pathUSB, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
             } else {
-                fileUtils.terminateScanDir(storageUSB.urlPath)
+                fileUtils.terminateScanDir(pathUSB)
             }
         }
     }

@@ -15,7 +15,7 @@ FrameSettings {
         },
         { imageKeySource: "Images/ImgSDCard.png", buttonHeight: 65,
             keyCentered: true, eventName: "Drive.SD", eventData: storageSD.urlPath,
-            enabled: storageCD.enabled
+            enabled: storageSD.enabled
         },
         { imageKeySource: "Images/ImgUSB.png", buttonHeight: 65,
             keyCentered: true, eventName: "Drive.USB", eventData: storageUSB.urlPath,

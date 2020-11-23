@@ -16,7 +16,10 @@ FrameSelectFilesBase {
     visible: enabled
     onVisibleChanged: {
         if (!visible) {
-            // restore to current url
+            /*
+                restore to current url,
+                because user could change folder while navigating
+            */
             folderUrl = audioPlayer.currentPlayUrlPath
         }
     }

@@ -117,5 +117,7 @@
         <file>Qml/Media/MediaRepeatButton.qml</file>
         <file>Qml/Media/MediaShuffleButton.qml</file>
         <file>Qml/Radio/FrameRadioLogosSelect.qml</file>
+        <file>Qml/WaitIndicator.qml</file>
+        <file>Qml/FrameSelectDriveSource.qml</file>
     </qresource>
 </RCC>

@@ -86,6 +86,11 @@ BoleroBackgroundRender {
 
         property variant gridData: [0,1,2,2,3]
 
+        Component.onCompleted: {
+            if (scxmlBolero.audioModeMedia)
+               currentIndex = 1
+        }
+
         onCurrentIndexChanged: {
 
             /* Menu has 5 elements, but only 4 icons,

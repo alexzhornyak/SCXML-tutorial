@@ -20,9 +20,11 @@ void FileScanner::process()
     if (!folder.isEmpty()) {
         QDirIterator it(folder, _extensions,
                         QDir::Files, QDirIterator::Subdirectories);
+        bool interrupted = false;
         while (it.hasNext()) {
 
             if (this->thread()->isInterruptionRequested()) {
+                interrupted = true;
                 break;
             }
 
@@ -30,7 +32,9 @@ void FileScanner::process()
             emit fileFound(_searchUrlDir, QUrl::fromLocalFile(out.last()));
         }
 
-        emit scanCompleted(_searchUrlDir, out);
+        if (!interrupted) {
+            emit scanCompleted(_searchUrlDir, out);
+        }
     }
 
     emit finished();

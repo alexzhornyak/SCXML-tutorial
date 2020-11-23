@@ -14,6 +14,7 @@ public:
     explicit StorageInfo(QObject *parent = nullptr);
 
     Q_INVOKABLE bool hasPath(const QUrl &url);
+    Q_INVOKABLE QStringList getMountedVolumes();
 
 protected:
     inline QUrl urlPath() const { return QUrl::fromLocalFile(_storage.rootPath()); }

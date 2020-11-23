@@ -18,6 +18,15 @@ bool StorageInfo::hasPath(const QUrl &url)
     return source == target;
 }
 
+QStringList StorageInfo::getMountedVolumes()
+{
+    QStringList out;
+    for (auto it: QStorageInfo::mountedVolumes()) {
+        out << it.rootPath();
+    }
+    return out;
+}
+
 void StorageInfo::setUrlPath(const QUrl &source) {
     _storage.setPath(source.toLocalFile());
 
