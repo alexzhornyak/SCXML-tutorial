@@ -1,7 +1,9 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 import ScxmlBolero 1.0
+import StorageInfo 1.0
+import FileUtils 1.0
 import QtScxml 5.8
 import "Radio" as Radio
 import "Media" as Media
@@ -9,9 +11,10 @@ import "Sound" as Sound
 import "System" as System
 import "Vehicle" as Vehicle
 import "AppConstants.js" as AppConsts
+import "qrc:/Model/CommonConstants.js" as Consts
 
 ApplicationWindow {
-    id: applicationWindow
+    id: application
     visible: true
     width: 1397
     height: 743
@@ -25,9 +28,86 @@ ApplicationWindow {
         scxmlBolero.submitEvent("Inp.Quit")
     }
 
+    /* we assume that drives are fixed in the device */
+    StorageInfo {
+        id: storageCD
+
+        function getRoot() {
+            var root = scxmlBolero.getMediaRoot("CD")
+            return root ? root : "file:///C:/"
+        }
+
+        urlPath: getRoot()          /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
+    }
+
+    StorageInfo {
+        id: storageSD
+
+        function getRoot() {
+            var root = scxmlBolero.getMediaRoot("SD")
+            return root ? root : "file:///D:/"
+        }
+
+        urlPath: getRoot()          /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
+    }
+
+    StorageInfo {
+        id: storageUSB
+
+        function getRoot() {
+            var root = scxmlBolero.getMediaRoot("USB")
+            return root ? root : "file:///E:/"
+        }
+
+        urlPath: getRoot()          /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
+    }
+
+    FileUtils {
+        id: fileUtils
+    }
+
     ScxmlBolero {
         id: scxmlBolero
         running: true
+
+        function getVolume() {
+            return scxmlBolero.settings.Volume === undefined ?
+                        0.5 : scxmlBolero.settings.Volume
+        }
+
+        function getMediaRoot(audio_input) {
+            if (settings.Drives && settings.Drives[audio_input] && settings.Drives[audio_input].Root) {
+                return settings.Drives[audio_input].Root
+            }
+
+            return undefined
+        }
+
+        function getCurrentMedia() {
+            var audio_input = settings.AudioInput
+
+            if (settings.Drives && settings.Drives[audio_input]) {
+                return settings.Drives[audio_input]
+            }
+
+            return undefined
+        }
+
+        function getCurrentMediaUrl() {
+            var obj_media = getCurrentMedia()
+            if (obj_media && obj_media.MediaSource)
+                return obj_media.MediaSource
+
+            return ""
+        }
+
+        function getCurrentMediaRepeatFolderUrl() {
+            var obj_media = getCurrentMedia()
+            if (obj_media && obj_media.MediaRepeatFolder)
+                return obj_media.MediaRepeatFolder
+
+            return ""
+        }
 
         function getSelectedStation() {
             var bandType = scxmlBolero.settings.BandType
@@ -125,8 +205,9 @@ ApplicationWindow {
             if (index !== -1 && scxmlBolero.settings.BandType !== undefined) {
                 var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
                         + (index + 1).toString() + ".png"
-                if (scxmlBolero.fileExists(pathToImage)) {
-                    return "file:///" + pathToImage
+                pathToImage = fileUtils.urlFromLocalFile(pathToImage)
+                if (fileUtils.urlExists(pathToImage)) {
+                    return pathToImage
                 }
             }
             return ""
@@ -139,7 +220,8 @@ ApplicationWindow {
                 for (var it=0;it<currentBand.Presets.length;it++) {
                     var pathToImage = s_APP_PATH + "/Images/" + bandType + "/"
                             + (it + 1).toString() + ".png"
-                    if (scxmlBolero.fileExists(pathToImage))
+                    pathToImage = fileUtils.urlFromLocalFile(pathToImage)
+                    if (fileUtils.urlExists(pathToImage))
                         return false
                 }
             }
@@ -175,7 +257,7 @@ ApplicationWindow {
                     var iIndex = parseInt(event.data)
                     var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
                             + (iIndex + 1).toString() + ".png"
-                    scxmlBolero.fileDelete(pathToImage)
+                    fileUtils.fileDelete(pathToImage)
                 }
             }
         }
@@ -187,7 +269,7 @@ ApplicationWindow {
                 for (var iIndex=0;iIndex<15;iIndex++) {
                     var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
                             + (iIndex + 1).toString() + ".png"
-                    scxmlBolero.fileDelete(pathToImage)
+                    fileUtils.fileDelete(pathToImage)
                 }
 
             }
@@ -201,14 +283,18 @@ ApplicationWindow {
                     var iIndex = parseInt(event.data.index)
                     var pathToImage = s_APP_PATH + "/Images/" + scxmlBolero.settings.BandType + "/"
                             + (iIndex + 1).toString() + ".png"
-                    var sourcePath = scxmlBolero.urlToLocalFile(event.data.url)
+                    var sourcePath = fileUtils.urlToLocalFile(event.data.url)
 
-                    if (!scxmlBolero.fileCopy(sourcePath, pathToImage)) {
+                    if (!fileUtils.fileCopy(sourcePath, pathToImage)) {
                         console.error("Can not copy [", sourcePath, "] to [", pathToImage, "]")
                     }
                 }
             }
         }
+    }
+
+    Media.AudioPlayer {
+        id: audioPlayer
     }
 
     MainWidget {
@@ -224,12 +310,12 @@ ApplicationWindow {
 
                 Loader {
                     anchors.fill: parent
-                    source: scxmlBolero.radioDisplaySetupMain ? "Radio/FrameRadioSettings.qml" : ""
+                    source: scxmlBolero.radioDisplaySetupMain ? "Radio/FrameRadioSetup.qml" : ""
                 }
 
                 Loader {
                     anchors.fill: parent
-                    source: scxmlBolero.radioDisplayAdvancedSetup ? "Radio/FrameRadioAdvanced.qml" : ""
+                    source: scxmlBolero.radioDisplayAdvancedSetup ? "Radio/FrameRadioSetupAdvanced.qml" : ""
                 }
 
                 Loader {
@@ -259,10 +345,21 @@ ApplicationWindow {
                 }
 
                 Loader {
-                    id: radioSelectFileLogosLoader
-                    anchors.fill: parent                    
+                    id: radioSelectLogosLoader
 
-                    source: scxmlBolero.radioManageLogosFiles ? "FrameSelectFiles.qml" : ""
+                    property url drivePath: ""
+
+                    anchors.fill: parent
+
+                    source: scxmlBolero.radioManageLogosFiles ? "Radio/FrameRadioLogosSelect.qml" : ""
+
+                    EventConnection {
+                        stateMachine: scxmlBolero
+                        events: ["Inp.App.BtnSetup.Drive.*"]
+                        onOccurred: {
+                            radioSelectLogosLoader.drivePath = event.data
+                        }
+                    }
                 }
 
                 Loader {
@@ -283,6 +380,23 @@ ApplicationWindow {
             Media.FrameMedia {
                 anchors.fill: parent
                 visible: scxmlBolero.displayMedia
+
+                Loader {
+                    id: mediaTrackListLoader
+                    anchors.fill: parent
+
+                    source: scxmlBolero.displayMedia ? "Media/FrameMediaTrackList.qml" : ""
+                }
+
+                Loader {
+                    anchors.fill: parent
+                    source: scxmlBolero.mediaDisplaySetup ? "Media/FrameMediaSetup.qml" : ""
+                }
+
+                /* Popups */
+                Media.MediaPopupSourceLoader {
+                    id: mediaPopupSourceLoader
+                }
             },
             Loader {
                 anchors.fill: parent
@@ -310,12 +424,33 @@ ApplicationWindow {
             },
             Loader {
                 anchors.fill: parent
+                source: scxmlBolero.displaySoundHandlerMidBassTreble ? "Sound/FrameBassMidTreble.qml" : ""
+            },
+            Loader {
+                anchors.fill: parent
                 sourceComponent: scxmlBolero.displaySetupMain ? frameSystemComponent : undefined
 
                 Component {
                     id: frameSystemComponent
                     System.FrameSystem {
                         headerBtnBackVisible: false
+                    }
+                }
+            },
+            /* This is service option only and must be disabled in original device */
+            Loader {
+                id: selectDriveSourceLoader
+
+                anchors.fill: parent
+                source: scxmlBolero.displaySelectDriveSource ? "FrameSelectDriveSource.qml" : ""
+
+                property string driveInput: ""
+
+                EventConnection {
+                    stateMachine: scxmlBolero
+                    events: ["Inp.App.BtnSetup.System.SelectRoot"]
+                    onOccurred: {
+                        selectDriveSourceLoader.driveInput = event.data
                     }
                 }
             },
@@ -339,6 +474,14 @@ ApplicationWindow {
                         }
                     }
                 }
+            },
+            Loader {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                height: parent.height/6
+
+                source: scxmlBolero.volumeShow ? "VolumePanel.qml" : ""
             }
         ]
     }

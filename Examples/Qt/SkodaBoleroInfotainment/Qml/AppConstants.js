@@ -5,9 +5,10 @@ var cl_BACKGROUND_OPACITY = "#802e2a2b"
 var cl_BACKGROUND_LIGHT = "#4e4a4b"
 var cl_SELECTION = "#3fb93b"
 var cl_SELECTION_OPACITY = "#603fb93b"
-var cl_ITEM_BORDER = "#bfffffff"
-var cl_ITEM_TEXT = "#e6ffffff"
-var cl_ITEM_COLOR = "#19ffffff"
+var cl_ITEM_BORDER = "#bfffffff"    // Alpha - 191
+var cl_ITEM_TEXT = "#e6ffffff"      // Alpha - 230
+var cl_ITEM_COLOR = "#19ffffff"     // Alpha - 025
+var cl_ITEM_HALFCOLOR = "#80ffffff" // Alpha - 128
 
 var d_BTN_SCALE = 0.95
 var d_BTN_OPACITY = 0.9

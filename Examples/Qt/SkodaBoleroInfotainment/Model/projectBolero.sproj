@@ -3,12 +3,20 @@
 	<scxmlunit path="bolero.scxml" scxmlname="ScxmlBolero" build_root="1" virtual_dependencies="_virtualRadio.scxml
 _virtualMenu.scxml
 _virtualSetup.scxml
-_virtualDisplaySoundHandlerOn.scxml">
+_virtualMedia.scxml
+_virtualAudioModeMedia.scxml
+_virtualDisplaySoundHandlerOn.scxml
+_virtualDriveSources.scxml">
 		<scxmlunit path="_virtualRadio.scxml" scxmlname="ScxmldisplayRadio" virtual="1" virtual_dependencies="_virtualRadioSetup.scxml">
 			<scxmlunit path="_virtualRadioSetup.scxml" scxmlname="ScxmlradioDisplaySetup" virtual="1"/>
 		</scxmlunit>
 		<scxmlunit path="_virtualMenu.scxml" scxmlname="ScxmldisplayMenu" virtual="1"/>
 		<scxmlunit path="_virtualDisplaySoundHandlerOn.scxml" scxmlname="ScxmldisplaySoundHandlerOn" virtual="1"/>
 		<scxmlunit path="_virtualSetup.scxml" scxmlname="ScxmldisplaySetup" virtual="1"/>
+		<scxmlunit path="_virtualMedia.scxml" scxmlname="ScxmldisplayMedia" virtual="1"/>
+		<scxmlunit path="_virtualAudioModeMedia.scxml" scxmlname="ScxmlaudioModeMedia" virtual="1" virtual_dependencies="_virtualMediaFuncBtns.scxml">
+			<scxmlunit path="_virtualMediaFuncBtns.scxml" scxmlname="ScxmlMediaFuncButtonsOn" virtual="1"/>
+		</scxmlunit>
+		<scxmlunit path="_virtualDriveSources.scxml" scxmlname="ScxmlDriveSources" virtual="1"/>
 	</scxmlunit>
 </scxmlproject>

@@ -14,7 +14,7 @@ SelectButton {
     property variant eventData: modelData.eventData
 
     property bool keyCentered: modelData.keyCentered === undefined ? false : modelData.keyCentered
-    property string imageKeySource: modelData.imageKeySource === undefined ? "" : modelData.imageKeySource
+    property url imageKeySource: modelData.imageKeySource === undefined ? "" : modelData.imageKeySource
 
     /* With CheckBox */
     property bool showCheckBox: modelData.showCheckBox === true
@@ -34,8 +34,6 @@ SelectButton {
     Layout.preferredHeight: modelData.buttonHeight === undefined ? 50 : modelData.buttonHeight
     Layout.columnSpan: modelData.colSpan === undefined ? 1 : modelData.colSpan
 
-    onEnabledChanged: opacity = enabled ? 1.0 : 0.5
-
     onReleased: scxmlBolero.submitBtnSetupEvent(eventName, eventData)
 
     contentItem: Item {
@@ -53,7 +51,7 @@ SelectButton {
 
             source: imageKeySource
 
-            visible: source!==""
+            visible: source.toString()!==""
         }
 
         Text {

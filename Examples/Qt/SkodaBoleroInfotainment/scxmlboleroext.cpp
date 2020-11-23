@@ -5,7 +5,6 @@
 #include <QJsonObject>
 #include <QFile>
 #include <QDir>
-#include <QThread>
 
 /* ScxmlJS */
 
@@ -44,27 +43,6 @@ ScxmlBoleroExt::ScxmlBoleroExt(QObject *parent): ScxmlBolero(parent), _scxmlJS(n
     connectToEvent("Out.SettingsChanged", [this](const QScxmlEvent &){
         emit settingsChanged();
     });
-}
-
-bool ScxmlBoleroExt::fileExists(const QString &sFile) {
-    return QFile::exists(sFile);
-}
-
-bool ScxmlBoleroExt::fileDelete(const QString &sFile) {
-    return QFile::remove(sFile);
-}
-
-bool ScxmlBoleroExt::fileCopy(const QString &sSource, const QString &sTarget) {
-    return QFile::copy(sSource, sTarget);
-}
-
-QString ScxmlBoleroExt::urlToLocalFile(const QString &sUrl) {
-    return QUrl(sUrl).toLocalFile();
-}
-
-bool ScxmlBoleroExt::urlDirExists(const QString &sUrl) {
-    QFileInfo info(QUrl(sUrl).toLocalFile());
-    return info.isRoot() || info.isDir();
 }
 
 QVariant ScxmlBoleroExt::settings() {

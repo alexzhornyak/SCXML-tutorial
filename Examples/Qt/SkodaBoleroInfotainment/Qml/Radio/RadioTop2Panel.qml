@@ -1,6 +1,6 @@
 import QtQuick 2.0
-import "../"
-import "../AppConstants.js" as AppConsts
+import "qrc:/Qml"
+import "qrc:/Qml/AppConstants.js" as AppConsts
 
 Item {
     id: rowTopSelect

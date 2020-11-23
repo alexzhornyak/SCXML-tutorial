@@ -1,9 +1,9 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.12
 import QtScxml 5.8
-import "../"
-import "../AppConstants.js" as AppConsts
-import "../../Model/CommonConstants.js" as Consts
+import "qrc:/Qml"
+import "qrc:/Qml/AppConstants.js" as AppConsts
+import "qrc:/Model/CommonConstants.js" as Consts
 
 Rectangle {
     id: manualTuning

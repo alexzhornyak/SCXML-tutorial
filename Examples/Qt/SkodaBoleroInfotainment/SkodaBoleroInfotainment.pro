@@ -3,8 +3,11 @@ QT += qml quick scxml network xml
 CONFIG += c++11
 
 SOURCES += main.cpp \
+    filescanner.cpp \
+    fileutils.cpp \
     maskedmousearea.cpp \
-    scxmlboleroext.cpp
+    scxmlboleroext.cpp \
+    storageinfo.cpp
 
 RESOURCES += qml.qrc
 
@@ -37,5 +40,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    filescanner.h \
+    fileutils.h \
     maskedmousearea.h \
-    scxmlboleroext.h
+    scxmlboleroext.h \
+    storageinfo.h

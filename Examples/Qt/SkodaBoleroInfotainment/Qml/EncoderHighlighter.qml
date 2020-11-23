@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtScxml 5.8
-import "../Model/CommonConstants.js" as Consts
+import "qrc:/Model/CommonConstants.js" as Consts
 
 Item {
     id: encoder

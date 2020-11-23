@@ -1,5 +1,7 @@
 import QtQuick 2.0
-import "../"
+import QtScxml 5.8
+import Qt.labs.platform 1.0
+import "qrc:/Qml"
 
 FrameSettings {
     caption: qsTr("System setup")
@@ -21,6 +23,15 @@ FrameSettings {
         { text: "Factory settings", eventName: "System.FactorySettings" },
         { text: "Bluetooth", eventName: "System.Bluetooth" },
         { text: "System information", eventName: "System.Sysinfo" },
-        { text: "Copyright", eventName: "System.Copyright" }
+        { text: "Copyright", eventName: "System.Copyright" },
+
+        /* hidden service section */
+        /* this section must be hidden in the original device */
+        { visible: true, text: "SERVICE. Select CD root",
+            eventName: "System.SelectRoot", eventData: "CD" },
+        { visible: true, text: "SERVICE. Select SD root",
+            eventName: "System.SelectRoot", eventData: "SD" },
+        { visible: true, text: "SERVICE. Select USB root",
+            eventName: "System.SelectRoot", eventData: "USB" }
     ]
 }

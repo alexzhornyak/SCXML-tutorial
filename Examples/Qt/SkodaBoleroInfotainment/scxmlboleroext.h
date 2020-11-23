@@ -17,7 +17,6 @@ public:
     Q_INVOKABLE void logE(const QString &sMessage);
 };
 
-
 class ScxmlBoleroExt : public ScxmlBolero
 {
     Q_OBJECT
@@ -28,21 +27,13 @@ public:
 
     Q_INVOKABLE ScxmlBoleroExt(QObject *parent = nullptr);
 
-    Q_INVOKABLE bool fileExists(const QString &sFile);
-
-    Q_INVOKABLE bool fileDelete(const QString &sFile);
-
-    Q_INVOKABLE bool fileCopy(const QString &sSource, const QString &sTarget);
-
-    Q_INVOKABLE QString urlToLocalFile(const QString &sUrl);
-
-    Q_INVOKABLE bool urlDirExists(const QString &sUrl);
-
     QVariant settings();    
 
 signals:
 
     void settingsChanged(void);
+
+public slots:
 
 private:
 

@@ -54,7 +54,7 @@ class MaskedMouseArea : public QQuickItem
     Q_PROPERTY(qreal alphaThreshold READ alphaThreshold WRITE setAlphaThreshold NOTIFY alphaThresholdChanged)
 
 public:
-    MaskedMouseArea(QQuickItem *parent = 0);
+    MaskedMouseArea(QQuickItem *parent = nullptr);
 
     bool contains(const QPointF &point) const;
 

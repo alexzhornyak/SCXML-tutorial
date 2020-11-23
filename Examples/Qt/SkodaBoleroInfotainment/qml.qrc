@@ -22,8 +22,6 @@
         <file>Qml/BoleroBackground.qml</file>
         <file>Qml/AppConstants.js</file>
         <file>Qml/Radio/RadioBottomPanel.qml</file>
-        <file>Qml/Radio/FocusButton.qml</file>
-        <file>Qml/Radio/FocusButtonForm.ui.qml</file>
         <file>Qml/Radio/FrameRadioForm.ui.qml</file>
         <file>Qml/Radio/FrameRadio.qml</file>
         <file>Qml/Images/ImgBtnSettings.png</file>
@@ -37,7 +35,7 @@
         <file>Qml/SelectDirectionButton.qml</file>
         <file>Qml/Radio/RadioManualTuning.qml</file>
         <file>Model/CommonConstants.js</file>
-        <file>Qml/Radio/FrameRadioSettings.qml</file>
+        <file>Qml/Radio/FrameRadioSetup.qml</file>
         <file>Qml/SelectBackButton.qml</file>
         <file>Qml/Images/ImgArrowBack.png</file>
         <file>Qml/SetupButton.qml</file>
@@ -47,7 +45,7 @@
         <file>Qml/BoleroBackgroundRender.qml</file>
         <file>Qml/Images/ImgArrowDropDown.png</file>
         <file>Qml/FrameSettings.qml</file>
-        <file>Qml/Radio/FrameRadioAdvanced.qml</file>
+        <file>Qml/Radio/FrameRadioSetupAdvanced.qml</file>
         <file>Qml/BalloonPopup.qml</file>
         <file>Qml/Radio/RadioPopupBandsLoader.qml</file>
         <file>Qml/EncoderHighlighter.qml</file>
@@ -69,7 +67,6 @@
         <file>Qml/Sound/FrameVolumeSetup.qml</file>
         <file>Qml/Radio/FrameStationList.qml</file>
         <file>Qml/Images/ImgMute.png</file>
-        <file>Qml/FrameSelectFiles.qml</file>
         <file>Qml/Images/ImgFolder.png</file>
         <file>Qml/Images/ImgBtnTriangleCollapsed.png</file>
         <file>Qml/Images/ImgBtnTriangleIndexed.png</file>
@@ -82,5 +79,45 @@
         <file>Qml/Images/ImgSDCard_32.png</file>
         <file>Qml/Images/ImgMenuMedia_32.png</file>
         <file>Qml/Images/ImgUSB_32.png</file>
+        <file>Qml/Sound/FrameBassMidTreble.qml</file>
+        <file>Qml/Sound/Equalizer.qml</file>
+        <file>Qml/SimpleSelectButton.qml</file>
+        <file>Qml/HeaderPanel.qml</file>
+        <file>Qml/Media/MediaBottomPanel.qml</file>
+        <file>Qml/FocusButton.qml</file>
+        <file>Qml/Media/AudioPlayer.qml</file>
+        <file>Qml/Media/MediaPopupSourceLoader.qml</file>
+        <file>Qml/Images/ImgTrackList_32.png</file>
+        <file>Qml/Images/ImgSD_32.png</file>
+        <file>Qml/Media/FrameMediaTrackList.qml</file>
+        <file>Qml/Images/ImgCD_32.png</file>
+        <file>Qml/Images/ImgSD1_32.png</file>
+        <file>Qml/Images/ImgAUX_32.png</file>
+        <file>Qml/Media/FrameMediaSetup.qml</file>
+        <file>Qml/Media/MediaFunctionKeysPanel.qml</file>
+        <file>Qml/Images/ImgPause_48.png</file>
+        <file>Qml/Images/ImgPlay_48.png</file>
+        <file>Qml/Images/ImgRewindBack_48.png</file>
+        <file>Qml/Images/ImgRewindForward_48.png</file>
+        <file>Qml/Images/ImgShuffleOff_48.png</file>
+        <file>Qml/Images/ImgMediaNoRepeat_48.png</file>
+        <file>Qml/Media/MediaImage.qml</file>
+        <file>Qml/Images/ImgSD_128.png</file>
+        <file>Qml/Images/ImgUSB_128.png</file>
+        <file>Qml/Images/ImgAUX_128.png</file>
+        <file>Qml/Media/MediaTimeline.qml</file>
+        <file>Qml/VolumePanel.qml</file>
+        <file>Qml/Images/ImgMusic.png</file>
+        <file>Qml/Images/ImgPlaylistPlay_32.png</file>
+        <file>Qml/Images/ImgPlaylistPause_32.png</file>
+        <file>Qml/Images/ImgMediaFolderRepeat_48.png</file>
+        <file>Qml/Images/ImgMediaTrackRepeat_48.png</file>
+        <file>Qml/Images/ImgShuffleOn_48.png</file>
+        <file>Qml/FrameSelectFilesBase.qml</file>
+        <file>Qml/Media/MediaRepeatButton.qml</file>
+        <file>Qml/Media/MediaShuffleButton.qml</file>
+        <file>Qml/Radio/FrameRadioLogosSelect.qml</file>
+        <file>Qml/WaitIndicator.qml</file>
+        <file>Qml/FrameSelectDriveSource.qml</file>
     </qresource>
 </RCC>

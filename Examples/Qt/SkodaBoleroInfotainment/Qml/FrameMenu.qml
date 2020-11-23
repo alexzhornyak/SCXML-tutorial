@@ -3,7 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtScxml 5.8
 import "AppConstants.js" as AppConsts
-import "../Model/CommonConstants.js" as Consts
+import "qrc:/Model/CommonConstants.js" as Consts
 
 BoleroBackgroundRender {
     id: frameMenu
@@ -85,6 +85,11 @@ BoleroBackgroundRender {
         property int wasIndex: 0
 
         property variant gridData: [0,1,2,2,3]
+
+        Component.onCompleted: {
+            if (scxmlBolero.audioModeMedia)
+               currentIndex = 1
+        }
 
         onCurrentIndexChanged: {
 

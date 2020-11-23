@@ -4,24 +4,16 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtScxml 5.8
 import "AppConstants.js" as AppConsts
+import "qrc:/Model/CommonConstants.js" as Consts
 
 import Qt.labs.folderlistmodel 2.12
+import QtMultimedia 5.15
 import MaskedMouseArea 1.0
 
 BoleroBackgroundRender {
     id: frame
 
     property string caption: ""
-
-    readonly property real headerHeight: height/6 - AppConsts.i_DISPLAY_PADDING
-    property alias viewLayout: viewLayout
-    property alias folderRoot: folderModel.folder
-
-    enum SubFolderType {
-        Side,
-        Collapsed,
-        Indexed
-    }
 
     enum DriveType {
         Unknown,
@@ -30,92 +22,167 @@ BoleroBackgroundRender {
         USB
     }
 
+    enum SubFolderType {
+        Side,
+        Collapsed,
+        Indexed
+    }
+
+    function getPathModel() {
+        /* URL is expected in format 'file:///c:/' */
+
+        var sFolder = folderUrl.toString()
+
+        sFolder = decodeURIComponent(sFolder.replace(/^(file:\/{2,3})/,""))
+
+        var parts = sFolder.split("/")
+        parts = parts.filter(function(el){
+            return el!==""
+        })
+
+        var t_folder = [
+                    {
+                        mode: FrameSelectFilesBase.SubFolderType.Side,
+                        url: parts.length > 0 ? ("file:///" + parts[0]) : undefined  }
+                ]
+
+        for (var i=0;i<parts.length-1;i++) {
+
+            var i_mode = undefined
+
+            if (i>=(parts.length-3)) {
+                i_mode = FrameSelectFilesBase.SubFolderType.Indexed
+            } else if (i===parts.length-4) {
+                i_mode = FrameSelectFilesBase.SubFolderType.Collapsed
+            }
+
+            if (i_mode!==undefined) {
+                // required for caption
+                var s_file_part = parts[i]
+
+                var s_url = ""
+
+                var t_url = parts
+                t_url = t_url.slice(0,i+1)
+                s_url += "file:///" + t_url.join("/")
+
+                t_folder.push({ filePart: s_file_part, mode: i_mode, id: i + 1, url: s_url })
+            }
+        }
+
+        folderCaption = parts.length > 1 ? parts[parts.length-1] : ""
+
+        return t_folder
+    }
+
+    function getDriveType() {
+        if (folderUrl.toString() !== "") {
+            if (storageCD.hasPath(folderUrl)) {
+                return FrameSelectFilesBase.DriveType.CD
+            } else if (storageSD.hasPath(folderUrl)) {
+                return FrameSelectFilesBase.DriveType.SD
+            } else if (storageUSB.hasPath(folderUrl)) {
+                return FrameSelectFilesBase.DriveType.USB
+            }
+
+            console.error("Can not detect drive type for folder", folderUrl)
+        }
+
+        return FrameSelectFilesBase.DriveType.Unknown
+    }
+
+    function getDriveImage() {
+        var i_drive_type = getDriveType()
+        switch (i_drive_type) {
+        case FrameSelectFilesBase.DriveType.CD: return "Images/ImgCD_32.png";
+        case FrameSelectFilesBase.DriveType.SD: return "Images/ImgSD_32.png";
+        case FrameSelectFilesBase.DriveType.USB: return "Images/ImgUSB_32.png";
+        }
+
+        return ""
+    }
+
+    function getFolderImageSource(i_mode) {
+        switch(i_mode) {
+        case FrameSelectFilesBase.SubFolderType.Side: return "Images/ImgBtnTriangleSide.png";
+        case FrameSelectFilesBase.SubFolderType.Indexed: return "Images/ImgBtnTriangleIndexed.png";
+        case FrameSelectFilesBase.SubFolderType.Collapsed: return "Images/ImgBtnTriangleCollapsed.png";
+        }
+
+        console.error("Can not get folder image for mode", i_mode)
+        return "" // mustn't occur
+    }
+
+    function getFolderSubImageSource(i_mode) {
+        switch(i_mode) {
+        case FrameSelectFilesBase.SubFolderType.Side: return getDriveImage(getDriveType());
+        case FrameSelectFilesBase.SubFolderType.Indexed: return "Images/ImgFolderNumber.png";
+        case FrameSelectFilesBase.SubFolderType.Collapsed: return "";
+        }
+
+        console.error("Can not get folder subimage for mode", i_mode)
+        return "" // mustn't occur
+    }
+
+    function onImageFolderPressed(i_mode, url) {
+        switch (i_mode) {
+        case FrameSelectFilesBase.SubFolderType.Side:
+        case FrameSelectFilesBase.SubFolderType.Indexed:
+            scxmlBolero.submitBtnSetupEvent("DirSelected", url)
+            break
+        }
+    }
+
+    function isCurrentItem(url) {
+        return false
+    }
+
+    function getItemIcon(url, is_current_item) {
+        return ""
+    }
+
+    readonly property real headerHeight: height/6 - AppConsts.i_DISPLAY_PADDING
+
+    property int itemHeight: 65
+    property int itemIconWidth: 80
+    property int itemIconFillMode: Image.PreserveAspectFit
+
+    property alias viewLayout: viewLayout
+    property alias header: header
+    property alias itemsList: view
+    property alias functionsPanel: functionsPanel
+
+    property url folderUrl: ""
+    property alias folderNameFilters: folderModel.nameFilters
+    property alias folderCaption: folderText.text
+
     FolderListModel {
         id: folderModel
-        nameFilters: ["*.png"]
 
-        property int driveType: FrameSelectFiles.DriveType.Unknown
+        caseSensitive: false
+        sortField: FolderListModel.Type
+
+        folder: folderUrl
 
         function getSelectedEventName(i_index) {
             return isFolder(i_index) ?
                 "DirSelected" : "FileSelected"
         }
 
-        function getPathModel() {
+    }
 
-            /* URL is expected in format 'file:///c:/' */
-
-            var sFolder = folder.toString()
-
-            sFolder = decodeURIComponent(sFolder.replace(/^(file:\/{2,3})/,""))
-
-            var parts = sFolder.split("/")
-            parts = parts.filter(function(el){
-                return el!==""
-            })
-
-            var t_folder = [
-                        { mode: FrameSelectFiles.SubFolderType.Side }
-                    ]
-
-            for (var i=0;i<parts.length-1;i++) {
-
-                var i_mode = undefined
-
-                if (i>=(parts.length-3)) {
-                    i_mode = FrameSelectFiles.SubFolderType.Indexed
-                } else if (i===parts.length-4) {
-                    i_mode = FrameSelectFiles.SubFolderType.Collapsed
-                }
-
-                if (i_mode!==undefined) {
-                    // required for caption
-                    var s_file_part = parts[i]
-
-                    var s_url = ""
-
-                    var t_url = parts
-                    t_url = t_url.slice(0,i+1)
-                    s_url += "file:///" + t_url.join("/")
-
-                    t_folder.push({ filePart: s_file_part, mode: i_mode, id: i + 1, url: s_url})
-                }
-            }
-
-            folderCaption.text = parts.length > 1 ? parts[parts.length-1] : ""
-
-            return t_folder
-        }
-
-        onFolderChanged: {            
-            folderCaption.text = "Loading..."
-
-            foldersRepeater.model = getPathModel()
-
-            highlighter.selectedIndex = -1
-        }
+    onFolderUrlChanged: {
+        highlighter.selectedIndex = -1
     }
 
     EventConnection {
         stateMachine: scxmlBolero
         events: ["Out.DirSelected"]
         onOccurred: {            
-            folderModel.folder = event.data
-        }
-    }
-
-    EventConnection {
-        stateMachine: scxmlBolero
-        events: ["Out.DriveSelected"]
-        onOccurred: {
-            if (event.data==="CD") {
-                folderModel.driveType = FrameSelectFiles.DriveType.CD
-            } else if (event.data==="SD") {
-                folderModel.driveType = FrameSelectFiles.DriveType.SD
-            } else if (event.data==="USB") {
-                folderModel.driveType = FrameSelectFiles.DriveType.USB
+            if (event.data) {
+                folderUrl = event.data
             } else {
-                console.error("Drive type [",event.data,"] is not defined!")
+                console.error("Can not select undefined dir")
             }
         }
     }
@@ -146,7 +213,7 @@ BoleroBackgroundRender {
                 Repeater {
                     id: foldersRepeater
 
-                    /* do not bind 'model' here because it assign 'folder' twice on creation ! */
+                    model: frame.getPathModel()
 
                     delegate: Image {
                         id: imageFolder
@@ -163,41 +230,11 @@ BoleroBackgroundRender {
                             return dX
                         }
 
-                        function getImageSource() {
-                            switch(modelData.mode) {
-                            case FrameSelectFiles.SubFolderType.Side: return "Images/ImgBtnTriangleSide.png";
-                            case FrameSelectFiles.SubFolderType.Indexed: return "Images/ImgBtnTriangleIndexed.png";
-                            case FrameSelectFiles.SubFolderType.Collapsed: return "Images/ImgBtnTriangleCollapsed.png";
-                            }
-
-                            return undefined // mustn't occur
-                        }
-
-                        function getDriveImage() {
-                            switch (folderModel.driveType) {
-                            case FrameSelectFiles.DriveType.CD: return "Images/ImgMenuMedia_32.png";
-                            case FrameSelectFiles.DriveType.SD: return "Images/ImgSDCard_32.png";
-                            case FrameSelectFiles.DriveType.USB: return "Images/ImgUSB_32.png";
-                            }
-
-                            return undefined // mustn't occur
-                        }
-
-                        function getSubImageSource() {
-                            switch(modelData.mode) {
-                            case FrameSelectFiles.SubFolderType.Side: return getDriveImage();
-                            case FrameSelectFiles.SubFolderType.Indexed: return "Images/ImgFolderNumber.png";
-                            case FrameSelectFiles.SubFolderType.Collapsed: return "";
-                            }
-
-                            return undefined // mustn't occur
-                        }
-
                         width: sourceSize.width
 
                         x: getX()
 
-                        source: getImageSource()
+                        source: frame.getFolderImageSource(modelData.mode)
 
                         fillMode: Image.Pad
 
@@ -205,15 +242,15 @@ BoleroBackgroundRender {
                             id: subFolderImage
                             anchors.centerIn: parent
                             anchors.horizontalCenterOffset:
-                                modelData.mode === FrameSelectFiles.SubFolderType.Side ? -5 : 0
+                                modelData.mode === FrameSelectFilesBase.SubFolderType.Side ? -5 : 0
 
                             fillMode: Image.Pad
 
-                            source: getSubImageSource()
+                            source: frame.getFolderSubImageSource(modelData.mode)
 
                             Text {
                                 id: textFolderIndex
-                                visible: modelData.mode === FrameSelectFiles.SubFolderType.Indexed
+                                visible: modelData.mode === FrameSelectFilesBase.SubFolderType.Indexed
                                 anchors.right: parent.right
                                 anchors.rightMargin: 6
                                 anchors.bottom: parent.bottom
@@ -235,19 +272,14 @@ BoleroBackgroundRender {
                             alphaThreshold: 0.1
                             maskSource: imageFolder.source
 
-                            onPressed: {
-                                if (modelData.mode===FrameSelectFiles.SubFolderType.Indexed) {
-                                    scxmlBolero.submitBtnSetupEvent("DirSelected",
-                                                                          modelData.url)
-                                }
-                            }
+                            onPressed: frame.onImageFolderPressed(modelData.mode, modelData.url)
                         }
                     }
                 }
             }
 
             Text {
-                id: folderCaption
+                id: folderText
                 anchors.left: foldersLayout.right
                 anchors.leftMargin: 10
                 anchors.right: btnBack.left
@@ -270,6 +302,17 @@ BoleroBackgroundRender {
             }
         }
 
+        /* additional function content */
+        Item {
+            id: functionsPanel
+
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: header.bottom
+
+            height: 0
+        }
+
         Flickable {
             id: view
 
@@ -277,7 +320,7 @@ BoleroBackgroundRender {
 
             clip: true
 
-            anchors.top: header.bottom
+            anchors.top: functionsPanel.bottom
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
@@ -335,14 +378,28 @@ BoleroBackgroundRender {
                 }
             }
 
-
-
             EncoderHighlighter {
                 id: highlighter
-                enabled: true
+                enabled: frame.enabled
                 count: folderModel.count
                 eventName: selectedIndex!==-1 ? folderModel.getSelectedEventName(selectedIndex) : ""
                 eventData: selectedIndex!==-1 ? folderModel.get(selectedIndex, "fileUrl") : undefined
+            }
+
+            function ensureVisible(item) {
+                if (moving || dragging)
+                    return;
+
+                var ypos = item.mapToItem(contentItem, 0, 0).y
+                var ext = item.height + ypos
+                if ( ypos < contentY // begins before
+                        || ypos > contentY + height // begins after
+                        || ext < contentY // ends before
+                        || ext > contentY + height) { // ends after
+                    // don't exceed bounds
+                    var i_ensure_bottom = Math.max(0, Math.min(ypos - height + item.height, contentHeight - height))
+                    contentY = i_ensure_bottom
+                }
             }
 
             GridLayout {
@@ -363,14 +420,20 @@ BoleroBackgroundRender {
                         id: button
                         itemSelected: index === highlighter.selectedIndex || pressed
 
-                        Layout.preferredHeight: 65
+                        onItemSelectedChanged: if (itemSelected) view.ensureVisible(button)
+
+                        Layout.preferredHeight: frame.itemHeight
+
+                        readonly property bool currentItem: frame.isCurrentItem(fileUrl)
+                        onCurrentItemChanged: if (currentItem) view.ensureVisible(button)
 
                         contentItem: Item {
                             anchors.fill: button
 
                             Image {
                                 id: imgIcon
-                                width: 80
+
+                                width: frame.itemIconWidth
 
                                 anchors.left: parent.left
                                 anchors.leftMargin: 15
@@ -379,14 +442,14 @@ BoleroBackgroundRender {
                                 anchors.bottom: parent.bottom
                                 anchors.bottomMargin: 3
 
-                                fillMode: fileIsDir ? Image.Pad : Image.PreserveAspectFit
-                                source: fileIsDir ? "Images/ImgFolder.png" : fileUrl
+                                fillMode: fileIsDir ? Image.Pad : frame.itemIconFillMode
+                                source: fileIsDir ? "Images/ImgFolder.png" :  frame.getItemIcon(fileUrl, button.currentItem)
                             }
 
                             Text {
                                 id: textCaption
                                 anchors.left: imgIcon.right
-                                anchors.leftMargin: 20
+                                anchors.leftMargin: 15
                                 anchors.right: parent.right
                                 anchors.rightMargin: 15
                                 anchors.verticalCenter: parent.verticalCenter
@@ -406,7 +469,7 @@ BoleroBackgroundRender {
                             highlighter.selectedIndex = -1
                         }
 
-                        onReleased: {                            
+                        onReleased: {
                             scxmlBolero.submitBtnSetupEvent(
                                         folderModel.getSelectedEventName(index),
                                         fileUrl)

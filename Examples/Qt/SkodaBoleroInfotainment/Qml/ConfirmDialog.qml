@@ -73,8 +73,7 @@ Rectangle {
                         id: repeaterDialog                        
 
                         delegate: SetupButton {
-                            eventName: confirmDialog.eventName
-                            eventData: modelData.eventData
+                            eventName: confirmDialog.eventName                            
                             itemSelected: index === highlighterDialog.selectedIndex
                         }
                     }
