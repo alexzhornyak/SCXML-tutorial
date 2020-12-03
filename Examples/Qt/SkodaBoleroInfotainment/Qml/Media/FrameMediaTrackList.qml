@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.12
 import QtScxml 5.8
 import ScxmlBolero 1.0
 import QtMultimedia 5.12
+import Qt.labs.folderlistmodel 2.15
+import FileUtils 1.0
 import "qrc:/Qml"
 import "qrc:/Qml/AppConstants.js" as AppConsts
 import "qrc:/Model/CommonConstants.js" as Consts
@@ -12,32 +14,12 @@ FrameSelectFilesBase {
     id: frame
 
     folderNameFilters: Consts.t_MEDIA_AVAILABLE_EXTENSIONS
+    folderSortField: FolderListModel.Type
     enabled: scxmlBolero.mediaTrackList
     visible: enabled
-    onVisibleChanged: {
-        if (!visible) {
-            /*
-                restore to current url,
-                because user could change folder while navigating
-            */
-            folderUrl = audioPlayer.currentPlayUrlPath
-        }
-    }
-
-    /* bugfix: direct connection not always working */
-    Connections {
-        target: audioPlayer.currentAudio
-        function onSourceChanged() {
-            frame.folderUrl = audioPlayer.currentPlayUrlPath
-        }
-    }
 
     folderUrl: audioPlayer.currentPlayUrlPath
-
-    function isCurrentItem(url) {
-        return url.toString().toLowerCase()===
-                audioPlayer.currentPlayUrl.toString().toLowerCase()
-    }
+    currentUrl: audioPlayer.currentPlayUrl
 
     function getItemIcon(url, is_current_item) {
         if (is_current_item) {
@@ -86,13 +68,9 @@ FrameSelectFilesBase {
                 Layout.preferredWidth: parent.width / 4
             }
 
-            SimpleSelectButton {
+            MediaScanButton {
                 Layout.preferredWidth: parent.width / 4
                 topBorderVisible: true
-
-                caption: qsTr("SCAN")
-
-                onReleased: scxmlBolero.submitBtnSetupEvent("MediaFunc.Scan")
             }
         }
     ]

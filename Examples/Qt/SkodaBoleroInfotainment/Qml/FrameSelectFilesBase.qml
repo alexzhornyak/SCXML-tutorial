@@ -8,6 +8,7 @@ import "qrc:/Model/CommonConstants.js" as Consts
 
 import Qt.labs.folderlistmodel 2.12
 import QtMultimedia 5.15
+import FileUtils 1.0
 import MaskedMouseArea 1.0
 
 BoleroBackgroundRender {
@@ -15,12 +16,9 @@ BoleroBackgroundRender {
 
     property string caption: ""
 
-    enum DriveType {
-        Unknown,
-        CD,
-        SD,
-        USB
-    }
+    property url currentUrl: ""
+
+    property bool userNavigating: false
 
     enum SubFolderType {
         Side,
@@ -29,75 +27,84 @@ BoleroBackgroundRender {
     }
 
     function getPathModel() {
-        /* URL is expected in format 'file:///c:/' */
+        var s_folder = folderUrl.toString();
+        if (s_folder !== "") {
 
-        var sFolder = folderUrl.toString()
+            for (var storage of storageList) {
+                var s_drive = storage.urlPath.toString()
+                if (s_folder.toLowerCase().indexOf(s_drive.toLowerCase())===0) {
+                    /* extract relative path without drive */
+                    /* file:///drive/relative/path -> relative/path */
+                    s_folder = s_folder.substring(s_drive.length)
 
-        sFolder = decodeURIComponent(sFolder.replace(/^(file:\/{2,3})/,""))
+                    var parts = s_folder.split("/")
+                    parts = parts.filter(el => el!=="")
 
-        var parts = sFolder.split("/")
-        parts = parts.filter(function(el){
-            return el!==""
-        })
+                    /* 2 folders are shown with numbers */
+                    /* [CD]> 1> 2> Folder Caption */
 
-        var t_folder = [
-                    {
-                        mode: FrameSelectFilesBase.SubFolderType.Side,
-                        url: parts.length > 0 ? ("file:///" + parts[0]) : undefined  }
-                ]
+                    /* if there are more than 2 folders */
+                    /* middle folders are collapsed and last ones are shown with numbers */
+                    /* [CD]> > > > 4> 5> */
 
-        for (var i=0;i<parts.length-1;i++) {
+                    var t_folder = [
+                                {
+                                    mode: FrameSelectFilesBase.SubFolderType.Side,
+                                    url: s_drive  }
+                            ]
 
-            var i_mode = undefined
+                    for (var i=0;i<parts.length;i++) {
 
-            if (i>=(parts.length-3)) {
-                i_mode = FrameSelectFilesBase.SubFolderType.Indexed
-            } else if (i===parts.length-4) {
-                i_mode = FrameSelectFilesBase.SubFolderType.Collapsed
-            }
+                        var i_mode = undefined
 
-            if (i_mode!==undefined) {
-                // required for caption
-                var s_file_part = parts[i]
+                        if (i>=(parts.length-2)) {
+                            i_mode = FrameSelectFilesBase.SubFolderType.Indexed
+                        } else if (i===parts.length-3) {
+                            i_mode = FrameSelectFilesBase.SubFolderType.Collapsed
+                        }
 
-                var s_url = ""
+                        if (i_mode!==undefined) {
+                            // required for caption
+                            var s_file_part = parts[i]
 
-                var t_url = parts
-                t_url = t_url.slice(0,i+1)
-                s_url += "file:///" + t_url.join("/")
+                            var t_url = parts.slice(0,i)
 
-                t_folder.push({ filePart: s_file_part, mode: i_mode, id: i + 1, url: s_url })
+                            var s_url = s_drive + t_url.join("/")
+
+                            t_folder.push({ filePart: s_file_part, mode: i_mode, id: i + 1, url: s_url })
+                        }
+                    }
+
+                    folderCaption = parts.length > 1 ? parts[parts.length-1] : ""
+                    return t_folder
+                }
             }
         }
 
-        folderCaption = parts.length > 1 ? parts[parts.length-1] : ""
-
-        return t_folder
+        folderCaption = ""
+        return []
     }
 
     function getDriveType() {
-        if (folderUrl.toString() !== "") {
-            if (storageCD.hasPath(folderUrl)) {
-                return FrameSelectFilesBase.DriveType.CD
-            } else if (storageSD.hasPath(folderUrl)) {
-                return FrameSelectFilesBase.DriveType.SD
-            } else if (storageUSB.hasPath(folderUrl)) {
-                return FrameSelectFilesBase.DriveType.USB
+        var s_folder = folderUrl.toString()
+        if (s_folder !== "") {
+            for (var storage of storageList) {
+                var s_drive = storage.urlPath.toString()
+                if (s_folder.toLowerCase().indexOf(s_drive.toLowerCase())===0) {
+                    return storage.ident
+                }
             }
 
             console.error("Can not detect drive type for folder", folderUrl)
         }
 
-        return FrameSelectFilesBase.DriveType.Unknown
+        return ""
     }
 
     function getDriveImage() {
-        var i_drive_type = getDriveType()
-        switch (i_drive_type) {
-        case FrameSelectFilesBase.DriveType.CD: return "Images/ImgCD_32.png";
-        case FrameSelectFilesBase.DriveType.SD: return "Images/ImgSD_32.png";
-        case FrameSelectFilesBase.DriveType.USB: return "Images/ImgUSB_32.png";
-        }
+        var s_drive_type = getDriveType()
+        if (s_drive_type !== "")
+            return "qrc:/Qml/Images/Img" + s_drive_type + "_32.png";
 
         return ""
     }
@@ -115,7 +122,7 @@ BoleroBackgroundRender {
 
     function getFolderSubImageSource(i_mode) {
         switch(i_mode) {
-        case FrameSelectFilesBase.SubFolderType.Side: return getDriveImage(getDriveType());
+        case FrameSelectFilesBase.SubFolderType.Side: return getDriveImage();
         case FrameSelectFilesBase.SubFolderType.Indexed: return "Images/ImgFolderNumber.png";
         case FrameSelectFilesBase.SubFolderType.Collapsed: return "";
         }
@@ -127,14 +134,16 @@ BoleroBackgroundRender {
     function onImageFolderPressed(i_mode, url) {
         switch (i_mode) {
         case FrameSelectFilesBase.SubFolderType.Side:
-        case FrameSelectFilesBase.SubFolderType.Indexed:
+        case FrameSelectFilesBase.SubFolderType.Indexed:            
             scxmlBolero.submitBtnSetupEvent("DirSelected", url)
             break
         }
     }
 
     function isCurrentItem(url) {
-        return false
+        var s_url = url.toString().toLowerCase()
+        var s_cur_url = currentUrl.toString().toLowerCase()
+        return s_url !== "" && s_url === s_cur_url
     }
 
     function getItemIcon(url, is_current_item) {
@@ -155,14 +164,18 @@ BoleroBackgroundRender {
     property url folderUrl: ""
     property alias folderNameFilters: folderModel.nameFilters
     property alias folderCaption: folderText.text
+    property alias folderSortField: folderModel.sortField
 
     FolderListModel {
         id: folderModel
 
         caseSensitive: false
-        sortField: FolderListModel.Type
 
         folder: folderUrl
+
+        onFolderChanged: highlighter.selectedIndex = -1
+
+        onStatusChanged: if (status === FolderListModel.Ready) highlighter.count = folderModel.count
 
         function getSelectedEventName(i_index) {
             return isFolder(i_index) ?
@@ -171,19 +184,40 @@ BoleroBackgroundRender {
 
     }
 
-    onFolderUrlChanged: {
-        highlighter.selectedIndex = -1
-    }
-
     EventConnection {
         stateMachine: scxmlBolero
         events: ["Out.DirSelected"]
         onOccurred: {            
-            if (event.data) {
+            if (event.data) {                
                 folderUrl = event.data
             } else {
                 console.error("Can not select undefined dir")
             }
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.FileSelected"]
+        onOccurred: {
+            if (event.data) {
+                currentUrl = event.data
+                var path = fileUtils.urlExtractPath(currentUrl)
+
+                if (!frame.userNavigating) {
+                    folderUrl = path
+                }
+            } else {
+                console.error("Can not select undefined dir")
+            }
+        }
+    }
+
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.SelectFiles.UserNavigating"]
+        onOccurred: {
+            frame.userNavigating = event.data ? true : false;
         }
     }
 
@@ -333,8 +367,28 @@ BoleroBackgroundRender {
 
             boundsBehavior: Flickable.StopAtBounds
 
+            onMovingChanged: scxmlBolero.submitEvent("Inp.App.SelectFiles.Action.Moving", moving ? 1 : 0)
+            onFlickingChanged: scxmlBolero.submitEvent("Inp.App.SelectFiles.Action.Flicking", flicking ? 1 : 0)
+            onDraggingChanged: scxmlBolero.submitEvent("Inp.App.SelectFiles.Action.Dragging", dragging ? 1 : 0)
+
+            function ensureVisible(item) {
+                var ypos = item.mapToItem(contentItem, 0, 0).y
+                var ext = item.height + ypos
+                if ( ypos < contentY // begins before
+                        || ypos > contentY + height // begins after
+                        || ext < contentY // ends before
+                        || ext > contentY + height) { // ends after
+                    // don't exceed bounds
+                    var i_ensure_bottom = Math.max(0, Math.min(ypos - height + item.height, contentHeight - height))
+                    contentY = i_ensure_bottom
+                }
+            }
+
             ScrollBar.vertical: ScrollBar {
+                id: vertScrollBar
                 policy: ScrollBar.AlwaysOn
+
+                onPressedChanged: scxmlBolero.submitEvent("Inp.App.SelectFiles.Action.Scroll", pressed ? 1 : 0)
 
                 contentItem: Rectangle {
                     visible: view.interactive
@@ -381,25 +435,14 @@ BoleroBackgroundRender {
             EncoderHighlighter {
                 id: highlighter
                 enabled: frame.enabled
+
+                /* bugfix: */
+                /* 'count' - should be changed throught 'folder.status==Ready' */
+                /* direct property binding does not work correctly */
                 count: folderModel.count
+
                 eventName: selectedIndex!==-1 ? folderModel.getSelectedEventName(selectedIndex) : ""
                 eventData: selectedIndex!==-1 ? folderModel.get(selectedIndex, "fileUrl") : undefined
-            }
-
-            function ensureVisible(item) {
-                if (moving || dragging)
-                    return;
-
-                var ypos = item.mapToItem(contentItem, 0, 0).y
-                var ext = item.height + ypos
-                if ( ypos < contentY // begins before
-                        || ypos > contentY + height // begins after
-                        || ext < contentY // ends before
-                        || ext > contentY + height) { // ends after
-                    // don't exceed bounds
-                    var i_ensure_bottom = Math.max(0, Math.min(ypos - height + item.height, contentHeight - height))
-                    contentY = i_ensure_bottom
-                }
             }
 
             GridLayout {
@@ -420,12 +463,13 @@ BoleroBackgroundRender {
                         id: button
                         itemSelected: index === highlighter.selectedIndex || pressed
 
+                        /* item selection has priority */
                         onItemSelectedChanged: if (itemSelected) view.ensureVisible(button)
 
                         Layout.preferredHeight: frame.itemHeight
 
                         readonly property bool currentItem: frame.isCurrentItem(fileUrl)
-                        onCurrentItemChanged: if (currentItem) view.ensureVisible(button)
+                        onCurrentItemChanged: if (currentItem && !userNavigating) view.ensureVisible(button)
 
                         contentItem: Item {
                             anchors.fill: button

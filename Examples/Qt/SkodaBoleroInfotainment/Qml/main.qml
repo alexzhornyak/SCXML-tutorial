@@ -28,39 +28,52 @@ ApplicationWindow {
         scxmlBolero.submitEvent("Inp.Quit")
     }
 
+    function getStorageRoot(storage) {
+            var root = scxmlBolero.getMediaRoot(storage.ident)
+            if (root)
+                return root
+
+            var index = storageList.indexOf(storage)
+            if (index!==-1) {
+                var volumes = storage.getMountedVolumes()
+                if (volumes.length > index) {
+                    return fileUtils.urlFromLocalFile(volumes[index])
+                }
+            }
+
+        return ""
+    }
+
     /* we assume that drives are fixed in the device */
     StorageInfo {
         id: storageCD
 
-        function getRoot() {
-            var root = scxmlBolero.getMediaRoot("CD")
-            return root ? root : "file:///C:/"
-        }
+        readonly property string ident: "CD"
 
-        urlPath: getRoot()          /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
+        urlPath: getStorageRoot(storageCD)   /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
     }
 
     StorageInfo {
         id: storageSD
 
-        function getRoot() {
-            var root = scxmlBolero.getMediaRoot("SD")
-            return root ? root : "file:///D:/"
-        }
+        readonly property string ident: "SD"
 
-        urlPath: getRoot()          /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
+        urlPath: getStorageRoot(storageSD)   /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
     }
 
     StorageInfo {
         id: storageUSB
 
-        function getRoot() {
-            var root = scxmlBolero.getMediaRoot("USB")
-            return root ? root : "file:///E:/"
-        }
+        readonly property string ident: "USB"
 
-        urlPath: getRoot()          /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
+        urlPath: getStorageRoot(storageUSB)  /* MUST BE REPLACED WITH THE ORIGINAL DEVICE DRIVE PATH */
     }
+
+    readonly property var storageList: [
+        storageCD,
+        storageSD,
+        storageUSB
+    ]
 
     FileUtils {
         id: fileUtils

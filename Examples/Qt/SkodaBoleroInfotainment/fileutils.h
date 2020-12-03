@@ -31,16 +31,18 @@ public:
 
     Q_INVOKABLE QString urlExtractFileName(const QUrl &url);
 
+    Q_INVOKABLE QUrl urlFindFirstFile(const QUrl &path, const QStringList &extensions);
+
     Q_INVOKABLE void scanDirAsync(const QUrl &url, const QStringList &extensions);
     Q_INVOKABLE void terminateScanDir(const QUrl &url);
 
 signals:
 
-    void mediaScanCompleted(const QUrl &url, const QStringList &outList);
+    void mediaScanCompleted(const QUrl &url, const QList<QUrl> &outList);
 
 public slots:
 
-    void onScanCompleted(const QUrl &url, const QStringList &outList);
+    void onScanCompleted(const QUrl &url, const QList<QUrl> &outList);
 
 private:
 

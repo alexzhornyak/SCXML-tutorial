@@ -15,12 +15,18 @@ public:
 
     Q_INVOKABLE bool hasPath(const QUrl &url);
     Q_INVOKABLE QStringList getMountedVolumes();
+    Q_INVOKABLE void refresh() {
+        /* You have to manually reset the cache by calling 'refresh' to update storage information */
+        _storage.refresh();
+    }
 
 protected:
     inline QUrl urlPath() const { return QUrl::fromLocalFile(_storage.rootPath()); }
     void setUrlPath(const QUrl &source);
 
-    inline bool isEnabled() const { return _storage.isReady() && _storage.isValid(); }
+    inline bool isEnabled() const {
+        return _storage.isReady() && _storage.isValid();
+    }
 signals:
     void urlPathChanged();
     void enabledChanged();

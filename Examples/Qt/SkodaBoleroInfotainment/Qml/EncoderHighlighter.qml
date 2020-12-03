@@ -15,7 +15,7 @@ Item {
         events: ["Inp.Rotate.Select"]
         onOccurred: {
             if (encoder.enabled) {
-                var dDelta = parseFloat(event.data)
+                var dDelta = parseFloat(event.data) * -1
 
                 encoder.selectedIndex =
                         Consts.incrementMinMaxWrap(

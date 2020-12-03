@@ -16,12 +16,12 @@ FrameSettings {
 
     function getRepeaterModel() {
 
-        var t_model = []
+        var t_model = [{
+                           text: "RESET TO DEFAULT",
+                           eventName: "DriveSource." + driveInput
+                       }]
 
-        var s_CD = storageCD.urlPath.toString().toLowerCase()
-        var s_SD = storageSD.urlPath.toString().toLowerCase()
-        var s_USB = storageUSB.urlPath.toString().toLowerCase()
-
+        storage.refresh()
         var volumes = storage.getMountedVolumes()
         for (var vol of volumes) {
 
@@ -29,17 +29,17 @@ FrameSettings {
             var s_url = url.toString().toLowerCase()
 
             var value_text = undefined
-            if (s_url === s_CD) {
-                value_text = "[CD]"
-            } else if (s_url === s_SD) {
-                value_text = "[SD]"
-            } else if (s_url === s_USB) {
-                value_text = "[USB]"
+
+            for (var drive of storageList) {
+                var s_drive_url = drive.urlPath.toString().toLowerCase()
+                if (s_url === s_drive_url) {
+                    value_text = "[" + drive.ident + "]"
+                    break
+                }
             }
 
             t_model.push({
-                             text: vol,
-                             enabled: value_text===undefined,
+                             text: vol,                             
                              valueText: value_text,
                              eventName: "DriveSource." + driveInput,
                              eventData: url

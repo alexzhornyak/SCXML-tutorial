@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtScxml 5.8
 import Qt.labs.platform 1.0
+import FileUtils 1.0
 import "qrc:/Qml"
 
 FrameSettings {
@@ -27,11 +28,12 @@ FrameSettings {
 
         /* hidden service section */
         /* this section must be hidden in the original device */
-        { visible: true, text: "SERVICE. Select CD root",
+        { visible: true,
+            text: "SERVICE. Select CD root ["+ fileUtils.urlToLocalFile(storageCD.urlPath) +"]",
             eventName: "System.SelectRoot", eventData: "CD" },
-        { visible: true, text: "SERVICE. Select SD root",
+        { visible: true, text: "SERVICE. Select SD root ["+ fileUtils.urlToLocalFile(storageSD.urlPath) +"]",
             eventName: "System.SelectRoot", eventData: "SD" },
-        { visible: true, text: "SERVICE. Select USB root",
+        { visible: true, text: "SERVICE. Select USB root ["+ fileUtils.urlToLocalFile(storageUSB.urlPath) +"]",
             eventName: "System.SelectRoot", eventData: "USB" }
     ]
 }

@@ -1,4 +1,5 @@
 import QtQuick 2.12
+import "qrc:/Qml"
 import "qrc:/Qml/AppConstants.js" as AppConsts
 
 Rectangle {
@@ -28,24 +29,39 @@ Rectangle {
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.bottom: textCaption.top
+        anchors.bottom: parent.bottom
+
+        anchors.margins: 2
 
         antialiasing: true
+
+        visible: scxmlBolero.audioInputAUX || scxmlBolero.mediaPlayerNormal
 
         /* do not use 'cache' ! because it does not update image immediately */
         cache: false
 
         function getMediaSourceImage() {
-            if (scxmlBolero.audioInputCD)
-                return "qrc:/Qml/Images/ImgMenuMedia.png"
-            if (scxmlBolero.audioInputSD)
-                return "qrc:/Qml/Images/ImgSD_128.png"
-            if (scxmlBolero.audioInputUSB)
-                return "qrc:/Qml/Images/ImgUSB_128.png"
+            fillMode = Image.Pad
+
             if (scxmlBolero.audioInputAUX)
                 return "qrc:/Qml/Images/ImgAUX_128.png"
 
-            return "" // mustn't occur
+            if (scxmlBolero.audioInputDrives) {
+                var url = fileUtils.urlFindFirstFile(audioPlayer.currentPlayUrlPath, ["*.jpg", ".png"])
+                if (url.toString()!=="") {
+                    fillMode = Image.PreserveAspectFit
+                    return url
+                }
+
+                if (scxmlBolero.audioInputCD)
+                    return "qrc:/Qml/Images/ImgMenuMedia.png"
+                if (scxmlBolero.audioInputSD)
+                    return "qrc:/Qml/Images/ImgSD_128.png"
+                if (scxmlBolero.audioInputUSB)
+                    return "qrc:/Qml/Images/ImgUSB_128.png"
+            }
+
+            return ""
         }
 
         source: getMediaSourceImage()

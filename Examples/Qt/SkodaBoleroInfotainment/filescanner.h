@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QUrl>
+#include <QDir>
 
 class FileScanner : public QObject
 {
@@ -19,11 +20,13 @@ public slots:
 signals:
     void finished();
     void fileFound(const QUrl &searchUrlDir, const QUrl &file);
-    void scanCompleted(const QUrl &url, const QStringList &outList);
+    void scanCompleted(const QUrl &url, const QList<QUrl> &outList);
 
 private:
     QUrl _searchUrlDir;
     QStringList _extensions;
+
+    bool scanDir(const QDir &dir, QList<QUrl> &out);
 };
 
 #endif // FILESCANNER_H

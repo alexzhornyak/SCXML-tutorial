@@ -41,6 +41,19 @@ QString FileUtils::urlExtractFileName(const QUrl &url) {
     return url.fileName();
 }
 
+QUrl FileUtils::urlFindFirstFile(const QUrl &path, const QStringList &extensions) {
+    const QString folder = path.toLocalFile();
+    if (!folder.isEmpty()) {
+        QDirIterator it(folder, extensions, QDir::Files);
+
+        if (it.hasNext()) {
+            return QUrl::fromLocalFile(it.next());
+        }
+    }
+
+    return QUrl();
+}
+
 void FileUtils::terminateScanDir(const QUrl &url)
 {
     auto it = _audioFileScanners.find(url);
@@ -66,15 +79,15 @@ void FileUtils::scanDirAsync(const QUrl &url, const QStringList &extensions) {
         connect(scanner, SIGNAL(fileFound(const QString&, const QString&)),
                 this, SLOT(onFileFound(const QString&, const QString&)));
 #endif
-        connect(scanner, SIGNAL(scanCompleted(const QUrl&, const QStringList&)),
-                this, SLOT(onScanCompleted(const QUrl&, const QStringList&)));
+        connect(scanner, SIGNAL(scanCompleted(const QUrl&, const QList<QUrl>&)),
+                this, SLOT(onScanCompleted(const QUrl&, const QList<QUrl>&)));
 
         thread->start();
     }
 }
 
 
-void FileUtils::onScanCompleted(const QUrl &url, const QStringList &outList) {
+void FileUtils::onScanCompleted(const QUrl &url, const QList<QUrl> &outList) {
     _audioFileScanners.remove(url);
 
     emit mediaScanCompleted(url, outList);

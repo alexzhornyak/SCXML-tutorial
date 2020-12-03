@@ -39,7 +39,19 @@ Item {
     }
 
     MediaRepeatButton {
+        id: repeatBtn
         anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+
+        implicitWidth: 65
+    }
+
+    MediaScanButton {
+        visible: scxmlBolero.mediaPlayerScanModeOn
+
+        anchors.left: repeatBtn.right
+        anchors.leftMargin: 3
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 

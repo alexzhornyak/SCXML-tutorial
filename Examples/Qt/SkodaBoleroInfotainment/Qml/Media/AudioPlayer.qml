@@ -21,31 +21,24 @@ Item {
     Connections {
         target: fileUtils
 
-        function onMediaScanCompleted(sUrl, outList) {
+        function onMediaScanCompleted(url, outList) {
 
             var audio_input = undefined
 
-            if (sUrl===storageCD.urlPath) {                
-                audio_input = "CD"
-            } else if (sUrl===storageSD.urlPath) {                
-                audio_input = "SD"
-            } else if (sUrl===storageUSB.urlPath) {                
-                audio_input = "USB"
-            } else {
-                console.error("Undefined media url:", sUrl)
+            for (var storage of storageList) {
+                if (url.toString().toLowerCase()===storage.urlPath.toString().toLowerCase()) {
+                    audio_input = storage.ident
+                    break
+                }
             }
 
             if (audio.playlists[audio_input]) {
-                outList.sort()
-
-                audio.playlists[audio_input].All.length = 0
+                audio.playlists[audio_input].All = outList.slice()
                 audio.playlists[audio_input].RepeatFolder.length = 0
 
-                for (var file of outList) {
-                    audio.playlists[audio_input].All.push(fileUtils.urlFromLocalFile(file))
-                }
-
                 scxmlBolero.submitEvent("Inp.App.Media.DriveScanned." + audio_input);
+            } else {
+                console.error("Can not complete drive:", url, audio_input)
             }
         }
     }
@@ -55,7 +48,7 @@ Item {
         events: ["Out.Media.Source.*"]
         onOccurred: {
             var url = scxmlBolero.getCurrentMediaUrl()
-            var list = audio.getPlaylist()
+            var list = audio.getAbsolutePlaylist()
 
             if (!list || list.length===0) {
                 scxmlBolero.submitEvent("Inp.App.Media.Error")
@@ -67,7 +60,7 @@ Item {
                 if (index===-1) {
                     scxmlBolero.submitEvent("Inp.App.Media.Source", list[0])
                 } else {
-                    scxmlBolero.submitEvent("Inp.App.Media.ValidSource")                    
+                    scxmlBolero.submitEvent("Inp.App.Media.ValidSource", url)
 
                     audio.stop()
                     audio.source = url
@@ -75,7 +68,7 @@ Item {
                     if (event.name === "Out.Media.Source.Restore") {
 
                         if (scxmlBolero.mediaRepeatFolder) {
-                            audio.updateRepeatFolderList(currentPlayUrlPath)
+                            audio.updateRepeatFolderList()
                         }
 
                         var media = scxmlBolero.getCurrentMedia()
@@ -99,14 +92,9 @@ Item {
         onOccurred: {
             if (event.data.toString().toLowerCase() === audio.source.toString().toLowerCase()) {
                 /* inverse Play->Pause; Pause->Play */
-                switch (audio.playbackState) {
-                case Audio.PlayingState:
-                    audio.pause()
-                    break;
-                case Audio.PausedState:
-                    audio.play()
-                    break
-                }
+
+                audio.playbackState===Audio.PlayingState ? audio.pause() : audio.play()
+
             } else {
                 var list = audio.getAbsolutePlaylist()
                 if (list) {
@@ -191,10 +179,8 @@ Item {
         stateMachine: scxmlBolero
         events: ["Out.Media.RepeatFolder"]
         onOccurred: {
-            if (scxmlBolero.mediaPlayerRun) {
-                if (currentPlayUrlPath.toString()!=="") {
-                    audio.updateRepeatFolderList(currentPlayUrlPath)
-                }
+            if (scxmlBolero.mediaPlayerRun) {                
+                audio.updateRepeatFolderList()
             }
         }
     }
@@ -207,34 +193,53 @@ Item {
                                            QtMultimedia.LogarithmicVolumeScale,
                                            QtMultimedia.LinearVolumeScale)
 
-        property variant playlists: {
-            'CD': { 'All': [], 'RepeatFolder':[] },
-            'SD': { 'All': [], 'RepeatFolder':[] },
-            'USB': { 'All': [], 'RepeatFolder':[] },
+        property var playlists: getPlaylistTables()
+
+        function getPlaylistTables() {
+            var t_playlists = {}
+
+            for (var storage of storageList) {
+                t_playlists[storage.ident] = {
+                    'All': [], 'RepeatFolder':[]
+                }
+            }
+
+            return t_playlists
         }
 
-        function updateRepeatFolderList(repeat_url) {
+        function updateRepeatFolderList() {
+            if (source=="")
+                return
+
             var audio_input = scxmlBolero.settings.AudioInput
-            if (playlists[audio_input]) {
-                playlists[audio_input].RepeatFolder.length = 0
+            var current_playlist = playlists[audio_input]
+            if (current_playlist) {
+
+                current_playlist.RepeatFolder.length = 0
+
+                var repeat_url = fileUtils.urlExtractPath(source)
+
                 var s_url_path = repeat_url.toString().toLowerCase()
-                for (var cur_url of playlists[audio_input].All) {
-                    var s_cur_url_path = fileUtils.urlExtractPath(cur_url).toString().toLowerCase()
-                    if (scxmlBolero.settings.MediaDisableSubfolders) {
+
+                var b_disable_subfolders = scxmlBolero.settings.MediaDisableSubfolders
+
+                for (var cur_url of current_playlist.All) {
+                    var cur_url_adopted = cur_url.toString().toLowerCase()
+                    var s_cur_url_path = cur_url_adopted.substring(0,cur_url_adopted.lastIndexOf('/'))
+
+                    if (b_disable_subfolders) {
                         if (s_cur_url_path === s_url_path) {
-                            playlists[audio_input].RepeatFolder.push(cur_url)
+                            current_playlist.RepeatFolder.push(cur_url)
                         }
                     } else {
                         if (s_cur_url_path.indexOf(s_url_path) === 0) {
-                            playlists[audio_input].RepeatFolder.push(cur_url)
+                            current_playlist.RepeatFolder.push(cur_url)
                         }
                     }
                 }
-                scxmlBolero.submitEvent("Inp.App.Media.RepeatFolder", repeat_url)
+                scxmlBolero.submitEvent("Inp.App.Media.RepeatFolder", repeat_url)                
             }
         }
-
-
 
         function getSourceIndex(url, list) {
             var s_url = url.toString().toLowerCase()
@@ -293,13 +298,13 @@ Item {
                 scxmlBolero.submitEvent("Inp.App.Media.Error")
             } else {
                 var i_item_count = cur_playlist.length
-                if (i_item_count>1) {
+                if (i_item_count>0) {
                     var index = getSourceIndex(url, cur_playlist)
                     if (index===-1) {
                         console.error("Increment> Url is not found in playlist", url)
                     } else {
                         if (scxmlBolero.mediaPlayMixModeOn) {
-                            increment *= Consts.getRandomInt(i_item_count)
+                            increment *= Consts.getRandomInt(1, i_item_count - 1)
                         }
 
                         /*
@@ -346,37 +351,29 @@ Item {
         }
     }
 
-    Connections {
-        target: scxmlBolero
+    EventConnection {
+        stateMachine: scxmlBolero
+        events: ["Out.DriveDetected.*"]
 
-        property url pathCD: ""
-        property url pathSD: ""
-        property url pathUSB: ""
+        /*
+            we store the path because it may be changed through settings
+            and we won't be able to terminate it correctly
+        */
+        property var pathList: []
 
-        function onDriveSourceCD_OnChanged(enter) {
-            if (enter) {
-                pathCD = storageCD.urlPath
-                fileUtils.scanDirAsync(pathCD, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
+        onOccurred: {
+            var s_ident = event.name.replace("Out.DriveDetected.", "")
+
+            var storage = storageList.find(elem => elem.ident === s_ident)
+            if (storage) {
+                if (event.data === 1) {                                        
+                    pathList[s_ident] = storage.urlPath
+                    fileUtils.scanDirAsync(pathList[s_ident], Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
+                } else {
+                    fileUtils.terminateScanDir(pathList[s_ident])
+                }
             } else {
-                fileUtils.terminateScanDir(pathCD)
-            }
-        }
-
-        function onDriveSourceSD_OnChanged(enter) {
-            if (enter) {
-                pathSD = storageSD.urlPath
-                fileUtils.scanDirAsync(pathSD, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
-            } else {
-                fileUtils.terminateScanDir(pathSD)
-            }
-        }
-
-        function onDriveSourceUSB_OnChanged(enter) {
-            if (enter) {
-                pathUSB = storageUSB.urlPath
-                fileUtils.scanDirAsync(pathUSB, Consts.t_MEDIA_AVAILABLE_EXTENSIONS)
-            } else {
-                fileUtils.terminateScanDir(pathUSB)
+                console.error("Drive ", s_ident, " is not found in the storage list!")
             }
         }
     }
@@ -385,27 +382,19 @@ Item {
         stateMachine: scxmlBolero
         events: ["Out.CheckDriveSources"]
 
-        property bool presentDriveCD: false
-        property bool presentDriveSD: false
-        property bool presentDriveUSB: false
-
         onOccurred: {
 
-            var bCD = storageCD.enabled
-            var bSD = storageSD.enabled
-            var bUSB = storageUSB.enabled
+            for (var storage of storageList) {
+                var s_ident = storage.ident
 
-            if (bCD!==presentDriveCD) {
-                presentDriveCD = bCD
-                scxmlBolero.submitEvent("Inp.App.DriveSource.CD", bCD ? 1 : 0)
-            }
-            if (bSD!==presentDriveSD) {
-                presentDriveSD = bSD
-                scxmlBolero.submitEvent("Inp.App.DriveSource.SD", bSD ? 1 : 0)
-            }
-            if (bUSB!==presentDriveUSB) {
-                presentDriveUSB = bUSB
-                scxmlBolero.submitEvent("Inp.App.DriveSource.USB", bUSB ? 1 : 0)
+                storage.refresh()
+
+                var b_enabled = storage.enabled
+                var b_was_enabled = scxmlBolero["driveSource" + s_ident + "_On"]
+
+                if (b_enabled!==b_was_enabled) {
+                    scxmlBolero.submitEvent("Inp.App.DriveSource." + s_ident, b_enabled ? 1 : 0)                    
+                }
             }
 
             /* finalizing event */
