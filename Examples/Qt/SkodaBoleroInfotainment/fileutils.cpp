@@ -74,18 +74,12 @@ void FileUtils::scanDirAsync(const QUrl &url, const QStringList &extensions) {
         connect(scanner, SIGNAL(finished()), thread, SLOT(quit()));
         connect(scanner, SIGNAL(finished()), scanner, SLOT(deleteLater()));
         connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
-
-#if 0 // optional file by file search
-        connect(scanner, SIGNAL(fileFound(const QString&, const QString&)),
-                this, SLOT(onFileFound(const QString&, const QString&)));
-#endif
         connect(scanner, SIGNAL(scanCompleted(const QUrl&, const QList<QUrl>&)),
                 this, SLOT(onScanCompleted(const QUrl&, const QList<QUrl>&)));
 
         thread->start();
     }
 }
-
 
 void FileUtils::onScanCompleted(const QUrl &url, const QList<QUrl> &outList) {
     _audioFileScanners.remove(url);

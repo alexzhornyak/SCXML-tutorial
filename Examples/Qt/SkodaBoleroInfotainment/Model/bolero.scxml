@@ -811,7 +811,7 @@ In(&quot;mediaModal&quot;))" target="mediaAccentOff"/>
 										<transition event="Inp.App.BtnSetup.FileSelected   Do.Media.Quit.UserNavigating   Do.Media.InputChanged" target="mediaTrackListKeepFolder"/>
 										<state id="mediaUserNavigatingTimeout">
 											<onentry>
-												<send delay="5s" event="Do.Media.Quit.UserNavigating" id="ID.Do.Media.Quit.UserNavigating"/>
+												<send delay="10s" event="Do.Media.Quit.UserNavigating" id="ID.Do.Media.Quit.UserNavigating"/>
 											</onentry>
 											<onexit>
 												<cancel sendid="ID.Do.Media.Quit.UserNavigating"/>

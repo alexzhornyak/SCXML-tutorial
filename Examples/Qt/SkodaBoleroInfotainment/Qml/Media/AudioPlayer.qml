@@ -36,6 +36,12 @@ Item {
                 audio.playlists[audio_input].All = outList.slice()
                 audio.playlists[audio_input].RepeatFolder.length = 0
 
+                if (scxmlBolero["audioInput" + audio_input + "_Ready"]) {
+                    if (scxmlBolero.mediaRepeatFolder) {
+                        audio.updateRepeatFolderList()
+                    }
+                }
+
                 scxmlBolero.submitEvent("Inp.App.Media.DriveScanned." + audio_input);
             } else {
                 console.error("Can not complete drive:", url, audio_input)
