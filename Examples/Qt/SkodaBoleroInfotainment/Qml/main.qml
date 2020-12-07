@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import Qt.labs.platform 1.0
 import ScxmlBolero 1.0
 import StorageInfo 1.0
 import FileUtils 1.0
@@ -16,8 +17,10 @@ import "qrc:/Model/CommonConstants.js" as Consts
 ApplicationWindow {
     id: application
     visible: true
-    width: 1397
-    height: 743
+    x: 0
+    y: 0
+    width: 1920
+    height: 1080
     color: "#1d1d1d"
     title: qsTr("Infotainment Radio Bolero (Simulator)")
 
@@ -26,6 +29,67 @@ ApplicationWindow {
         /* we will save settings only on 'end' state */
         /* so trigger an event for correct state machine finish */
         scxmlBolero.submitEvent("Inp.Quit")
+    }
+
+    function setRepresentation(ident) {
+        if (ident === "Full HD") {
+            mainWidget.anchors.verticalCenterOffset = 0
+            carBackround.visible = true
+            application.width = 1920
+            application.height = 1080
+        } else if (ident === "HD Ready") {
+            mainWidget.anchors.verticalCenterOffset = 0
+            carBackround.visible = false
+            application.width = 1397
+            application.height = 743
+        } else if (ident === "VGA") {
+            mainWidget.anchors.verticalCenterOffset = 75
+            carBackround.visible = false
+            application.width = 600
+            application.height = 360
+        } else {
+            console.error("Unknown ident for application representation!", ident)
+        }
+    }
+
+    SystemTrayIcon {
+        visible: true
+        iconSource: "qrc:/Qml/Images/ImgCD_32.png"
+        tooltip: application.title
+
+        menu: Menu {
+            MenuItem {
+                text: "Full HD"
+                onTriggered: {
+                    application.setRepresentation(this.text)
+                    scxmlBolero.submitEvent("Inp.App.UserSettings.AppViewMode", this.text)
+                }
+            }
+
+            MenuItem {
+                text: "HD Ready"
+                onTriggered: {
+                    application.setRepresentation(this.text)
+                    scxmlBolero.submitEvent("Inp.App.UserSettings.AppViewMode", this.text)
+                }
+            }
+
+            MenuItem {
+                text: "VGA"
+                onTriggered: {
+                    application.setRepresentation(this.text)
+                    scxmlBolero.submitEvent("Inp.App.UserSettings.AppViewMode", this.text)
+                }
+            }
+
+            MenuSeparator {
+            }
+
+            MenuItem {
+                text: qsTr("Quit")
+                onTriggered: Qt.quit()
+            }
+        }
     }
 
     function getStorageRoot(storage) {
@@ -82,6 +146,14 @@ ApplicationWindow {
     ScxmlBolero {
         id: scxmlBolero
         running: true
+
+        Component.onCompleted: {
+            if (scxmlBolero.settings.UserSettings) {
+                if (scxmlBolero.settings.UserSettings.AppViewMode) {
+                    application.setRepresentation(scxmlBolero.settings.UserSettings.AppViewMode)
+                }
+            }
+        }
 
         function getVolume() {
             return scxmlBolero.settings.Volume === undefined ?
@@ -308,6 +380,27 @@ ApplicationWindow {
 
     Media.AudioPlayer {
         id: audioPlayer
+    }
+
+    Image {
+        id: carBackround
+
+        anchors.centerIn: parent
+        anchors.verticalCenterOffset: 175
+        anchors.horizontalCenterOffset: -23
+
+        source: "qrc:/Qml/Images/CarBackgound.png"
+
+        fillMode: Image.Pad
+
+        MouseArea {
+            anchors.fill: parent
+            onWheel: {
+                var delta = wheel.angleDelta.y / 120.0
+                carBackround.anchors.verticalCenterOffset+=delta
+                console.warn(carBackround.anchors.verticalCenterOffset)
+            }
+        }
     }
 
     MainWidget {

@@ -120,5 +120,6 @@
         <file>Qml/WaitIndicator.qml</file>
         <file>Qml/FrameSelectDriveSource.qml</file>
         <file>Qml/Media/MediaScanButton.qml</file>
+        <file>Qml/Images/CarBackgound.png</file>
     </qresource>
 </RCC>
