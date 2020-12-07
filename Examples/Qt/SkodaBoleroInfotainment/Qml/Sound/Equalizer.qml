@@ -9,7 +9,7 @@ Rectangle {
 
     border.color: AppConsts.cl_ITEM_BORDER
 
-    color: AppConsts.cl_ITEM_COLOR
+    color: "transparent"
 
     readonly property int buttonWidth: 60
 

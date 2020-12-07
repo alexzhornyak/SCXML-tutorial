@@ -47,7 +47,7 @@ Rectangle {
                 return "qrc:/Qml/Images/ImgAUX_128.png"
 
             if (scxmlBolero.audioInputDrives) {
-                var url = fileUtils.urlFindFirstFile(audioPlayer.currentPlayUrlPath, ["*.jpg", ".png"])
+                var url = fileUtils.urlFindFirstFile(audioPlayer.currentPlayUrlPath, ["*.jpg", "*.png"])
                 if (url.toString()!=="") {
                     fillMode = Image.PreserveAspectFit
                     return url

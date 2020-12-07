@@ -61,24 +61,24 @@ ApplicationWindow {
             MenuItem {
                 text: "Full HD"
                 onTriggered: {
-                    application.setRepresentation(this.text)
-                    scxmlBolero.submitEvent("Inp.App.UserSettings.AppViewMode", this.text)
+                    application.setRepresentation(text)
+                    scxmlBolero.submitEvent("Inp.App.UserSettings.AppViewMode", text)
                 }
             }
 
             MenuItem {
                 text: "HD Ready"
                 onTriggered: {
-                    application.setRepresentation(this.text)
-                    scxmlBolero.submitEvent("Inp.App.UserSettings.AppViewMode", this.text)
+                    application.setRepresentation(text)
+                    scxmlBolero.submitEvent("Inp.App.UserSettings.AppViewMode", text)
                 }
             }
 
             MenuItem {
                 text: "VGA"
                 onTriggered: {
-                    application.setRepresentation(this.text)
-                    scxmlBolero.submitEvent("Inp.App.UserSettings.AppViewMode", this.text)
+                    application.setRepresentation(text)
+                    scxmlBolero.submitEvent("Inp.App.UserSettings.AppViewMode", text)
                 }
             }
 
@@ -392,15 +392,6 @@ ApplicationWindow {
         source: "qrc:/Qml/Images/CarBackgound.png"
 
         fillMode: Image.Pad
-
-        MouseArea {
-            anchors.fill: parent
-            onWheel: {
-                var delta = wheel.angleDelta.y / 120.0
-                carBackround.anchors.verticalCenterOffset+=delta
-                console.warn(carBackround.anchors.verticalCenterOffset)
-            }
-        }
     }
 
     MainWidget {
@@ -531,6 +522,10 @@ ApplicationWindow {
             Loader {
                 anchors.fill: parent
                 source: scxmlBolero.displaySoundHandlerMidBassTreble ? "Sound/FrameBassMidTreble.qml" : ""
+            },
+            Loader {
+                anchors.fill: parent
+                source: scxmlBolero.displaySoundHandlerBalance ? "Sound/FrameBalanceFader.qml" : ""
             },
             Loader {
                 anchors.fill: parent

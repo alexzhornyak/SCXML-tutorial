@@ -5,17 +5,26 @@ Item {
     id: headerPanel
     implicitHeight: 36
 
-    readonly property date currentTime: new Date()
-
     Text {
         id: textTime
-        text: currentTime.toLocaleTimeString(Qt.locale(), Locale.ShortFormat)
+        text: Qt.formatTime(new Date(),"hh:mm")
         anchors.verticalCenter: parent.verticalCenter
         font.family: "Tahoma"
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 16
         style: Text.Outline
         color: AppConsts.cl_ITEM_TEXT
+    }
+
+    Timer {
+        id: timer
+        interval: 1000
+        repeat: true
+        running: true
+
+        onTriggered: {
+            textTime.text =  Qt.formatTime(new Date(),"hh:mm")
+        }
     }
 
     Image {
