@@ -1,4 +1,4 @@
-bolero.scxml=0x2E684
+bolero.scxml=0x3501A
 _virtualRadio.scxml=0x29041
 _virtualRadioSetup.scxml=0x23BE3
 _virtualMenu.scxml=0xA86F
@@ -7,4 +7,4 @@ _virtualSetup.scxml=0xDF15
 _virtualMedia.scxml=0x163B6
 _virtualAudioModeMedia.scxml=0x39F5D
 _virtualMediaFuncBtns.scxml=0x16683
-_virtualDriveSources.scxml=0x17640
+_virtualDriveSources.scxml=0x1EB3E

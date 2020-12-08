@@ -399,6 +399,19 @@ ApplicationWindow {
         anchors.centerIn: parent
 
         container: [
+
+            BusyIndicator {
+                id: busyOnActivate
+                anchors.centerIn: parent
+                palette.dark: AppConsts.cl_ITEM_BORDER
+
+                height: parent.height / 2
+                width: height
+
+                running: scxmlBolero.off_Init
+                visible: scxmlBolero.off_Init
+            },
+
             /* we do not use Loader for FrameRadio to display quickly */
             Radio.FrameRadio {
                 id: radio
