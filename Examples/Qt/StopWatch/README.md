@@ -1,7 +1,7 @@
 # Qt QML SCXML EcmaScript StopWatch
-![intro](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/StopWatch_intro.png)
-
 All internal logic is written in SCXML with Ecmascript datamodel
+
+![intro](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/StopWatch_intro.png)
 
 ```
 <scxml datamodel="ecmascript" initial="ready" name="ScxmlStopWatch" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
