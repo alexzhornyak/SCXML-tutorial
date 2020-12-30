@@ -13,6 +13,10 @@ This example demonstrates different techniques of using SCXML data models in app
 
 ![AppPreview](https://github.com/alexzhornyak/Salus-RT500-Simulator/blob/master/Images/SalusPreview.gif)
 
+# [Qt SCXML StopWatch](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
+Classical StopWatch with 2 buttons. All internal logic is written with SCXML EcmaScript Datamodel
+![StopWatchPreview](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/StopWatch_intro.png)
+
 # [KT76C Transponder Simulator (Qt)](https://github.com/alexzhornyak/UscxmlCLib/tree/master/Examples/Qt/KT76CSim)
 The BendixKing KT 76C transponder - radio transmitter/receiver which operates on radar frequencies
 
