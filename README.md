@@ -87,6 +87,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 [6. Infotainment Radio Bolero Simulator](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
 ![Preview](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Examples/Qt/SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)
 
+[7. StopWatch](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
+
 ### Articles
 [1. Inheritance (Visual) in SCXML (State Machines)](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Inheritance_SCXML.md)
 
@@ -297,5 +299,7 @@ SCXML provides an element **\<invoke\>** which can create external services. For
 ```
 
 ## [Microwave owen example](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/microwave_example.md)
-
 ![microwave_owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/6%20-%20Microwave%20Owen.gif)
+
+## [StopWatch example](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
+![StopWatchPreview](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/StopWatch_intro.png)
