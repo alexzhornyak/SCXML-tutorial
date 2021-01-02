@@ -1,3 +1,20 @@
+# [W3C Examples](https://www.w3.org/TR/scxml/#Examples)
+## 1. [Language Overview](https://www.w3.org/TR/scxml/#N11608)
+This SCXML document gives an overview of the SCXML language and shows the use of its state machine transition flows
+![LangOverview](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/W3C_LanguageOverview.gif)
+
+## 2. [Microwave Example](https://www.w3.org/TR/scxml/#N11619)
+The example below shows the implementation of a simple microwave oven using SCXML
+![MicrowaveSimple](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/6%20-%20Microwave%20Owen.gif)
+
+## 3. [Microwave Example (Using parallel)](https://www.w3.org/TR/scxml/#MicrowaveParallel)
+The example below shows the implementation of a simple microwave oven using **\<parallel\>** and the SCXML **'In()' predicate**
+![MicrowaveParallel](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/microwave_owen_parallel.gif)
+
+## 4. [Calculator Example](https://www.w3.org/TR/scxml/#N11630)
+The example below shows the implementation of a simple calculator in SCXML
+![Calculator](https://user-images.githubusercontent.com/18611095/46285473-4774ec00-c584-11e8-9c0a-003b5998fd2e.png)
+
 # [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
 Test|Description|Source|
