@@ -92,7 +92,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 ### Articles
 [1. Inheritance (Visual) in SCXML (State Machines)](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Inheritance_SCXML.md)
 
-## [W3C IRP tests](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/W3C.md)
+## [W3C Examples](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/W3C.md#w3c-examples)
+## [W3C IRP tests](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/W3C.md#w3c-irp-tests)
 
 # SCXML Overview
 
