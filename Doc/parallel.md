@@ -4,7 +4,7 @@
 
 The element represents a state whose children are executed in parallel. Children are simultaneously active when the parent element is active.
 
-![parallel - desc](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/3%20-%20Parallel%20with%20tree.gif)
+![parallel - desc](../Images/3%20-%20Parallel%20with%20tree.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
