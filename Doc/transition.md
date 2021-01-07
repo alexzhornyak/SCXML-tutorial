@@ -10,7 +10,7 @@ A space-separated list of event descriptors. Like an event name, an event descri
 ### 1.1. Event name not specified
 If condition is also not specified, transition will be executed immediately.
 
-![transition - eventless](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/transition%20-%201.gif)
+![transition - eventless](../Images/transition%20-%201.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -26,7 +26,7 @@ If condition is also not specified, transition will be executed immediately.
 ### 1.2. Event name fully case sensitive matched
 A transition matches an event if at least one of its event descriptors matches the event's name.
 
-![transition - event name match](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/transition%20-%202.gif)
+![transition - event name match](../Images/transition%20-%202.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -42,7 +42,7 @@ A transition matches an event if at least one of its event descriptors matches t
 ### 1.3. Event name case sensitive matched by token
 An event descriptor matches an event name if its string of tokens is an exact match or a prefix of the set of tokens in the event's name. In all cases, the token matching is case sensitive.
 
-![transition - partial match](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/transition%20-%203.gif)
+![transition - partial match](../Images/transition%20-%203.gif)
 
 In this example, a transition will match event names "Step", "Step.Next", "Step.Next.Completed", etc. but would not match events named "Steps.My.Custom", "StepHandler.mistake", etc.
 
