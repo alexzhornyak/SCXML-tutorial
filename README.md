@@ -6,7 +6,7 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 ## Hello world
 
-![hello world](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/1%20-%20Hello%20world.gif)
+![hello world](Images/1%20-%20Hello%20world.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -19,89 +19,89 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 ```
 
 ### Table of contents
-[1. \<scxml\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/scxml.md)
+[1. \<scxml\>](Doc/scxml.md)
 
-[2. \<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md)
+[2. \<state\>](Doc/state.md)
 
-[3. \<parallel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/parallel.md)
+[3. \<parallel\>](Doc/parallel.md)
 
-[4. \<transition\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md)
+[4. \<transition\>](Doc/transition.md)
 
-[5. \<initial\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Introduction.md#initial-state)
+[5. \<initial\>](Doc/Introduction.md#initial-state)
 
-[6. \<final\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/final.md)
+[6. \<final\>](Doc/final.md)
 
-[7. \<onentry\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onentry.md)
+[7. \<onentry\>](Doc/onentry.md)
 
-[8. \<onexit\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/onexit.md)
+[8. \<onexit\>](Doc/onexit.md)
 
-[9. \<history\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/history.md)
+[9. \<history\>](Doc/history.md)
 
-[10. \<raise\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/raise.md)
+[10. \<raise\>](Doc/raise.md)
 
-[11. \<if\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#if)
+[11. \<if\>](Doc/if_else_elseif.md#if)
 
-[12. \<else\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#else)
+[12. \<else\>](Doc/if_else_elseif.md#else)
 
-[13. \<elseif\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/if_else_elseif.md#elseif)
+[13. \<elseif\>](Doc/if_else_elseif.md#elseif)
 
-[14. \<foreach\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/foreach.md)
+[14. \<foreach\>](Doc/foreach.md)
 
-[15. \<log\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/log.md)
+[15. \<log\>](Doc/log.md)
 
-[16. \<datamodel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/datamodel.md)
+[16. \<datamodel\>](Doc/datamodel.md)
 
-[17. \<data\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/datamodel.md#data)
+[17. \<data\>](Doc/datamodel.md#data)
 
-[18. \<assign\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/assign.md)
+[18. \<assign\>](Doc/assign.md)
 
-[19. \<donedata\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/donedata.md)
+[19. \<donedata\>](Doc/donedata.md)
 
-[20. \<content\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/content.md)
+[20. \<content\>](Doc/content.md)
 
-[21. \<param\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/param.md)
+[21. \<param\>](Doc/param.md)
 
-[22. \<script\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/script.md)
+[22. \<script\>](Doc/script.md)
 
-[23. \<send\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/send.md)
+[23. \<send\>](Doc/send.md)
 
-[24. \<cancel\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/cancel.md)
+[24. \<cancel\>](Doc/cancel.md)
 
-[25. \<invoke\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md)
+[25. \<invoke\>](Doc/invoke.md)
 
-[26. \<finalize\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/finalize.md)
+[26. \<finalize\>](Doc/finalize.md)
 
-[27. Basic HTTP Event I/O Processor](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/BasicHTTPEventIO.md)
+[27. Basic HTTP Event I/O Processor](Doc/BasicHTTPEventIO.md)
 
 #### Examples
-[1. Microwave owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/microwave_example.md)
+[1. Microwave owen](Doc/microwave_example.md)
 
-[2. Microwave owen (using parallel)](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/microwave_parallel.md)
+[2. Microwave owen (using parallel)](Doc/microwave_parallel.md)
 
-[3. Calculator](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/calculator.md)
+[3. Calculator](Doc/calculator.md)
 
 [4. Salus RT500 (Digital Room Thermostat) Simulator](https://github.com/alexzhornyak/Salus-RT500-Simulator)
 
 [5. Morse Code Trainer](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/Morse)
 
 [6. Infotainment Radio Bolero Simulator](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
-![Preview](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Examples/Qt/SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)
+![Preview](Examples/Qt/SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)
 
 [7. StopWatch](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
 
 ### Articles
-[1. Inheritance (Visual) in SCXML (State Machines)](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/Inheritance_SCXML.md)
+[1. Inheritance (Visual) in SCXML (State Machines)](Doc/Inheritance_SCXML.md)
 
-## [W3C Examples](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/W3C.md#w3c-examples)
-## [W3C IRP tests](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/W3C.md#w3c-irp-tests)
+## [W3C Examples](Doc/W3C.md#w3c-examples)
+## [W3C IRP tests](Doc/W3C.md#w3c-irp-tests)
 
 # SCXML Overview
 
 ## Basic State Machine Notation
 
-The most basic state machine concepts are [**\<state\>**](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md), [**\<transition\>**](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md) and **event**. Each state contains a set of transitions that define how it reacts to events. Events can be generated by the state machine itself or by external entities. In a traditional state machine, the machine is always in a single state. This state is called the active state. When an event occurs, the state machine checks the transitions that are defined in the active state. If it finds one that matches the event, it moves from the active state to the state specified by the transition (called the "target" of the transition.) Thus the target state becomes the new active state.
+The most basic state machine concepts are [**\<state\>**](Doc/state.md), [**\<transition\>**](Doc/transition.md) and **event**. Each state contains a set of transitions that define how it reacts to events. Events can be generated by the state machine itself or by external entities. In a traditional state machine, the machine is always in a single state. This state is called the active state. When an event occurs, the state machine checks the transitions that are defined in the active state. If it finds one that matches the event, it moves from the active state to the state specified by the transition (called the "target" of the transition.) Thus the target state becomes the new active state.
 
-![state transition event](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/2%20-%20Hello%20world%20with%20event.gif)
+![state transition event](Images/2%20-%20Hello%20world%20with%20event.gif)
 ```
 <scxml initial="Start" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<final id="Final">
@@ -116,11 +116,11 @@ The most basic state machine concepts are [**\<state\>**](https://github.com/ale
 ```
 
 
-## [Atomic state](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md#atomic-state)
+## [Atomic state](Doc/state.md#atomic-state)
 
 Does not contain any child states
 
-![atomic_state_img](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/readme%20-%20atomic.gif)
+![atomic_state_img](Images/readme%20-%20atomic.gif)
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Level 1"/>
@@ -128,11 +128,11 @@ Does not contain any child states
 ```
 
 
-## [Compound states](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md#compound-state)
+## [Compound states](Doc/state.md#compound-state)
 
 May contain nested <state> elements and the nesting may proceed to any depth
 	
-![compound_state_img](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/readme%20-%20compound.gif)
+![compound_state_img](Images/readme%20-%20compound.gif)
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Level 1">
@@ -144,11 +144,11 @@ May contain nested <state> elements and the nesting may proceed to any depth
 ```
 
 
-## [Parallel states](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/parallel.md)
+## [Parallel states](Doc/parallel.md)
 
 The <parallel> element represents a state whose children are executed in parallel.
 
-![start_page_parallel](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/3%20-%20Parallel%20with%20tree.gif)
+![start_page_parallel](Images/3%20-%20Parallel%20with%20tree.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -175,9 +175,9 @@ The <parallel> element represents a state whose children are executed in paralle
 
 ## Initial state
 
-Represents the default initial state for a complex [\<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md) element
+Represents the default initial state for a complex [\<state\>](Doc/state.md) element
 
-![initial](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/7%20-%20Initial.gif)
+![initial](Images/7%20-%20Initial.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -190,11 +190,11 @@ Represents the default initial state for a complex [\<state\>](https://github.co
 </scxml>
 ```
 
-## [Final state](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/final.md)
+## [Final state](Doc/final.md)
 
-Represents a final state of an [\<scxml\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/scxml.md) or compound [\<state\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/state.md) element.
+Represents a final state of an [\<scxml\>](Doc/scxml.md) or compound [\<state\>](Doc/state.md) element.
 
-![final](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/4%20-%20Final.gif)
+![final](Images/4%20-%20Final.gif)
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Work">
@@ -208,11 +208,11 @@ Represents a final state of an [\<scxml\>](https://github.com/alexzhornyak/SCXML
 </scxml>
 ```
 
-## [History state](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/history.md)
+## [History state](Doc/history.md)
 
-The \<history\> pseudo-state allows a state machine to remember its state configuration. A [\<transition\>](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md) taking the <history> state as its target will return the state machine to this recorded configuration.
+The \<history\> pseudo-state allows a state machine to remember its state configuration. A [\<transition\>](Doc/transition.md) taking the <history> state as its target will return the state machine to this recorded configuration.
 
-![history](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/5%20-%20History.gif)
+![history](Images/5%20-%20History.gif)
 
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -237,10 +237,10 @@ The \<history\> pseudo-state allows a state machine to remember its state config
 </scxml>
 ```
 
-## [Transitions](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/transition.md)
+## [Transitions](Doc/transition.md)
 Transitions between states are triggered by events and conditionalized via guard conditions. They may contain executable content, which is executed when the transition is taken.
 
-![transitions](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/8%20-%20Intro%20-%20Transitions.gif)
+![transitions](Images/8%20-%20Intro%20-%20Transitions.gif)
 
 ```
 <scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -263,15 +263,15 @@ Transitions between states are triggered by events and conditionalized via guard
 </scxml>
 ```
 
-## [Invoke](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/invoke.md)
+## [Invoke](Doc/invoke.md)
 SCXML provides an element **\<invoke\>** which can create external services. For example: it can create instances of external state machines
-![invoked_example](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/simple_tasks_invoked_example.gif)
+![invoked_example](Images/simple_tasks_invoked_example.gif)
 
 ## [Traffic light example](https://github.com/alexzhornyak/UscxmlCLib/blob/master/Examples/StateCharts/TrafficLight.scxml)
 ![traffic_light](https://github.com/alexzhornyak/UscxmlCLib/blob/master/Examples/Images/TrafficLight.gif)
 
 ## Time generator example
-![TimeGenerator](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/TimerGenerator.gif)
+![TimeGenerator](Images/TimerGenerator.gif)
 ```
 <scxml datamodel="lua" initial="Off" name="ScxmlTimeGenerator" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
@@ -299,8 +299,8 @@ SCXML provides an element **\<invoke\>** which can create external services. For
 </scxml>
 ```
 
-## [Microwave owen example](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Doc/microwave_example.md)
-![microwave_owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/6%20-%20Microwave%20Owen.gif)
+## [Microwave owen example](Doc/microwave_example.md)
+![microwave_owen](Images/6%20-%20Microwave%20Owen.gif)
 
 ## [StopWatch example](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
-![StopWatchPreview](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/StopWatch_intro.png)
+![StopWatchPreview](Images/StopWatch_intro.png)
