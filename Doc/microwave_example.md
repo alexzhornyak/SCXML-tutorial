@@ -2,7 +2,7 @@
 
 The example below shows the implementation of a simple microwave oven using SCXML.
 
-![microwave_owen](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/6%20-%20Microwave%20Owen.gif)
+![microwave_owen](../Images/6%20-%20Microwave%20Owen.gif)
 
 ```
 <?xml version="1.0"?>
