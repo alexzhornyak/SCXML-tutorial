@@ -4,6 +4,8 @@
 
 Allows a state machine to remember its state configuration. A <transition> taking the <history> state as its target will return the state machine to this recorded configuration.
 
+![history_intro](../Images/5%20-%20History.gif)
+
 ## 1. Shallow history
 If the 'type' of a <history> element is "shallow", the SCXML processor must record the immediately active children of its parent before taking any transition that exits the parent.
 
