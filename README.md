@@ -1,5 +1,5 @@
 | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples) |
-|---|---|---|
+
 
 # SCXML Tutorial
 
@@ -565,4 +565,3 @@ iLapCount++
 
 - - - - -
 | [TOP](#hello-world) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples)|
-|---|---|---|---|
