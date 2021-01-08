@@ -1,3 +1,7 @@
+<a name="top-anchor">
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
+
 # [\<scxml\>](https://www.w3.org/TR/scxml/#scxml)
 
 **[Video version](https://youtu.be/0CYftU1-7Ns)**
@@ -11,7 +15,7 @@ The id of the initial state(s) for the document. If not specified, the default i
   **1.1. The id is not specified**
   
   ![scxml - initial not specified](https://user-images.githubusercontent.com/18611095/28070804-da550da4-6656-11e7-82b7-4d50e7b05a20.png)
-  ```
+  ```xml
   <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
   	<state id="Start">
   		<onentry>
@@ -33,7 +37,7 @@ The id of the initial state(s) for the document. If not specified, the default i
   **1.2. The id is specified**
   
   ![scxml - initial specified](https://user-images.githubusercontent.com/18611095/28071346-54b1c212-6658-11e7-9eb0-1ec5363a1f33.png)
-```
+```xml
   <scxml initial="Work" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Start">
 		<onentry>
@@ -56,7 +60,7 @@ The id of the initial state(s) for the document. If not specified, the default i
 The datamodel that this document requires. "null" denotes the Null datamodel, "ecmascript" the ECMAScript datamodel, and "xpath" the XPath datamodel or other platform-defined values.
 
 ![scxml - datamodel](https://user-images.githubusercontent.com/18611095/28104254-cf2e29e2-66e2-11e7-84ff-669b4fde192d.png)
-```
+```xml
 <scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<final id="End">
 		<onentry>
@@ -75,7 +79,7 @@ The data binding to use.
 
 #### 3.1. Early
 When 'binding' is assigned the value "early" (the default), the SCXML Processor must create all data elements and assign their initial values at document initialization time.
-```
+```xml
 <scxml datamodel="lua" initial="Step1" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Step1">
 		<onentry>
@@ -96,7 +100,7 @@ When 'binding' is assigned the value "early" (the default), the SCXML Processor 
 
 #### 3.2. Late
 When 'binding' is assigned the value "late", the SCXML Processor must create the data elements at document initialization time, but must assign the specified initial value to a given data element only when the state that contains it is entered for the first time, before any <onentry> markup.
-```
+```xml
 <scxml binding="late" datamodel="lua" initial="Step1" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Step1">
 		<onentry>
@@ -126,3 +130,5 @@ At system initialization time, if the 'initial' attribute is not present, the Pr
 At system initialization time, the SCXML Processor MUST enter the states specified by the 'initial' attribute, if it is present.
 
 ![test576](https://user-images.githubusercontent.com/18611095/28627166-b208e760-7229-11e7-9810-7dbb56b9a34d.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
