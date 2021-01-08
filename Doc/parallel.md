@@ -1,3 +1,7 @@
+<a name="top-anchor">
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<parallel\>](https://www.w3.org/TR/scxml/#parallel)
 
 **[Video version](https://youtu.be/VOKu7TYXN_s)**
@@ -6,7 +10,7 @@ The element represents a state whose children are executed in parallel. Children
 
 ![parallel - desc](../Images/3%20-%20Parallel%20with%20tree.gif)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<parallel id="Airplane_Engines">
 		<state id="Engine_1" initial="Engine_1_Off">
@@ -28,3 +32,5 @@ The element represents a state whose children are executed in parallel. Children
 	</parallel>
 </scxml>
 ```
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
