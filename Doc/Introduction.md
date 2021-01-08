@@ -33,8 +33,8 @@ The most basic state machine concepts are **\<state\>**, **\<transition\>** and 
 
 
 ## [Atomic state](https://youtu.be/VUTCY4E0ta8)
-
 Does not contain any child states
+
 ![atomic_state_img](../Images/readme%20-%20atomic.gif)
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -44,8 +44,8 @@ Does not contain any child states
 
 
 ## [Compound states](https://youtu.be/VUTCY4E0ta8)
-
 May contain nested <state> elements and the nesting may proceed to any depth
+	
 ![compound_state_img](../Images/readme%20-%20compound.gif)
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -59,7 +59,6 @@ May contain nested <state> elements and the nesting may proceed to any depth
 
 
 ## [Parallel states](https://youtu.be/VOKu7TYXN_s)
-
 The <parallel> element represents a state whose children are executed in parallel.
 
 ![start_page_parallel](../Images/3%20-%20Parallel%20with%20tree.gif)
@@ -89,7 +88,7 @@ The <parallel> element represents a state whose children are executed in paralle
 
 ## Initial state
 
-Represents the default initial state for a complex [\<state\>](../Doc/state.md) element
+Represents the default initial state for a complex [\<state\>](state.md) element
 
 ![initial](../Images/7%20-%20Initial.gif)
 
@@ -104,9 +103,8 @@ Represents the default initial state for a complex [\<state\>](../Doc/state.md) 
 </scxml>
 ```
 
-## [Final state](../Doc/final.md)
-
-Represents a final state of an [\<scxml\>](../Doc/scxml.md) or compound [\<state\>](../Doc/state.md) element.
+## [Final state](final.md)
+Represents a final state of an [\<scxml\>](scxml.md) or compound [\<state\>](state.md) element.
 
 ![final](../Images/4%20-%20Final.gif)
 ```
@@ -122,9 +120,8 @@ Represents a final state of an [\<scxml\>](../Doc/scxml.md) or compound [\<state
 </scxml>
 ```
 
-## [History state](../Doc/history.md)
-
-The \<history\> pseudo-state allows a state machine to remember its state configuration. A [\<transition\>](../Doc/transition.md) taking the <history> state as its target will return the state machine to this recorded configuration.
+## [History state](history.md)
+The \<history\> pseudo-state allows a state machine to remember its state configuration. A [\<transition\>](transition.md) taking the <history> state as its target will return the state machine to this recorded configuration.
 
 ![history](../Images/5%20-%20History.gif)
 
@@ -151,7 +148,7 @@ The \<history\> pseudo-state allows a state machine to remember its state config
 </scxml>
 ```
 
-## [Transitions](../Doc/transition.md)
+## [Transitions](transition.md)
 Transitions between states are triggered by events and conditionalized via guard conditions. They may contain executable content, which is executed when the transition is taken.
 
 ![transitions](../Images/8%20-%20Intro%20-%20Transitions.gif)
