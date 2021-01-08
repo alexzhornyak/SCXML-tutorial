@@ -1,7 +1,7 @@
 # [Microwave owen (using parallel) example](https://www.w3.org/TR/scxml/#N11619)
 The example below shows the implementation of a simple microwave oven using **\<parallel\>** and the SCXML **In()** predicate.
 
-![microwave_owen_parallel](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/microwave_owen_parallel.gif)
+![microwave_owen_parallel](../Images/microwave_owen_parallel.gif)
 
 ```
 <scxml datamodel="ecmascript" initial="oven" name="ScxmlMicrowaveOwenParallel" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
