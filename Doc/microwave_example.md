@@ -4,7 +4,7 @@ The example below shows the implementation of a simple microwave oven using SCXM
 
 ![microwave_owen](../Images/6%20-%20Microwave%20Owen.gif)
 
-```
+```xml
 <?xml version="1.0"?>
 <scxml xmlns="http://www.w3.org/2005/07/scxml"
        version="1.0"
