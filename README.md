@@ -18,7 +18,7 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 </scxml>
 ```
 
-### Table of contents
+## Table of contents
 [1. \<scxml\>](Doc/scxml.md)
 
 [2. \<state\>](Doc/state.md)
@@ -73,7 +73,7 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [27. Basic HTTP Event I/O Processor](Doc/BasicHTTPEventIO.md)
 
-#### Examples
+## Examples
 [1. Microwave owen](Doc/microwave_example.md)
 
 [2. Microwave owen (using parallel)](Doc/microwave_parallel.md)
@@ -84,10 +84,12 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [5. Morse Code Trainer](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/Morse)
 
-[6. Infotainment Radio Bolero Simulator](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
-![Preview](Examples/Qt/SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)
+[6. StopWatch](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
 
-[7. StopWatch](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
+[7. Infotainment Radio Bolero Simulator](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
+[![Preview](Examples/Qt/SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
+
+### [Qt SCXML Examples](Examples/Qt/README.md)
 
 ### Articles
 [1. Inheritance (Visual) in SCXML (State Machines)](Doc/Inheritance_SCXML.md)
