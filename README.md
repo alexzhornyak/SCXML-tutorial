@@ -564,4 +564,6 @@ iLapCount++
 	
 </details>
 
+---
+
 | [TOP](#top-anchor) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
