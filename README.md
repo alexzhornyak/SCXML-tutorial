@@ -1,4 +1,4 @@
-| [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples) |
+| [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
 
 
 # SCXML Tutorial
@@ -564,4 +564,4 @@ iLapCount++
 </details>
 
 - - - - -
-| [TOP](#hello-world) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples)|
+| [TOP](#hello-world) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
