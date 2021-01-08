@@ -55,6 +55,7 @@ The id of the initial state(s) for the document. If not specified, the default i
 
 ### 2. Attribute 'datamodel'
 The datamodel that this document requires. "null" denotes the Null datamodel, "ecmascript" the ECMAScript datamodel, and "xpath" the XPath datamodel or other platform-defined values.
+
 ![scxml - datamodel](https://user-images.githubusercontent.com/18611095/28104254-cf2e29e2-66e2-11e7-84ff-669b4fde192d.png)
 
 ```
