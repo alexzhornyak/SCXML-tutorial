@@ -275,9 +275,6 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 
 ## [Traffic light example](https://github.com/alexzhornyak/UscxmlCLib/tree/master/Examples/BCB/TrafficLight)
 ![traffic_light](https://raw.githubusercontent.com/alexzhornyak/UscxmlCLib/master/Examples/Images/TrafficLight.gif)
-<details>
-	<summary>View code</summary>
-	
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <scxml initial="working" name="TrafficLightStateMachine" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -339,8 +336,6 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 </scxml>
 ```
 
-</details>
-
 ## Time generator example
 ![TimeGenerator](Images/TimerGenerator.gif)
 ```xml
@@ -372,9 +367,6 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 
 ## [Microwave owen example](Doc/microwave_example.md)
 ![microwave_owen](Images/6%20-%20Microwave%20Owen.gif)
-<details>
-	<summary>View code</summary>
-	
 ```xml
 <?xml version="1.0"?>
 <scxml xmlns="http://www.w3.org/2005/07/scxml"
@@ -428,13 +420,8 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 </scxml>
 ```
 
-</details>
-
 ## [StopWatch example](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
 ![StopWatchPreview](Images/StopWatch_intro.png)
-<details>
-	<summary>View code</summary>
-	
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <scxml datamodel="ecmascript" initial="ready" name="ScxmlStopWatch" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -561,8 +548,6 @@ iLapCount++
 	</state>
 </scxml>
 ```
-	
-</details>
 
 ---
 
