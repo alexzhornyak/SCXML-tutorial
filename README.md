@@ -1,4 +1,5 @@
-[Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples)
+| [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples) |
+|---|---|---|
 
 # SCXML Tutorial
 
@@ -273,6 +274,71 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 
 ## [Traffic light example](https://github.com/alexzhornyak/UscxmlCLib/tree/master/Examples/BCB/TrafficLight)
 ![traffic_light](https://raw.githubusercontent.com/alexzhornyak/UscxmlCLib/master/Examples/Images/TrafficLight.gif)
+<details>
+	<summary>View code</summary>
+	
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml initial="working" name="TrafficLightStateMachine" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="working" initial="red">
+		<onexit>
+			<cancel sendid="ID_startGoingGreen"/>
+			<cancel sendid="ID_startGoingRed"/>
+		</onexit>
+		<transition event="switch" target="broken" type="internal"/>
+		<state id="red">
+			<onentry>
+				<send delay="3s" event="startGoingGreen" id="ID_startGoingGreen"/>
+			</onentry>
+			<transition event="startGoingGreen" target="redGoingGreen" type="internal"/>
+		</state>
+		<state id="yellow">
+			<onexit>
+				<cancel sendid="ID_goGreen"/>
+				<cancel sendid="ID_goRed"/>
+			</onexit>
+			<state id="redGoingGreen">
+				<onentry>
+					<send delay="1s" event="goGreen" id="ID_goGreen"/>
+				</onentry>
+				<transition event="goGreen" target="green" type="internal"/>
+			</state>
+			<state id="greenGoingRed">
+				<onentry>
+					<send delay="1s" event="goRed" id="ID_goRed"/>
+				</onentry>
+				<transition event="goRed" target="red" type="internal"/>
+			</state>
+		</state>
+		<state id="green">
+			<onentry>
+				<send delay="3s" event="startGoingRed" id="ID_startGoingRed"/>
+			</onentry>
+			<transition event="startGoingRed" target="greenGoingRed" type="internal"/>
+		</state>
+	</state>
+	<state id="broken" initial="blinking">
+		<onexit>
+			<cancel sendid="ID_blink"/>
+		</onexit>
+		<transition event="switch" target="working" type="internal"/>
+		<state id="blinking">
+			<onentry>
+				<send delay="1s" event="blink" id="ID_blink"/>
+			</onentry>
+			<transition event="blink" target="unblinking" type="internal"/>
+		</state>
+		<state id="unblinking">
+			<onentry>
+				<send delay="1s" event="blink" id="ID_blink"/>
+			</onentry>
+			<transition event="blink" target="blinking" type="internal"/>
+		</state>
+	</state>
+</scxml>
+```
+
+</details>
 
 ## Time generator example
 ![TimeGenerator](Images/TimerGenerator.gif)
@@ -294,7 +360,7 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 		<transition event="Stop" target="Off"/>
 		<state id="StateShape1">
 			<onentry>
-				<log expr="string.format(&quot;Elapsed:%.2fs&quot;, os.clock() - tm_ELAPSED)" label="INFO"/>
+				<log expr="string.format('Elapsed:%.2fs', os.clock() - tm_ELAPSED)" label="INFO"/>
 				<send delay="1000ms" event="Do.Timer" id="ID_TIMER"/>
 			</onentry>
 			<transition event="Do.Timer" target="StateShape1"/>
@@ -305,9 +371,198 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 
 ## [Microwave owen example](Doc/microwave_example.md)
 ![microwave_owen](Images/6%20-%20Microwave%20Owen.gif)
+<details>
+	<summary>View code</summary>
+	
+```xml
+<?xml version="1.0"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml"
+       version="1.0"
+       datamodel="ecmascript"
+       initial="off">
+
+  <!--  trivial 5 second microwave oven example -->
+  <datamodel>
+    <data id="cook_time" expr="5"/>
+    <data id="door_closed" expr="true"/>
+    <data id="timer" expr="0"/>
+  </datamodel>
+
+  <state id="off">
+    <!-- off state -->
+    <transition event="turn.on" target="on"/>
+  </state>
+
+  <state id="on">
+    <initial>
+        <transition target="idle"/>
+    </initial>
+    <!-- on/pause state -->
+
+    <transition event="turn.off" target="off"/>
+    <transition cond="timer &gt;= cook_time" target="off"/>
+
+    <state id="idle">
+      <!-- default immediate transition if door is shut -->
+      <transition cond="door_closed" target="cooking"/>
+      <transition event="door.close" target="cooking">
+        <assign location="door_closed" expr="true"/>
+        <!-- start cooking -->
+      </transition>
+    </state>
+
+    <state id="cooking">
+      <transition event="door.open" target="idle">
+        <assign location="door_closed" expr="false"/>
+      </transition>
+
+      <!-- a 'time' event is seen once a second -->
+      <transition event="time">
+        <assign location="timer" expr="timer + 1"/>
+      </transition>
+    </state>
+
+  </state>
+
+</scxml>
+```
+
+</details>
 
 ## [StopWatch example](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
 ![StopWatchPreview](Images/StopWatch_intro.png)
+<details>
+	<summary>View code</summary>
+	
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml datamodel="ecmascript" initial="ready" name="ScxmlStopWatch" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel><!--CONSTS-->
+		<data expr="100" id="i_UPDATE_DELAY_MS"/>
+		<data id="FormatTimeStr">function (ms){// time(ms)
+    function pad(number) {
+      if (number &lt; 10) {
+        return '0' + number;
+      }
+      return number;
+    }  
+  
+    var time = new Date(ms)
+    var days = time.getUTCDate()
+    var hours = time.getUTCHours()
+    var minutes = time.getUTCMinutes()
+    var seconds = time.getUTCSeconds()
+    var milliseconds = time.getUTCMilliseconds()    
+    
+    var t = []
+    if (days &gt; 1)
+        t.push(pad(days - 1) + 'T')
+  
+    if (hours &gt; 0 || t.length &gt; 0)
+        t.push(pad(hours) + ':')
+  
+    t.push(pad(minutes) + ':')
+    t.push(pad(seconds))
+   
+    if (milliseconds &gt; 0)
+        t.push('.' + (time.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5))
+  
+    return t.join('')
+}
+		</data>
+		<data id="StopWatchClass">function() {
+    var timeMS = undefined
+    var pauseTimeMS = undefined
+    var pauseDurationMS = 0
+
+    this.start = function() {
+
+        this.reset()
+
+        timeMS = Date.now()
+    }
+
+    this.suspend = function() {
+        pauseTimeMS = Date.now()        
+    }
+
+    this.resume = function() {
+        pauseDurationMS += Date.now() - pauseTimeMS
+        pauseTimeMS = undefined
+    }
+
+    this.reset = function() {
+        timeMS = undefined
+        pauseTimeMS = undefined
+        pauseDurationMS = 0    
+    }
+    
+    this.elapsed = function() {
+        return timeMS!==undefined ?
+            ((pauseTimeMS!==undefined ? pauseTimeMS : Date.now()) - timeMS - pauseDurationMS) : 0
+    }
+}
+		</data><!--TEMP-->
+		<data expr="new StopWatchClass()" id="Timer"/>
+		<data expr="0" id="iLapElapsed"/>
+		<data expr="0" id="iLapCount"/>
+	</datamodel>
+	<state id="stopWatch" initial="ready">
+		<transition event="display">
+			<send event="out.display">
+				<param expr="FormatTimeStr(Timer.elapsed())" name="ElapsedMS"/>
+				<param expr="FormatTimeStr(Timer.elapsed() - iLapElapsed)" name="LapMS"/>
+				<param expr="iLapCount" name="LapCount"/>
+			</send>
+		</transition>
+		<state id="ready">
+			<onentry>
+				<script>iLapElapsed = 0
+iLapCount = 0
+				</script>
+				<raise event="display"/>
+			</onentry>
+			<transition event="button.1" target="active">
+				<script>Timer.start()</script>
+			</transition>
+		</state>
+		<state id="active">
+			<transition event="button.1" target="pause">
+				<script>Timer.suspend()</script>
+			</transition>
+			<state id="generator">
+				<onentry>
+					<raise event="display"/>
+					<send delayexpr="i_UPDATE_DELAY_MS + 'ms'" event="update" id="ID.update"/>
+				</onentry>
+				<onexit>
+					<cancel sendid="ID.update"/>
+				</onexit>
+				<transition event="update" target="generator"/>
+				<transition event="button.2" target="generator">
+					<script>iLapElapsed = Timer.elapsed()
+iLapCount++
+					</script>
+				</transition>
+			</state>
+		</state>
+		<state id="pause">
+			<onentry>
+				<raise event="display"/>
+			</onentry>
+			<transition event="button.1" target="active">
+				<script>Timer.resume()</script>
+			</transition>
+			<transition event="button.2" target="ready">
+				<script>Timer.reset()</script>
+			</transition>
+		</state>
+	</state>
+</scxml>
+```
+	
+</details>
 
 - - - - -
-[TOP](#hello-world) | [Contents](#table-of-contents)| [Overview](#scxml-overview) | [Examples](#examples)
+| [TOP](#hello-world) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples)|
+|---|---|---|---|
