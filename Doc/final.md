@@ -4,7 +4,7 @@
 
 Represents a final state of an \<scxml\> or compound \<state\> element.
 
-![final](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/4%20-%20Final.gif)
+![final](../Images/4%20-%20Final.gif)
 ```
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Work">
