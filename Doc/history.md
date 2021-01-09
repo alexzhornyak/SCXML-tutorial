@@ -1,13 +1,17 @@
+<a name="top-anchor">
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<history\>](https://www.w3.org/TR/scxml/#history)
 
 **[Video version](https://youtu.be/PyWD-aI6EmE)**
 
-Allows a state machine to remember its state configuration. A <transition> taking the <history> state as its target will return the state machine to this recorded configuration.
+Allows a state machine to remember its state configuration. A [\<transition\>](transition.md) taking the \<history\> state as its target will return the state machine to this recorded configuration.
 
 ![history_intro](../Images/5%20-%20History.gif)
 
 ## 1. Shallow history
-If the 'type' of a <history> element is "shallow", the SCXML processor must record the immediately active children of its parent before taking any transition that exits the parent.
+If the **'type'** of a **\<history\>** element is **'shallow'**, the SCXML processor must record the immediately active children of its parent before taking any transition that exits the parent.
 
 **Example:**
 #### 1.1. Configuration before pause
@@ -25,7 +29,7 @@ Active state: **Expecting**
 
 Active states: **Airplane, Engines, Left, Right, LeftOff, RightOff**
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Airplane" initial="HistoryPoint">
 		<transition event="Pause" target="Expecting"/>
@@ -65,7 +69,7 @@ Active states: **Airplane, Engines, Left, Right, LeftOff, RightOff**
 ```
 
 ## 2. Deep history
-If the 'type' of a <history> element is "deep", the SCXML processor must record the active atomic descendants of the parent before taking any transition that exits the parent.
+If the **'type'** of a **\<history\>** element is **'deep'**, the SCXML processor must record the active atomic descendants of the parent before taking any transition that exits the parent.
 
 #### 2.1. Configuration before pause
 ![history - after deep pause](https://user-images.githubusercontent.com/18611095/28218825-68aa707c-68c2-11e7-9211-f91395d83c66.png)
@@ -82,7 +86,7 @@ Active state: **Expecting**
 
 Active states: **Airplane, Engines, Left, Right, LeftOn, RightOn**
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Airplane">
 		<transition event="Pause" target="Expecting"/>
@@ -141,3 +145,5 @@ It follows from the semantics of history states that they never end up in the st
 After the parent state has been visited for the first time, if a transition is executed that takes the history state as its target, the SCXML processor MUST behave as if the transition had taken the stored state configuration as its target.
 
 ![test388](https://user-images.githubusercontent.com/18611095/28677984-d164acd8-72f7-11e7-9ba6-80696f4fc960.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
