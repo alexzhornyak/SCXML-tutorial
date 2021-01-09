@@ -1,8 +1,12 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<send\>](https://www.w3.org/TR/scxml/#send)
 The element is used to send events and data to external systems, including external SCXML Interpreters, or to raise events in the current SCXML session.
 
 ![send_example](../Images/TimerGenerator.gif)
-```
+```xml
 <scxml datamodel="lua" initial="Off" name="ScxmlTimeGenerator" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data expr="0" id="tm_ELAPSED"/>
@@ -20,7 +24,7 @@ The element is used to send events and data to external systems, including exter
 		<transition event="Stop" target="Off"/>
 		<state id="StateShape1">
 			<onentry>
-				<log expr="string.format(&quot;Elapsed:%.2fs&quot;, os.clock() - tm_ELAPSED)" label="INFO"/>
+				<log expr="string.format('Elapsed:%.2fs', os.clock() - tm_ELAPSED)" label="INFO"/>
 				<send delay="1000ms" event="Do.Timer" id="ID_TIMER"/>
 			</onentry>
 			<transition event="Do.Timer" target="StateShape1"/>
@@ -118,7 +122,7 @@ The SCXML Processor MUST include all attributes and values provided by **param**
 
 ![test178](https://user-images.githubusercontent.com/18611095/28523387-db107b2e-7084-11e7-9717-1a6ad70da477.png)
 
-```
+```xml
 <scxml datamodel="lua" initial="s0" name="Scxml_Test178" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="s0">
 		<onentry>
@@ -142,18 +146,18 @@ The SCXML Processor MUST include all attributes and values provided by **param**
 ```
 
 **Output:**
-> External Event: event1, interpreter [Scxml_Test178] 
-> [Log] _event : { 
->
->      "data":       { 
->        "Var1": 3 
->      }, 
->      "name":       "event1", 
->      "origin":     "#_scxml_7927b337-addb-4eb5-bcf6-f12e42828924", 
->      "origintype": "http://www.w3.org/TR/scxml/#SCXMLEventProcessor", 
->      "type":       "external" 
->
->    } 
+```
+External Event: event1, interpreter [Scxml_Test178]
+[Log] _event : {
+    "data": {
+        "Var1": 3 
+    },
+    "name":       "event1",
+    "origin":     "#_scxml_7927b337-addb-4eb5-bcf6-f12e42828924",
+    "origintype": "http://www.w3.org/TR/scxml/#SCXMLEventProcessor",
+    "type":       "external"
+}
+```
    
 ### [7. Test 179](https://www.w3.org/Voice/2013/scxml-irp/179/test179.txml)
 The SCXML Processor MUST evaluate the \<content\> element when the parent \<send\> element is evaluated and pass the resulting data unmodified to the external service when the message is delivered.
@@ -207,7 +211,6 @@ Processors that support HTTP POST must use the value http://www.w3.org/TR/scxml/
 
 ![test201](https://user-images.githubusercontent.com/18611095/28561917-ea2b7e2a-7128-11e7-9cdc-0edb5362df53.png)
 
-
 The sending SCXML Interpreter MUST not alter the content of the send and include it in the message that it sends to the destination specified in the target attribute of send.
 
 ![test205](https://user-images.githubusercontent.com/18611095/28562107-ae58d23e-7129-11e7-9504-1672d149e8e8.png)
@@ -221,3 +224,5 @@ If the Processor cannot dispatch the event, it MUST place the error **error.comm
 If the evaluation of send's arguments produces an error, If the evaluation of send's arguments produces an error, the Processor MUST discard the message without attempting to deliver it.
 
 ![test553](https://user-images.githubusercontent.com/18611095/28562498-20012dae-712b-11e7-9d11-bc101df19923.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
