@@ -1,7 +1,7 @@
 <a name="top-anchor">
 
-[TOP](#top-anchor)|[Contents](../README.md#table-of-contents)|[Overview](../README.md#scxml-overview)|[Examples](../README.md#examples)|[Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions)|
-----|----|----|----|----|
+[Contents](../README.md#table-of-contents)|[Overview](../README.md#scxml-overview)|[Examples](../README.md#examples)|[Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions)|
+-|-|-|-|
 
 # [\<log\>](https://www.w3.org/TR/scxml/#log)
 
