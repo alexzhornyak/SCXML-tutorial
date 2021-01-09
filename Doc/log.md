@@ -1,7 +1,16 @@
 <a name="top-anchor">
 	
-[Contents](../README.md#table-of-contents)|[Overview](../README.md#scxml-overview)|[Examples](../README.md#examples)|[Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions)|
----|---|---|---|
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th><a href="../README.md#table-of-contents">Contents</a></th>
+<th><a href="../README.md#scxml-overview">Overview</a></th>
+<th><a href="../README.md#examples">Examples</a></th>
+<th><a href="https://github.com/alexzhornyak/SCXML-tutorial/discussions">Forum</a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
 
 # [\<log\>](https://www.w3.org/TR/scxml/#log)
 
@@ -17,10 +26,34 @@ Allows an application to generate a logging or debug message.
 > \[Log\] DEBUG: "Entered 'State1'"
 
 ## Attribute Details
-Name|Required|Type|Default Value|Description|
----|---|---|---|---|
-label	|false		|string	|empty string		|A character string with an implementation-dependent interpretation. It is intended to provide meta-data about the log string specified by 'expr'.
-expr	|false		|Value expression	|none		|An expression returning the value to be logged. [See 5.9.3 Legal Data Values and Value Expressions](https://www.w3.org/TR/scxml/#ValueExpressions) for details. The nature of the logging mechanism is implementation-dependent. For example, the SCXML processor may convert this value to a convenient format before logging it.
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>label</td>
+<td>false</td>
+<td>string</td>
+<td>empty string</td>
+<td>A character string with an implementation-dependent interpretation. It is intended to provide meta-data about the log string specified by ‘expr’.</td>
+</tr>
+<tr>
+<td>expr</td>
+<td>false</td>
+<td>Value expression</td>
+<td>none</td>
+<td>An expression returning the value to be logged. <a href="https://www.w3.org/TR/scxml/#ValueExpressions">See 5.9.3 Legal Data Values and Value Expressions</a> for details. The nature of the logging mechanism is implementation-dependent. For example, the SCXML processor may convert this value to a convenient format before logging it.</td>
+</tr>
+</tbody>
+</table>
 
 ## Example
 ![log](https://user-images.githubusercontent.com/18611095/28259039-03c5de9a-6add-11e7-8b70-e4384f63beaa.png)
@@ -60,5 +93,15 @@ expr	|false		|Value expression	|none		|An expression returning the value to be l
 >
 > \[Log\] ERROR: "Failed!"
 
-[TOP](#top-anchor)|[Contents](../README.md#table-of-contents)|[Overview](../README.md#scxml-overview)|[Examples](../README.md#examples)|[Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions)|
----|---|---|---|---|
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th><a href="#top-anchor">TOP</a></th>
+<th><a href="../README.md#table-of-contents">Contents</a></th>
+<th><a href="../README.md#scxml-overview">Overview</a></th>
+<th><a href="../README.md#examples">Examples</a></th>
+<th><a href="https://github.com/alexzhornyak/SCXML-tutorial/discussions">Forum</a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
