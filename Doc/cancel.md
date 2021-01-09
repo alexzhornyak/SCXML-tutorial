@@ -1,11 +1,32 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # \<cancel\>
 The element is used to cancel a delayed \<send\> event. The SCXML Processor **must not allow** \<cancel\> to affect events that were not raised in **the same session**. The Processor should make its best attempt to cancel all delayed events with the specified id. Note, however, **that it can not be guaranteed to succeed**, for example if the event has already been delivered by the time the \<cancel\> tag executes.
 
+**Example:**
+```xml
+<cancel sendid="ID_TIMER"/>
+```
+![TimerGenerator](../Images/TimerGenerator.gif)
+
 ## Attribute Details
-Name	|Required	|Attribute Constraints	|Type	|Default Value	|Valid Values	|Description
----|---|---|---|---|---|---|
-sendid	|false	|Must not occur with sendidexpr.	|IDREF	|none	|The sendid of a delayed event	|The ID of the event(s) to be cancelled. If multiple delayed events have this sendid, the Processor will cancel them all.
-sendidexpr	|false	|Must not occur with sendid.	|Value Expression	|none	|Any expression that evaluates to the ID of a delayed event	|A dynamic alternative to 'sendid'. If this attribute is present, the SCXML Processor must evaluate it when the parent \<cancel\> element is evaluated and treat the result as if it had been entered as the value of 'sendid'.
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th><th>Required</th><th>Attribute Constraints</th><th>Type</th><th>Default Value</th><th>Valid Values</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sendid</td><td>false</td><td>Must not occur with sendidexpr.</td><td>IDREF</td><td>none</td><td>The sendid of a delayed event</td><td>The ID of the event(s) to be cancelled. If multiple delayed events have this sendid, the Processor will cancel them all.</td>
+</tr>
+<tr>
+<td>sendidexpr</td><td>false</td><td>Must not occur with sendid.</td><td>Value Expression</td><td>none</td><td>Any expression that evaluates to the ID of a delayed event</td><td>A dynamic alternative to ‘sendid’. If this attribute is present, the SCXML Processor must evaluate it when the parent &lt;cancel&gt; element is evaluated and treat the result as if it had been entered as the value of ‘sendid’.</td>
+</tr>
+</tbody>
+</table>
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
@@ -25,3 +46,5 @@ The Processor SHOULD make its best attempt to cancel all delayed events with the
 If the **'sendidexpr'** attribute is present, the SCXML Processor MUST evaluate it when the parent cancel element is evaluated and treat the result as if it had been entered as the value of **'sendid'**.
 
 ![test210](https://user-images.githubusercontent.com/18611095/28563685-60643a68-712f-11e7-9ea0-f8f66fd3a023.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
