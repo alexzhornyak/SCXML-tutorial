@@ -1,3 +1,7 @@
+<a name="top-anchor">
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<foreach\>](https://www.w3.org/TR/scxml/#foreach)
 
 **[Video version](https://youtu.be/pWLSQczu-mo)**
@@ -14,7 +18,7 @@ index	|false		|xsd:string	|none	|Any variable name that is valid in the specifie
 ## Example
 ![foreach](https://user-images.githubusercontent.com/18611095/28258527-57452600-6ada-11e7-9102-8260dbaecb19.png)
 
-```
+```xml
 <scxml datamodel="lua" initial="Shape1" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data id="VarCollection">{ [1]='a', [2]='b', [3]='c' }</data>
@@ -33,17 +37,12 @@ index	|false		|xsd:string	|none	|Any variable name that is valid in the specifie
 ```
 
 **Output:**
->[Log] itemCollection: "a"
->
->[Log] indexCollection: 1
->
->[Log] itemCollection: "b"
->
->[Log] indexCollection: 2
->
->[Log] itemCollection: "c"
->
->[Log] indexCollection: 3
+> \[Log\] itemCollection: "a" <br>
+> \[Log\] indexCollection: 1 <br>
+> \[Log\] itemCollection: "b" <br>
+> \[Log\] indexCollection: 2 <br>
+> \[Log\] itemCollection: "c" <br>
+> \[Log\] indexCollection: 3
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
@@ -52,7 +51,7 @@ In the foreach element, the SCXML processor MUST declare a new variable if the o
 
 ![test150](https://user-images.githubusercontent.com/18611095/28815054-abc8411a-76a8-11e7-923a-80a038569707.png)
 
-```
+```xml
 <scxml datamodel="lua" initial="s0" name="Scxml_Test150" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data id="Var1"/>
@@ -99,7 +98,7 @@ In the foreach element, if 'index' is present, the SCXML processor MUST declare 
 
 ![test151](https://user-images.githubusercontent.com/18611095/28815279-7de42524-76a9-11e7-8911-45f37e40c263.png)
 
-```
+```xml
 <scxml datamodel="lua" initial="s0" name="Scxml_Test151" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data id="Var1"/>
@@ -146,7 +145,7 @@ In the foreach element, if 'array' does not evaluate to a legal iterable collect
 
 ![test152](https://user-images.githubusercontent.com/18611095/28815789-346a425a-76ab-11e7-9762-d53bc189ed90.png)
 
-```
+```xml
 <scxml datamodel="lua" initial="s0" name="Scxml_Test152" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" xmlns:conf="http://www.w3.org/2005/scxml-conformance">
 	<datamodel>
 		<data expr="0" id="Var1"/>
@@ -213,3 +212,5 @@ If the evaluation of any child element of foreach causes an error, the processor
 The SCXML processor MUST act as if it has made a shallow copy of the collection produced by the evaluation of 'array'. Specifically, modifications to the collection during the execution of foreach MUST NOT affect the iteration behavior.
 
 ![test525](https://user-images.githubusercontent.com/18611095/28816516-cc8af83e-76ad-11e7-9e63-0159c628ac39.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
