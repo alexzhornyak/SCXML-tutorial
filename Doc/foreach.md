@@ -9,11 +9,24 @@
 Allows an SCXML application to iterate through a collection in the data model and to execute the actions contained within it for each item in the collection.
 
 ## Attribute Details
-Name|Required|Type|Default Value|Valid Values|Description|
-----|--------|----|-------------|------------|-----------|
-array|true|Value expression|none|A value expression that evaluates to an iterable collection|The \<foreach\> element will iterate over a shallow copy of this collection
-item|true|xsd:string|none|Any variable name that is valid in the specified data model|A variable that stores a different item of the collection in each iteration of the loop
-index|false|xsd:string|none|Any variable name that is valid in the specified data model|A variable that stores the current iteration index upon each iteration of the foreach loop
+<table>
+<thead>
+<tr>
+<th>Name</th><th>Required</th><th>Type</th><th>Default Value</th><th>Valid Values</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>array</td><td>true</td><td>Value expression</td><td>none</td><td>A value expression that evaluates to an iterable collection</td><td>The &lt;foreach&gt; element will iterate over a shallow copy of this collection</td>
+</tr>
+<tr>
+<td>item</td><td>true</td><td>xsd:string</td><td>none</td><td>Any variable name that is valid in the specified data model</td><td>A variable that stores a different item of the collection in each iteration of the loop</td>
+</tr>
+<tr>
+<td>index</td><td>false</td><td>xsd:string</td><td>none</td><td>Any variable name that is valid in the specified data model</td><td>A variable that stores the current iteration index upon each iteration of the foreach loop</td>
+</tr>
+</tbody>
+</table>
 
 ## Example
 ![foreach](https://user-images.githubusercontent.com/18611095/28258527-57452600-6ada-11e7-9102-8260dbaecb19.png)
