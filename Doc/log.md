@@ -1,6 +1,6 @@
 <a name="top-anchor">
 	
-[Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+[Contents](../README.md#table-of-contents)|[Overview](../README.md#scxml-overview)|[Examples](../README.md#examples)|[Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions)|
 ---|---|---|---|
 
 # [\<log\>](https://www.w3.org/TR/scxml/#log)
@@ -17,7 +17,7 @@ Allows an application to generate a logging or debug message.
 > \[Log\] DEBUG: "Entered 'State1'"
 
 ## Attribute Details
-Name	|Required	|Type	|Default Value	|Description|
+Name|Required|Type|Default Value|Description|
 ---|---|---|---|---|
 label	|false		|string	|empty string		|A character string with an implementation-dependent interpretation. It is intended to provide meta-data about the log string specified by 'expr'.
 expr	|false		|Value expression	|none		|An expression returning the value to be logged. [See 5.9.3 Legal Data Values and Value Expressions](https://www.w3.org/TR/scxml/#ValueExpressions) for details. The nature of the logging mechanism is implementation-dependent. For example, the SCXML processor may convert this value to a convenient format before logging it.
@@ -60,5 +60,5 @@ expr	|false		|Value expression	|none		|An expression returning the value to be l
 >
 > \[Log\] ERROR: "Failed!"
 
-[TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+[TOP](#top-anchor)|[Contents](../README.md#table-of-contents)|[Overview](../README.md#scxml-overview)|[Examples](../README.md#examples)|[Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions)|
 ---|---|---|---|---|
