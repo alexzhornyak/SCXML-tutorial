@@ -1,14 +1,34 @@
+<a name="top-anchor">
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<assign\>](https://www.w3.org/TR/scxml/#assign)
 
 **[Video version](https://youtu.be/5_GQeRFCe8M)**
 
 The element is used to modify the data model.
 
+**Example:**
+```xml
+<assign location="Var1" expr="5"/>
+```
+
 ## Attribute Details
-Name	|Required	|Attribute Constraints	|Type	|Default Value	|Valid Values	|Description
----|---|---|---|---|---|---|
-location	|true		||path expression	|none	|Any valid location expression.	|The location in the data model into which to insert the new value. See [5.9.2 Location Expressions](https://www.w3.org/TR/scxml/#LocationExpressions) for details.
-expr	|false	|This attribute must not occur in an \<assign\> element that has children.	|value expression	|none	|Any valid value expression	An expression returning the value to be assigned. See [5.9.3 Legal Data Values and Value Expressions](https://www.w3.org/TR/scxml/#ValueExpressions) for details.
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th><th>Required</th><th>Attribute Constraints</th><th>Type</th><th>Default Value</th><th>Valid Values</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location</td><td>true</td><td></td><td>path expression</td><td>none</td><td>Any valid location expression.</td><td>The location in the data model into which to insert the new value. See <a href="https://www.w3.org/TR/scxml/#LocationExpressions">5.9.2 Location Expressions</a> for details.</td>
+</tr>
+<tr>
+<td>expr</td><td>false</td><td>This attribute must not occur in an &lt;assign&gt; element that has children.</td><td>value expression</td><td>none</td><td>Any valid value expression An expression returning the value to be assigned. See <a href="https://www.w3.org/TR/scxml/#ValueExpressions">5.9.3 Legal Data Values and Value Expressions</a> for details.</td><td></td>
+</tr>
+</tbody>
+</table>
 
 ## Children
 The children of the \<assign\> element provide an in-line specification of the legal data value (see [5.9.3 Legal Data Values and Value Expressions](https://www.w3.org/TR/scxml/#ValueExpressions)) to be inserted into the data model at the specified location.
@@ -18,7 +38,7 @@ The children of the \<assign\> element provide an in-line specification of the l
 ### 1. Assigning data by value from 'expr' attribute.
 ![assign - location expr](https://user-images.githubusercontent.com/18611095/28417848-4934c91e-6d62-11e7-9225-63e33609e087.png)
 
-```
+```xml
 <scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data expr="0" id="Var1"/>
@@ -40,18 +60,18 @@ The children of the \<assign\> element provide an in-line specification of the l
 ```
 
 **Output:**
->[Log] Var1: 0
+>\[Log\] Var1: 0
 >
->[Log] Var1: 5
+>\[Log\] Var1: 5
 >
->[Log] Var1: 15
+>\[Log\] Var1: 15
 >
->[Log] Var1: 150
+>\[Log\] Var1: 150
 
 ### 2. Multi-level location and assigning data by children element value.
 ![assign - location to table](https://user-images.githubusercontent.com/18611095/28418385-2adfba8a-6d64-11e7-9c6d-f57765c1a46a.png)
 
-```
+```xml
 <scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data expr="{ Name=&quot;default&quot; }" id="VarTable"/>
@@ -69,9 +89,9 @@ The children of the \<assign\> element provide an in-line specification of the l
 ```
 
 **Output:**
->[Log] VarTable.Name: "default"
+>\[Log\] VarTable.Name: "default"
 >
->[Log] VarTable.Name: "new name"
+>\[Log\] VarTable.Name: "new name"
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
@@ -89,3 +109,5 @@ If the location expression of an assign denotes a valid location in the datamode
 If the value specified (by 'expr' or children) is not a legal value for the location specified, the processor MUST place the error **error.execution** in the internal event queue.
 
 ![test487](https://user-images.githubusercontent.com/18611095/28419614-39236b7e-6d68-11e7-9303-bf2aaf0dd5e9.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
