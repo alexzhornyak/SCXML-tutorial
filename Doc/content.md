@@ -1,3 +1,7 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<content\>](https://www.w3.org/TR/scxml/#content)
 
 **[Video version](https://youtu.be/V9hqU9smirw)**
@@ -5,9 +9,18 @@
 A container element holding data to be passed to an external service.
 
 ## Attribute Details
-Name	|Required	|Attribute Constraints	|Type	|Default Value	|Valid Values	|Description
----|---|---|---|---|---|---|
-expr	|false	|must not occur with child content	|Value expression	|none	|Any valid value expression	|A value expression. See [5.9.3 Legal Data Values and Value Expressions](https://www.w3.org/TR/scxml/#ValueExpressions) for details.
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th><th>Required</th><th>Attribute Constraints</th><th>Type</th><th>Default Value</th><th>Valid Values</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expr</td><td>false</td><td>must not occur with child content</td><td>Value expression</td><td>none</td><td>Any valid value expression</td><td>A value expression. See <a href="https://www.w3.org/TR/scxml/#ValueExpressions">5.9.3 Legal Data Values and Value Expressions</a> for details.</td>
+</tr>
+</tbody>
+</table>
 
 ## Children
 When present, the children of \<content\> may consist of text, XML from any namespace, or a mixture of both. 
@@ -31,3 +44,4 @@ If the **'expr'** attribute is not present, the Processor MUST use the children 
 
 ![test529](https://user-images.githubusercontent.com/18611095/28514396-81d880d2-7062-11e7-8f90-fd47c68c99c5.png)
 
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
