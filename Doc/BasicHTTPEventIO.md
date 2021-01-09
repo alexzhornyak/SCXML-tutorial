@@ -1,3 +1,7 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [Basic HTTP Event I/O Processor](https://www.w3.org/TR/scxml/#BasicHTTPEventProcessor)
 [**Video version**](https://youtu.be/bHxh5bKmIzM)
 
@@ -13,7 +17,7 @@ SCXML Processors that support the BasicHTTP Event I/O Processor must maintain an
 
 ![HttpClient](https://user-images.githubusercontent.com/18611095/57123442-85402a00-6d8a-11e9-8a4a-e4da2e0721b1.png)
 
-```
+```xml
 <scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Server">
 		<onentry>
@@ -41,8 +45,8 @@ The processor must use **any message content** other than **'_scxmleventname'** 
 
 ![dataGui](https://user-images.githubusercontent.com/18611095/57125253-685b2500-6d91-11e9-822b-5d06b8820164.png)
 
-### How to handle request if '_scxmleventname' is not present
-If the parameter **'_scxmleventname' is not present**, the SCXML Processor must use the name of the HTTP method that was used to deliver the message as the name of the event that it raises.
+### How to handle request if '\_scxmleventname' is not present
+If the parameter **'\_scxmleventname' is not present**, the SCXML Processor must use the name of the HTTP method that was used to deliver the message as the name of the event that it raises.
 
 ![withoutEvent](https://user-images.githubusercontent.com/18611095/57125825-7a3dc780-6d93-11e9-92fc-a3fdb3f59bc1.png)
 
@@ -62,11 +66,11 @@ The SCXML Processor adds the received message to the appropriate event queue and
 
 
 ## Sending Events
-An SCXML implementation can send events with the Basic HTTP Event I/O Processor using the **\<send\> element** (see [6.2 \<send\>](https://www.w3.org/TR/scxml/#send)) with the type attribute set to **"http://www.w3.org/TR/scxml/#BasicHTTPEventProcessor"** and the target attribute set to **the access URI of the target**. 
+An SCXML implementation can send events with the Basic HTTP Event I/O Processor using the [**\<send\> element**](send.md) (see [6.2 \<send\>](https://www.w3.org/TR/scxml/#send)) with the type attribute set to **"http://www.w3.org/TR/scxml/#BasicHTTPEventProcessor"** and the target attribute set to **the access URI of the target**. 
 
 The SCXML Processor must attempt to deliver the message using **HTTP method "POST"** and with parameter values encoded by default in an **application/x-www-form-urlencoded** body (POST method). An SCXML Processor may support other encodings, and allow them to be specified in a platform-specific way.
 
-If the **'event'** parameter of **\<send\>** is defined, the SCXML Processor must use its value as the value of the HTTP POST parameter **_scxmleventname**.
+If the **'event'** parameter of [**\<send\>**](send.md) is defined, the SCXML Processor must use its value as the value of the HTTP POST parameter **\_scxmleventname**.
 
 ![test534](https://user-images.githubusercontent.com/18611095/57127917-7feadb80-6d9a-11e9-8260-6997145ac026.png)
 
@@ -79,7 +83,7 @@ If the **namelist** attribute is defined, the SCXML Processor must map its varia
 
 ![test518](https://user-images.githubusercontent.com/18611095/57134191-06f57f00-6dae-11e9-9a56-1937e169a96b.png)
 
-```
+```xml
 <scxml datamodel="lua" initial="s0" name="ScxmlTest518" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" xmlns:conf="http://www.w3.org/2005/scxml-conformance">
 	<datamodel>
 		<data expr="2" id="Var1"/>
@@ -106,11 +110,11 @@ If the **namelist** attribute is defined, the SCXML Processor must map its varia
 ```
 
 ### Params
-If one or more **\<param\>** children are present, the SCXML Processor must map their names (i.e. name attributes) and values to HTTP POST parameters.
+If one or more [**\<param\>**](param.md) children are present, the SCXML Processor must map their names (i.e. name attributes) and values to HTTP POST parameters.
 
 ![test519](https://user-images.githubusercontent.com/18611095/57134353-9b5fe180-6dae-11e9-9c18-a3225993b27b.png)
 
-```
+```xml
 <scxml datamodel="lua" initial="s0" name="ScxmlTest519" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" xmlns:conf="http://www.w3.org/2005/scxml-conformance">
 	<state id="s0">
 		<onentry>
@@ -136,11 +140,11 @@ If one or more **\<param\>** children are present, the SCXML Processor must map 
 ```
 
 ### Content
-If a **\<content\>** child is present, the SCXML Processor must use its value as **the body of the message**.
+If a [**\<content\>**](content.md) child is present, the SCXML Processor must use its value as **the body of the message**.
 
 ![test520](https://user-images.githubusercontent.com/18611095/57134516-16c19300-6daf-11e9-93cf-f3b40a207eb3.png)
 
-```
+```xml
 <scxml datamodel="lua" initial="s0" name="ScxmlTest520" version="1.0" xmlns="http://www.w3.org/2005/07/scxml" xmlns:conf="http://www.w3.org/2005/scxml-conformance">
 	<state id="s0">
 		<onentry>
@@ -165,3 +169,5 @@ If a **\<content\>** child is present, the SCXML Processor must use its value as
 	</final>
 </scxml>
 ```
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
