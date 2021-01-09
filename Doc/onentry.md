@@ -1,3 +1,7 @@
+<a name="top-anchor">
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<onentry\>](https://www.w3.org/TR/scxml/#onentry)
 
 **[Video version](https://youtu.be/CLj1mYw5b7M)**
@@ -8,7 +12,7 @@ The SCXML processor must execute the \<onentry\> handlers of a state in document
 
 ![onentry-onexit - onentry](../Images/onentry%20-%201.gif)
 
-```
+```xml
 <scxml initial="State1" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="State1">
 		<onentry>
@@ -43,15 +47,11 @@ The SCXML processor must execute the \<onentry\> handlers of a state in document
 
 **Output:**
 
->[Log] "Hello from 'State1'!"
->
->[Log] "Hello from 'Container'!"
->
->[Log] "Hello from 'State2'!"
->
->[Log] "Hello from 'State3'!"
->
->[Log] "Hello from 'End'!"
+>\[Log\] "Hello from 'State1'!" <br>
+>\[Log\] "Hello from 'Container'!" <br>
+>\[Log\] "Hello from 'State2'!" <br>
+>\[Log\] "Hello from 'State3'!" <br>
+>\[Log\] "Hello from 'End'!" <br>
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
@@ -64,3 +64,5 @@ The SCXML processor MUST execute the onentry handlers of a state in document ord
 The SCXML processor MUST treat each \<onentry\> handler as a separate block of executable content.
 
 ![test376](https://user-images.githubusercontent.com/18611095/28672666-091bb298-72e9-11e7-8e91-f6acb5720c8a.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
