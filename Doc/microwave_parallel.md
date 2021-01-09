@@ -1,9 +1,13 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [Microwave owen (using parallel) example](https://www.w3.org/TR/scxml/#N11619)
-The example below shows the implementation of a simple microwave oven using **\<parallel\>** and the SCXML **In()** predicate.
+The example below shows the implementation of a simple microwave oven using [**\<parallel\>**](parallel.md) and the SCXML **In()** predicate.
 
 ![microwave_owen_parallel](../Images/microwave_owen_parallel.gif)
 
-```
+```xml
 <scxml datamodel="ecmascript" initial="oven" name="ScxmlMicrowaveOwenParallel" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data expr="5" id="cook_time"/>
@@ -52,3 +56,5 @@ The example below shows the implementation of a simple microwave oven using **\<
 	</parallel>
 </scxml>
 ```
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
