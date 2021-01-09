@@ -4,15 +4,15 @@
 
 **[Video version](https://youtu.be/kY1tI0uO0x4)**
 
-# [\<if\>](https://www.w3.org/TR/scxml/#if)
+## [\<if\>](https://www.w3.org/TR/scxml/#if)
 Container for conditionally executed elements. 
 
 Execution is defined by attribute **'cond'**, which is the boolean conditional expression.
 
-# [\<else\>](https://www.w3.org/TR/scxml/#else)
+## [\<else\>](https://www.w3.org/TR/scxml/#else)
 Empty element that partitions the content of an **\<if\>**. It is equivalent to an **\<elseif\>** with a **'cond'** that always evaluates to true.
 
-# [\<elseif\>](https://www.w3.org/TR/scxml/#elseif)
+## [\<elseif\>](https://www.w3.org/TR/scxml/#elseif)
 Empty element that partitions the content of an **\<if\>**, and provides a condition that determines whether the partition is executed.
 
 ### Here is an example:
