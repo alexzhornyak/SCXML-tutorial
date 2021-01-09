@@ -22,11 +22,24 @@ The element is used to declare and populate portions of the data model.
 ```
 
 ## Attribute Details
-Name	|Required	|Type	|Default Value	|Valid Values	|Description
----|---|---|---|---|---|
-id	|true		|ID	|none		||The name of the data item. See [3.14 IDs](https://www.w3.org/TR/scxml/#IDs) for details.
-src	|false		|URI	|none		||Gives the location from which the data object should be fetched. See [5.9.3 Legal Data Values and Value Expressions](https://www.w3.org/TR/scxml/#ValueExpressions) for details.
-expr	|false		|Expression	|none	|Any valid value expression	|Evaluates to provide the value of the data item. See [5.9.3 Legal Data Values and Value Expressions](https://www.w3.org/TR/scxml/#ValueExpressions) for details.
+<table>
+<thead>
+<tr>
+<th>Name</th><th>Required</th><th>Type</th><th>Default Value</th><th>Valid Values</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td><td>true</td><td>ID</td><td>none</td><td></td><td>The name of the data item. See <a href="https://www.w3.org/TR/scxml/#IDs">3.14 IDs</a> for details.</td>
+</tr>
+<tr>
+<td>src</td><td>false</td><td>URI</td><td>none</td><td></td><td>Gives the location from which the data object should be fetched. See <a href="https://www.w3.org/TR/scxml/#ValueExpressions">5.9.3 Legal Data Values and Value Expressions</a> for details.</td>
+</tr>
+<tr>
+<td>expr</td><td>false</td><td>Expression</td><td>none</td><td>Any valid value expression</td><td>Evaluates to provide the value of the data item. See <a href="https://www.w3.org/TR/scxml/#ValueExpressions">5.9.3 Legal Data Values and Value Expressions</a> for details.</td>
+</tr>
+</tbody>
+</table>
 
 ## Children
 The children of the **\<data\>** element represent an in-line specification of the value of the data object.
