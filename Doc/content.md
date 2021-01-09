@@ -8,6 +8,16 @@
 
 A container element holding data to be passed to an external service.
 
+**Example:**
+```xml
+<send event="Event1">
+	<content>{ 1, 2, 3}</content>
+</send>
+
+<send event="Event2">
+	<content expr="'Text message'"/>
+</send>
+```
 ## Attribute Details
 <table class="table table-striped table-bordered">
 <thead>
