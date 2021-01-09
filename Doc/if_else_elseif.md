@@ -1,15 +1,32 @@
+<a name="top-anchor">
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 **[Video version](https://youtu.be/kY1tI0uO0x4)**
 
 # [\<if\>](https://www.w3.org/TR/scxml/#if)
 Container for conditionally executed elements. 
 
-Execution is defined by attribute 'cond', which is the boolean conditional expression.
+Execution is defined by attribute **'cond'**, which is the boolean conditional expression.
 
 # [\<else\>](https://www.w3.org/TR/scxml/#else)
-Empty element that partitions the content of an \<if\>. It is equivalent to an \<elseif\> with a "cond" that always evaluates to true.
+Empty element that partitions the content of an **\<if\>**. It is equivalent to an **\<elseif\>** with a **'cond'** that always evaluates to true.
 
 # [\<elseif\>](https://www.w3.org/TR/scxml/#elseif)
-Empty element that partitions the content of an \<if\>, and provides a condition that determines whether the partition is executed.
+Empty element that partitions the content of an **\<if\>**, and provides a condition that determines whether the partition is executed.
+
+### Here is an example:
+```xml
+<if cond="cond1">
+          <!-- selected when "cond1" is true -->
+      <elseif cond="cond2"/>
+          <!-- selected when "cond1" is false and "cond2" is true -->
+      <elseif cond="cond3"/>
+          <!-- selected when "cond1" and "cond2" are false and "cond3" is true -->
+      <else/>
+          <!-- selected when "cond1", "cond2", and "cond3" are false -->
+</if>
+```
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
@@ -18,7 +35,7 @@ When the if element is executed, the SCXML processor MUST execute the first part
 
 ![test147](https://user-images.githubusercontent.com/18611095/28814051-a96107f8-76a4-11e7-8a1e-9783bf0ce0de.png)
 
-```
+```xml
 <scxml datamodel="lua" initial="s0" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data expr="0" id="Var1"/>
@@ -62,3 +79,5 @@ When the if element is executed, if no 'cond'attribute evaluates to true, the SC
 When it executes an if element, if no 'cond' attribute evaluates to true and there is no else element, the SCXML processor must not evaluate any executable content within the element.
 
 ![test149](https://user-images.githubusercontent.com/18611095/28814451-5228639e-76a6-11e7-842f-973187a32c8c.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
