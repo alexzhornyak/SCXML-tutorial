@@ -1,8 +1,19 @@
+<a name="top-anchor">
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<log\>](https://www.w3.org/TR/scxml/#log)
 
 **[Video version](https://youtu.be/tbFZsiTfOKA)**
 
 Allows an application to generate a logging or debug message.
+
+**Here is an example:**
+```xml
+<log label="DEBUG" expr="Entered 'State1'"/>
+```
+**Output:**
+> \[Log\] DEBUG: "Entered 'State1'"
 
 ## Attribute Details
 Name	|Required	|Type	|Default Value	|Description
@@ -13,7 +24,7 @@ expr	|false		|Value expression	|none		|An expression returning the value to be l
 ## Example
 ![log](https://user-images.githubusercontent.com/18611095/28259039-03c5de9a-6add-11e7-8b70-e4384f63beaa.png)
 
-```
+```xml
 <scxml initial="Shape1" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Shape1">
 		<onentry>
@@ -40,11 +51,12 @@ expr	|false		|Value expression	|none		|An expression returning the value to be l
 ```
 
 **Output:**
-> [Log] DEBUG: "Entered 'Shape1'"
+> \[Log\] DEBUG: "Entered 'Shape1'"
 >
-> Internal Event: error, interpreter [Scxml]
+> Internal Event: error, interpreter \[Scxml\]
 >
-> [Log] INFO: "Exited 'Shape1'"
+> \[Log\] INFO: "Exited 'Shape1'"
 >
-> [Log] ERROR: "Failed!"
+> \[Log\] ERROR: "Failed!"
 
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
