@@ -3,7 +3,7 @@ All internal logic is written in SCXML with Ecmascript datamodel
 
 ![intro](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/StopWatch_intro.png)
 
-```
+```xml
 <scxml datamodel="ecmascript" initial="ready" name="ScxmlStopWatch" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data expr="100" id="i_UPDATE_DELAY_MS"/>
