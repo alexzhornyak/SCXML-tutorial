@@ -1,3 +1,7 @@
+<a name="top-anchor">
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<transition\>](https://www.w3.org/TR/scxml/#transition)
 
 **[Video version](https://youtu.be/-AtkiRAzRRE)**
@@ -12,7 +16,7 @@ If condition is also not specified, transition will be executed immediately.
 
 ![transition - eventless](../Images/transition%20-%201.gif)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="State1">
 		<transition target="State2"/>
@@ -28,7 +32,7 @@ A transition matches an event if at least one of its event descriptors matches t
 
 ![transition - event name match](../Images/transition%20-%202.gif)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="State1">
 		<transition event="Step" target="State2"/>
@@ -76,3 +80,5 @@ To execute a set of transitions, the SCXML Processor MUST first exit all the sta
 [the SCXML Processor executing a set of transitions](https://www.w3.org/TR/scxml/#SelectingTransitions) MUST then [after the exits and the transitions] enter the states in the transitions' entry set in entry order.
 
 ![test406](https://user-images.githubusercontent.com/18611095/28824064-1c65f910-76c9-11e7-90bd-8bf9ed034a55.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
