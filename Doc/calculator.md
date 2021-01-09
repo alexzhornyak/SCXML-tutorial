@@ -1,9 +1,13 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [Calculator example](https://www.w3.org/TR/scxml/#N11630)
 The example below shows the implementation of a simple calculator in SCXML.
 
 ![calculator](https://user-images.githubusercontent.com/18611095/46285473-4774ec00-c584-11e8-9c0a-003b5998fd2e.png)
 
-```
+```xml
 <scxml datamodel="ecmascript" initial="wrapper" name="CalculatorStateMachine" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
 		<data id="long_expr"/>
@@ -166,3 +170,5 @@ The example below shows the implementation of a simple calculator in SCXML.
 	</state>
 </scxml>
 ```
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
