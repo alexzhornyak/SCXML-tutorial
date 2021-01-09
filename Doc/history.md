@@ -12,6 +12,9 @@ Allows a state machine to remember its state configuration. A [\<transition\>](t
 
 ## 1. Shallow history
 If the **'type'** of a **\<history\>** element is **'shallow'**, the SCXML processor must record the immediately active children of its parent before taking any transition that exits the parent.
+```xml 
+<history type="shallow"/>
+```
 
 **Example:**
 #### 1.1. Configuration before pause
@@ -70,6 +73,9 @@ Active states: **Airplane, Engines, Left, Right, LeftOff, RightOff**
 
 ## 2. Deep history
 If the **'type'** of a **\<history\>** element is **'deep'**, the SCXML processor must record the active atomic descendants of the parent before taking any transition that exits the parent.
+```xml 
+<history type="deep"/>
+```
 
 #### 2.1. Configuration before pause
 ![history - after deep pause](https://user-images.githubusercontent.com/18611095/28218825-68aa707c-68c2-11e7-9211-f91395d83c66.png)
