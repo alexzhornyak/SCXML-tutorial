@@ -1,13 +1,31 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<script\>](https://www.w3.org/TR/scxml/#script)
 
 **[Video version](https://youtu.be/-TP8vQ3oZc0)**
 
 The \<script\> element adds scripting capability to the state machine.
 
+**Example:**
+```xml
+<script>print('Hello, world!')</script>
+```
+
 ## Attribute Details
-Name	|Required	|Attribute Constraints	|Default Value	|Valid Values	|Description
----|---|---|---|---|---|
-src	|false	|May not occur if the element has children.		|none	|A valid URI	|Gives the location from which the script should be downloaded.
+<table>
+<thead>
+<tr>
+<th>Name</th><th>Required</th><th>Attribute Constraints</th><th>Default Value</th><th>Valid Values</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>src</td><td>false</td><td>May not occur if the element has children.</td><td>none</td><td>A valid URI</td><td>Gives the location from which the script should be downloaded.</td>
+</tr>
+</tbody>
+</table>
 
 ## Children
 The child content of the \<script\> element represents the script code to be executed.
@@ -36,3 +54,4 @@ In a conformant SCXML document, the name of any script variable MAY be used as a
 
 ![test304](https://user-images.githubusercontent.com/18611095/28520361-dd4455a8-7077-11e7-8b43-f3e89102ba78.png)
 
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
