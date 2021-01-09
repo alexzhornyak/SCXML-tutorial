@@ -1,3 +1,7 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # [\<state\>](https://www.w3.org/TR/scxml/#state)
 
 **[Video version](https://youtu.be/VUTCY4E0ta8)**
@@ -6,7 +10,7 @@ Holds the representation of a state.
 
 ![state - atomic](https://user-images.githubusercontent.com/18611095/28104861-bbb59528-66e5-11e7-8141-94691d7dab44.png)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="StateAtomic"/>
 </scxml>
@@ -22,7 +26,7 @@ The id of the default initial state (or states) for this state.
 
 ![state - initial 1](../Images/9%20-%20state%20-%20initial.gif)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Work" initial="State1">
 		<state id="State1">
@@ -48,13 +52,13 @@ The id of the default initial state (or states) for this state.
 ```
 
 Output:
-> [Log] State 1: "Hello!"
+> \[Log\] State 1: "Hello!"
 
 **Example: 'State3' is specified as initial**
 
 ![state - initial 2](../Images/10%20-%20state%20-%20initial%20-%202.gif)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Work" initial="State3">
 		<state id="State1">
@@ -80,10 +84,10 @@ Output:
 ```
 
 ### Warning!
-**1. MUST NOT be specified in conjunction with the \<initial\> element.**
+**1. MUST NOT be specified in conjunction with the [\<initial\>](Introduction.md#initial-state) element.**
 ![state - initial - warning 1](../Images/state%20-%20initial%20attr%20and%20element.png)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Work" initial="State1">
 		<state id="State1">
@@ -105,7 +109,7 @@ Output:
 ```
 
 Output:
-> Issue (WARNING) at //state[@id="Work"]: State with initial attribute cannot have <initial> child
+> Issue (WARNING) at //state[@id="Work"]: State with initial attribute cannot have [\<initial\>](Introduction.md#initial-state) child
 
 **2. MUST NOT occur in atomic states.**
 
@@ -119,16 +123,16 @@ Output:
 > Issue (FATAL) at //state[@id="StateAtomic"]: Initial attribute has invalid target state with id 'StateXXX'
 
 ## Atomic state
-Has no \<state\>, \<parallel\> or \<final\> children.
+Has no \<state\>, [\<parallel\>](parallel.md) or [\<final\>](final.md) children.
 
 ![state - atomic](https://user-images.githubusercontent.com/18611095/28104861-bbb59528-66e5-11e7-8141-94691d7dab44.png)
 
 ## Compound state
-Has \<state\>, \<parallel\>, or \<final\> children (or a combination of these).
+Has \<state\>, [\<parallel\>](parallel.md), or [\<final\>](final.md) children (or a combination of these).
 
 ![state - compaund - atomic](https://user-images.githubusercontent.com/18611095/28106158-5e12a338-66eb-11e7-8c0b-92637a6275a1.png)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="StateCompaund">
 		<state id="StateAtomic"/>
@@ -137,13 +141,13 @@ Has \<state\>, \<parallel\>, or \<final\> children (or a combination of these).
 ```
 
 ## Default initial state
-Specified by the 'initial' attribute or \<initial\> element, if either is present. Otherwise it is the state's first child state in document order.
+Specified by the 'initial' attribute or [\<initial\>](Introduction.md#initial-state) element, if either is present. Otherwise it is the state's first child state in document order.
 
 **Example 1**
 
 ![state - initial - default](https://user-images.githubusercontent.com/18611095/28106356-3efebcb0-66ec-11e7-801d-fcbc3584d13f.png)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Work" initial="State2">
 		<state id="State1">
@@ -163,7 +167,7 @@ Specified by the 'initial' attribute or \<initial\> element, if either is presen
 
 ![state - initial - default - document order](https://user-images.githubusercontent.com/18611095/28106438-7cc8a240-66ec-11e7-9cf6-9402f8a3edab.png)
 
-```
+```xml
 <scxml name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<state id="Work">
 		<state id="State1">
@@ -184,3 +188,5 @@ Specified by the 'initial' attribute or \<initial\> element, if either is presen
 Definition: The default initial state(s) of a compound state are those specified by the 'initial' attribute or initial element, if either is present. Otherwise it is the state's first child state in document order. If a compound state is entered either as an initial state or as the target of a transition (i.e. and no descendent of it is specified), then the SCXML Processor MUST enter the default initial state(s) after it enters the parent state.
 
 ![test364](https://user-images.githubusercontent.com/18611095/28660772-1240d0c8-72bd-11e7-9009-ed74c9a95a23.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
