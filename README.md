@@ -427,9 +427,9 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 <scxml datamodel="ecmascript" initial="ready" name="ScxmlStopWatch" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel><!--CONSTS-->
 		<data expr="100" id="i_UPDATE_DELAY_MS"/>
-		<data id="FormatTimeStr">function (ms){// time(ms)
+		<data id="FormatTimeStr"><![CDATA[function (ms){// time(ms)
     function pad(number) {
-      if (number &lt; 10) {
+      if (number < 10) {
         return '0' + number;
       }
       return number;
@@ -443,20 +443,20 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
     var milliseconds = time.getUTCMilliseconds()    
     
     var t = []
-    if (days &gt; 1)
+    if (days > 1)
         t.push(pad(days - 1) + 'T')
   
-    if (hours &gt; 0 || t.length &gt; 0)
+    if (hours > 0 || t.length > 0)
         t.push(pad(hours) + ':')
   
     t.push(pad(minutes) + ':')
     t.push(pad(seconds))
    
-    if (milliseconds &gt; 0)
+    if (milliseconds > 0)
         t.push('.' + (time.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5))
   
     return t.join('')
-}
+}]]>
 		</data>
 		<data id="StopWatchClass">function() {
     var timeMS = undefined
