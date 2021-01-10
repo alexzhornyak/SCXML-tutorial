@@ -1,4 +1,6 @@
-# Table of contents
+# Qt SCXML Examples
+
+## Table of contents
 - [Infotainment Radio Bolero Simulator (Qt QML SCXML EcmaScript)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
 - [Morse Code Trainer (Qt Widgets SCXML Null EcmaScript)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/Morse)
 - [Salus RT500 Simulator (Qt Widgets SCXML CPlusPlus)](https://github.com/alexzhornyak/Salus-RT500-Simulator)
