@@ -4,12 +4,13 @@ All internal logic is written in SCXML with Ecmascript datamodel
 ![intro](https://github.com/alexzhornyak/SCXML-tutorial/blob/master/Images/StopWatch_intro.png)
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <scxml datamodel="ecmascript" initial="ready" name="ScxmlStopWatch" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
-	<datamodel>
+	<datamodel><!--CONSTS-->
 		<data expr="100" id="i_UPDATE_DELAY_MS"/>
-		<data id="FormatTimeStr">function (ms){// time(ms)
+		<data id="FormatTimeStr"><![CDATA[function (ms){// time(ms)
     function pad(number) {
-      if (number &lt; 10) {
+      if (number < 10) {
         return '0' + number;
       }
       return number;
@@ -23,20 +24,20 @@ All internal logic is written in SCXML with Ecmascript datamodel
     var milliseconds = time.getUTCMilliseconds()    
     
     var t = []
-    if (days &gt; 1)
+    if (days > 1)
         t.push(pad(days - 1) + 'T')
   
-    if (hours &gt; 0 || t.length &gt; 0)
+    if (hours > 0 || t.length > 0)
         t.push(pad(hours) + ':')
   
     t.push(pad(minutes) + ':')
     t.push(pad(seconds))
    
-    if (milliseconds &gt; 0)
+    if (milliseconds > 0)
         t.push('.' + (time.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5))
   
     return t.join('')
-}
+}]]>
 		</data>
 		<data id="StopWatchClass">function() {
     var timeMS = undefined
@@ -70,7 +71,7 @@ All internal logic is written in SCXML with Ecmascript datamodel
             ((pauseTimeMS!==undefined ? pauseTimeMS : Date.now()) - timeMS - pauseDurationMS) : 0
     }
 }
-		</data>
+		</data><!--TEMP-->
 		<data expr="new StopWatchClass()" id="Timer"/>
 		<data expr="0" id="iLapElapsed"/>
 		<data expr="0" id="iLapCount"/>
