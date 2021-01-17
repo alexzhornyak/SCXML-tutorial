@@ -1,3 +1,7 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [SCXML Wiki](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+
 # SCXML (State Machine) Visual Inheritance
 
 Inheritance is a great option of the modern programming. No need to duplicate a source code in derived objects. But what about SCXML State Machines? How could we define a base chart and inherit from it?
@@ -30,3 +34,5 @@ They are suggested to be without any signs. They will be easily differed from ma
 Overrided objects must be marked in separate way then derived objects without changes. (Red color in the example)
 
 ![mismatch](../Images/inheritance_TV_3D_mismatch.png)
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
