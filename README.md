@@ -1,6 +1,6 @@
 <a name="top-anchor">
 
-| [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
+| [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
 
 # SCXML Tutorial
 
@@ -77,7 +77,7 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [27. Basic HTTP Event I/O Processor](Doc/BasicHTTPEventIO.md)
 
-## Examples
+## [Examples](Examples/README.md)
 [1. Microwave owen](Doc/microwave_example.md)
 
 [2. Microwave owen (using parallel)](Doc/microwave_parallel.md)
@@ -551,4 +551,4 @@ iLapCount++
 
 ---
 
-| [TOP](#top-anchor) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+| [TOP](#top-anchor) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
