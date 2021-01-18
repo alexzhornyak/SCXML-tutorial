@@ -21,7 +21,17 @@ Window {
 
     ScxmlStopWatch {
         id: machine
-        running: true
+
+        running: false
+
+        Component.onCompleted: {
+            /* DataModel values may be changed here */
+            machine.initialValues = {
+                "i_UPDATE_DELAY_MS" : 100 /* you may change interval here and
+                                             it will be applied to state machine  */
+            }
+            machine.running = true
+        }
     }
 
     EventConnection {
@@ -32,14 +42,35 @@ Window {
             textTime.text = event.data.ElapsedMS
             textLap.text = event.data.LapMS
 
+            /* Simple Timer Mode */
             var lapCount = event.data.LapCount
             if (lapCount===0) {
-                listView.model.clear()
-            } else {
-                if (listView.count!==lapCount) {
-                    listView.model.insert(0, { lapIndex: lapCount, startTime: event.data.ElapsedMS, endTime: event.data.LapMS })
+                if (listView.model.count)
+                    listView.model.clear()
+            }
+            /* User Pressed Lap Button */
+            else {
+                /* New Lap */
+                if ((listView.count-1)!==lapCount) {
+
+                    /* If this is the first press of 'Lap' button */
+                    /* display previous lap */
+                    if (lapCount===1) {
+                        listView.model.insert(0, { lapIndex: 1,
+                                                  startTime: "00:00.000",
+                                                  endTime: event.data.ElapsedMS })
+                    }
+
+                    /* current lap */
+                    listView.model.insert(0, { lapIndex: lapCount + 1,
+                                              startTime: event.data.ElapsedMS,
+                                              endTime: event.data.LapMS })
+
+                    /* scroll to top item */
                     listView.currentIndex = 0
-                } else if (listView.count>0) {
+                }
+                /* Updating Current Lap Values */
+                else if (listView.count>1) {
                     listView.model.setProperty(0, "endTime", event.data.LapMS)
                 }
             }
