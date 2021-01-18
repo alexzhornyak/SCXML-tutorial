@@ -7,9 +7,9 @@ import QtScxml 5.8
 
 Window {
     id: window
-    width: 320
-    visible: true
+    width: 320    
     height: 480
+    visible: true
     title: qsTr("Stop Watch")
 
     function pad(number) {
@@ -64,7 +64,7 @@ Window {
                     /* current lap */
                     listView.model.insert(0, { lapIndex: lapCount + 1,
                                               startTime: event.data.ElapsedMS,
-                                              endTime: event.data.LapMS })
+                                              endTime: "00:00.000" })
 
                     /* scroll to top item */
                     listView.currentIndex = 0
@@ -176,22 +176,21 @@ Window {
 
                 Text {
                     text: pad(lapIndex)
-
-                    Layout.fillWidth: true
+                    Layout.preferredWidth: row1.width * 0.2
                     Layout.fillHeight: true
                 }
 
                 Text {
                     text: startTime
 
-                    Layout.fillWidth: true
+                    Layout.preferredWidth: row1.width * 0.4
                     Layout.fillHeight: true
                 }
 
                 Text {
                     text: endTime
 
-                    Layout.fillWidth: true
+                    Layout.preferredWidth: row1.width * 0.4
                     Layout.fillHeight: true
                 }
             }
