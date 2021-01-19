@@ -1,4 +1,4 @@
-# Infotainment Radio Bolero Simulator
+# Qt QML SCXML Infotainment Radio Bolero Simulator
 This project is intended to test Qt QML SCXML module for designing in-vehicle infotainment systems 
 
 - [Video description (General)](https://youtu.be/Er-G4Ii6bhs)
