@@ -421,7 +421,7 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 ```
 
 ## [StopWatch example](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
-![StopWatchPreview](Images/StopWatch_intro.png)
+![StopWatchPreview](Images/StopWatchScxml.gif)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <scxml datamodel="ecmascript" initial="ready" name="ScxmlStopWatch" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
