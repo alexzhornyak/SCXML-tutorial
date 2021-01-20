@@ -139,6 +139,8 @@ You may put similar logic into external state machine, define params which shoul
 </scxml>
 ```
 
+</p></details>
+
 <details><summary><b>Source code - invoked.scxml</b></summary>
 <p>
   
