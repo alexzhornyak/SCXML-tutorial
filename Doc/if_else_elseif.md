@@ -81,3 +81,4 @@ When it executes an if element, if no 'cond' attribute evaluates to true and the
 ![test149](https://user-images.githubusercontent.com/18611095/28814451-5228639e-76a6-11e7-842f-973187a32c8c.png)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

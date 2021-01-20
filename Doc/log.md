@@ -61,3 +61,4 @@ expr|false|Value expression|none|An expression returning the value to be logged.
 > \[Log\] ERROR: "Failed!"
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

@@ -180,3 +180,4 @@ Transitions between states are triggered by events and conditionalized via guard
 ![microwave_owen](../Images/6%20-%20Microwave%20Owen.gif)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

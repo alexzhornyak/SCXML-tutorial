@@ -1,6 +1,7 @@
 <a name="top-anchor"/>
 
 | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|
 
 # [Microwave owen example](https://www.w3.org/TR/scxml/#N11619)
 
@@ -62,3 +63,4 @@ The example below shows the implementation of a simple microwave oven using SCXM
 ```
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

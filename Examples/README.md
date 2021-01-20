@@ -62,3 +62,4 @@ Qt widget-based application that executes [W3C SCXML tests](https://www.w3.org/V
 ![qt](https://raw.githubusercontent.com/alexzhornyak/UscxmlCLib/master/Examples/Images/TesterW3CQt.png)
 
 | [TOP](#scxml-examples) | [SCXML Wiki](../README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|

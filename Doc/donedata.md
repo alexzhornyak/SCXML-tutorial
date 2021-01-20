@@ -16,3 +16,4 @@ In cases where the SCXML Processor generates a 'done' event upon entry into the 
 ![test294](https://user-images.githubusercontent.com/18611095/28512862-522e6104-705c-11e7-9c12-8c13f814d591.png)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

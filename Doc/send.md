@@ -1,6 +1,7 @@
 <a name="top-anchor"/>
 
 | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|
 
 # [\<send\>](https://www.w3.org/TR/scxml/#send)
 The element is used to send events and data to external systems, including external SCXML Interpreters, or to raise events in the current SCXML session.
@@ -226,3 +227,4 @@ If the evaluation of send's arguments produces an error, If the evaluation of se
 ![test553](https://user-images.githubusercontent.com/18611095/28562498-20012dae-712b-11e7-9d11-bc101df19923.png)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

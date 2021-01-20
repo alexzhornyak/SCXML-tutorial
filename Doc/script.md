@@ -1,6 +1,7 @@
 <a name="top-anchor"/>
 
 | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|
 
 # [\<script\>](https://www.w3.org/TR/scxml/#script)
 
@@ -55,3 +56,4 @@ In a conformant SCXML document, the name of any script variable MAY be used as a
 ![test304](https://user-images.githubusercontent.com/18611095/28520361-dd4455a8-7077-11e7-8b43-f3e89102ba78.png)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

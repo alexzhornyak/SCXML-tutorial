@@ -171,3 +171,4 @@ If a [**\<content\>**](content.md) child is present, the SCXML Processor must us
 ```
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

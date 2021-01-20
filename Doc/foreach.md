@@ -227,3 +227,4 @@ The SCXML processor MUST act as if it has made a shallow copy of the collection 
 ![test525](https://user-images.githubusercontent.com/18611095/28816516-cc8af83e-76ad-11e7-9e63-0159c628ac39.png)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

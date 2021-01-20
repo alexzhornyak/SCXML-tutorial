@@ -36,3 +36,4 @@ Overrided objects must be marked in separate way then derived objects without ch
 ![mismatch](../Images/inheritance_TV_3D_mismatch.png)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

@@ -153,3 +153,4 @@ After the parent state has been visited for the first time, if a transition is e
 ![test388](https://user-images.githubusercontent.com/18611095/28677984-d164acd8-72f7-11e7-9ba6-80696f4fc960.png)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

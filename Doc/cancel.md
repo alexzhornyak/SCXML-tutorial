@@ -48,3 +48,4 @@ If the **'sendidexpr'** attribute is present, the SCXML Processor MUST evaluate 
 ![test210](https://user-images.githubusercontent.com/18611095/28563685-60643a68-712f-11e7-9ea0-f8f66fd3a023.png)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

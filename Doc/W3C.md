@@ -1,3 +1,8 @@
+<a name="top-anchor"/>
+
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|
+
 # [W3C Examples](https://www.w3.org/TR/scxml/#Examples)
 ## [1. Language Overview](https://www.w3.org/TR/scxml/#N11608)
 This SCXML document gives an overview of the SCXML language and shows the use of its state machine transition flows
@@ -112,3 +117,6 @@ Test|Description|Source|
 [Test 570](final.md#2-test-570)|\<final\> 'done.state.id' in parallel|https://www.w3.org/Voice/2013/scxml-irp/570/test570.txml
 [Test 579](history.md#2-test-579)|\<history\> default content|https://www.w3.org/Voice/2013/scxml-irp/579/test579.txml
 [Test 580](history.md#3-test-580)|\<history\> never ends up part of the configuration|https://www.w3.org/Voice/2013/scxml-irp/580/test580.txml
+
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|

@@ -1,6 +1,7 @@
-<a name="top-anchor">
+<a name="top-anchor"/>
 
-| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|
 
 # [\<scxml\>](https://www.w3.org/TR/scxml/#scxml)
 
@@ -132,3 +133,4 @@ At system initialization time, the SCXML Processor MUST enter the states specifi
 ![test576](https://user-images.githubusercontent.com/18611095/28627166-b208e760-7229-11e7-9810-7dbb56b9a34d.png)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
+|---|---|---|---|---|
