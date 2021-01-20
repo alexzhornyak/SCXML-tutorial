@@ -10,6 +10,96 @@ Suppose you have multiple blocks with the same state machine logic
 
 ![tasks](../Images/simple_tasks_example.gif)
 
+<details><summary><b>Source code</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="lua" name="ScxmlInvokeSimple" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="State_1" initial="Off_1">
+		<onexit>
+			<cancel sendid="ID.Do.Timer"/>
+		</onexit>
+		<transition event="Go.Next" target="State_2"/>
+		<state id="Off_1">
+			<onentry>
+				<send delay="1s" event="Do.Timer" id="ID.Do.Timer"/>
+				<log expr="'OFF ' .. 1" label="INFO"/>
+			</onentry>
+			<transition event="Do.Timer" target="On_1"/>
+		</state>
+		<state id="On_1">
+			<onentry>
+				<send delay="1s" event="Do.Timer" id="ID.Do.Timer"/>
+				<log expr="'ON ' .. 1" label="INFO"/>
+			</onentry>
+			<transition event="Do.Timer" target="Off_1"/>
+		</state>
+	</state>
+	<state id="State_2" initial="Off_2">
+		<onexit>
+			<cancel sendid="ID.Do.Timer"/>
+		</onexit>
+		<transition event="Go.Next" target="State_3"/>
+		<state id="Off_2">
+			<onentry>
+				<send delay="1s" event="Do.Timer" id="ID.Do.Timer"/>
+				<log expr="'OFF ' .. 2" label="INFO"/>
+			</onentry>
+			<transition event="Do.Timer" target="On_2"/>
+		</state>
+		<state id="On_2">
+			<onentry>
+				<send delay="1s" event="Do.Timer" id="ID.Do.Timer"/>
+				<log expr="'ON ' .. 2" label="INFO"/>
+			</onentry>
+			<transition event="Do.Timer" target="Off_2"/>
+		</state>
+	</state>
+	<state id="State_3" initial="Off_3">
+		<onexit>
+			<cancel sendid="ID.Do.Timer"/>
+		</onexit>
+		<transition event="Go.Next" target="State_4"/>
+		<state id="Off_3">
+			<onentry>
+				<send delay="1s" event="Do.Timer" id="ID.Do.Timer"/>
+				<log expr="'OFF ' .. 3" label="INFO"/>
+			</onentry>
+			<transition event="Do.Timer" target="On_3"/>
+		</state>
+		<state id="On_3">
+			<onentry>
+				<send delay="1s" event="Do.Timer" id="ID.Do.Timer"/>
+				<log expr="'ON ' .. 3" label="INFO"/>
+			</onentry>
+			<transition event="Do.Timer" target="Off_3"/>
+		</state>
+	</state>
+	<state id="State_4" initial="Off_4">
+		<onexit>
+			<cancel sendid="ID.Do.Timer"/>
+		</onexit>
+		<transition event="Go.Next" target="State_1"/>
+		<state id="Off_4">
+			<onentry>
+				<send delay="1s" event="Do.Timer" id="ID.Do.Timer"/>
+				<log expr="'OFF ' .. 4" label="INFO"/>
+			</onentry>
+			<transition event="Do.Timer" target="On_4"/>
+		</state>
+		<state id="On_4">
+			<onentry>
+				<send delay="1s" event="Do.Timer" id="ID.Do.Timer"/>
+				<log expr="'ON ' .. 4" label="INFO"/>
+			</onentry>
+			<transition event="Do.Timer" target="Off_4"/>
+		</state>
+	</state>
+</scxml>
+```
+
+</p></details>
+
 You may put similar logic into external state machine, define params which should be passed from the main state machine. And then you may create multiple instances using **\<invoke\>** element. You just need to path individual parameters for each external state machine
 
 ![tasks_invoked](../Images/simple_tasks_invoked_example.gif)
