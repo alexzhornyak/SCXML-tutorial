@@ -190,5 +190,5 @@ Definition: The default initial state(s) of a compound state are those specified
 
 ![test364](https://user-images.githubusercontent.com/18611095/28660772-1240d0c8-72bd-11e7-9009-ed74c9a95a23.png)
 
-| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|

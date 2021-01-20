@@ -66,5 +66,5 @@ The SCXML processor MUST treat each \<onentry\> handler as a separate block of e
 
 ![test376](https://user-images.githubusercontent.com/18611095/28672666-091bb298-72e9-11e7-8e91-f6acb5720c8a.png)
 
-| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|

@@ -226,5 +226,5 @@ If the evaluation of send's arguments produces an error, If the evaluation of se
 
 ![test553](https://user-images.githubusercontent.com/18611095/28562498-20012dae-712b-11e7-9d11-bc101df19923.png)
 
-| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|

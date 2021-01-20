@@ -1,6 +1,7 @@
 <a name="top-anchor"/>
 
 | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|
 
 # \<cancel\>
 The element is used to cancel a delayed \<send\> event. The SCXML Processor **must not allow** \<cancel\> to affect events that were not raised in **the same session**. The Processor should make its best attempt to cancel all delayed events with the specified id. Note, however, **that it can not be guaranteed to succeed**, for example if the event has already been delivered by the time the \<cancel\> tag executes.
@@ -47,5 +48,5 @@ If the **'sendidexpr'** attribute is present, the SCXML Processor MUST evaluate 
 
 ![test210](https://user-images.githubusercontent.com/18611095/28563685-60643a68-712f-11e7-9ea0-f8f66fd3a023.png)
 
-| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|

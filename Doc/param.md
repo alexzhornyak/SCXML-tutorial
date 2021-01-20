@@ -99,5 +99,5 @@ If the evaluation of the **'expr'** produces an error, the processor MUST place 
 
 ![test488](https://user-images.githubusercontent.com/18611095/28515717-4eca4a04-7067-11e7-9eae-d66e5e4ee2d6.png)
 
-| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|

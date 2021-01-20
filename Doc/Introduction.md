@@ -1,6 +1,7 @@
 <a name="top-anchor">
 
 | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|
 
 ## Hello world
 
@@ -179,5 +180,5 @@ Transitions between states are triggered by events and conditionalized via guard
 ## [Microwave owen example](microwave_example.md)
 ![microwave_owen](../Images/6%20-%20Microwave%20Owen.gif)
 
-| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|
