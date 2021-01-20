@@ -1,6 +1,6 @@
 <a name="top-anchor">
 
-| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../README.md#examples) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|
 
 ## [\<datamodel\>](https://www.w3.org/TR/scxml/#datamodel)
