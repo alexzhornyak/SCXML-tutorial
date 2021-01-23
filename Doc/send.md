@@ -76,7 +76,7 @@ The unique identifier of the message target that the platform should send the ev
 **`#_invokeid`**. If the target is the special term `#_invokeid` (`#_` + `invokeid`), where `invokeid` is the invokeid of an SCXML session that the sending session has created by [\<invoke\>](invoke.md), the Processor must add the event to the external queue of that session. See [\<invoke\>](invoke.md) for details. <br/>
 ```xml
 <state id="Parent">
-	<invoke id="ID_MODULE_CHILD" src="Child.scxml" autoforward="true" />
+	<invoke id="ID_MODULE_CHILD" src="Child.scxml" autoforward="false" />
 	<onentry>
 		<!-- invoked session with id 'ID_MODULE_CHILD' will receive event 'Timeout' after 2 seconds -->
 		<send delay="2s" event="Timeout" target="#_ID_MODULE_CHILD"/>
