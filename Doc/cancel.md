@@ -4,7 +4,7 @@
 |---|---|---|---|
 
 # \<cancel\>
-The element is used to cancel a delayed \<send\> event. The SCXML Processor **must not allow** \<cancel\> to affect events that were not raised in **the same session**. The Processor should make its best attempt to cancel all delayed events with the specified id. Note, however, **that it can not be guaranteed to succeed**, for example if the event has already been delivered by the time the \<cancel\> tag executes.
+The element is used to cancel a delayed [\<send\>](send.md) event. The SCXML Processor **must not allow** \<cancel\> to affect events that were not raised in **the same session**. The Processor should make its best attempt to cancel all delayed events with [the specified id](send.md#7-id). Note, however, **that it can not be guaranteed to succeed**, for example if the event has already been delivered by the time the \<cancel\> tag executes.
 
 **Example:**
 ```xml
