@@ -43,28 +43,91 @@ A dynamic alternative to 'event'. If this attribute is present, the SCXML Proces
 Must not occur with 'event'. If the type is http://www.w3.org/TR/scxml/#SCXMLEventProcessor, either this attribute or 'event' must be present.
 
 ### 3. 'target'
-The unique identifier of the message target that the platform should send the event to. See [6.2.4 The Target of Send](https://www.w3.org/TR/scxml/#SendTargets) for details. Must not occur with 'targetexpr'.
-
+The unique identifier of the message target that the platform should send the event to. See [6.2.4 The Target of Send](https://www.w3.org/TR/scxml/#SendTargets) for details. Must not occur with 'targetexpr'. <br/>
+#### When using the SCXML Event I/O Processor, SCXML Processors must support the following special targets for \<send\>:
+**`#_internal`**. The Processor must add the event to the internal event queue of the sending session.
+```xml
+<state id="Parent">
+	<invoke autoforward="true" id="ID_MODULE_CHILD" src="Child.scxml"/>
+	<onentry>
+		<!-- event 'Timeout' will not come to any invoked session -->
+		<send event="Timeout" target="#_internal"/>
+	</onentry>
+</state>
+```
+**`#_scxml_sessionid`**. If the target is the special term `#_scxml_sessionid` (`#_scxml_` + `sessionid`), where `sessionid` is the id of an SCXML session that is accessible to the Processor, the Processor must add the event to the external queue of that session. The set of SCXML sessions that are accessible to a given SCXML Processor is platform-dependent.
+```xml
+<state id="Parent">
+	<transition event="Msg.From.Child">
+		<send delay="1s" event="Quit.Child" targetexpr="'#_scxml_' + _event.data"/>
+	</transition>
+</state>
+```
+**`#_parent`**. The Processor must add the event to the external event queue of the SCXML session that invoked the sending session, if there is one. See [\<invoke\>](invoke.md) for details.
+```xml
+<state id="Child">
+	<onentry>
+		<send event="Msg.From.Child" target="#_parent">
+			<content expr="_sessionid"/>
+		</send>
+	</onentry>
+</state>
+```
+**`#_invokeid`**. If the target is the special term `#_invokeid` (`#_` + `invokeid`), where `invokeid` is the invokeid of an SCXML session that the sending session has created by [\<invoke\>](invoke.md), the Processor must add the event to the external queue of that session. See [\<invoke\>](invoke.md) for details. <br/>
+```xml
+<state id="Parent">
+	<invoke id="ID_MODULE_CHILD" src="Child.scxml" autoforward="true" />
+	<onentry>
+		<!-- invoked session with id 'ID_MODULE_CHILD' will receive event 'Timeout' after 2 seconds -->
+		<send delay="2s" event="Timeout" target="#_ID_MODULE_CHILD"/>
+	</onentry>
+</state>
+```
 ### 4. 'targetexpr'
 A dynamic alternative to 'target'. If this attribute is present, the SCXML Processor must evaluate it when the parent \<send\> element is evaluated and treat the result as if it had been entered as the value of 'target'. Must not occur with 'target'.
-
 ### 5. 'type'
 The URI that identifies the transport mechanism for the message. See [6.2.5 The Type of Send](https://www.w3.org/TR/scxml/#SendTypes) for details. Must not occur with 'typeexpr'.
-
+#### 5.1. [SCXML Event I/O Processor (Default)](https://www.w3.org/TR/scxml/#SCXMLEventProcessor).
+Target is an SCXML session. The transport mechanism is platform-specific.
+```xml
+<send delay="2s" event="Timer"/>
+<send delay="2s" event="Timer" type="http://www.w3.org/TR/scxml/#SCXMLEventProcessor"/>
+```
+#### 5.2. [Basic HTTP Event I/O Processor](BasicHTTPEventIO.md)
+Target is a URL. Data is sent via HTTP POST
+```xml
+<send event="ToRemoteMachine" type="http://www.w3.org/TR/scxml/#BasicHTTPEventProcessor"/>
+```
 ### 6. 'typeexpr'
 A dynamic alternative to 'type'. If this attribute is present, the SCXML Processor must evaluate it when the parent \<send\> element is evaluated and treat the result as if it had been entered as the value of 'type'. Must not occur with 'type'.
 
 ### 7. 'id'
 A string literal to be used as the identifier for this instance of \<send\>. See [3.14 IDs](https://www.w3.org/TR/scxml/#IDs) for details. Must not occur with 'idlocation'.
-
+```xml
+<state id="start">
+	<onentry>
+		<send delay="5s" event="Timer2" id="ID_Timer2"/>
+	</onentry>
+	<onexit>
+		<cancel sendid="ID_Timer2"/>
+	</onexit>
+</state>
+```
 ### 8. 'idlocation'
 Any location expression evaluating to a data model location in which a system-generated id can be stored. Must not occur with 'id'.
 
 ### 9. 'delay'
-A time designation as defined in CSS2 format. Indicates how long the processor should wait before dispatching the message. Must not occur with 'delayexpr' or when the attribute 'target' has the value "#_internal".
-
+A time designation as defined in CSS2 format. Indicates how long the processor should wait before dispatching the message. Must not occur with 'delayexpr' or when the attribute 'target' has the value `#_internal`.
+```xml
+<send delay="4s" event="Timer1"/>
+<send delay="500ms" event="Timer2"/>
+```
 ### 10. 'delayexpr'
-A value expression which returns a time designation as defined in CSS2 format. A dynamic alternative to 'delay'. If this attribute is present, the SCXML Processor must evaluate it when the parent \<send\> element is evaluated and treat the result as if it had been entered as the value of 'delay'. Must not occur with 'delayexpr' or when the attribute 'target' has the value "#_internal".
+A value expression which returns a time designation as defined in CSS2 format. A dynamic alternative to 'delay'. If this attribute is present, the SCXML Processor must evaluate it when the parent \<send\> element is evaluated and treat the result as if it had been entered as the value of 'delay'. Must not occur with 'delayexpr' or when the attribute 'target' has the value `#_internal`.
+```xml
+<send delayexpr="2*2 + 's'" event="Timer1"/>
+<send delay="5*100 + 'ms'" event="Timer2"/>
+```
 
 ### 11. 'namelist'
 List of valid location expressions. A space-separated list of one or more data model locations to be included as attribute/value pairs with the message. (The name of the location is the attribute and the value stored at the location is the value.) See [5.9.2 Location Expressions](https://www.w3.org/TR/scxml/#LocationExpressions) for details.
@@ -119,7 +182,7 @@ The SCXML Processor MUST evaluate param when the parent \<send\> element is eval
 ![test176](https://user-images.githubusercontent.com/18611095/28522966-f8f59ca2-7082-11e7-8e2f-d6c925f61ce8.png)
 
 ### [6. Test 178](https://www.w3.org/Voice/2013/scxml-irp/178/test178.txml)
-The SCXML Processor MUST include all attributes and values provided by **param** and/or **'namelist'** even if duplicates occur.
+The SCXML Processor MUST include all attributes and values provided by [**param**](param.md) and/or **'namelist'** even if duplicates occur.
 
 ![test178](https://user-images.githubusercontent.com/18611095/28523387-db107b2e-7084-11e7-9717-1a6ad70da477.png)
 
@@ -161,7 +224,7 @@ External Event: event1, interpreter [Scxml_Test178]
 ```
    
 ### [7. Test 179](https://www.w3.org/Voice/2013/scxml-irp/179/test179.txml)
-The SCXML Processor MUST evaluate the \<content\> element when the parent \<send\> element is evaluated and pass the resulting data unmodified to the external service when the message is delivered.
+The SCXML Processor MUST evaluate the [\<content\>](content.md) element when the parent \<send\> element is evaluated and pass the resulting data unmodified to the external service when the message is delivered.
 
 ![test179](https://user-images.githubusercontent.com/18611095/28558230-b41e4fce-7119-11e7-947f-24310d2e4225.png)
 
