@@ -176,19 +176,38 @@ You may put similar logic into external state machine, define params which shoul
 ## Attribute Details
 
 ### 1. 'type'
-A URI specifying the type of the external service. Valid values are http://www.w3.org/TR/scxml/, http://www.w3.org/TR/ccxml/, http://www.w3.org/TR/voicexml30/, http://www.w3.org/TR/voicexml21/ plus other platform-specific values. Must not occur with the 'typeexpr' attribute.
+A URI specifying the type of the external service. Valid values are **http://www.w3.org/TR/scxml/ (Default)**, http://www.w3.org/TR/ccxml/, http://www.w3.org/TR/voicexml30/, http://www.w3.org/TR/voicexml21/ plus other platform-specific values. Must not occur with the 'typeexpr' attribute.
 
 ### 2. 'typeexpr'
 Any value expression that evaluates to a URI that would be a valid value for 'type'. A dynamic alternative to 'type'. If this attribute is present, the SCXML Processor must evaluate it when the parent <invoke> element is evaluated and treat the result as if it had been entered as the value of 'type'. Must not occur with the 'type' attribute.
 
 ### 3. 'src'
-A URI to be passed to the external service. Must not occur with the 'srcexpr' attribute or the \<content\> element.
+A URI to be passed to the external service. Must not occur with the 'srcexpr' attribute or the [\<content\>](content.md) element.
+```xml
+<state id="Parent">
+	<invoke src="Child.scxml" />
+</state>
+```
 
 ### 4. 'srcexpr'
 Any expression evaluating to a valid URI. A dynamic alternative to 'src'. If this attribute is present, the SCXML Processor must evaluate it when the parent <invoke> element is evaluated and treat the result as if it had been entered as the value of 'src'. Must not occur with the 'src' attribute or the <content> element.
+```xml
+<state id="Parent">
+	<invoke srcexpr="s_APP_PATH + 'Child.scxml'" />
+</state>
+```
 
 ### 5. 'id'
 A string literal to be used as the identifier for this instance of \<invoke\>. Must not occur with the 'idlocation' attribute.
+```xml
+<state id="Parent">
+	<invoke id="ID_MODULE_CHILD" src="Child.scxml" autoforward="false" />
+	<onentry>
+		<!-- invoked session with id 'ID_MODULE_CHILD' will receive event 'Timeout' after 2 seconds -->
+		<send delay="2s" event="Timeout" target="#_ID_MODULE_CHILD"/>
+	</onentry>
+</state>
+```
 
 ### 6. 'idlocation'
 Any valid data model expression evaluating to a data model location. See [5.9.2 Location Expressions](https://www.w3.org/TR/scxml/#LocationExpressions) for details. Must not occur with the 'id' attribute.
@@ -198,6 +217,17 @@ A space-separated list of one or more data model locations to be passed as attri
 
 ### 8. 'autoforward'
 A boolean flag indicating whether to forward events to the invoked process. Default value is **'false'**.
+```xml
+<state id="Parent">
+	<invoke src="Child1.scxml" autoforward="true" />
+	<invoke src="Child2.scxml" autoforward="true" />
+	<invoke src="Child3.scxml" autoforward="true" />
+	<onentry>
+		<!-- all invoked sessions with 'autoforward=true' will receive event 'Timeout' after 2 seconds -->
+		<send delay="2s" event="Timeout" />
+	</onentry>
+</state>
+```
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
@@ -278,7 +308,7 @@ In the automatically generated invoke identifier, **platformid** MUST be unique 
 ![test225 - child2](https://user-images.githubusercontent.com/18611095/28573934-03cf5f14-7155-11e7-8b5b-2ae5e9f0883f.png)
 
 ### [7. Test 226](https://www.w3.org/Voice/2013/scxml-irp/226/test226.txml)
-When the invoke element is executed, the SCXML Processor MUST start a new logical instance of the external service specified in 'type' or 'typexpr', passing it the URL specified by 'src' or the data specified by content, or param.
+When the invoke element is executed, the SCXML Processor MUST start a new logical instance of the external service specified in 'type' or 'typexpr', passing it the URL specified by 'src' or the data specified by [\<content\>](content.md), or [\param\](param.md).
 
 ![test226](https://user-images.githubusercontent.com/18611095/28574248-0a920f6c-7156-11e7-82c6-50627c45ca81.png)
 
@@ -411,21 +441,21 @@ Invoked services MUST also treat values specified by 'src' and content identical
 ![test242 - child 2](https://user-images.githubusercontent.com/18611095/28619521-6e5056f6-7211-11e7-902b-7639a53b3372.png)
 
 ### [21. Test 243](https://www.w3.org/Voice/2013/scxml-irp/243/test243.txml)
-If the invoked process is of type http://www.w3.org/TR/scxml/ and 'name' of a param element in the invoke matches the 'id' of a data element in the top-level data declarations of the invoked session, the SCXML Processor MUST use the value of the param element as the initial value of the corresponding data element.
+If the invoked process is of type http://www.w3.org/TR/scxml/ and 'name' of a [param element](param.md) in the invoke matches the 'id' of a [data element](datamodel.md#data) in the top-level data declarations of the invoked session, the SCXML Processor MUST use the value of the [param element](param.md) as the initial value of the corresponding [data element](datamodel.md#data).
 
 ![test243](https://user-images.githubusercontent.com/18611095/28619686-409974c6-7212-11e7-9f6c-e124a55428ef.png)
 
 ![test243 - child](https://user-images.githubusercontent.com/18611095/28619687-4099a0b8-7212-11e7-956f-e34c08a876f1.png)
 
 ### [22. Test 244](https://www.w3.org/Voice/2013/scxml-irp/244/test244.txml)
-If the invoked process is of type http://www.w3.org/TR/scxml/ and the key of namelist item in the invoke matches the 'id' of a data element in the top-level data declarations of the invoked session, the SCXML Processor MUST use the corresponding value as the initial value of the corresponding data element.
+If the invoked process is of type http://www.w3.org/TR/scxml/ and the key of namelist item in the invoke matches the 'id' of a [data element](datamodel.md#data) in the top-level data declarations of the invoked session, the SCXML Processor MUST use the corresponding value as the initial value of the corresponding [data element](datamodel.md#data).
 
 ![test244](https://user-images.githubusercontent.com/18611095/28619840-120ec52e-7213-11e7-897b-738ca4ee7db4.png)
 
 ![test244 - child](https://user-images.githubusercontent.com/18611095/28619839-120e713c-7213-11e7-8f5e-19cc022cff21.png)
 
 ### [23. Test 245](https://www.w3.org/Voice/2013/scxml-irp/245/test245.txml)
-If the invoked process is of type **http://www.w3.org/TR/scxml/**, and the name of a param element or the key of a namelist item do not match the name of a data element in the invoked process, the Processor MUST NOT add the value of the param element or namelist key/value pair to the invoked session's data model.
+If the invoked process is of type **http://www.w3.org/TR/scxml/**, and the name of a [param element](param.md) or the key of a namelist item do not match the name of a [data element](datamodel.md#data) in the invoked process, the Processor MUST NOT add the value of the [param element](param.md) or namelist key/value pair to the invoked session's [data model](datamodel.md).
 
 ![test245](https://user-images.githubusercontent.com/18611095/28620098-307e01d6-7214-11e7-8483-279f2f825b1b.png)
 
@@ -439,7 +469,7 @@ If the invoked state machine is of type **http://www.w3.org/TR/scxml/** and it r
 ![test247 - child](https://user-images.githubusercontent.com/18611095/28620270-de1e6506-7214-11e7-85b8-24e921a25c02.png)
 
 ### [25. Test 250](https://www.w3.org/Voice/2013/scxml-irp/250/test250.txml)
-When an invoked process of type **http://www.w3.org/TR/scxml/** is cancelled by the invoking process, the Processor MUST execute the onexit handlers for all active states in the invoked session.
+When an invoked process of type **http://www.w3.org/TR/scxml/** is cancelled by the invoking process, the Processor MUST execute the [onexit](onexit.md) handlers for all active states in the invoked session.
 
 ![test250](https://user-images.githubusercontent.com/18611095/28620482-c4561a46-7215-11e7-8e73-33b2c6a2dbd6.png)
 
@@ -467,7 +497,7 @@ When the invoked session is of type **http://www.w3.org/TR/scxml/**, The SCXML P
 ![test253 - child](https://user-images.githubusercontent.com/18611095/28621288-1f6f7e6a-7219-11e7-9dc5-1caaa4dcace8.png)
 
 ### [28. Test 530](https://www.w3.org/Voice/2013/scxml-irp/530/test530.txml)
-The SCXML Processor MUST evaluate a child content element when the parent invoke element is evaluated and pass the resulting data to the invoked service.
+The SCXML Processor MUST evaluate a child [content element](content.md) when the parent invoke element is evaluated and pass the resulting data to the invoked service.
 
 ![test530](https://user-images.githubusercontent.com/18611095/28621709-818fd1ac-721a-11e7-9f05-af3d42b0b614.png)
 
