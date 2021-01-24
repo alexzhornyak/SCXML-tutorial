@@ -308,7 +308,7 @@ In the automatically generated invoke identifier, **platformid** MUST be unique 
 ![test225 - child2](https://user-images.githubusercontent.com/18611095/28573934-03cf5f14-7155-11e7-8b5b-2ae5e9f0883f.png)
 
 ### [7. Test 226](https://www.w3.org/Voice/2013/scxml-irp/226/test226.txml)
-When the invoke element is executed, the SCXML Processor MUST start a new logical instance of the external service specified in 'type' or 'typexpr', passing it the URL specified by 'src' or the data specified by [\<content\>](content.md), or [\param\](param.md).
+When the invoke element is executed, the SCXML Processor MUST start a new logical instance of the external service specified in 'type' or 'typexpr', passing it the URL specified by 'src' or the data specified by [\<content\>](content.md), or [\<param\>](param.md).
 
 ![test226](https://user-images.githubusercontent.com/18611095/28574248-0a920f6c-7156-11e7-82c6-50627c45ca81.png)
 
@@ -410,7 +410,7 @@ Invoked services of type **http://www.w3.org/TR/scxml/**, **http://www.w3.org/TR
 ![test239sub1](https://user-images.githubusercontent.com/18611095/28618067-ae6bbdf8-720b-11e7-9a1d-368ff91746b2.png)
 
 ### [18. Test 240](https://www.w3.org/Voice/2013/scxml-irp/240/test240.txml)
-Invoked services of type **http://www.w3.org/TR/scxml/**, **http://www.w3.org/TR/ccxml/**, **http://www.w3.org/TR/voicexml30/**, or **http://www.w3.org/TR/voicexml21** MUST interpret values specified by param element or 'namelist' attribute as values that are to be injected into their data models.
+Invoked services of type **http://www.w3.org/TR/scxml/**, **http://www.w3.org/TR/ccxml/**, **http://www.w3.org/TR/voicexml30/**, or **http://www.w3.org/TR/voicexml21** MUST interpret values specified by [param element](param.md) or 'namelist' attribute as values that are to be injected into their data models.
 
 ![test240](https://user-images.githubusercontent.com/18611095/28618479-3e60eba8-720d-11e7-86a3-b51f3ad579df.png)
 
@@ -419,7 +419,7 @@ Invoked services of type **http://www.w3.org/TR/scxml/**, **http://www.w3.org/TR
 ![test240 - child 2](https://user-images.githubusercontent.com/18611095/28618477-3e5b2100-720d-11e7-8f00-4f1005e14fab.png)
 
 ### [19. Test 241](https://www.w3.org/Voice/2013/scxml-irp/241/test241.txml)
-Invoked services MUST treat values specified by param and namelist identically.
+Invoked services MUST treat values specified by [param](param.md) and namelist identically.
 
 ![test241](https://user-images.githubusercontent.com/18611095/28619005-355bb31a-720f-11e7-82a4-b3ecc18cdc88.png)
 
@@ -430,7 +430,7 @@ Invoked services MUST treat values specified by param and namelist identically.
 ![test241 - child 3](https://user-images.githubusercontent.com/18611095/28619006-355d932e-720f-11e7-8b68-79519079fdc8.png)
 
 ### [20. Test 242](https://www.w3.org/Voice/2013/scxml-irp/242/test242.txml)
-Invoked services MUST also treat values specified by 'src' and content identically.
+Invoked services MUST also treat values specified by 'src' and [content](content.md) identically.
 
 ![test242](https://user-images.githubusercontent.com/18611095/28619522-6e50cfaa-7211-11e7-8edb-5f0657b40e8d.png)
 
