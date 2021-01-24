@@ -51,6 +51,15 @@ An event descriptor matches an event name if its string of tokens is an exact ma
 
 In this example, a transition will match event names "Step", "Step.Next", "Step.Next.Completed", etc. but would not match events named "Steps.My.Custom", "StepHandler.mistake", etc.
 
+## 2. Attribute 'cond'
+The guard condition for this transition. Any boolean expression.
+
+## 3. Attribute 'target'
+The identifier(s) of the state or parallel region to transition to
+
+## 4. Attribute 'type'
+Determines whether the source state is exited in transitions whose target state is a descendant of the source state
+
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
 ### 1. Test 403
