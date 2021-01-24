@@ -54,11 +54,144 @@ In this example, a transition will match event names "Step", "Step.Next", "Step.
 ## 2. Attribute 'cond'
 The guard condition for this transition. Any boolean expression.
 
+![transition_cond](../Images/transition%20-%20cond.gif)
+```xml
+<scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="Off">
+		<transition cond="_event.data==1" event="Choice" target="Select1"/>
+		<transition cond="_event.data==2" event="Choice" target="Select2"/>
+	</state>
+	<state id="Selection">
+		<transition cond="_event.data==0" event="Choice" target="Off"/>
+		<state id="Select1"/>
+		<state id="Select2"/>
+	</state>
+</scxml>
+```
+
 ## 3. Attribute 'target'
-The identifier(s) of the state or parallel region to transition to
+The identifier(s) of the state or parallel region to transition to. 
+#### If target is not present then transition is executed internally and is called 'Self-transition'
+```xml
+<state id="S1">
+	<transition event="e">
+```
+![no_target](../Images/transition%20-%20target_not_stored.gif)
+```xml
+<state id="S" initial="S1">
+    <state id="S1">
+        <onentry>
+            <log expr="entering S1"/>
+        </onentry>
+        <onexit>
+            <log expr="leaving S1"/>
+        </onexit>
+        <transition event="e" target="S1">
+            <log expr="'executing transition'"/>
+        </transition>
+    </state>
+</state>
+```
+#### If target of transition is its source state it is also called 'Self-transition' but is executed externally
+```xml
+<state id="S1">
+	<transition event="e" target="S1"/>
+```
+![target_present](../Images/transition%20-%20target_stored.gif)
+```xml
+<state id="S" initial="S1">
+    <state id="S1">
+        <onentry>
+            <log expr="entering S1"/>
+        </onentry>
+        <onexit>
+            <log expr="leaving S1"/>
+        </onexit>
+        <transition event="e" target="S1">
+            <log expr="'executing transition'"/>
+        </transition>
+    </state>
+</state>
+```
 
 ## 4. Attribute 'type'
 Determines whether the source state is exited in transitions whose target state is a descendant of the source state
+### 4.1. External (Default)
+```xml
+<transition event="e" target="s11">
+```
+![transition_external](../Images/transition%20-%20type%20-%20external.gif)
+
+<details><summary>Source code</summary>
+<p>
+
+```xml
+<scxml name="ScxmlTransitionsBehaviour" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="S" initial="s1">
+		<state id="s1" initial="s11">
+			<onentry>
+				<log expr="entering S1"/>
+			</onentry>
+			<onexit>
+				<log expr="'leaving s1'"/>
+			</onexit>
+			<transition event="e" target="s11">
+				<log expr="'executing transition'"/>
+			</transition>
+			<state id="s11">
+				<onentry>
+					<log expr="entering s11"/>
+				</onentry>
+				<onexit>
+					<log expr="'leaving s11'"/>
+				</onexit>
+			</state>
+		</state>
+	</state>
+</scxml>
+```
+
+</p>
+</details>
+
+### 4.2. Internal
+The behavior of transitions with 'type' of `internal` is identical, except in the case of a transition whose source state is a compound state and whose target(s) is a descendant of the source. In such a case, an internal transition **will not exit and re-enter its source state**, while an external one will, as shown in the example below.
+```xml
+<transition event="e" target="s11" type="internal">
+```
+![transition_internal](../Images/transition%20-%20type%20-%20internal.gif)
+
+<details><summary>Source code</summary>
+<p>
+
+```xml
+<scxml name="ScxmlTransitionsBehaviour" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="S" initial="s1">
+		<state id="s1" initial="s11">
+			<onentry>
+				<log expr="entering S1"/>
+			</onentry>
+			<onexit>
+				<log expr="'leaving s1'"/>
+			</onexit>
+			<transition event="e" target="s11" type="internal">
+				<log expr="'executing transition'"/>
+			</transition>
+			<state id="s11">
+				<onentry>
+					<log expr="entering s11"/>
+				</onentry>
+				<onexit>
+					<log expr="'leaving s11'"/>
+				</onexit>
+			</state>
+		</state>
+	</state>
+</scxml>
+```
+
+</p>
+</details>
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
