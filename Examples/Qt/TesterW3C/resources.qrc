@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Res/img0.bmp</file>
+        <file>Res/img2.bmp</file>
+        <file>Res/img4.bmp</file>
+        <file>Res/img6.bmp</file>
+        <file>Res/img8.bmp</file>
+        <file>Res/img10.bmp</file>
+        <file>Res/ScxmlLinks.ini</file>
+        <file>Res/MarkdownCodeRegs.txt</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,23 @@
+# Batch
+*.cmd
+
+# User-specific files
+*.rsuser
+*.suo
+*.user*
+*.sln.docstates
+*.log
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# Qt Build
+*_Qt_*_MSVC*_*bit*
