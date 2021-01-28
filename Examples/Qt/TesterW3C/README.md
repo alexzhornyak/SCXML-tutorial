@@ -1,5 +1,5 @@
 # [Qt SCXML Standard Compliance Tester](../../../Tests/README.md)
-Qt widget-based application that executes [W3C SCXML tests](https://www.w3.org/Voice/2013/scxml-irp/) and custom tests in sequence, and is able to build a report in Markdown format
+Qt widget-based application that executes [W3C SCXML tests](https://www.w3.org/Voice/2013/scxml-irp/) and custom tests in sequence, and is able to [build a report in Markdown format](../../../Tests/ecma/W3C/Mandatory/Auto/report__QtScxml_5_15_0___msvc2015_64bit__Win7_1.md)
 
 ![Preview](../../../Images/QtScxmlTesterPreview.gif)
 
