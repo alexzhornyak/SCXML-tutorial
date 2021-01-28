@@ -291,23 +291,23 @@ void MainWindow::log(const QString &sMsg, const QtMsgType Severity)
 {
     switch(Severity) {
     case QtInfoMsg: {
-        ui->editLog->setTextColor(QColor("blue"));
+        ui->editLog->setTextColor("blue");
         ui->editLog->setFontWeight(QFont::Normal);
 
     }break;
     case QtWarningMsg: {
-        ui->editLog->setTextColor(QColor("navy"));
+        ui->editLog->setTextColor("navy");
         ui->editLog->setFontWeight(QFont::Bold);
 
     }break;
     case QtCriticalMsg:
     case QtFatalMsg: {
-        ui->editLog->setTextColor(QColor("red"));
+        ui->editLog->setTextColor("red");
         ui->editLog->setFontWeight(QFont::Bold);
 
     }break;
     default: {
-        ui->editLog->setTextColor(QColor("green"));
+        ui->editLog->setTextColor("green");
         ui->editLog->setFontWeight(QFont::Normal);
     }
     }
@@ -363,11 +363,29 @@ void MainWindow::setupDirectory()
                 QFile file(it.filePath());
                 if (file.open(QIODevice::ReadOnly)) {
                     if (doc.setContent(&file)) {
+
+                        /* 1 type: TOP-LEVEL COMMENT */
+                        /* <!-- this is top-level comment --> */
+                        /* <scxml/> */
+
                         for (int i=0; i < doc.childNodes().count(); i++) {
                             auto node = doc.childNodes().item(i);
                             if (node.isComment()) {
                                 description = node.nodeValue().simplified();
                                 break;
+                            }
+                        }
+
+                        /* 2 type: FIRST SCXML CHILD COMMENT */
+                        /* <!-- this is top-level comment --> */
+                        /* <scxml/> */
+                        if (description.isEmpty()) {
+                            auto node = doc.documentElement();
+                            if (!node.isNull()) {
+                                auto child = node.firstChild();
+                                if (child.isComment()) {
+                                    description = child.nodeValue().simplified();
+                                }
                             }
                         }
                     }
