@@ -78,6 +78,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 
 [27. Basic HTTP Event I/O Processor](Doc/BasicHTTPEventIO.md)
 
+## [SCXML Frameworks W3C Standard Specification Compliance](Tests/README.md)
+
 ## [Examples](Examples/README.md)
 [1. Microwave owen](Doc/microwave_example.md)
 
