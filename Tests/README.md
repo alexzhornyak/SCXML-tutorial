@@ -3,8 +3,8 @@ It is an attempt to collect test passing results per every SCXML framework in on
 
 | Framework | Datamodel | W3C Mandatory | W3C Optional |
 |---|---|---|---|
-| uSCXML | | | |
-| Qt SCXML | ecmascript | [141 of 159](ecma/W3C/Mandatory/Auto/report__QtScxml_5_15_0___msvc2015_64bit__Win7_1.md) | [17 of 33](ecma/W3C/Optional/Auto/report__QtScxml_5_15_0___msvc2015_64bit__Win7_1.md) |
+| [uSCXML 2.0](https://github.com/tklab-tud/uscxml) | ecmascript | [159 of 159](ecma/W3C/Mandatory/Auto/report__USCXML_2_0_0___msvc2015_32bit__Win7_1.md) | [33 of 33](ecma/W3C/Optional/Auto/report__USCXML_2_0_0___msvc2015_32bit__Win7_1.md) |
+| [Qt SCXML 5.15](https://doc.qt.io/qt-5/qtscxml-index.html) | ecmascript | [141 of 159](ecma/W3C/Mandatory/Auto/report__QtScxml_5_15_0___msvc2015_64bit__Win7_1.md) | [17 of 33](ecma/W3C/Optional/Auto/report__QtScxml_5_15_0___msvc2015_64bit__Win7_1.md) |
 
 ## Objective
 There are variety of SCXML frameworks and validation tests passing results may vary. It means that if you write your scxml code in one platform it may not work in other.
