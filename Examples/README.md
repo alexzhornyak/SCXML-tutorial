@@ -72,7 +72,7 @@ Qt widget-based application that executes [W3C SCXML tests](https://www.w3.org/V
 
 ## uSCXML Examples
 ### [SCXML on an ATMega328](http://tklab-tud.github.io/uscxml/embedded.html)
-![ArduinoPump](../Images/ArduinoWaterPump.gif)
+![ArduinoPump](../Images/ArduinoWaterPump.png)
 
 <details><summary><b>Source code</b></summary>
 <p>
