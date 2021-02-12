@@ -1,4 +1,8 @@
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|
+
 # SCXML Examples
+
 ## W3C Examples
 - [SCXML language overview](#language-overview)
 - [Microwave example](#microwave-example)
@@ -140,5 +144,5 @@ soil[3] &lt;= soil[2]" event="pump" target="pump4"/>
 
 </p></details>
 
-| [TOP](#scxml-examples) | [SCXML Wiki](../README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
-|---|---|---|
+| [TOP](#scxml-examples) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|
