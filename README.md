@@ -1,7 +1,7 @@
 <a name="top-anchor"/>
 
-| [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
-|---|---|---|---|
+| [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
+|---|---|---|---|---|
 
 # SCXML Tutorial
 
@@ -554,5 +554,5 @@ iLapCount++
 
 ---
 
-| [TOP](#top-anchor) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
-|---|---|---|---|---|
+| [TOP](#top-anchor) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|---|
