@@ -1,7 +1,7 @@
 <a name="top-anchor"/>
 
-| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
-|---|---|---|---|
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|
 
 # [\<invoke\>](https://www.w3.org/TR/scxml/#invoke)
 The element is used to create an instance of an external service (for example: nested state machine)
@@ -510,5 +510,5 @@ If the evaluation of the invoke element's arguments produces an error, the SCXML
 
 ![test554 - child](https://user-images.githubusercontent.com/18611095/28621920-3ad40b38-721b-11e7-8684-3b8ba36c884c.png)
 
-| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
-|---|---|---|---|---|
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|---|

@@ -1,7 +1,7 @@
 <a name="top-anchor"/>
   
-| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
-|---|---|---|---|
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|
 
 # [\<donedata\>](https://www.w3.org/TR/scxml/#donedata)
 
@@ -16,5 +16,5 @@ In cases where the SCXML Processor generates a 'done' event upon entry into the 
 
 ![test294](https://user-images.githubusercontent.com/18611095/28512862-522e6104-705c-11e7-9c12-8c13f814d591.png)
 
-| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
-|---|---|---|---|---|
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|---|
