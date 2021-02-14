@@ -1,3 +1,8 @@
+<a name="top-anchor"/>
+
+| [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|
+
 # Qt QML SCXML EcmaScript StopWatch
 All internal logic is written in SCXML with Ecmascript datamodel
 
@@ -129,3 +134,7 @@ iLapCount++
 	</state>
 </scxml>
 ```
+
+| [TOP](#top-anchor) | [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|---|
+
