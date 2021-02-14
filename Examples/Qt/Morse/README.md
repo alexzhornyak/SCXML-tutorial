@@ -1,3 +1,8 @@
+<a name="top-anchor"/>
+
+| [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|
+
 # Qt SCXML Morse Code Trainer
 This example demonstrates different techniques of using SCXML data models in applications
 
@@ -38,3 +43,6 @@ This example demonstrates different techniques of using SCXML data models in app
 
 **Cons:**
 - not all SCXML platforms support EcmaScript
+
+| [TOP](#top-anchor) | [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|---|

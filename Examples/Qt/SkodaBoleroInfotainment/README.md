@@ -1,3 +1,8 @@
+<a name="top-anchor"/>
+
+| [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|
+
 # Qt QML SCXML Infotainment Radio Bolero Simulator
 This project is intended to test Qt QML SCXML module for designing in-vehicle infotainment systems 
 
@@ -32,3 +37,6 @@ User interface is separated from internal logic. QML controls do not interact be
 
 ## MediaPlayer
 ![MediaPlayer](../../../Images/bolero_mediaPlayer.png)
+
+| [TOP](#top-anchor) | [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|---|
