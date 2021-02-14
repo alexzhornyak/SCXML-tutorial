@@ -1,3 +1,8 @@
+<a name="top-anchor"/>
+
+| [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|
+
 # [Qt SCXML Standard Compliance Tester](../../../Tests/README.md)
 Qt widget-based application that executes [W3C SCXML tests](https://www.w3.org/Voice/2013/scxml-irp/) and custom tests in sequence, and is able to [build a report in Markdown format](../../../Tests/ecma/W3C/Mandatory/Auto/report__QtScxml_5_15_0___msvc2015_64bit__Win7_1.md)
 
@@ -24,3 +29,6 @@ We use 5 seconds timeout per stable configuration of the state machine. It means
 We validate only tests without XML syntax errors and critical SCXML bugs such as transition deadlock (when two states are connected with empty transitions) etc.
 You may previously use either [ScxmlEditor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) which may detect it on the stage of test designing or [uSCXML browser](https://github.com/tklab-tud/uscxml). <br/>
 See https://stackoverflow.com/questions/31694832/how-do-i-verify-that-my-scxml-defines-a-valid-state-machine
+
+| [TOP](#top-anchor) | [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|---|
