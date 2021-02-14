@@ -1,4 +1,4 @@
- | [Contents](#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+ | [Contents](#table-of-contents) | [Overview](../../README.md#scxml-overview) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|
 
 # Qt SCXML Examples
@@ -46,5 +46,5 @@ Qt widget-based application that executes [W3C SCXML tests](https://www.w3.org/V
 
 ![qt](https://raw.githubusercontent.com/alexzhornyak/UscxmlCLib/master/Examples/Images/TesterW3CQt.png)
 
-| [TOP](#top-anchor) | [Contents](#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+| [TOP](#top-anchor) | [Contents](#table-of-contents) | [Overview](../../README.md#scxml-overview) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|
