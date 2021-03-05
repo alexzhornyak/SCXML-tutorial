@@ -24,13 +24,12 @@ QML_IMPORT_PATH =
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
 
-# Uncomment for external Scxml Editor Debugging
-# https://github.com/alexzhornyak/ScxmlEditor-Tutorial#external-debugging
-# DEFINES += _SCXML_EXTERN_MONITOR_
-
 STATECHARTS = StopWatch.scxml
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+    scxmlexternmonitor2.h

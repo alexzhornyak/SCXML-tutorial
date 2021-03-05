@@ -2,10 +2,7 @@
 #include <QQmlApplicationEngine>
 
 #include "StopWatch.h"
-
-#ifdef _SCXML_EXTERN_MONITOR_
-    #include "scxmlexternmonitor.h"
-#endif
+#include "scxmlexternmonitor2.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,12 +11,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<ScxmlStopWatch>("ScxmlStopWatch", 1, 0, "ScxmlStopWatch");
-
-#ifdef _SCXML_EXTERN_MONITOR_
-    g_ScxmlStateMachineName = "ScxmlStopWatch";
-    qInstallMessageHandler(myMessageOutput);
-    QLoggingCategory::setFilterRules("qt.scxml.statemachine=true");
-#endif
+    qmlRegisterType<Scxmlmonitor::UDPScxmlExternMonitor>("UDPScxmlExternMonitor", 1, 0, "UDPScxmlExternMonitor");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

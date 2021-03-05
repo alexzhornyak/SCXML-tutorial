@@ -3,6 +3,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Window 2.2
 import ScxmlStopWatch 1.0
+import UDPScxmlExternMonitor 1.0
 import QtScxml 5.8
 
 Window {
@@ -17,6 +18,32 @@ Window {
            return '0' + number;
          }
          return number;
+    }
+
+    UDPScxmlExternMonitor {
+        id: scxmlExternMonitor
+        scxmlStateMachine: null
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.RightButton
+        onClicked: {
+            if (mouse.button === Qt.RightButton)
+                contextMenu.popup()
+        }
+
+        Menu {
+            id: contextMenu
+            MenuItem {
+                text: "Extern Monitor"
+                checked: scxmlExternMonitor.scxmlStateMachine !== null
+                onClicked: scxmlExternMonitor.scxmlStateMachine =
+                           scxmlExternMonitor.scxmlStateMachine ? null :
+                                                                  machine
+
+            }
+        }
     }
 
     ScxmlStopWatch {
