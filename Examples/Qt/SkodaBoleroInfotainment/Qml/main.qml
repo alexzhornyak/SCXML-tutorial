@@ -5,6 +5,7 @@ import Qt.labs.platform 1.0
 import ScxmlBolero 1.0
 import StorageInfo 1.0
 import FileUtils 1.0
+import UDPScxmlExternMonitor 1.0
 import QtScxml 5.8
 import "Radio" as Radio
 import "Media" as Media
@@ -86,6 +87,18 @@ ApplicationWindow {
             }
 
             MenuItem {
+                checked: externMonitor.scxmlStateMachine != null
+                text: "Enable Monitor"
+                onTriggered: {
+                    externMonitor.scxmlStateMachine = externMonitor.scxmlStateMachine != null ?
+                                null : scxmlBolero
+                }
+            }
+
+            MenuSeparator {
+            }
+
+            MenuItem {
                 text: qsTr("Quit")
                 onTriggered: Qt.quit()
             }
@@ -141,6 +154,12 @@ ApplicationWindow {
 
     FileUtils {
         id: fileUtils
+    }
+
+    UDPScxmlExternMonitor {
+        id: externMonitor
+        // uncomment if you want to debug from the very beginning
+        scxmlStateMachine: scxmlBolero
     }
 
     ScxmlBolero {

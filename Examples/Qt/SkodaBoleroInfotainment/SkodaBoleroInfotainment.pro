@@ -28,10 +28,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-# Uncomment for external Scxml Editor Debugging
-# https://github.com/alexzhornyak/ScxmlEditor-Tutorial#external-debugging
-DEFINES += _SCXML_EXTERN_MONITOR_
-
 STATECHARTS = model/bolero.scxml
 
 # Default rules for deployment.
@@ -44,4 +40,5 @@ HEADERS += \
     fileutils.h \
     maskedmousearea.h \
     scxmlboleroext.h \
+    scxmlexternmonitor2.h \
     storageinfo.h
