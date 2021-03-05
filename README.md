@@ -1,7 +1,7 @@
 <a name="top-anchor"/>
 
-| [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
-|---|---|---|---|
+| [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
+|---|---|---|---|---|
 
 # SCXML Tutorial
 
@@ -77,6 +77,8 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 [26. \<finalize\>](Doc/finalize.md)
 
 [27. Basic HTTP Event I/O Processor](Doc/BasicHTTPEventIO.md)
+
+## [SCXML Frameworks W3C Standard Specification Compliance](Tests/README.md)
 
 ## [Examples](Examples/README.md)
 [1. Microwave owen](Doc/microwave_example.md)
@@ -552,5 +554,5 @@ iLapCount++
 
 ---
 
-| [TOP](#top-anchor) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
-|---|---|---|---|---|
+| [TOP](#top-anchor) | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|---|

@@ -1,7 +1,7 @@
 <a name="top-anchor">
 
-| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
-|---|---|---|---|
+| [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|
 
 ## [\<datamodel\>](https://www.w3.org/TR/scxml/#datamodel)
 
@@ -13,6 +13,7 @@ Wrapper element which encapsulates any number of **\<data\>** elements, each of 
 The element is used to declare and populate portions of the data model.
 
 ### Here is an example:
+#### 1. Lua
 ```xml
 <datamodel>
     <data expr="true" id="VarBool"/>
@@ -20,6 +21,17 @@ The element is used to declare and populate portions of the data model.
     <data expr="'This is a string!'" id="VarString"/>
     <data expr="{ 1, 2, 3, 4, 5 }" id="VarTable"/>
 </datamodel>
+```
+#### 2. EcmaScript
+```xml
+<data id="VarBool" expr="true"/>
+<data id="VarInt" expr="555"/>
+<data id="VarFloat" expr="777.777"/>
+<data id="VarString" expr="'this is a string'"/>
+<data id="VarFunction">function() { return 'hello from func' }</data>
+<data id="VarNull" expr="null"/>
+<data id="VarUndefined" expr="undefined"/>
+<data id="VarComplexObject" expr="new Date()"/>
 ```
 
 ## Attribute Details
@@ -198,5 +210,5 @@ If the 'src' attribute is present, the Platform MUST fetch the specified object 
 
 `1`
 
-| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
-|---|---|---|---|---|
+| [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
+|---|---|---|---|---|---|
