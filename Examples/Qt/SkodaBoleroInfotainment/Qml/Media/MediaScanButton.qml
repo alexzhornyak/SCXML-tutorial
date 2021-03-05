@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import QtQuick.Shapes 1.15
+import QtQuick.Shapes 1.0
 import "qrc:/Qml"
 import "qrc:/Qml/AppConstants.js" as AppConsts
 
