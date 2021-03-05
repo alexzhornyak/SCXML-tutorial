@@ -278,6 +278,10 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 
 ## [Traffic light example](https://github.com/alexzhornyak/UscxmlCLib/tree/master/Examples/BCB/TrafficLight)
 ![traffic_light](https://raw.githubusercontent.com/alexzhornyak/UscxmlCLib/master/Examples/Images/TrafficLight.gif)
+
+<details><summary><b>Source code</b></summary>
+<p>
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <scxml initial="working" name="TrafficLightStateMachine" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -339,8 +343,14 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 </scxml>
 ```
 
+</p></details>
+
 ## Time generator example
 ![TimeGenerator](Images/TimerGenerator.gif)
+
+<details><summary><b>Source code</b></summary>
+<p>
+
 ```xml
 <scxml datamodel="lua" initial="Off" name="ScxmlTimeGenerator" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel>
@@ -368,63 +378,14 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 </scxml>
 ```
 
-## [Microwave owen example](Doc/microwave_example.md)
-![microwave_owen](Images/6%20-%20Microwave%20Owen.gif)
-```xml
-<?xml version="1.0"?>
-<scxml xmlns="http://www.w3.org/2005/07/scxml"
-       version="1.0"
-       datamodel="ecmascript"
-       initial="off">
-
-  <!--  trivial 5 second microwave oven example -->
-  <datamodel>
-    <data id="cook_time" expr="5"/>
-    <data id="door_closed" expr="true"/>
-    <data id="timer" expr="0"/>
-  </datamodel>
-
-  <state id="off">
-    <!-- off state -->
-    <transition event="turn.on" target="on"/>
-  </state>
-
-  <state id="on">
-    <initial>
-        <transition target="idle"/>
-    </initial>
-    <!-- on/pause state -->
-
-    <transition event="turn.off" target="off"/>
-    <transition cond="timer &gt;= cook_time" target="off"/>
-
-    <state id="idle">
-      <!-- default immediate transition if door is shut -->
-      <transition cond="door_closed" target="cooking"/>
-      <transition event="door.close" target="cooking">
-        <assign location="door_closed" expr="true"/>
-        <!-- start cooking -->
-      </transition>
-    </state>
-
-    <state id="cooking">
-      <transition event="door.open" target="idle">
-        <assign location="door_closed" expr="false"/>
-      </transition>
-
-      <!-- a 'time' event is seen once a second -->
-      <transition event="time">
-        <assign location="timer" expr="timer + 1"/>
-      </transition>
-    </state>
-
-  </state>
-
-</scxml>
-```
+</p></details>
 
 ## [StopWatch example](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
 ![StopWatchPreview](Images/StopWatchScxml.gif)
+
+<details><summary><b>Source code</b></summary>
+<p>
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <scxml datamodel="ecmascript" initial="ready" name="ScxmlStopWatch" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -551,6 +512,108 @@ iLapCount++
 	</state>
 </scxml>
 ```
+
+</p></details>
+
+## Qt Bug Tracking Workflow example
+![QtBugTracking_v_2_4](Images/QtBugTracking_v_2_4.gif)
+<details><summary><b>Source code</b></summary>
+<p>
+
+```xml
+<scxml initial="INIT" name="ScxmlQtBugTracking_2_4" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="INIT">
+		<transition event="Create" target="REPORTED"/>
+	</state>
+	<state id="REPORTED">
+		<transition event="Accept" target="OPEN"/>
+		<transition event="NotEnoughInfo" target="NEED_MORE_INFO"/>
+		<transition event="Close" target="CLOSED"/>
+	</state>
+	<state id="OPEN">
+		<transition event="WronglyAccepted" target="REPORTED"/>
+		<transition event="NotEnoughInfo" target="NEED_MORE_INFO"/>
+		<transition event="StartWork" target="IN_PROGRESS"/>
+		<transition event="Close" target="CLOSED"/>
+	</state>
+	<state id="IN_PROGRESS">
+		<transition event="StopWork" target="OPEN"/>
+		<transition event="Fixed" target="CLOSED"/>
+		<transition event="NotEnoughInfo" target="NEED_MORE_INFO"/>
+	</state>
+	<state id="NEED_MORE_INFO">
+		<transition event="ProvideMissingInfo" target="REPORTED"/>
+		<transition event="Close" target="CLOSED"/>
+	</state>
+	<state id="CLOSED">
+		<transition event="ChangeResolution"/>
+		<transition event="ReOpen" target="OPEN"/>
+	</state>
+</scxml>
+```
+
+</p></details>
+
+## [Microwave owen example](Doc/microwave_example.md)
+![microwave_owen](Images/6%20-%20Microwave%20Owen.gif)
+
+<details><summary><b>Source code</b></summary>
+<p>
+
+```xml
+<?xml version="1.0"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml"
+       version="1.0"
+       datamodel="ecmascript"
+       initial="off">
+
+  <!--  trivial 5 second microwave oven example -->
+  <datamodel>
+    <data id="cook_time" expr="5"/>
+    <data id="door_closed" expr="true"/>
+    <data id="timer" expr="0"/>
+  </datamodel>
+
+  <state id="off">
+    <!-- off state -->
+    <transition event="turn.on" target="on"/>
+  </state>
+
+  <state id="on">
+    <initial>
+        <transition target="idle"/>
+    </initial>
+    <!-- on/pause state -->
+
+    <transition event="turn.off" target="off"/>
+    <transition cond="timer &gt;= cook_time" target="off"/>
+
+    <state id="idle">
+      <!-- default immediate transition if door is shut -->
+      <transition cond="door_closed" target="cooking"/>
+      <transition event="door.close" target="cooking">
+        <assign location="door_closed" expr="true"/>
+        <!-- start cooking -->
+      </transition>
+    </state>
+
+    <state id="cooking">
+      <transition event="door.open" target="idle">
+        <assign location="door_closed" expr="false"/>
+      </transition>
+
+      <!-- a 'time' event is seen once a second -->
+      <transition event="time">
+        <assign location="timer" expr="timer + 1"/>
+      </transition>
+    </state>
+
+  </state>
+
+</scxml>
+```
+
+</p></details>
 
 ---
 
