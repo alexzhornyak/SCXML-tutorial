@@ -87,10 +87,10 @@ ApplicationWindow {
             }
 
             MenuItem {
-                checked: externMonitor.scxmlStateMachine != null
+                checked: scxmlExternMonitor.scxmlStateMachine != null
                 text: "Enable Monitor"
                 onTriggered: {
-                    externMonitor.scxmlStateMachine = externMonitor.scxmlStateMachine != null ?
+                    scxmlExternMonitor.scxmlStateMachine = scxmlExternMonitor.scxmlStateMachine != null ?
                                 null : scxmlBolero
                 }
             }
@@ -157,9 +157,7 @@ ApplicationWindow {
     }
 
     UDPScxmlExternMonitor {
-        id: externMonitor
-        // uncomment if you want to debug from the very beginning
-        scxmlStateMachine: scxmlBolero
+        id: scxmlExternMonitor
     }
 
     ScxmlBolero {

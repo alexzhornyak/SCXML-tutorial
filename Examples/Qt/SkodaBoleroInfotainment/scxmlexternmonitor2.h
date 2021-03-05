@@ -36,18 +36,43 @@ class IScxmlExternMonitor: public QObject {
     Q_PROPERTY(QScxmlStateMachine *scxmlStateMachine READ scxmlStateMachine WRITE setScxmlStateMachine NOTIFY scxmlStateMachineChanged)
 
 public:
-    inline explicit IScxmlExternMonitor(QObject *parent = nullptr): QObject(parent) {
-        QScxmlStateMachine *machine = qobject_cast<QScxmlStateMachine *>(parent);
-        if (machine) {
-            setScxmlStateMachine(machine);
-        }
-    }
+    inline explicit IScxmlExternMonitor(QObject *parent = nullptr): QObject(parent) {}
 
     /* sends all active states of state machine and invoked sessions */
     Q_INVOKABLE void synchronizeAllMonitors(void) {
         processClearAllMonitors();
 
         processSyncAllMonitors(_machine);
+    }
+
+    inline QScxmlStateMachine *scxmlStateMachine(void) { return _machine; }
+    inline void setScxmlStateMachine(QScxmlStateMachine *machine) {
+        if (_machine != machine) {
+            _machine = machine;
+
+            /* cleanup section */
+            this->cleanup();
+
+            /* setup section */
+            if (_machine) {
+
+                auto runningconnection = connect(_machine, &QScxmlStateMachine::runningChanged, this,
+                        [=]() {
+                    this->processClearAllMonitors();
+                });
+                _scxmlConnections.append(runningconnection);
+
+                /* Main Machine */
+                connectMonitorToMachine(_machine);
+
+                /* Synchronize with editor if machine is already running */
+                if (_machine->isRunning()) {
+                    this->processSyncAllMonitors(_machine);
+                }
+            }
+
+            emit scxmlStateMachineChanged(_machine);
+        }
     }
 
 Q_SIGNALS:
@@ -151,36 +176,6 @@ private:
         _scxmlConnections.clear();
         this->processClearAllMonitors();
         _connectedMachines.clear();
-    }
-
-    inline QScxmlStateMachine *scxmlStateMachine(void) { return _machine; }
-    inline void setScxmlStateMachine(QScxmlStateMachine *machine) {
-        if (_machine != machine) {
-            _machine = machine;
-
-            /* cleanup section */
-            this->cleanup();
-
-            /* setup section */
-            if (_machine) {
-
-                auto runningconnection = connect(_machine, &QScxmlStateMachine::runningChanged, this,
-                        [=]() {
-                    this->processClearAllMonitors();
-                });
-                _scxmlConnections.append(runningconnection);
-
-                /* Main Machine */
-                connectMonitorToMachine(_machine);
-
-                /* Synchronize with editor if machine is already running */
-                if (_machine->isRunning()) {
-                    this->processSyncAllMonitors(_machine);
-                }
-            }
-
-            emit scxmlStateMachineChanged(_machine);
-        }
     }
 
     inline void processSyncAllMonitors(QScxmlStateMachine *machine) {
