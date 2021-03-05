@@ -40,6 +40,8 @@ private slots:
 
     void on_btnReport_clicked();
 
+    void on_checkMonitor_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
 

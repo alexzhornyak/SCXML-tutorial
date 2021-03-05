@@ -35,10 +35,12 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+INCLUDEPATH += ../Include
+
 HEADERS += \
+    ../Include/scxmlexternmonitor2.h \    
     filescanner.h \
     fileutils.h \
     maskedmousearea.h \
-    scxmlboleroext.h \
-    scxmlexternmonitor2.h \
+    scxmlboleroext.h \    
     storageinfo.h

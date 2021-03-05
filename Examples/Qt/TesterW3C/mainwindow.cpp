@@ -74,7 +74,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     _appMachine = new ScxmlW3CTester(this);
     _monitor = new Scxmlmonitor::UDPScxmlExternMonitor(_appMachine);
-    _monitor->setScxmlStateMachine(_appMachine);
 
     ui->frameFolder->setVisible(true);
     _appMachine->connectToState("setupDirectory", [this](bool active){
@@ -211,6 +210,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->editDirectory->setText(settings.value("editDirectory.text").toString());
     ui->checkMonitor->setChecked(settings.value("checkMonitor.checked", ui->checkMonitor->isChecked()).toBool());
 
+    if (ui->checkMonitor->isChecked())
+        _monitor->setScxmlStateMachine(_appMachine);
+
     _appMachine->start();
 }
 
@@ -221,6 +223,7 @@ MainWindow::~MainWindow()
     QSettings settings(QDir(QCoreApplication::applicationDirPath()).filePath("settings.ini"), QSettings::IniFormat);
     settings.setValue("editDirectory.text", QFileInfo::exists(ui->editDirectory->text()) ?
                           ui->editDirectory->text() : QString(""));
+    settings.setValue("checkMonitor.checked", ui->checkMonitor->isChecked());
     settings.sync();
 
     delete ui;
@@ -374,6 +377,9 @@ void MainWindow::setupDirectory()
                                 description = node.nodeValue().simplified();
                                 break;
                             }
+                            /* the first element must cancel scanning */
+                            if (node.isElement())
+                                break;
                         }
 
                         /* 2 type: FIRST SCXML CHILD COMMENT */
@@ -562,4 +568,9 @@ void MainWindow::on_btnReport_clicked()
         }
     }
 
+}
+
+void MainWindow::on_checkMonitor_toggled(bool checked)
+{
+    _monitor->setScxmlStateMachine(checked ? _appMachine : nullptr);
 }
