@@ -7,7 +7,7 @@
 
 **[Video version](https://youtu.be/VOKu7TYXN_s)**
 
-Represents a final state of an \<scxml\> or compound \<state\> element.
+Represents a final state of an [\<scxml\>](scxml.md) or [compound \<state\> element](state.md#compound-state).
 
 ![final](../Images/4%20-%20Final.gif)
 ```xml
@@ -22,6 +22,10 @@ Represents a final state of an \<scxml\> or compound \<state\> element.
 	<final id="WorkFinished"/>
 </scxml>
 ```
+
+After entering the initial configuration, and after executing each microstep, the SCXML Processor must check the state configuration for \<final\> states that it has entered during the microstep. If it has entered a \<final\> state that is a child of [\<scxml\>](scxml.md), it must halt processing. If it has entered a \<final\> state that is a child of a compound state, it must generate the event **`done.state.id`**, where **`id`** is the id of the [compound state](state.md#compound-state). If the [compound state](state.md#compound-state) is itself the child of a [\<parallel\>](parallel.md) element, and all the [\<parallel\>](parallel.md) element's other children are in final states, the Processor must generate the event **`done.state.id`**, where **`id`** is the id of the [\<parallel\>](parallel.md) elements.
+
+![join_regions](../Images/parallel%20-%20join%20regions.gif)
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
