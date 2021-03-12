@@ -33,6 +33,11 @@ The element represents a state whose children are executed in parallel. Children
 	</parallel>
 </scxml>
 ```
+### Event `done.state.id`
+Parallel state is active while all children states has not reached their [final states](final.md). When all the \<parallel\> element's other children are in [final states](final.md), the Processor must generate the event `done.state.id`, where `id` is the id of the \<parallel\> element.
+
+![join_regions](../Images/parallel%20-%20join%20regions.gif)
+
 ### [Microwave owen (using parallel) example](https://www.w3.org/TR/scxml/#N11619)
 The example below shows the implementation of a simple microwave oven using [**\<parallel\>**](parallel.md) and the SCXML **`In()`** predicate.
 
