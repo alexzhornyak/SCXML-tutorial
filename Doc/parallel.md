@@ -38,6 +38,33 @@ Parallel state is active while all children states has not reached their [final 
 
 ![join_regions](../Images/parallel%20-%20join%20regions.gif)
 
+```xml
+<scxml name="ScxmlJoinParallel" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<parallel id="p">
+		<transition event="done.state.p" target="someOtherState"/>
+		<state id="S1" initial="S11">
+			<state id="S11">
+				<transition event="e4" target="S12"/>
+			</state>
+			<state id="S12">
+				<transition event="e1" target="S1Final"/>
+			</state>
+			<final id="S1Final"/>
+		</state>
+		<state id="S2" initial="S21">
+			<state id="S21">
+				<transition event="e1" target="S22"/>
+			</state>
+			<state id="S22">
+				<transition event="e2" target="S2Final"/>
+			</state>
+			<final id="S2Final"/>
+		</state>
+	</parallel>
+	<state id="someOtherState"/>
+</scxml>
+```
+
 ### [Microwave owen (using parallel) example](https://www.w3.org/TR/scxml/#N11619)
 The example below shows the implementation of a simple microwave oven using [**\<parallel\>**](parallel.md) and the SCXML **`In()`** predicate.
 
