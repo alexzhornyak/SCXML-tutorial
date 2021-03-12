@@ -193,6 +193,16 @@ The behavior of transitions with 'type' of `internal` is identical, except in th
 </p>
 </details>
 
+## Execution of transition in a [compound state](state.md#compound-state)
+When a transition is taken in a [compound state](state.md#compound-state), the state machine will exit all active states that are proper descendants of the LCCA, starting with the innermost one(s) and working up to the immediate descendant(s) of the LCCA. (A 'proper descendant' of a state is a child, or a child of a child, or a child of a child of a child, etc.) Then the state machine enters the target state(s), plus any states that are between it and the LCCA, starting with the outermost one (i.e., the immediate descendant of the LCCA) and working down to the target state(s). As states are exited, their [\<onexit\>](onexit.md) handlers are executed. Then the executable content in the transition is executed, followed by the [\<onentry\>](onentry.md) handlers of the states that are entered. If the target [state(s)](state.md) of the transition is not [atomic](state.md#atomic-state), the state machine will enter their [default initial states](state.md#default-initial-state) recursively until it reaches an [atomic state(s)](state.md#atomic-state).
+
+In the example below, assume that state `s11` is active when event `'e'` occurs. The source of the transition is state `s1`, its target is state `s21`, and the LCCA is state `S`. When the transition is taken, first state `S11` is exited, then state `s1`, then state `s2` is entered, then state `s21`. Note that the LCCA `S` is neither entered nor exited.
+
+![executeTransitions](../Images/transition%20-%20execute_order.gif)    
+
+## LCCA (The Least Common Compound Ancestor)
+LCCA (The Least Common Compound Ancestor) is the [\<state\>](state.md) or [\<scxml\>](scxml.md) element `S` such that `S` is a proper ancestor of all states on stateList and no descendant of `S` has this property. Note that there is guaranteed to be such an element since the [\<scxml\>](scxml.md) wrapper element is a common ancestor of all states. Note also that since we are speaking of proper ancestor (parent or parent of a parent, etc.) the LCCA is never a member of stateList.
+
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
 ### 1. Test 403
