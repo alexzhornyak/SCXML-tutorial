@@ -167,6 +167,40 @@ In a conformant SCXML document, a **\<data\>** element may have either a **'src'
 >
 >\[Log\] itemTable: "This is a string!"
 
+## The ECMAScript Data Model
+For each \<data\> element in the document, the SCXML Processor must create an ECMAScript variable object whose name is the value of the 'id' attribute of \<data\>. In cases where the 'src' attribute or in-line content is provided in the \<data\> element, then if an indication of the type of the content is available (e.g., via a Content-Type header), then the Processor should try to interpret the content according to that indication. Otherwise if the content (whether fetched or provided in-line) is JSON (and the Processor supports JSON), the SCXML Processor must create the corresponding ECMAScript object. Otherwise, if the content is a valid XML document, the Processor must create the corresponding DOM structure and assign it as the value of the variable. Otherwise the Processor must treat the content as a space-normalized string literal and assign it as the value of the variable. If no value is assigned, the SCXML Processor must assign the variable the default value ECMAScript undefined. Note that the assignment takes place at the time indicated by the ['binding'](scxml.md#3-attribute-binding) attribute on the [\<scxml\>](scxml.md) element.
+
+### WARNING! Be careful of assigning complex objects or functions via in-line content of data
+SCXML Platforms may pass [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp) but **they may use different variants of assigning in-line content**. <br/>
+Let's take a look at the example
+
+![ecmascript_data_assignment_dateobject](../Images/ecmascript_data_assignment_dateobject.png)
+```xml
+<scxml datamodel="ecmascript" name="TestDataInLine" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data id="varTest">new Date()</data>
+	</datamodel>
+	<final id="End">
+		<onentry>
+			<log expr="typeof varTest" label="varTest"/>
+		</onentry>
+	</final>
+</scxml>
+```
+
+#### Variant 1. Order of checks: is Empty -> JSON -> XML -> space-normalised string
+![ecmascript_data_assignment_1](../Images/ecmascript_data_assignment_1.png)
+
+For example: platforms [USCXML](https://github.com/tklab-tud/uscxml), [SCION](https://gitlab.com/scion-scxml) are using such algorithm and `varTest` will be assigned as **string**. <br/> Output: `[Log] varTest: "string"`
+
+#### Variant 2. Order of checks: is Empty -> EcmaScript -> JSON -> XML -> space-normalised string
+![ecmascript_data_assignment_2](../Images/ecmascript_data_assignment_2.png)
+
+For example: platforms [Qt](https://doc.qt.io/qt-5/qtscxml-index.html), [USCXMLClib](https://github.com/alexzhornyak/UscxmlCLib) are using such algorithm and `varTest` will be assigned as Date **object**. <br/>
+Output: `"varTest" : "object"`
+
+> NOTICE! If you want to be sure to have the same behaviour of data on every platform, assign complex data via [\<script\>](script.md) element
+
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
 ### [1. Test 276](https://www.w3.org/Voice/2013/scxml-irp/276/test276.txml)
