@@ -3,8 +3,17 @@
 | [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|
 
+# List of projects
+- SCXML Standard Compliance Tester for external applications **(TesterProcessW3C.pro)**
+- Qt SCXML Standard Compliance Tester **(TesterW3C.pro)**
+
+# [SCXML Standard Compliance Tester for external applications](../../../Tests/README.md)
+**TesterProcessW3C** - Qt widget-based application that is a wrapper for external applications that can execute [W3C SCXML tests](https://www.w3.org/Voice/2013/scxml-irp/)
+
+![TesterW3C_Process](../../../Images/TesterW3C_Process.png)
+
 # [Qt SCXML Standard Compliance Tester](../../../Tests/README.md)
-Qt widget-based application that executes [W3C SCXML tests](https://www.w3.org/Voice/2013/scxml-irp/) and custom tests in sequence, and is able to [build a report in Markdown format](../../../Tests/ecma/W3C/Mandatory/Auto/report__QtScxml_5_15_0___msvc2015_64bit__Win7_1.md)
+**TesterW3C** - Qt widget-based application that executes [W3C SCXML tests](https://www.w3.org/Voice/2013/scxml-irp/) and custom tests in sequence using [Qt SCXML Framework](https://doc.qt.io/qt-5/qtscxml-index.html), and is able to [build a report in Markdown format](../../../Tests/ecma/W3C/Mandatory/Auto/report__QtScxml_5_15_0___msvc2015_64bit__Win7_1.md)
 
 ![TesterChart](../../../Images/TesterW3C_StateChart.png)
 
