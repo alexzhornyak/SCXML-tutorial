@@ -1,10 +1,10 @@
-#include "qtestmainwindow.h"
+#include "processmainwindow.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QTestMainWindow w;
+    ProcessMainWindow w;
     w.show();
 
     return a.exec();

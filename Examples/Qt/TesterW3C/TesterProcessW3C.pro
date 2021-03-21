@@ -8,7 +8,7 @@ QT       += core gui xml scxml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = TesterW3C
+TARGET = TesterProcessW3C
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,14 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += ../Include
 
 SOURCES += \
-        main.cpp \
+        main_process.cpp \
         mainwindow.cpp \
-        qtestmainwindow.cpp
+        processmainwindow.cpp
 
 HEADERS += \
         ../Include/scxmlexternmonitor2.h \
         mainwindow.h \
-        qtestmainwindow.h
+        processmainwindow.h
 
 FORMS += \
         mainwindow.ui

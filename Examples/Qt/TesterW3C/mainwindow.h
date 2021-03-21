@@ -6,6 +6,7 @@
 #include <QTime>
 #include <QScxmlStateMachine>
 #include <QTimer>
+#include <QSettings>
 
 #include "machine.h"
 
@@ -24,6 +25,14 @@ public:
     ~MainWindow();
 
     void log(const QString &sMsg, const QtMsgType severity);
+
+protected:
+    ScxmlW3CTester *_appMachine = nullptr;
+    std::unique_ptr<QSettings> _settings;
+
+    virtual void processTest(const QString &fileName, const bool isSpecial) = 0;
+
+    virtual QString _ignoredListFileName(void) = 0;
 
 private slots:
     void on_btnStop_clicked();
@@ -73,9 +82,6 @@ private:
 
     QTime _elapsed;
 
-    std::unique_ptr<QScxmlStateMachine> _interpreter;
-
-    ScxmlW3CTester *_appMachine = nullptr;
     Scxmlmonitor::UDPScxmlExternMonitor *_monitor = nullptr;
 
     void startTest(const int index);

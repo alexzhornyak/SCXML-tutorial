@@ -161,16 +161,6 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     });
 
-    _appMachine->connectToState("testCancelled", [this](bool active) {
-        if (active) {
-            log("User cancelled!", QtWarningMsg);
-            if (_interpreter) {
-                _interpreter->stop();
-                _interpreter.reset();
-            }
-        }
-    });
-
     this->ui->labelTimeout->setVisible(false);
     _appMachine->connectToState("testIdle", [this](bool active) {
         this->ui->labelTimeout->setVisible(active);
@@ -206,9 +196,9 @@ MainWindow::MainWindow(QWidget *parent) :
     });
     QLoggingCategory::setFilterRules("qt.scxml.statemachine=true");
 
-    QSettings settings(QDir(QCoreApplication::applicationDirPath()).filePath("settings.ini"), QSettings::IniFormat);
-    ui->editDirectory->setText(settings.value("editDirectory.text").toString());
-    ui->checkMonitor->setChecked(settings.value("checkMonitor.checked", ui->checkMonitor->isChecked()).toBool());
+    _settings.reset(new QSettings(QDir(QCoreApplication::applicationDirPath()).filePath("settings.ini"), QSettings::IniFormat));
+    ui->editDirectory->setText(_settings->value("editDirectory.text").toString());
+    ui->checkMonitor->setChecked(_settings->value("checkMonitor.checked", ui->checkMonitor->isChecked()).toBool());
 
     if (ui->checkMonitor->isChecked())
         _monitor->setScxmlStateMachine(_appMachine);
@@ -220,11 +210,12 @@ MainWindow::~MainWindow()
 {
     g_MainWindow = nullptr;
 
-    QSettings settings(QDir(QCoreApplication::applicationDirPath()).filePath("settings.ini"), QSettings::IniFormat);
-    settings.setValue("editDirectory.text", QFileInfo::exists(ui->editDirectory->text()) ?
-                          ui->editDirectory->text() : QString(""));
-    settings.setValue("checkMonitor.checked", ui->checkMonitor->isChecked());
-    settings.sync();
+    if (_settings) {
+        _settings->setValue("editDirectory.text", QFileInfo::exists(ui->editDirectory->text()) ?
+                              ui->editDirectory->text() : QString(""));
+        _settings->setValue("checkMonitor.checked", ui->checkMonitor->isChecked());
+        _settings->sync();
+    }
 
     delete ui;
 }
@@ -242,51 +233,7 @@ void MainWindow::startTest(const int index)
 
         log("Starting " + item->text() + "...", QtDebugMsg);
 
-        if (item->data(testRolesSpecial).toBool()) {
-            _interpreter.reset();
-
-            this->_appMachine->submitEvent("Inp.Test.Skipped");
-        } else {
-            const QString sFileName = item->data(testRolesPath).toString();
-
-            _interpreter.reset(QScxmlStateMachine::fromFile(sFileName));
-
-            const auto errors = _interpreter->parseErrors();
-            if (errors.size()) {
-                for (const auto &it : errors) {
-                    log(it.toString(), QtCriticalMsg);
-                }
-            }
-
-            connect(_interpreter.get(), &QScxmlStateMachine::runningChanged, this, [=](bool running) {
-                if (running) {
-                    this->_appMachine->submitEvent("Inp.Test.Started");
-                }
-            });
-
-            connect(_interpreter.get(), &QScxmlStateMachine::finished, this, [=]() {
-                const bool pass = this->_interpreter->isActive("pass");
-
-                this->_appMachine->submitEvent(pass ? "Inp.Test.Passed" : "Inp.Test.Failed");
-            });
-
-            connect(_interpreter.get(), &QScxmlStateMachine::reachedStableState, this, [=]() {
-                this->_appMachine->submitEvent("Inp.Test.Stable");
-            });
-
-            /* state machine activity */
-            _interpreter->connectToEvent("*", [this](const QScxmlEvent &) {
-                if (this->_appMachine->isActive("stableConfiguration")) {
-                    this->_appMachine->submitEvent("Inp.Test.Active");
-                }
-            });
-
-            _interpreter->start();
-
-            if (!_interpreter->isRunning()) {
-                this->_appMachine->submitEvent("Inp.Test.Timeout");
-            }
-        }
+        processTest(item->data(testRolesPath).toString(), item->data(testRolesSpecial).toBool());
     }
 }
 
@@ -339,7 +286,7 @@ void MainWindow::setupDirectory()
         ui->editDirectory->setStyleSheet("color: black;");
 
         QStringList ignoredTest;
-        const QString fileIgnoredTest = dirW3C.filePath("_qt_ignored.ini");
+        const QString fileIgnoredTest = dirW3C.filePath(_ignoredListFileName());
 
         QFile file(fileIgnoredTest);
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
