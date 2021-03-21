@@ -387,13 +387,13 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
 <p>
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
 <scxml datamodel="ecmascript" initial="ready" name="ScxmlStopWatch" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
 	<datamodel><!--CONSTS-->
 		<data expr="100" id="i_UPDATE_DELAY_MS"/>
-		<data id="FormatTimeStr"><![CDATA[function (ms){// time(ms)
+	</datamodel><!--GLOBAL FUNCTIONS AND VARS-->
+	<script>function FormatTimeStr(ms){// time(ms)
     function pad(number) {
-      if (number < 10) {
+      if (number &lt; 10) {
         return '0' + number;
       }
       return number;
@@ -407,22 +407,22 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
     var milliseconds = time.getUTCMilliseconds()    
     
     var t = []
-    if (days > 1)
+    if (days &gt; 1)
         t.push(pad(days - 1) + 'T')
   
-    if (hours > 0 || t.length > 0)
+    if (hours &gt; 0 || t.length &gt; 0)
         t.push(pad(hours) + ':')
   
     t.push(pad(minutes) + ':')
     t.push(pad(seconds))
    
-    if (milliseconds > 0)
+    if (milliseconds &gt; 0)
         t.push('.' + (time.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5))
   
     return t.join('')
-}]]>
-		</data>
-		<data id="StopWatchClass">function() {
+}
+
+function StopWatchClass() {
     var timeMS = undefined
     var pauseTimeMS = undefined
     var pauseDurationMS = 0
@@ -454,11 +454,11 @@ SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create exter
             ((pauseTimeMS!==undefined ? pauseTimeMS : Date.now()) - timeMS - pauseDurationMS) : 0
     }
 }
-		</data><!--TEMP-->
-		<data expr="new StopWatchClass()" id="Timer"/>
-		<data expr="0" id="iLapElapsed"/>
-		<data expr="0" id="iLapCount"/>
-	</datamodel>
+
+var Timer = new StopWatchClass()
+var iLapCount = 0
+var iLapElapsed = 0
+	</script>
 	<state id="stopWatch" initial="ready">
 		<transition event="display">
 			<send event="out.display">
