@@ -8,6 +8,14 @@ Windows 7 Version 6.1 (Build 7601: SP 1) [winnt version 6.1.7601]
 [SCION command-line tool (version 1.0.37): allows you to visualize, lint, compile and
 interactively run SCXML files](https://gitlab.com/scion-scxml/cli)
 
+## Summary info
+- Elapsed: **00:01:50.777**
+- All **159** tests were completed!
+- Passed: **156**
+- Timeout: **0**
+- Failed: **3**
+- Total Failed: **3**
+
 <details><summary><b>Test passing log</b></summary>
 <p>
   
