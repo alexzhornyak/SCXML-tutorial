@@ -7,6 +7,15 @@ Windows 7 Version 6.1 (Build 7601: SP 1) [winnt version 6.1.7601]
 ## Tools
 [uscxml-browser: A standards compliant command-line interpreter of SCXML documents](https://github.com/tklab-tud/uscxml#on-the-command-line)
 
+## Summary info
+- Elapsed: **00:00:28.294**
+- All **159** tests were completed!
+- Passed: **159**
+- Manual or restricted: **0**
+- Timeout: **0**
+- Failed: **0**
+- Total Failed: **0**
+
 <details><summary><b>Test passing log</b></summary>
 <p>
   
