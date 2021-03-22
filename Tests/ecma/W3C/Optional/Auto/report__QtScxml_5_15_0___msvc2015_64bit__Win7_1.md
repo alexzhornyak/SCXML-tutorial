@@ -1,7 +1,115 @@
 # Qt SCXML [W3C Optional tests](https://www.w3.org/Voice/2013/scxml-irp/) passing results
 Qt 5.15.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by MSVC 2015) on "windows"
-OS: Windows 7 Version 6.1 (Build 7601: SP 1) [winnt version 6.1.7601]
+## OS
+Windows 7 Version 6.1 (Build 7601: SP 1) [winnt version 6.1.7601]
 
+## Summary info
+- Elapsed: **00:00:00.393**
+- All **33** tests were completed!
+- Passed: **17**
+- Timeout: **0**
+- Failed: **16**
+- Total Failed: **16**
+
+<details><summary><b>Test passing log</b></summary>
+<p>
+  
+```
+Starting test193.scxml...
+Test [test193.scxml] passed!
+Starting test201.scxml...
+DynamicStateMachine(0x29be870) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test201.scxml] failed!
+Starting test278.scxml...
+Test [test278.scxml] passed!
+Starting test444.scxml...
+Test [test444.scxml] passed!
+Starting test445.scxml...
+Test [test445.scxml] passed!
+Starting test446.scxml...
+Test [test446.scxml] passed!
+Starting test448.scxml...
+Test [test448.scxml] passed!
+Starting test449.scxml...
+Test [test449.scxml] passed!
+Starting test451.scxml...
+Test [test451.scxml] passed!
+Starting test452.scxml...
+DynamicStateMachine(0x29bee90) had error "error.execution" : "SyntaxError: Unexpected token `;' in assign instruction in state s0 with expr=\"new testobject();\""
+Test [test452.scxml] failed!
+Starting test453.scxml...
+Test [test453.scxml] passed!
+Starting test456.scxml...
+Test [test456.scxml] passed!
+Starting test457.scxml...
+DynamicStateMachine(0x29beb10) had error "error.execution" : "invalid array 'Var4' in foreach instruction in state s0"
+DynamicStateMachine(0x29beb10) had error "error.execution" : "invalid item ''continue'' in foreach instruction in state s1"
+Test [test457.scxml] passed!
+Starting test459.scxml...
+Test [test459.scxml] passed!
+Starting test460.scxml...
+Test [test460.scxml] passed!
+Starting test509.scxml...
+DynamicStateMachine(0x29beb10) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test509.scxml] failed!
+Starting test510.scxml...
+DynamicStateMachine(0x6a88f60) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test510.scxml] failed!
+Starting test518.scxml...
+DynamicStateMachine(0x6a89190) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test518.scxml] failed!
+Starting test519.scxml...
+DynamicStateMachine(0x29beb10) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test519.scxml] failed!
+Starting test520.scxml...
+DynamicStateMachine(0x29bea30) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test520.scxml] failed!
+Starting test522.scxml...
+DynamicStateMachine(0x6a89190) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test522.scxml] failed!
+Starting test531.scxml...
+DynamicStateMachine(0x29be870) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test531.scxml] failed!
+Starting test532.scxml...
+DynamicStateMachine(0x29bed40) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test532.scxml] failed!
+Starting test534.scxml...
+DynamicStateMachine(0x6a89190) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test534.scxml] failed!
+Starting test557.scxml...
+DynamicStateMachine(0x29bedb0, name = "ScxmlTest557") had error "error.execution" : "SyntaxError: Unexpected token `<' in data instruction in state (none) with expr=\"<books xmlns=\"\">\r\n     <book title=\"title1\"/>\r\n     <book title=\"title2\"/>\r\n   </books> \""
+DynamicStateMachine(0x29bedb0, name = "ScxmlTest557") had error "error.execution" : "TypeError: Cannot call method 'getElementsByTagName' of undefined in transition instruction in state s0 with cond=\"var1.getElementsByTagName('book')[0].getAttribute('title') == 'title1'\""
+Test [test557.scxml] failed!
+Starting test558.scxml...
+DynamicStateMachine(0x29beb10, name = "ScxmlTest558") had error "error.execution" : "SyntaxError: Expected token `,' in data instruction in state (none) with expr=\"\nthis  is \na string\n\t\t\""
+Test [test558.scxml] failed!
+Starting test560.scxml...
+Test [test560.scxml] passed!
+Starting test561.scxml...
+DynamicStateMachine(0x29bea30, name = "ScxmlTest561") had error "error.execution" : "TypeError: Property 'getElementsByTagName' of object  is not a function in transition instruction in state s0 with cond=\"_event.data.getElementsByTagName('book')[1].getAttribute('title') == 'title2'\""
+Test [test561.scxml] failed!
+Starting test562.scxml...
+Test [test562.scxml] passed!
+Starting test567.scxml...
+DynamicStateMachine(0x6a89270) had error "error.execution" : "TypeError: Cannot read property 'location' of undefined in send instruction in state s0 with targetexpr=\"_ioprocessors['basichttp']['location']\""
+Test [test567.scxml] failed!
+Starting test569.scxml...
+Test [test569.scxml] passed!
+Starting test577.scxml...
+DynamicStateMachine(0x29bee20) had error "error.execution" : "Error in send instruction in state s0: http://www.w3.org/TR/scxml/#BasicHTTPEventProcessor is not a valid type"
+Test [test577.scxml] failed!
+Starting test578.scxml...
+Test [test578.scxml] passed!
+Elapsed: 00:00:00.393
+All 33 tests were completed!
+Passed: 17
+Manual or restricted: 0
+Timeout: 0
+Failed: 16
+Total Failed: 16
+```
+
+</p></details>
 
 | Test | Result | Description |
 |---|---|---|
