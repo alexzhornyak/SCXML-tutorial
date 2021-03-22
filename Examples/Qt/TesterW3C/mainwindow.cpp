@@ -103,6 +103,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->btnStop->setEnabled(false);
     _appMachine->connectToState("testerStarted", [this](bool active){
         ui->btnStop->setEnabled(active);
+        if (active) {
+            _elapsedTimer.start();
+        } else {
+            _elapsed+=_elapsedTimer.elapsed();
+        }
     });
 
     ui->labelInfo->setText("");
@@ -114,6 +119,8 @@ MainWindow::MainWindow(QWidget *parent) :
             }
             ui->editLog->clear();
             ui->progressBar->setValue(0);
+
+            _elapsed = 0;
         }
     });
 
@@ -394,7 +401,7 @@ void MainWindow::printSummaryInfo()
     const int iNotPassed = iTimeout + iFailed;
 
     log("Elapsed: "  +
-        QTime::fromMSecsSinceStartOfDay(_elapsed.msecsTo(QTime::currentTime())).
+        QTime::fromMSecsSinceStartOfDay(_elapsed).
         toString("hh:mm:ss.zzz"), QtInfoMsg);
     log("All " + QString::number(iTotalCount) + " tests were completed!", QtInfoMsg);
     log("Passed: " + QString::number(iPassed), QtInfoMsg);

@@ -3401,7 +3401,7 @@ entering state pass
 Outcome pass
 
 Test [test580.scxml] passed!
-Elapsed: 00:00:00.000
+Elapsed: 00:01:50.777
 All 159 tests were completed!
 Passed: 156
 Manual or restricted: 0

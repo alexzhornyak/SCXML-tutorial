@@ -6,6 +6,7 @@
 #include <QTime>
 #include <QScxmlStateMachine>
 #include <QTimer>
+#include <QElapsedTimer>
 #include <QSettings>
 
 #include "machine.h"
@@ -80,7 +81,8 @@ private:
 
     QIcon _icon[tsMAXSIZE];
 
-    QTime _elapsed;
+    qint64 _elapsed;
+    QElapsedTimer _elapsedTimer;
 
     Scxmlmonitor::UDPScxmlExternMonitor *_monitor = nullptr;
 
