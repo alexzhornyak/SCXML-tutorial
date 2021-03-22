@@ -45,9 +45,17 @@ ProcessMainWindow::ProcessMainWindow(QWidget *parent /*= nullptr*/):MainWindow(p
         uiVertLayout->insertWidget(3,frame);
 
         if (_settings) {
-            _editProcess->setText(_settings->value("editProcess.text").toString());
-            _editArguments->setText(_settings->value("editArguments.text").toString());
-            _editPassRegex->setText(_settings->value("editPassRegex.text").toString());
+            const QString processPath = _settings->value("editProcess.text").toString();
+            if (!processPath.isEmpty())
+                _editProcess->setText(processPath);
+
+            const QString args = _settings->value("editArguments.text").toString();
+            if (!args.isEmpty())
+                _editArguments->setText(args);
+
+            const QString regex = _settings->value("editPassRegex.text").toString();
+            if (!regex.isEmpty())
+                _editPassRegex->setText(regex);
         }
 
         if (_appMachine) {
