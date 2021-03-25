@@ -29,7 +29,64 @@ Allows an SCXML application to iterate through a collection in the data model an
 </tbody>
 </table>
 
-## Example
+## Example (EcmaScript datamodel)
+![Foreach_Example](../Images/Foreach_Example.gif)
+<details><summary><b>Source code</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="ecmascript" name="ScxmlForeach" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data expr="[ 0, 0, 0 ]" id="t_INPUTS"/>
+	</datamodel>
+	<parallel id="p">
+		<state id="state_3">
+			<state id="state_3_on">
+				<transition cond="_event.data==1" event="event.2" target="state_3_off"/>
+			</state>
+			<state id="state_3_off">
+				<transition cond="! (_event.data==1)" event="event.2" target="state_3_on"/>
+			</state>
+		</state>
+		<state id="state_2">
+			<state id="state_2_on">
+				<transition cond="_event.data==1" event="event.1" target="state_2_off"/>
+			</state>
+			<state id="state_2_off">
+				<transition cond="! (_event.data==1)" event="event.1" target="state_2_on"/>
+			</state>
+		</state>
+		<state id="state_1">
+			<state id="state_1_on">
+				<transition cond="_event.data==1" event="event.0" target="state_1_off"/>
+			</state>
+			<state id="state_1_off">
+				<transition cond="! (_event.data==1)" event="event.0" target="state_1_on"/>
+			</state>
+		</state>
+		<state id="inputs">
+			<state id="configuration">
+				<onentry>
+					<foreach array="t_INPUTS" index="varIndex" item="varItem">
+						<send eventexpr="'event.' + varIndex">
+							<content expr="varItem"/>
+						</send>
+					</foreach>
+				</onentry>
+				<transition event="change.inputs" target="configuration">
+					<assign expr="_event.data.x" location="t_INPUTS[0]"/>
+					<assign expr="_event.data.y" location="t_INPUTS[1]"/>
+					<assign expr="_event.data.z" location="t_INPUTS[2]"/>
+				</transition>
+			</state>
+		</state>
+	</parallel>
+</scxml>
+```
+
+</p></details>
+
+## Example (Lua datamodel)
 ![foreach](https://user-images.githubusercontent.com/18611095/28258527-57452600-6ada-11e7-9102-8260dbaecb19.png)
 
 ```xml
