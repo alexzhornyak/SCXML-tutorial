@@ -28,7 +28,7 @@ The element is used to declare and populate portions of the data model.
 <data id="VarInt" expr="555"/>
 <data id="VarFloat" expr="777.777"/>
 <data id="VarString" expr="'this is a string'"/>
-<data id="VarFunction">function() { return 'hello from func' }</data>
+<data id="VarFunction" expr="function() { return 'hello from func' }"/>
 <data id="VarNull" expr="null"/>
 <data id="VarUndefined" expr="undefined"/>
 <data id="VarComplexObject" expr="new Date()"/>
