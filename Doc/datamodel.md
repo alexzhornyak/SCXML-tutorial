@@ -58,6 +58,23 @@ The element is used to declare and populate portions of the data model.
 The children of the **\<data\>** element represent an in-line specification of the value of the data object.
 In a conformant SCXML document, a **\<data\>** element may have either a **'src'** or an **'expr'** attribute, but must not have both. Furthermore, if either attribute is present, the element must not have any children. Thus **'src'**, **'expr'** and children are mutually exclusive in the **\<data\>** element.
 
+### WARNING! Some platforms ([Qt](https://doc.qt.io/qt-5/qtscxml-index.html), [USCXML](https://github.com/tklab-tud/uscxml)) can modify multiline expressions as space-normalized strings
+It means that if you are using a valid multiline expression that successfully runs in one platform like [SCION](https://gitlab.com/scion-scxml)
+```xml
+<datamodel>
+	<data expr="function() {
+    var s = 'isFunction'
+    return s
+}" id="funcExpr"/>
+</datamodel>
+```
+It can be automatically converted to a syntax-invalid single space-normalized string and fail on other platforms like [Qt](https://doc.qt.io/qt-5/qtscxml-index.html) or [USCXML](https://github.com/tklab-tud/uscxml). The reason is of different XML-parsers behaviour
+```xml
+<!-- multiline expression comes to state machine as single line -->
+<data expr="function() { var s = 'isFunction' return s }" id="funcExpr"/> 
+```
+> 1:SyntaxError: Unexpected keyword 'return'. Expected ';' after var declaration.
+
 ## Examples:
 ### 1. Different data types assigned by 'expr' attribute.
 ![datamodel](https://user-images.githubusercontent.com/18611095/28266363-137761c2-6afd-11e7-86bf-5ca42956d980.png)
