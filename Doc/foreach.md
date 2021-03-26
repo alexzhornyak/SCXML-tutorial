@@ -41,27 +41,27 @@ Allows an SCXML application to iterate through a collection in the data model an
 	</datamodel>
 	<parallel id="p">
 		<state id="state_3">
-			<state id="state_3_on">
-				<transition cond="_event.data==1" event="event.2" target="state_3_off"/>
-			</state>
 			<state id="state_3_off">
-				<transition cond="! (_event.data==1)" event="event.2" target="state_3_on"/>
+				<transition cond="_event.data==1" event="event.2" target="state_3_on"/>
+			</state>
+			<state id="state_3_on">
+				<transition cond="! (_event.data==1)" event="event.2" target="state_3_off"/>
 			</state>
 		</state>
 		<state id="state_2">
-			<state id="state_2_on">
-				<transition cond="_event.data==1" event="event.1" target="state_2_off"/>
-			</state>
 			<state id="state_2_off">
-				<transition cond="! (_event.data==1)" event="event.1" target="state_2_on"/>
+				<transition cond="_event.data==1" event="event.1" target="state_2_on"/>
+			</state>
+			<state id="state_2_on">
+				<transition cond="! (_event.data==1)" event="event.1" target="state_2_off"/>
 			</state>
 		</state>
 		<state id="state_1">
-			<state id="state_1_on">
-				<transition cond="_event.data==1" event="event.0" target="state_1_off"/>
-			</state>
 			<state id="state_1_off">
-				<transition cond="! (_event.data==1)" event="event.0" target="state_1_on"/>
+				<transition cond="_event.data==1" event="event.0" target="state_1_on"/>
+			</state>
+			<state id="state_1_on">
+				<transition cond="! (_event.data==1)" event="event.0" target="state_1_off"/>
 			</state>
 		</state>
 		<state id="inputs">
