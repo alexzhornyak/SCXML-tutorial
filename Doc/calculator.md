@@ -172,5 +172,8 @@ The example below shows the implementation of a simple calculator in SCXML.
 </scxml>
 ```
 
+## [Qt SCXML Calculator QML Example](https://doc.qt.io/qt-5/qtscxml-calculator-qml-example.html)
+![calculator_](https://raw.githubusercontent.com/alexzhornyak/ScxmlEditor-Tutorial/master/Images/CalculatorDebug.gif)
+
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|---|
