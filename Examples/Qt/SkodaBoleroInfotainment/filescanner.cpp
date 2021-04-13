@@ -85,7 +85,7 @@ void FileScanner::process()
     const bool loadSuccess = loadScanList(outPreset);
     if (loadSuccess) {
         QList<QUrl> outUrls;
-        for (const auto &it: outPreset) {
+        for (const auto &it: qAsConst(outPreset)) {
             outUrls << QUrl::fromLocalFile(it);
         }
         emit scanCompleted(_searchUrlDir, outUrls);

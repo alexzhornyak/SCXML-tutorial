@@ -31,6 +31,8 @@ public:
 
     Q_INVOKABLE QString urlExtractFileName(const QUrl &url);
 
+    Q_INVOKABLE bool urlSaveToFile(const QUrl &url, const QStringList &content);
+
     Q_INVOKABLE QUrl urlFindFirstFile(const QUrl &path, const QStringList &extensions);
 
     Q_INVOKABLE void scanDirAsync(const QUrl &url, const QStringList &extensions);

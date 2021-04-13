@@ -11,6 +11,10 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QCoreApplication::setOrganizationName("AlexZhornyak");
+    QCoreApplication::setOrganizationDomain("https://alexzhornyak.github.io/SCXML-tutorial/");
+    QCoreApplication::setApplicationName("Skoda Bolero Infotainment Simulator");
+
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<MaskedMouseArea>("MaskedMouseArea", 1, 0, "MaskedMouseArea");

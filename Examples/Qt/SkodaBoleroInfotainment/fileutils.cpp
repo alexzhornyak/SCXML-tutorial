@@ -4,6 +4,7 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QThread>
+#include <QTextStream>
 
 FileUtils::FileUtils(QObject *parent) : QObject(parent) {
 
@@ -41,6 +42,18 @@ QString FileUtils::urlExtractFileName(const QUrl &url) {
     return url.fileName();
 }
 
+bool FileUtils::urlSaveToFile(const QUrl &url, const QStringList &content) {
+    QFile file(url.toLocalFile());
+    if (file.open(QFile::WriteOnly | QFile::Truncate)) {
+        QTextStream out(&file);
+        for (const auto &it : content) {
+            out << it << "\n";
+        }
+        return true;
+    }
+    return false;
+}
+
 QUrl FileUtils::urlFindFirstFile(const QUrl &path, const QStringList &extensions) {
     const QString folder = path.toLocalFile();
     if (!folder.isEmpty()) {
@@ -74,8 +87,7 @@ void FileUtils::scanDirAsync(const QUrl &url, const QStringList &extensions) {
         connect(scanner, SIGNAL(finished()), thread, SLOT(quit()));
         connect(scanner, SIGNAL(finished()), scanner, SLOT(deleteLater()));
         connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
-        connect(scanner, SIGNAL(scanCompleted(const QUrl&, const QList<QUrl>&)),
-                this, SLOT(onScanCompleted(const QUrl&, const QList<QUrl>&)));
+        connect(scanner, &FileScanner::scanCompleted, this, &FileUtils::onScanCompleted);
 
         thread->start();
     }

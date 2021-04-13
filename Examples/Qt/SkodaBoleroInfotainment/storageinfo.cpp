@@ -20,7 +20,8 @@ bool StorageInfo::hasPath(const QUrl &url)
 QStringList StorageInfo::getMountedVolumes()
 {
     QStringList out;
-    for (auto it: QStorageInfo::mountedVolumes()) {
+    const auto mountVolumes = QStorageInfo::mountedVolumes();
+    for (const auto &it: mountVolumes) {
         out << it.rootPath();
     }
     return out;

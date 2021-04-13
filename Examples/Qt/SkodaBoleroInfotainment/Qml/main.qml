@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import Qt.labs.platform 1.0
+import QtQuick.Dialogs 1.3
 import ScxmlBolero 1.0
 import StorageInfo 1.0
 import FileUtils 1.0
@@ -53,6 +54,20 @@ ApplicationWindow {
         }
     }
 
+    FileDialog {
+        id: saveStatesDumpFileDialog
+
+        property var dumpText: []
+
+        nameFilters: ["Dump files (*.dump)", "All files (*)"]
+        onAccepted: {
+            if (fileUtils.urlSaveToFile(saveStatesDumpFileDialog.fileUrl, dumpText)) {
+                console.log("Successfully saved active states to", saveStatesDumpFileDialog.fileUrl)
+            }
+        }
+        selectExisting: false
+    }
+
     SystemTrayIcon {
         visible: true
         iconSource: "qrc:/Qml/Images/ImgCD_32.png"
@@ -92,6 +107,15 @@ ApplicationWindow {
                 onTriggered: {
                     scxmlExternMonitor.scxmlStateMachine = scxmlExternMonitor.scxmlStateMachine != null ?
                                 null : scxmlBolero
+                }
+            }
+
+            MenuItem {
+                visible: scxmlExternMonitor.scxmlStateMachine != null
+                text: "Dump States"
+                onTriggered: {
+                    saveStatesDumpFileDialog.dumpText = scxmlExternMonitor.dumpAllActiveStates()
+                    saveStatesDumpFileDialog.open()
                 }
             }
 
