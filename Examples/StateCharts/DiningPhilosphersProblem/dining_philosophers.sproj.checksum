@@ -1,0 +1,3 @@
+machine_dining_philosphers.scxml=0x24F73
+sub_dining_philosopher.scxml=0x25312
+_include_philosophers_only.scxml=0xF99E

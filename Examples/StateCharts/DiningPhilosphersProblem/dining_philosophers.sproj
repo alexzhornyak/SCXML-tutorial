@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf8"?>
+<scxmlproject>
+	<scxmlunit path="machine_dining_philosphers.scxml" scxmlname="ScxmlDiningPhilosophers" build_root="1" virtual_dependencies="_include_philosophers_only.scxml">
+		<scxmlunit path="sub_dining_philosopher.scxml" scxmlname="ScxmlPhilospher"/>
+		<scxmlunit path="_include_philosophers_only.scxml" scxmlname="Scxml_PhilosophersOnly" virtual="1"/>
+	</scxmlunit>
+</scxmlproject>
