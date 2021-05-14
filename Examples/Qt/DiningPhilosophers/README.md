@@ -17,6 +17,11 @@ Eating is not limited by the remaining amounts of spaghetti or stomach space; an
 
 The problem is how to design a discipline of behavior (a concurrent algorithm) such that no philosopher will starve; i.e., each can forever continue to alternate between eating and thinking, assuming that no philosopher can know when others may want to eat or think.
 
+![AppImg](../../../Images/DiningPhilosophers_Img.gif) 
+
+![mainMachine](../../../Images/machine_dining_philosphers.png) 
+
+![invokedMachine](../../../Images/sub_dining_philosopher.png) 
 
 | [TOP](#top-anchor) | [Contents](../../../README.md#table-of-contents) | [Overview](../../../README.md#scxml-overview) | [Examples](../../README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|---|
