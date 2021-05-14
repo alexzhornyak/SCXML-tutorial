@@ -19,6 +19,7 @@ The problem is how to design a discipline of behavior (a concurrent algorithm) s
 
 ![AppImg](../../../Images/DiningPhilosophers_Img.gif) 
 
+## SCXML Implementation
 ![mainMachine](../../../Images/machine_dining_philosphers.png) 
 
 ![invokedMachine](../../../Images/sub_dining_philosopher.png) 
