@@ -100,7 +100,7 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 [6. StopWatch](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
 
 [7. Infotainment Radio Bolero Simulator](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
-[![Preview](Examples/Qt/SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
+[![PreviewBolero](Examples/Qt/SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
 
 ### [Qt SCXML Examples](Examples/Qt/README.md)
 
@@ -280,6 +280,7 @@ Transitions between states are triggered by events and conditionalized via guard
 
 ## [Invoke](Doc/invoke.md)
 SCXML provides an element [**\<invoke\>**](Doc/invoke.md) which can create external services. For example: it can create instances of external state machines
+
 ![invoked_example](Images/simple_tasks_invoked_example.gif)
 
 ## [Traffic light example](https://github.com/alexzhornyak/UscxmlCLib/tree/master/Examples/BCB/TrafficLight)
@@ -620,6 +621,13 @@ iLapCount++
 ```
 
 </p></details>
+
+## [Dining Philosophers Problem example](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/DiningPhilosophers)
+[![PreviewPhil](Images/DiningPhilosophers_Img_Raw.gif)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/DiningPhilosophers)
+
+![PhilMachine](Images/machine_dining_philosphers.png)
+
+![PhilSubmachine](Images/sub_dining_philosopher.png) 
 
 ---
 
