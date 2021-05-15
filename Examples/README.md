@@ -48,6 +48,7 @@ This project is intended to test Qt QML SCXML module for designing in-vehicle in
 
 ### [Dining Philosophers Problem (Qt Widgets SCXML EcmaScript)](Qt/DiningPhilosophers)
 Resource hierarchy solution of dining philosophers problem intended to show usage of communication between invoked submachines.
+
 ![PhilProb](../Images/DiningPhilosophers_Img.gif)
 
 ### [Morse Code Trainer (Qt Widgets SCXML Null EcmaScript)](Qt/Morse)
