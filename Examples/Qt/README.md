@@ -5,6 +5,7 @@
 
 ## Table of contents
 - **[Infotainment Radio Bolero Simulator (Qt QML SCXML EcmaScript)](SkodaBoleroInfotainment)**
+- [Dining Philosophers Problem (Qt Widgets SCXML EcmaScript)](DiningPhilosophers)
 - [Morse Code Trainer (Qt Widgets SCXML Null EcmaScript)](Morse)
 - [Salus RT500 Simulator (Qt Widgets SCXML CPlusPlus)](https://github.com/alexzhornyak/Salus-RT500-Simulator)
 - [StopWatch (Qt QML SCXML EcmaScript)](StopWatch)
@@ -16,6 +17,11 @@
 This project is intended to test Qt QML SCXML module for designing in-vehicle infotainment systems
 
 ![BoleroPreview](SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)
+
+### [Dining Philosophers Problem (Qt Widgets SCXML EcmaScript)](Qt/DiningPhilosophers)
+Resource hierarchy solution of dining philosophers problem, intended to show usage of communication between invoked submachines.
+
+![PhilProb](../../Images/DiningPhilosophers_Img.gif)
 
 ## [Morse Code Trainer (Qt Widgets SCXML Null EcmaScript)](Morse)
 This example demonstrates different techniques of using SCXML data models in applications
