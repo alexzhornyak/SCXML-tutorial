@@ -11,6 +11,7 @@
 
 ## Qt SCXML Examples
 - **[Infotainment Radio Bolero Simulator (Qt QML SCXML EcmaScript)](Qt/SkodaBoleroInfotainment)**
+- [Dining Philosophers Problem (Qt Widgets SCXML EcmaScript)](Qt/DiningPhilosophers)
 - [Morse Code Trainer (Qt Widgets SCXML Null EcmaScript)](Qt/Morse)
 - [Salus RT500 Simulator (Qt Widgets SCXML CPlusPlus)](https://github.com/alexzhornyak/Salus-RT500-Simulator)
 - [StopWatch (Qt QML SCXML EcmaScript)](Qt/StopWatch)
@@ -40,12 +41,17 @@ The example below shows the implementation of a simple calculator in SCXML
 ![Calculator](https://user-images.githubusercontent.com/18611095/46285473-4774ec00-c584-11e8-9c0a-003b5998fd2e.png)
 
 ## Qt SCXML Examples
-### [Infotainment Radio Bolero Simulator (Qt QML SCXML EcmaScript)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/SkodaBoleroInfotainment)
+### [Infotainment Radio Bolero Simulator (Qt QML SCXML EcmaScript)](Qt/SkodaBoleroInfotainment)
 This project is intended to test Qt QML SCXML module for designing in-vehicle infotainment systems
 
 ![BoleroPreview](Qt/SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)
 
-### [Morse Code Trainer (Qt Widgets SCXML Null EcmaScript)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/Morse)
+### [Dining Philosophers Problem (Qt Widgets SCXML EcmaScript)](Qt/DiningPhilosophers)
+Resource hierarchy solution of dining philosophers problem intended to show usage of communication between invoked submachines.
+
+![PhilProb](../Images/DiningPhilosophers_Img.gif)
+
+### [Morse Code Trainer (Qt Widgets SCXML Null EcmaScript)](Qt/Morse)
 This example demonstrates different techniques of using SCXML data models in applications
 
 ![morse_widget](../Images/morse.gif)
@@ -55,7 +61,7 @@ This example demonstrates different techniques of using SCXML data models in app
 
 ![AppPreview](https://raw.githubusercontent.com/alexzhornyak/Salus-RT500-Simulator/master/Images/SalusPreview.gif)
 
-### [StopWatch (Qt QML SCXML EcmaScript)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/StopWatch)
+### [StopWatch (Qt QML SCXML EcmaScript)](Qt/StopWatch)
 Classical StopWatch with 2 buttons. All internal logic is written with SCXML EcmaScript Datamodel
 ![StopWatchPreview](../Images/StopWatchScxml.gif)
 

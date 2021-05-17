@@ -5,7 +5,6 @@
 #include <QSvgRenderer>
 #include <QGraphicsScene>
 #include <QMessageBox>
-#include "scxmlexternmonitor2.h"
 
 class CenteredTextItem: public QGraphicsSimpleTextItem {
     const QPointF _WH;

@@ -2,8 +2,10 @@
 <!--This document is generated automatically! Please, do not edit!-->
 <root>
 	<object Name="" ClassName="TProjectProperties">
-		<ProjectDefines/>
+		<ProjectDefines>QT</ProjectDefines>
 		<TestSettings>
+			<Enabled>true</Enabled>
+			<ExeName>.\QtScxmlTester\QtScxmlTester.exe</ExeName>
 			<WorkDir/>
 			<CMDParams/>
 			<CaptureOutputRegExps/>

@@ -229,6 +229,401 @@ A boolean flag indicating whether to forward events to the invoked process. Defa
 </state>
 ```
 
+## [Dining Philosophers Problem example](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/DiningPhilosophers)
+The example shows how to communicate between multiple invoked submachines
+[![PreviewPhil](../Images/DiningPhilosophers_Img_Raw.gif)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/DiningPhilosophers)
+
+![PhilMachine](../Images/machine_dining_philosphers.png)
+
+<details><summary><b>Source code - main.scxml</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="ecmascript" name="ScxmlDiningPhilosophers" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<parallel id="DiningPhilosophers">
+		<datamodel>
+			<data expr="{ 'take.1':0, 'take.2':0, 'take.3':0, 'take.4':0, 'take.5':0 }" id="t_INPUTS"/>
+			<data expr="[
+  [1,5], /* Philosopher 1 */
+  [2,1], /* Philosopher 2 */ 
+  [3,2], /* Philosopher 3 */
+  [4,3], /* Philosopher 4 */ 
+  [5,4]  /* Philosopher 5 */   
+]" id="t_HAND_COMPLIANCE"/>
+			<data expr="1000" id="i_DELAY_THINK_EAT"/>
+		</datamodel>
+		<transition event="take.*">
+			<script>t_INPUTS[_event.name] = _event.data</script>
+		</transition>
+		<transition event="taken.*">
+			<foreach array="t_HAND_COMPLIANCE" index="complianceIndex" item="complianceItem">
+				<foreach array="complianceItem" item="handItem">
+					<if cond="handItem==parseInt(_event.name.replace('taken.',''))">
+						<send eventexpr="_event.name" targetexpr="'#_ID_P_' + (complianceIndex + 1)">
+							<content expr="_event.data"/>
+						</send>
+					</if>
+				</foreach>
+			</foreach>
+		</transition>
+		<transition event="update.delay">
+			<foreach array="t_HAND_COMPLIANCE" index="nIndex" item="vItem">
+				<send eventexpr="_event.name" targetexpr="'#_ID_P_' + (nIndex + 1)">
+					<content expr="_event.data"/>
+				</send>
+			</foreach>
+		</transition>
+		<state id="Philosopher5" initial="P5_Thinking">
+			<invoke id="ID_P_5" src="sub_dining_philosopher.scxml">
+				<param expr="5" name="i_ID"/>
+				<param expr="t_HAND_COMPLIANCE" name="t_HAND_COMPLIANCE"/>
+				<param expr="i_DELAY_THINK_EAT" name="i_DELAY_THINK_EAT"/>
+			</invoke>
+			<state id="P5_Thinking">
+				<transition cond="! (_event.data==1)" event="think.5" target="P5_Hungry"/>
+			</state>
+			<state id="P5_Hungry">
+				<transition cond="_event.data==1" event="eat.5" target="P5_Eating"/>
+				<transition cond="_event.data==1" event="think.5" target="P5_Thinking"/>
+			</state>
+			<state id="P5_Eating">
+				<transition cond="! (_event.data==1)" event="eat.5" target="P5_Hungry"/>
+			</state>
+		</state>
+		<state id="Philosopher4" initial="P4_Thinking">
+			<invoke id="ID_P_4" src="sub_dining_philosopher.scxml">
+				<param expr="4" name="i_ID"/>
+				<param expr="t_HAND_COMPLIANCE" name="t_HAND_COMPLIANCE"/>
+				<param expr="i_DELAY_THINK_EAT" name="i_DELAY_THINK_EAT"/>
+			</invoke>
+			<state id="P4_Thinking">
+				<transition cond="! (_event.data==1)" event="think.4" target="P4_Hungry"/>
+			</state>
+			<state id="P4_Hungry">
+				<transition cond="_event.data==1" event="eat.4" target="P4_Eating"/>
+				<transition cond="_event.data==1" event="think.4" target="P4_Thinking"/>
+			</state>
+			<state id="P4_Eating">
+				<transition cond="! (_event.data==1)" event="eat.4" target="P4_Hungry"/>
+			</state>
+		</state>
+		<state id="Philosopher3" initial="P3_Thinking">
+			<invoke id="ID_P_3" src="sub_dining_philosopher.scxml">
+				<param expr="3" name="i_ID"/>
+				<param expr="t_HAND_COMPLIANCE" name="t_HAND_COMPLIANCE"/>
+				<param expr="i_DELAY_THINK_EAT" name="i_DELAY_THINK_EAT"/>
+			</invoke>
+			<state id="P3_Thinking">
+				<transition cond="! (_event.data==1)" event="think.3" target="P3_Hungry"/>
+			</state>
+			<state id="P3_Eating">
+				<transition cond="! (_event.data==1)" event="eat.3" target="P3_Hungry"/>
+			</state>
+			<state id="P3_Hungry">
+				<transition cond="_event.data==1" event="eat.3" target="P3_Eating"/>
+				<transition cond="_event.data==1" event="think.3" target="P3_Thinking"/>
+			</state>
+		</state>
+		<state id="Philosopher2" initial="P2_Thinking">
+			<invoke id="ID_P_2" src="sub_dining_philosopher.scxml">
+				<param expr="2" name="i_ID"/>
+				<param expr="t_HAND_COMPLIANCE" name="t_HAND_COMPLIANCE"/>
+				<param expr="i_DELAY_THINK_EAT" name="i_DELAY_THINK_EAT"/>
+			</invoke>
+			<state id="P2_Thinking">
+				<transition cond="! (_event.data==1)" event="think.2" target="P2_Hungry"/>
+			</state>
+			<state id="P2_Eating">
+				<transition cond="! (_event.data==1)" event="eat.2" target="P2_Hungry"/>
+			</state>
+			<state id="P2_Hungry">
+				<transition cond="_event.data==1" event="eat.2" target="P2_Eating"/>
+				<transition cond="_event.data==1" event="think.2" target="P2_Thinking"/>
+			</state>
+		</state>
+		<state id="Philosopher1" initial="P1_Thinking">
+			<invoke id="ID_P_1" src="sub_dining_philosopher.scxml">
+				<param expr="1" name="i_ID"/>
+				<param expr="t_HAND_COMPLIANCE" name="t_HAND_COMPLIANCE"/>
+				<param expr="i_DELAY_THINK_EAT" name="i_DELAY_THINK_EAT"/>
+			</invoke>
+			<state id="P1_Thinking">
+				<transition cond="! (_event.data==1)" event="think.1" target="P1_Hungry"/>
+			</state>
+			<state id="P1_Hungry">
+				<transition cond="_event.data==1" event="eat.1" target="P1_Eating"/>
+				<transition cond="_event.data==1" event="think.1" target="P1_Thinking"/>
+			</state>
+			<state id="P1_Eating">
+				<transition cond="! (_event.data==1)" event="eat.1" target="P1_Hungry"/>
+			</state>
+		</state>
+		<state id="Fork4" initial="Fork4_Down">
+			<state id="Fork4_Down">
+				<transition cond="! (t_INPUTS['take.4']==0)" target="Fork4_Up"/>
+			</state>
+			<state id="Fork4_Up">
+				<onentry>
+					<send event="taken.4">
+						<content expr="t_INPUTS['take.4']"/>
+					</send>
+				</onentry>
+				<onexit>
+					<send event="taken.4">
+						<content expr="0"/>
+					</send>
+				</onexit>
+				<transition cond="t_INPUTS['take.4']==0" target="Fork4_Down"/>
+			</state>
+		</state>
+		<state id="Fork5" initial="Fork5_Down">
+			<state id="Fork5_Down">
+				<transition cond="! (t_INPUTS['take.5']==0)" target="Fork5_Up"/>
+			</state>
+			<state id="Fork5_Up">
+				<onentry>
+					<send event="taken.5">
+						<content expr="t_INPUTS['take.5']"/>
+					</send>
+				</onentry>
+				<onexit>
+					<send event="taken.5">
+						<content expr="0"/>
+					</send>
+				</onexit>
+				<transition cond="t_INPUTS['take.5']==0" target="Fork5_Down"/>
+			</state>
+		</state>
+		<state id="Fork3" initial="Fork3_Down">
+			<state id="Fork3_Down">
+				<transition cond="! (t_INPUTS['take.3']==0)" target="Fork3_Up"/>
+			</state>
+			<state id="Fork3_Up">
+				<onentry>
+					<send event="taken.3">
+						<content expr="t_INPUTS['take.3']"/>
+					</send>
+				</onentry>
+				<onexit>
+					<send event="taken.3">
+						<content expr="0"/>
+					</send>
+				</onexit>
+				<transition cond="t_INPUTS['take.3']==0" target="Fork3_Down"/>
+			</state>
+		</state>
+		<state id="Fork2" initial="Fork2_Down">
+			<state id="Fork2_Down">
+				<transition cond="! (t_INPUTS['take.2']==0)" target="Fork2_Up"/>
+			</state>
+			<state id="Fork2_Up">
+				<onentry>
+					<send event="taken.2">
+						<content expr="t_INPUTS['take.2']"/>
+					</send>
+				</onentry>
+				<onexit>
+					<send event="taken.2">
+						<content expr="0"/>
+					</send>
+				</onexit>
+				<transition cond="t_INPUTS['take.2']==0" target="Fork2_Down"/>
+			</state>
+		</state>
+		<state id="Fork1" initial="Fork1_Down">
+			<state id="Fork1_Down">
+				<transition cond="! (t_INPUTS['take.1']==0)" target="Fork1_Up"/>
+			</state>
+			<state id="Fork1_Up">
+				<onentry>
+					<send event="taken.1">
+						<content expr="t_INPUTS['take.1']"/>
+					</send>
+				</onentry>
+				<onexit>
+					<send event="taken.1">
+						<content expr="0"/>
+					</send>
+				</onexit>
+				<transition cond="t_INPUTS['take.1']==0" target="Fork1_Down"/>
+			</state>
+		</state>
+	</parallel>
+</scxml>
+```
+
+</p></details>
+
+![PhilSubmachine](../Images/sub_dining_philosopher.png) 
+
+<details><summary><b>Source code - invoked.scxml</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="ecmascript" initial="Philospher" name="ScxmlPhilospher" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel><!--Passed from parent-->
+		<data expr="0" id="i_ID"/>
+		<data expr="0" id="i_ID_LEFT"/>
+		<data expr="0" id="i_ID_RIGHT"/>
+		<data expr="[
+  [1,5], /* Philosopher 1 */
+  [2,1], /* Philosopher 2 */ 
+  [3,2], /* Philosopher 3 */
+  [4,3], /* Philosopher 4 */ 
+  [5,4]  /* Philosopher 5 */   
+]" id="t_HAND_COMPLIANCE"/>
+		<data expr="1000" id="i_DELAY_THINK_EAT"/><!--Local-->
+		<data expr="{}" id="t_INPUTS"/>
+		<data expr="0" id="i_EAT_COUNT"/>
+	</datamodel>
+	<state id="Philospher" initial="Thinking">
+		<onentry>
+			<script>if (i_ID !== 0) {
+    i_ID_LEFT = t_HAND_COMPLIANCE[i_ID - 1][0]
+    i_ID_RIGHT = t_HAND_COMPLIANCE[i_ID - 1][1]
+}
+
+t_INPUTS['taken.' + i_ID_LEFT] = 0
+t_INPUTS['taken.' + i_ID_RIGHT] = 0
+			</script>
+		</onentry>
+		<transition cond="(_event.name == ('taken.' + i_ID_LEFT)) ||
+(_event.name == ('taken.' + i_ID_RIGHT))" event="taken.*">
+			<script>t_INPUTS[_event.name] = _event.data</script>
+			<send eventexpr="'do.' + _event.name"/>
+		</transition>
+		<transition event="error.*" target="FinalSub"/>
+		<transition event="update.delay">
+			<assign expr="_event.data" location="i_DELAY_THINK_EAT"/>
+		</transition>
+		<state id="Eating">
+			<onentry>
+				<send eventexpr="'eat.' + i_ID" target="#_parent">
+					<content expr="1"/>
+				</send>
+				<send delayexpr="i_DELAY_THINK_EAT + 'ms'" event="Do.Timer.Think" id="ID.Do.Timer.Think"/>
+				<assign expr="i_EAT_COUNT + 1" location="i_EAT_COUNT"/>
+				<log expr="'Philosopher: ' + i_ID + ' Count: ' + i_EAT_COUNT" label="EATING"/>
+			</onentry>
+			<onexit>
+				<send eventexpr="'eat.' + i_ID" target="#_parent">
+					<content expr="0"/>
+				</send>
+				<cancel sendid="ID.Do.Timer.Think"/>
+			</onexit>
+			<state id="RightTaken1">
+				<transition event="Do.Timer.Think" target="RequirePutLeft"/>
+			</state>
+			<state id="LeftTaken1">
+				<transition event="Do.Timer.Think" target="RequirePutRight"/>
+			</state>
+			<state id="LeftPut1">
+				<onentry>
+					<send eventexpr="'take.' + i_ID_LEFT" target="#_parent">
+						<content expr="0"/>
+					</send>
+				</onentry>
+				<state id="RequirePutRight">
+					<transition cond="t_INPUTS['taken.'+i_ID_LEFT]==0" target="PutLeftComplete"/>
+				</state>
+				<state id="PutRightComplete">
+					<transition cond="t_INPUTS['taken.'+i_ID_LEFT]==0" target="Thinking"/>
+				</state>
+			</state>
+			<state id="RightPut1">
+				<onentry>
+					<send eventexpr="'take.' + i_ID_RIGHT" target="#_parent">
+						<content expr="0"/>
+					</send>
+				</onentry>
+				<state id="RequirePutLeft">
+					<transition cond="t_INPUTS['taken.'+i_ID_RIGHT]==0" target="PutRightComplete"/>
+				</state>
+				<state id="PutLeftComplete">
+					<transition cond="t_INPUTS['taken.'+i_ID_RIGHT]==0" target="Thinking"/>
+				</state>
+			</state>
+		</state>
+		<state id="Thinking">
+			<onentry>
+				<send delayexpr="i_DELAY_THINK_EAT + 'ms'" event="Do.Timer.Hungry" id="ID.Do.Timer.Hungry"/>
+				<send eventexpr="'think.' + i_ID" target="#_parent">
+					<content expr="1"/>
+				</send>
+			</onentry>
+			<onexit>
+				<send eventexpr="'think.' + i_ID" target="#_parent">
+					<content expr="0"/>
+				</send>
+				<cancel sendid="ID.Do.Timer.Hungry"/>
+			</onexit>
+			<transition event="Do.Timer.Hungry" target="ProcessHungry"/>
+		</state>
+		<state id="ProcessHungry" initial="Hungry">
+			<state id="Hungry">
+				<transition cond="t_INPUTS['taken.'+i_ID_LEFT]==0" target="LeftWaiting"/>
+				<transition cond="t_INPUTS['taken.'+i_ID_RIGHT]==0" target="RightWaiting"/>
+			</state>
+			<state id="LeftWaiting">
+				<onentry>
+					<send eventexpr="'take.' + i_ID_LEFT" target="#_parent">
+						<content expr="i_ID"/>
+					</send>
+				</onentry>
+				<transition cond="_event.name=='do.taken.' + i_ID_LEFT" event="do.taken.*" target="LeftCheck"/>
+			</state>
+			<state id="RightWaiting">
+				<onentry>
+					<send eventexpr="'take.' + i_ID_RIGHT" target="#_parent">
+						<content expr="i_ID"/>
+					</send>
+				</onentry>
+				<transition cond="_event.name=='do.taken.' + i_ID_RIGHT" event="do.taken.*" target="RightCheck"/>
+			</state>
+			<state id="LeftCheck">
+				<transition cond="t_INPUTS['taken.'+i_ID_LEFT]==i_ID" target="LeftTaken"/>
+				<transition cond="t_INPUTS['taken.'+i_ID_RIGHT]==i_ID" target="RightPut"/>
+				<transition target="RightWaiting"/>
+			</state>
+			<state id="RightCheck">
+				<transition cond="t_INPUTS['taken.'+i_ID_RIGHT]==i_ID" target="RightTaken"/>
+				<transition cond="t_INPUTS['taken.'+i_ID_LEFT]==i_ID" target="LeftPut"/>
+				<transition target="LeftWaiting"/>
+			</state>
+			<state id="LeftTaken">
+				<transition cond="t_INPUTS['taken.'+i_ID_RIGHT]==i_ID" target="RightTaken1"/>
+				<transition cond="t_INPUTS['taken.'+i_ID_RIGHT]==0" target="RightWaiting"/>
+				<transition target="LeftPut"/>
+			</state>
+			<state id="LeftPut">
+				<onentry>
+					<send eventexpr="'take.' + i_ID_LEFT" target="#_parent">
+						<content expr="0"/>
+					</send>
+				</onentry>
+				<transition cond="t_INPUTS['taken.'+i_ID_LEFT]==0" target="Hungry"/>
+			</state>
+			<state id="RightTaken">
+				<transition cond="t_INPUTS['taken.'+i_ID_LEFT]==i_ID" target="LeftTaken1"/>
+				<transition cond="t_INPUTS['taken.'+i_ID_LEFT]==0" target="LeftWaiting"/>
+				<transition target="RightPut"/>
+			</state>
+			<state id="RightPut">
+				<onentry>
+					<send eventexpr="'take.' + i_ID_RIGHT" target="#_parent">
+						<content expr="0"/>
+					</send>
+				</onentry>
+				<transition cond="t_INPUTS['taken.'+i_ID_RIGHT]==0" target="Hungry"/>
+			</state>
+		</state>
+	</state>
+	<final id="FinalSub"/>
+</scxml>
+```
+
+</p></details>
+
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
 Number|Name and link|Source|
