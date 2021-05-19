@@ -43,5 +43,7 @@ private:
     std::vector<QGraphicsSimpleTextItem*> _vecPhilosophersLabel{n_PHILOSOPHERS_COUNT,nullptr};
 
     QScxmlStateMachine *_machine = nullptr;
+
+    void createMonitorManager(void);
 };
 #endif // MAINWINDOW_H

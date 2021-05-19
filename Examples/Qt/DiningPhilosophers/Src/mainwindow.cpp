@@ -5,7 +5,13 @@
 #include <QSvgRenderer>
 #include <QGraphicsScene>
 #include <QMessageBox>
+#include <QMenu>
+#include <QFileDialog>
+#include <QSystemTrayIcon>
 
+#include "scxmlexternmonitor2.h"
+
+/* CenteredTextItem */
 class CenteredTextItem: public QGraphicsSimpleTextItem {
     const QPointF _WH;
 
@@ -32,6 +38,7 @@ public:
     std::size_t counter() const { return _counter; }
 };
 
+/* MainWindow */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -45,6 +52,8 @@ MainWindow::MainWindow(QWidget *parent)
                                                 + scxmlErrors[0].description());
         exit(EXIT_FAILURE);
     }
+
+    createMonitorManager();
 
     auto svgRenderer = new QSvgRenderer(QLatin1String(":/dininig_philosophers.svg"), ui->centralwidget);
 
@@ -241,4 +250,51 @@ void MainWindow::on_spinDelay_valueChanged(int arg1)
     if (_machine) {
         _machine->submitEvent("update.delay", arg1);
     }
+}
+
+void MainWindow::createMonitorManager()
+{
+    Scxmlmonitor::UDPScxmlExternMonitor *_monitor = new Scxmlmonitor::UDPScxmlExternMonitor(_machine);
+
+    auto actEnableMonitor = new QAction("Enable Monitor", this);
+    actEnableMonitor->setCheckable(true);
+
+    auto actDumpActiveStates = new QAction("Dump Active States", this);
+    actDumpActiveStates->setVisible(false);
+
+    connect(actEnableMonitor, &QAction::triggered, this,
+            [this, _monitor, actEnableMonitor, actDumpActiveStates](){
+
+        _monitor->setScxmlStateMachine(_monitor->scxmlStateMachine() ? nullptr : this->_machine );
+
+        const bool monitorEnabled = _monitor->scxmlStateMachine()!=nullptr;
+        actEnableMonitor->setChecked(monitorEnabled);
+        actDumpActiveStates->setVisible(monitorEnabled);
+    });
+
+    connect(actDumpActiveStates, &QAction::triggered, this, [this, _monitor](){
+        const QStringList dumpList = _monitor->dumpAllActiveStates();
+
+        const QString dumpFile = QFileDialog::getSaveFileName(this, "Save Scxml Dump Dile", QString(),
+                                     "Scxml Dump Files (*.dump)");
+
+        QFile file(dumpFile);
+        if (file.open(QFile::WriteOnly | QFile::Truncate)) {
+            QTextStream out(&file);
+            for (const auto &it : dumpList) {
+                out << it << "\n";
+            }
+
+            QMessageBox::information(this, "INFO", QString("Successfully saved dump:[%1]!").arg(dumpFile));
+        }
+    });
+
+    auto trayIconMenu = new QMenu(this);
+    trayIconMenu->addAction(actEnableMonitor);
+    trayIconMenu->addAction(actDumpActiveStates);
+
+    auto trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setIcon(QIcon(":/dininig_philosophers.svg"));
+    trayIcon->setContextMenu(trayIconMenu);
+    trayIcon->show();
 }

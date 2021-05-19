@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Dining philosophers problem app (by Alex Zhornyak)</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/dininig_philosophers.svg</normaloff>:/dininig_philosophers.svg</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -73,6 +77,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>
