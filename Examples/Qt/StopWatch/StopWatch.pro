@@ -1,4 +1,4 @@
-QT += quick scxml xml network
+QT += quick scxml xml network svg
 
 CONFIG += c++11
 
@@ -34,4 +34,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 INCLUDEPATH += ../Include
 
 HEADERS += \
-    ../Include/scxmlexternmonitor2.h
+    ../Include/scxmlexternmonitor2.h \
+    ../Include/scxmlsvgitem.h \
+    ../Include/scxmlsvgqmlitem.h

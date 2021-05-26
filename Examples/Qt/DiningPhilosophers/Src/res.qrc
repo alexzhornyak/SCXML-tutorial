@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>dininig_philosophers.svg</file>
-        <file>machine_dining_philosphers.flat.scxml</file>
-    </qresource>
-</RCC>

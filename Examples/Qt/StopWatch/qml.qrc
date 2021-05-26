@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>StopWatch.svg</file>
+        <file>../Include/ScxmlSvgMonitorWindow.qml</file>
     </qresource>
 </RCC>

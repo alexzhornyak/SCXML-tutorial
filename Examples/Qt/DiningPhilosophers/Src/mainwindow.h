@@ -15,6 +15,10 @@ class CenteredTextItem;
 
 const std::size_t n_PHILOSOPHERS_COUNT = 5;
 
+namespace Scxmlmonitor {
+    class ScxmlSvgView;
+}
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -22,6 +26,10 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
+
+protected:
+
+    virtual void closeEvent(QCloseEvent * event) override;
 
 private slots:
     void on_btnStart_clicked();
@@ -43,6 +51,9 @@ private:
     std::vector<QGraphicsSimpleTextItem*> _vecPhilosophersLabel{n_PHILOSOPHERS_COUNT,nullptr};
 
     QScxmlStateMachine *_machine = nullptr;
+
+    Scxmlmonitor::ScxmlSvgView *_svgTopMonitor = nullptr;
+    Scxmlmonitor::ScxmlSvgView *_svgSubMonitor = nullptr;
 
     void createMonitorManager(void);
 };

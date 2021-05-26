@@ -3,8 +3,9 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Window 2.2
 import ScxmlStopWatch 1.0
-import UDPScxmlExternMonitor 1.0
 import QtScxml 5.8
+
+import "qrc:/../Include"
 
 Window {
     id: window
@@ -17,33 +18,7 @@ Window {
          if (number < 10) {
            return '0' + number;
          }
-         return number;
-    }
-
-    UDPScxmlExternMonitor {
-        id: scxmlExternMonitor
-        scxmlStateMachine: null
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        acceptedButtons: Qt.RightButton
-        onClicked: {
-            if (mouse.button === Qt.RightButton)
-                contextMenu.popup()
-        }
-
-        Menu {
-            id: contextMenu
-            MenuItem {
-                text: "Extern Monitor"
-                checked: scxmlExternMonitor.scxmlStateMachine !== null
-                onClicked: scxmlExternMonitor.scxmlStateMachine =
-                           scxmlExternMonitor.scxmlStateMachine ? null :
-                                                                  machine
-
-            }
-        }
+         return number;     
     }
 
     ScxmlStopWatch {
@@ -57,6 +32,7 @@ Window {
                 "i_UPDATE_DELAY_MS" : 100 /* you may change interval here and
                                              it will be applied to state machine  */
             }
+
             machine.running = true
         }
     }
@@ -104,6 +80,33 @@ Window {
         }
     }
 
+    Loader {    /* OPTIONAL SVG MONITOR */
+        id: svgMonitorLoader
+
+        Component {
+            id: svgMonitorComponent
+
+            ScxmlSvgMonitorWindow {
+                id: svgMonitorWindow
+
+                visible: true
+
+                x: svgMonitorLoader.x
+
+                width: 620
+                height: 960
+
+                svgMonitor.svgUrl: "qrc:/StopWatch.svg"
+
+                Component.onCompleted: {
+                    svgMonitor.scxmlStateMachine = machine
+                }
+
+                onVisibleChanged: if (!visible) { svgMonitorLoader.sourceComponent = null }
+            }
+        }
+    }
+
     Item {
         id: timeItem
 
@@ -111,6 +114,30 @@ Window {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: listView.visible ? listView.top : bottomPanel.top
+
+        CheckBox {    /* OPTIONAL SVG MONITOR */
+            id: checkMonitor
+
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.margins: 10
+
+            text: qsTr("Monitor")
+
+            checkable: false
+            checked: svgMonitorLoader.status === Loader.Ready
+
+            onClicked: {
+
+                var notmonitored = svgMonitorLoader.sourceComponent === null
+                if (notmonitored) {
+                    svgMonitorLoader.x = window.x + window.width + 20
+                }
+
+                svgMonitorLoader.sourceComponent = notmonitored ?
+                       svgMonitorComponent : null
+            }
+        }
 
         Text {
             id: textTime

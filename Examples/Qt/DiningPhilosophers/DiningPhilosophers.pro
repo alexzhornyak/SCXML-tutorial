@@ -16,6 +16,8 @@ SOURCES += \
 
 HEADERS += \
     ../Include/scxmlexternmonitor2.h \
+    ../Include/scxmlsvgitem.h \
+    ../Include/scxmlsvgview.h \
     Src/mainwindow.h
 
 FORMS += \
@@ -27,7 +29,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    Src/res.qrc
+    res.qrc
 
 STATECHARTS += \
     Src/machine_dining_philosphers.flat.scxml
