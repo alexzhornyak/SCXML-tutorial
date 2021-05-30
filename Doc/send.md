@@ -85,7 +85,7 @@ The unique identifier of the message target that the platform should send the ev
 ```
 
 #### Example showing usage of `#_parent` and `#_scxml_`
-Parent machine invokes child machine that sends event to parent. Event contains event origin which is equialent `#_scxml_` + `sessionid` and parent machine uses it respond
+Parent machine invokes child machine that sends event to parent. Event contains event origin which is equialent `#_scxml_` + `sessionid` and parent machine uses it to respond
 
 ![EventOrigin](../Images/Invoke_EventOrigin.gif)
 
