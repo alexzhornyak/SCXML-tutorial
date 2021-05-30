@@ -83,6 +83,55 @@ The unique identifier of the message target that the platform should send the ev
 	</onentry>
 </state>
 ```
+
+#### Example showing usage of `#_parent` and `#_scxml_`
+Parent machine invokes child machine that sends event to parent. Event contains event origin which is equialent `#_scxml_` + `sessionid` and parent machine uses it respond
+![EventOrigin](../Images/Invoke_EventOrigin.gif)
+
+<details><summary><b>Source code - parent</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="ecmascript" initial="s1" name="ScxmlParent" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="s1">
+		<invoke id="ID_SUB" src="subChild.scxml"/>
+		<onentry>
+			<send delay="1s" event="timeout" id="ID.timeout"/>
+		</onentry>
+		<onexit>
+			<cancel sendid="ID.timeout"/>
+		</onexit>
+		<transition event="register">
+			<log expr="_event.origin" label="Source origin"/>
+			<send event="parent.confirm" targetexpr="_event.origin"/>
+		</transition>
+		<transition event="done.invoke.ID_SUB" target="pass"/>
+		<transition event="timeout" target="fail"/>
+	</state>
+	<final id="pass"/>
+	<final id="fail"/>
+</scxml>
+```
+
+</p></details>
+
+<details><summary><b>Source code - child</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="ecmascript" initial="Register" name="ScxmlChild" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<state id="Register">
+		<onentry>
+			<send event="register" target="#_parent"/>
+		</onentry>
+		<transition event="parent.confirm" target="quit"/>
+	</state>
+	<final id="quit"/>
+</scxml>
+```
+
+</p></details>
+
 ### 4. 'targetexpr'
 A dynamic alternative to 'target'. If this attribute is present, the SCXML Processor must evaluate it when the parent \<send\> element is evaluated and treat the result as if it had been entered as the value of 'target'. Must not occur with 'target'.
 ### 5. 'type'
