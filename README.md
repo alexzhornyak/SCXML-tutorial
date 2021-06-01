@@ -110,6 +110,15 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 ## [W3C Examples](Doc/W3C.md#w3c-examples)
 ## [W3C IRP tests](Doc/W3C.md#w3c-irp-tests)
 
+## Donations
+When we started the project in 2016 there were no SCXML illustrations, no simple explanation of SCXML details, no good examples. We felt the power of SCXML but understood that without [simple explanations](#scxml-overview), [illustrative examples](Examples/README.md) and [convinient modelling tools](https://github.com/alexzhornyak/ScxmlEditor-Tutorial) it's worth nothing.
+
+If you are interested in the development of SCXML tutorials and examples we would be highly appreciated for any help.
+
+| Paypal |
+| ------ |
+| [![PaypalBtn](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?business=XRF8TTUJFNCXA&item_name=Development+of+SCXML+State+Machines+and+ScxmlEditor&currency_code=USD) |
+
 # SCXML Overview
 
 ## Basic State Machine Notation
