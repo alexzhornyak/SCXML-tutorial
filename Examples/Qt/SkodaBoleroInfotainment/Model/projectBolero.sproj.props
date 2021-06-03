@@ -9,6 +9,7 @@
 			<WorkDir/>
 			<CMDParams/>
 			<ScxmlMonitorLog>true</ScxmlMonitorLog>
+			<CaptureOutputRegExps/>
 		</TestSettings>
 		<Triggers/>
 		<ProjectPostBuild>
