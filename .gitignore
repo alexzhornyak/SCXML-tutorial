@@ -8,6 +8,9 @@
 *.sln.docstates
 *.log
 
+#vscode
+*.vscode
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -21,3 +24,4 @@ x86/
 
 # Qt Build
 *_Qt_*_MSVC*_*bit*
+build-*

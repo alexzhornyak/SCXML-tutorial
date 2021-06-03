@@ -310,8 +310,10 @@ void MainWindow::createMonitorManager()
             _svgTopMonitor = nullptr;
         } else {
             _svgTopMonitor = new Scxmlmonitor::ScxmlSvgView(_machine, ":/Images/machine_dining_philosphers.svg");
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0) /* QWidget::screen() was introduced in Qt 5.14 */
             const QSize availableSize = this->screen()->availableGeometry().size();
             _svgTopMonitor->resize(_svgTopMonitor->sizeHint().expandedTo(availableSize / 4) + QSize(80, 80 + menuBar()->height()));
+#endif
             _svgTopMonitor->show();
         }
 
@@ -326,8 +328,10 @@ void MainWindow::createMonitorManager()
             _svgSubMonitor = nullptr;
         } else {
             _svgSubMonitor = new Scxmlmonitor::ScxmlSvgView(_machine, ":/Images/sub_dining_philosphers.svg", "ScxmlPhilospher", "ID_P_1");
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0) /* QWidget::screen() was introduced in Qt 5.14 */
             const QSize availableSize = this->screen()->availableGeometry().size();
             _svgSubMonitor->resize(_svgSubMonitor->sizeHint().expandedTo(availableSize / 4) + QSize(80, 80 + menuBar()->height()));
+#endif
             _svgSubMonitor->show();
         }
 

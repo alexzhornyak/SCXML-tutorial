@@ -1,5 +1,5 @@
 import QtQuick 2.8
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.0
 import QtQuick.Window 2.2
 import ScxmlStopWatch 1.0
@@ -177,9 +177,17 @@ Window {
         height: 40
 
         Button {            
-            text: machine.ready ? qsTr("Start") : machine.active ? qsTr("Pause") : qsTr("Resume")
+            id: btn1
 
-            palette.buttonText: machine.ready ? "black" : machine.active ? "red" : "green"
+            contentItem: Text {
+                text: btn1.text
+                font: btn1.font
+                color: machine.ready ? "black" : machine.active ? "red" : "green"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            text: machine.ready ? qsTr("Start") : machine.active ? qsTr("Pause") : qsTr("Resume")
 
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -187,10 +195,18 @@ Window {
             onPressed: machine.submitEvent("button.1")
         }
 
-        Button {            
-            text: machine.active ? qsTr("Lap") : qsTr("Reset")
+        Button {
+            id: btn2
 
-            palette.buttonText: "blue"
+            contentItem: Text {
+                text: btn2.text
+                font: btn2.font
+                color: machine.active ? "purple" : "blue"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            text: machine.active ? qsTr("Lap") : qsTr("Reset")
 
             Layout.fillWidth: true
             Layout.fillHeight: true
