@@ -70,6 +70,8 @@ private:
         case tsSuccess: return "Pass";
         case tsManual: return "Manual";
         case tsTimeout: return "Timeout";
+        default:
+            break;
         }
         return "Fail";
     }
