@@ -261,5 +261,18 @@ If the 'src' attribute is present, the Platform MUST fetch the specified object 
 
 `1`
 
+### [8. Test 557](https://www.w3.org/Voice/2013/scxml-irp/557/test557.txml)
+in the ECMA data model, test that if the child of \<data\> is XML, or if XML is loaded via 'src', the processor assigns it as the value of the var
+
+![test557](../Images/test557.png)
+
+**test557.txt**
+```xml
+<books xmlns="">
+    <book title="title1"/>
+    <book title="title2"/>
+</books>
+```
+
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|---|
