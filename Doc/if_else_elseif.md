@@ -29,6 +29,43 @@ Empty element that partitions the content of an **\<if\>**, and provides a condi
 </if>
 ```
 
+![Example_If_Else](../Images/Example_If_Else.gif)
+
+<details><summary><b>Source code</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="ecmascript" name="Scxml_If_Else" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data expr="0" id="VarMode"/>
+	</datamodel>
+	<state id="Mode">
+		<transition cond="_event.data != VarMode" event="Change.Mode" target="Mode">
+			<assign expr="_event.data" location="VarMode"/>
+		</transition>
+		<state id="Mode_Check">
+			<onentry>
+				<if cond="VarMode == 1">
+					<raise event="Set.Mode.1"/>
+					<elseif cond="VarMode == 2"/>
+					<raise event="Set.Mode.2"/>
+					<else/>
+					<raise event="Set.Mode.0"/>
+				</if>
+			</onentry>
+			<transition event="Set.Mode.0" target="Mode_0"/>
+			<transition event="Set.Mode.1" target="Mode_1"/>
+			<transition event="Set.Mode.2" target="Mode_2"/>
+		</state>
+		<state id="Mode_0"/>
+		<state id="Mode_1"/>
+		<state id="Mode_2"/>
+	</state>
+</scxml>
+```
+
+</p></details>
+
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
 ### [1. Test 147](https://www.w3.org/Voice/2013/scxml-irp/147/test147.txml)
