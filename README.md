@@ -24,59 +24,37 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 ```
 
 ## Table of contents
-[1. \<scxml\>](Doc/scxml.md)
-
-[2. \<state\>](Doc/state.md)
-
-[3. \<parallel\>](Doc/parallel.md)
-
-[4. \<transition\>](Doc/transition.md)
-
-[5. \<initial\>](Doc/Introduction.md#initial-state)
-
-[6. \<final\>](Doc/final.md)
-
-[7. \<onentry\>](Doc/onentry.md)
-
-[8. \<onexit\>](Doc/onexit.md)
-
-[9. \<history\>](Doc/history.md)
-
-[10. \<raise\>](Doc/raise.md)
-
-[11. \<if\>](Doc/if_else_elseif.md#if)
-
-[12. \<else\>](Doc/if_else_elseif.md#else)
-
-[13. \<elseif\>](Doc/if_else_elseif.md#elseif)
-
-[14. \<foreach\>](Doc/foreach.md)
-
-[15. \<log\>](Doc/log.md)
-
-[16. \<datamodel\>](Doc/datamodel.md)
-
-[17. \<data\>](Doc/datamodel.md#data)
-
-[18. \<assign\>](Doc/assign.md)
-
-[19. \<donedata\>](Doc/donedata.md)
-
-[20. \<content\>](Doc/content.md)
-
-[21. \<param\>](Doc/param.md)
-
-[22. \<script\>](Doc/script.md)
-
-[23. \<send\>](Doc/send.md)
-
-[24. \<cancel\>](Doc/cancel.md)
-
-[25. \<invoke\>](Doc/invoke.md)
-
-[26. \<finalize\>](Doc/finalize.md)
-
-[27. Basic HTTP Event I/O Processor](Doc/BasicHTTPEventIO.md)
+* **Core Constructs**
+	- [\<scxml\>](Doc/scxml.md)
+	- [\<state\>](Doc/state.md)
+	- [\<parallel\>](Doc/parallel.md)	
+	- [\<initial\>](Doc/Introduction.md#initial-state)
+	- [\<final\>](Doc/final.md)	
+	- [\<transition\>](Doc/transition.md)
+	- [\<onentry\>](Doc/onentry.md)
+	- [\<onexit\>](Doc/onexit.md)
+	- [\<history\>](Doc/history.md)
+* **Executable Content**
+	- [\<raise\>](Doc/raise.md)
+	- [\<if\>](Doc/if_else_elseif.md#if)
+	- [\<else\>](Doc/if_else_elseif.md#else)
+	- [\<elseif\>](Doc/if_else_elseif.md#elseif)
+	- [\<foreach\>](Doc/foreach.md)
+	- [\<log\>](Doc/log.md)
+* **Data Model and Data Manipulation**
+	- [\<datamodel\>](Doc/datamodel.md)
+	- [\<data\>](Doc/datamodel.md#data)
+	- [\<assign\>](Doc/assign.md)
+	- [\<donedata\>](Doc/donedata.md)
+	- [\<content\>](Doc/content.md)
+	- [\<param\>](Doc/param.md)
+	- [\<script\>](Doc/script.md)
+* **External Communications**
+	- [\<send\>](Doc/send.md)
+	- [\<cancel\>](Doc/cancel.md)
+	- [\<invoke\>](Doc/invoke.md)
+	- [\<finalize\>](Doc/finalize.md)
+	- [Basic HTTP Event I/O Processor](Doc/BasicHTTPEventIO.md)
 
 ## [SCXML Frameworks W3C Standard Specification Compliance](Tests/README.md)
 
