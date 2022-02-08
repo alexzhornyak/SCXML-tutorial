@@ -295,7 +295,7 @@ void MainWindow::createMonitorManager()
     connect(actEnableMonitor, &QAction::triggered, this,
             [this, _monitor, actEnableMonitor, actDumpActiveStates](){
 
-        _monitor->setScxmlStateMachine(_monitor->scxmlStateMachine() ? nullptr : this->_machine );
+        _monitor->setScxmlStateMachineWithSessionID(_monitor->scxmlStateMachine() ? nullptr : this->_machine );
 
         const bool monitorEnabled = _monitor->scxmlStateMachine()!=nullptr;
         actEnableMonitor->setChecked(monitorEnabled);
