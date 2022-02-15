@@ -33,6 +33,47 @@ The element represents a state whose children are executed in parallel. Children
 	</parallel>
 </scxml>
 ```
+
+---
+
+![parallel_button_demo](../Images/parallel_button_demo.gif)
+
+<details><summary><b>Source code</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="ecmascript" name="ScxmlParallel" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<parallel id="ButtonActivity">
+		<state id="Button">
+			<state id="BtnOff">
+				<transition cond="_event.data == 1" event="click" target="BtnOn"/>
+			</state>
+			<state id="BtnOn">
+				<onexit>
+					<raise event="on.released"/>
+				</onexit>
+				<transition cond="! (_event.data == 1)" event="click" target="BtnOff"/>
+			</state>
+		</state>
+		<state id="StateShape1">
+			<state id="StateShape2">
+				<transition event="on.released" target="StateShape3"/>
+			</state>
+			<state id="StateShape3">
+				<transition event="on.released" target="StateShape4"/>
+			</state>
+			<state id="StateShape4">
+				<transition event="on.released" target="StateShape2"/>
+			</state>
+		</state>
+	</parallel>
+</scxml>
+```
+
+</p></details>
+
+---
+
 ### Event `done.state.id`
 Parallel state is active while all children states has not reached their [final states](final.md). When all the \<parallel\> element's other children are in [final states](final.md), the Processor must generate the event `done.state.id`, where `id` is the id of the \<parallel\> element.
 
