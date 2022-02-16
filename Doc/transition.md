@@ -193,6 +193,38 @@ The behavior of transitions with 'type' of `internal` is identical, except in th
 </p>
 </details>
 
+### Example of transition condition check order
+![transition_sequence](../Images/transition_sequence.gif)
+
+<details><summary>Source code</summary>
+<p>
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml datamodel="ecmascript" name="ScxmlTransitionSequence" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data expr="0" id="VarTest"/>
+	</datamodel>
+	<state id="ready">
+		<transition event="setCustom" target="ready">
+			<assign expr="1" location="VarTest"/>
+		</transition>
+		<transition event="setDefault" target="ready">
+			<assign expr="0" location="VarTest"/>
+		</transition>
+		<state id="check">
+			<transition cond="VarTest == 1" target="stateCustom"/>
+			<transition target="stateDefault"/>
+		</state>
+		<state id="stateCustom"/>
+		<state id="stateDefault"/>
+	</state>
+</scxml>
+```
+
+</p>
+</details>
+
 ## Execution of transition in a [compound state](state.md#compound-state)
 When a transition is taken in a [compound state](state.md#compound-state), the state machine will exit all active states that are proper descendants of the [LCCA](#lcca-the-least-common-compound-ancestor), starting with the innermost one(s) and working up to the immediate descendant(s) of the LCCA. (A 'proper descendant' of a state is a child, or a child of a child, or a child of a child of a child, etc.) Then the state machine enters the target state(s), plus any states that are between it and the [LCCA](#lcca-the-least-common-compound-ancestor), starting with the outermost one (i.e., the immediate descendant of the LCCA) and working down to the target state(s). As states are exited, their [\<onexit\>](onexit.md) handlers are executed. Then the executable content in the transition is executed, followed by the [\<onentry\>](onentry.md) handlers of the states that are entered. If the target [state(s)](state.md) of the transition is not [atomic](state.md#atomic-state), the state machine will enter their [default initial states](state.md#default-initial-state) recursively until it reaches an [atomic state(s)](state.md#atomic-state).
 
