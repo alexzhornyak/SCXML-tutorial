@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Model/ChildMachine.svg</file>
+        <file>Model/RootMachine.svg</file>
+    </qresource>
+</RCC>

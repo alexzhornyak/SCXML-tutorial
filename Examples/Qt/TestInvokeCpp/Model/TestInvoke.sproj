@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf8"?>
+<scxmlproject>
+	<scxmlunit path="RootMachine.scxml" scxmlname="RootMachine" build_root="1">
+		<scxmlunit path="ChildMachine.scxml" scxmlname="ChildMachine"/>
+	</scxmlunit>
+</scxmlproject>
