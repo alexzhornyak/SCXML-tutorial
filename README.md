@@ -23,6 +23,9 @@ This project is an attempt to illustrate the current [SCXML standard](https://ww
 </scxml>
 ```
 
+## Questions & Answers
+[![Discord](Images/Discord.svg)](https://discord.gg/5XWDsbEXzn)
+
 ## Table of contents
 * **Core Constructs**
 	- [\<scxml\>](Doc/scxml.md)

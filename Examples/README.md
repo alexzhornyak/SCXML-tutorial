@@ -18,6 +18,7 @@
 - **[Qt SCXML Standard Compliance Tester](Qt/TesterW3C)**
 - [KT76C Transponder Simulator (Qt USCXMLCLib Lua)](https://github.com/alexzhornyak/UscxmlCLib/tree/master/Examples/Qt/KT76CSim)
 - [Tester W3C (Qt USCXMLCLib Lua)](https://github.com/alexzhornyak/UscxmlCLib/tree/master/Examples/Qt/TesterW3C)
+- [Qt SCXML CPP Invoke Demo](Qt/TestInvokeCpp)
 
 ## uSCXML Examples
 - [SCXML on an ATMega328](http://tklab-tud.github.io/uscxml/embedded.html)
@@ -79,6 +80,11 @@ The BendixKing KT 76C transponder - radio transmitter/receiver which operates on
 Qt widget-based application that executes [W3C SCXML tests](https://www.w3.org/Voice/2013/scxml-irp/) for Lua Datamodel in sequence
 
 ![qt](https://raw.githubusercontent.com/alexzhornyak/UscxmlCLib/master/Examples/Images/TesterW3CQt.png)
+
+## [Qt SCXML CPP Invoke Demo](Qt/TestInvokeCpp)
+Qt widget-based application that demonstrates how to invoke child state machines with **QScxmlCppDataModel**
+
+![cpp_inv_demo](../Images/qt_scxml_cpp_demo.gif)
 
 ## uSCXML Examples
 ### [SCXML on an ATMega328](http://tklab-tud.github.io/uscxml/embedded.html)

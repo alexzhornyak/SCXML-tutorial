@@ -19,7 +19,7 @@ This project is intended to test Qt QML SCXML module for designing in-vehicle in
 
 ![BoleroPreview](SkodaBoleroInfotainment/Qml/Images/BoleroPreview.gif)
 
-### [Dining Philosophers Problem (Qt Widgets SCXML EcmaScript)](Qt/DiningPhilosophers)
+### [Dining Philosophers Problem (Qt Widgets SCXML EcmaScript)](DiningPhilosophers)
 Resource hierarchy solution of dining philosophers problem, intended to show usage of communication between invoked submachines.
 
 ![PhilProb](../../Images/DiningPhilosophers_Img.gif)

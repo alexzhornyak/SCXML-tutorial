@@ -624,6 +624,11 @@ t_INPUTS['taken.' + i_ID_RIGHT] = 0
 
 </p></details>
 
+### [Qt SCXML CPP Invoke Demo](../Examples/Qt/TestInvokeCpp)
+Qt widget-based application that demonstrates how to invoke child state machines with **QScxmlCppDataModel**
+
+![cpp_inv_demo](../Images/qt_scxml_cpp_demo.gif)
+
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
 Number|Name and link|Source|
