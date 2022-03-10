@@ -125,12 +125,12 @@ When 'binding' is assigned the value "late", the SCXML Processor must create the
 ### [1. Test 355](https://www.w3.org/Voice/2013/scxml-irp/355/test355.txml)
 At system initialization time, if the 'initial' attribute is not present, the Processor MUST enter the first state in document order.
 
-![test355](https://user-images.githubusercontent.com/18611095/28626528-e61ed548-7227-11e7-929f-403a5d55b41b.png)
+![test355](../Images/W3C/test355.gif)
 
 ### [2. Test 576](https://www.w3.org/Voice/2013/scxml-irp/576/test576.txml)
 At system initialization time, the SCXML Processor MUST enter the states specified by the 'initial' attribute, if it is present.
 
-![test576](https://user-images.githubusercontent.com/18611095/28627166-b208e760-7229-11e7-9810-7dbb56b9a34d.png)
+![test576](../Images/W3C/test576.gif)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
 |---|---|---|---|---|---|

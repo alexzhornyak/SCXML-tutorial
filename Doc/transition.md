@@ -283,7 +283,7 @@ LCCA (The Least Common Compound Ancestor) is the [\<state\>](state.md) or [\<scx
 To execute a microstep, the SCXML Processor MUST execute the transitions in the corresponding optimal enabled transition set, where the optimal transition set enabled by event E in state configuration C is the largest set of transitions such that: 
 #### [a) each transition in the set is optimally enabled by E in an atomic state in C](https://www.w3.org/Voice/2013/scxml-irp/403/test403a.txml)
 
-![test403a](https://user-images.githubusercontent.com/18611095/28820966-4b9dfc76-76bc-11e7-9811-ffc2e3b01933.png)
+![test403a](../Images/W3C/test403a.gif)
 
 #### [b) no transition conflicts with another transition in the set](https://www.w3.org/Voice/2013/scxml-irp/403/test403b.txml)
 
