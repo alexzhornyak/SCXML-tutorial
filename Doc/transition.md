@@ -287,26 +287,26 @@ To execute a microstep, the SCXML Processor MUST execute the transitions in the 
 
 #### [b) no transition conflicts with another transition in the set](https://www.w3.org/Voice/2013/scxml-irp/403/test403b.txml)
 
-![test403b](https://user-images.githubusercontent.com/18611095/28822879-b7adfa0e-76c3-11e7-92ba-4a6b68f9eead.png)
+![test403b](../Images/W3C/test403b.gif)
 
 #### [c) there is no optimally enabled transition outside the set that has a higher priority than some member of the set.](https://www.w3.org/Voice/2013/scxml-irp/403/test403c.txml)
 
-![test403c](https://user-images.githubusercontent.com/18611095/28823335-aa24d856-76c5-11e7-9b51-cb3e93d41d24.png)
+![test403c](../Images/W3C/test403c.gif)
 
 ### [2. Test 404](https://www.w3.org/Voice/2013/scxml-irp/404/test404.txml)
 To execute a set of transitions, the SCXML Processor MUST first exit all the states in the transitions' exit set in exit order.
 
-![test404](https://user-images.githubusercontent.com/18611095/28823515-a1e9e054-76c6-11e7-922f-d381db341cbb.png)
+![test404](../Images/W3C/test404.gif)
 
 ### [3. Test 405](https://www.w3.org/Voice/2013/scxml-irp/405/test405.txml)
 [the SCXML Processor executing a set of transitions](https://www.w3.org/TR/scxml/#SelectingTransitions) MUST then [after the onexits] execute the executable content contained in the transitions in document order.
 
-![test405](https://user-images.githubusercontent.com/18611095/28823703-98d0af88-76c7-11e7-84da-c7704a768ade.png)
+![test405](../Images/W3C/test405.gif)
 
 ### [4. Test 406](https://www.w3.org/Voice/2013/scxml-irp/406/test406.txml)
 [the SCXML Processor executing a set of transitions](https://www.w3.org/TR/scxml/#SelectingTransitions) MUST then [after the exits and the transitions] enter the states in the transitions' entry set in entry order.
 
-![test406](https://user-images.githubusercontent.com/18611095/28824064-1c65f910-76c9-11e7-90bd-8bf9ed034a55.png)
+![test406](../Images/W3C/test406.gif)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|---|
