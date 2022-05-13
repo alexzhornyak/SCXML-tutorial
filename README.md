@@ -3,6 +3,8 @@
 | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
 |---|---|---|---|---|
 
+![stand_with_Ukraine](images/I_stand_with_Ukraine_banner.svg)
+
 # SCXML Tutorial
 
 This project is an attempt to illustrate the current [SCXML standard](https://www.w3.org/TR/scxml)
