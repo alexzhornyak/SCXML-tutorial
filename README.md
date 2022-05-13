@@ -3,7 +3,7 @@
 | [Contents](#table-of-contents) | [Overview](#scxml-overview) | [Examples](Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) | 
 |---|---|---|---|---|
 
-![stand_with_Ukraine](images/I_stand_with_Ukraine_banner.svg)
+![stand_with_Ukraine](Images/I_stand_with_Ukraine_banner.svg)
 
 # SCXML Tutorial
 
