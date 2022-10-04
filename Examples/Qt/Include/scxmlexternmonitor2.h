@@ -416,6 +416,19 @@ protected:
         processClearMonitor("", "");
     }
 
+    inline virtual void processEventMessage(QScxmlStateMachine *machine, const QString &id, const QScxmlEvent &event) override {
+        QString sEventData = event.data().toString();
+        if (!sEventData.isEmpty()) {
+            if (sEventData.length() > 40) {
+                sEventData = sEventData.left(40) + "...";
+            }
+        }
+        processMonitorMessage(machine->name(),
+                              id,
+                              sEventData.isEmpty() ? event.name() : (event.name() + ": [" + sEventData + "]"),
+                              Scxmlmonitor::smttBeforeProcessingEvent);
+    }
+
 private:
 
     // network
