@@ -58,12 +58,12 @@ After entering the initial configuration, and after executing each microstep, th
 ### [1. Test 372](https://www.w3.org/Voice/2013/scxml-irp/372/test372.txml)
 When the state machine enters the final child of a state element, the SCXML processor MUST generate the event done.state.id after completion of the onentry elements, where id is the id of the parent state.
 
-![test372](https://user-images.githubusercontent.com/18611095/28661582-d17ef33c-72bf-11e7-9b28-cd2ef7260c29.png)
+![test372](../Images/W3C/test372.gif)
 
 ### [2. Test 570](https://www.w3.org/Voice/2013/scxml-irp/570/test570.txml)
 Immediately after generating done.state.id upon entering a final child of state, if the parent state is a child of a parallel element, and all of the parallel's other children are also in final states, the Processor MUST generate the event done.state.id where id is the id of the parallel element.
 
-![test570](https://user-images.githubusercontent.com/18611095/28671579-e6e54b10-72e5-11e7-874b-33fb0a0dd5ca.png)
+![test570](../Images/W3C/test570.gif)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|---|

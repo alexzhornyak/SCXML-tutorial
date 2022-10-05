@@ -100,7 +100,7 @@ If you are interested in the development of SCXML tutorials and examples we wou
 
 | Paypal |
 | ------ |
-| [![PaypalBtn](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?business=XRF8TTUJFNCXA&item_name=Development+of+SCXML+State+Machines+and+ScxmlEditor&currency_code=USD) |
+| [![PaypalBtn](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=6W4NBU7TEF27W) |
 
 # SCXML Overview
 

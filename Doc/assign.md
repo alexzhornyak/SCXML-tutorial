@@ -37,7 +37,7 @@ The children of the \<assign\> element provide an in-line specification of the l
 ## Examples:
 
 ### 1. Assigning data by value from 'expr' attribute.
-![assign - location expr](https://user-images.githubusercontent.com/18611095/28417848-4934c91e-6d62-11e7-9225-63e33609e087.png)
+![assign - location expr](../Images/assign_data_expr.png)
 
 ```xml
 <scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -70,7 +70,7 @@ The children of the \<assign\> element provide an in-line specification of the l
 >\[Log\] Var1: 150
 
 ### 2. Multi-level location and assigning data by children element value.
-![assign - location to table](https://user-images.githubusercontent.com/18611095/28418385-2adfba8a-6d64-11e7-9c6d-f57765c1a46a.png)
+![assign - location to table](../Images/assign_location_table.png)
 
 ```xml
 <scxml datamodel="lua" name="Scxml" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
@@ -156,17 +156,17 @@ The children of the \<assign\> element provide an in-line specification of the l
 ### [1. Test 286](https://www.w3.org/Voice/2013/scxml-irp/286/test286.txml)
 If the location expression of an assign does not denote a valid location in the datamodel the processor MUST place the error **error.execution** in the internal event queue.
 
-![test286](https://user-images.githubusercontent.com/18611095/28419058-9a6dcf70-6d66-11e7-8cc1-01e7babaab85.png)
+![test286](../Images/W3C/test286.gif)
 
 ### [2. Test 287](https://www.w3.org/Voice/2013/scxml-irp/287/test287.txml)
 If the location expression of an assign denotes a valid location in the datamodel and if the value specified by 'expr' is a legal value for the location specified, the processor MUST place the specified value at the specified location.
 
-![test287](https://user-images.githubusercontent.com/18611095/28419375-71e90212-6d67-11e7-9ed1-c70b94948af7.png)
+![test287](../Images/W3C/test287.gif)
 
 ### [3. Test 487](https://www.w3.org/Voice/2013/scxml-irp/487/test487.txml)
 If the value specified (by 'expr' or children) is not a legal value for the location specified, the processor MUST place the error **error.execution** in the internal event queue.
 
-![test487](https://user-images.githubusercontent.com/18611095/28419614-39236b7e-6d68-11e7-9303-bf2aaf0dd5e9.png)
+![test487](../Images/W3C/test487.gif)
 
 | [TOP](#top-anchor) | [Contents](../README.md#table-of-contents) | [Overview](../README.md#scxml-overview) | [Examples](../Examples/README.md) | [Editor](https://alexzhornyak.github.io/ScxmlEditor-Tutorial/) | [Forum](https://github.com/alexzhornyak/SCXML-tutorial/discussions) |
 |---|---|---|---|---|---|
