@@ -4,9 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui xml scxml
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+include(../Include/scxmlnetwork.pri)
 
 TARGET = TesterProcessW3C
 TEMPLATE = app
@@ -22,15 +24,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-INCLUDEPATH += ../Include
 
 SOURCES += \
         main_process.cpp \
         mainwindow.cpp \
         processmainwindow.cpp
 
-HEADERS += \
-        ../Include/scxmlexternmonitor2.h \
+HEADERS += \        
         mainwindow.h \
         processmainwindow.h
 

@@ -1,6 +1,8 @@
-QT       += core gui scxml svg xml
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+include(../Include/scxmlsvg.pri)
 
 CONFIG += c++11
 
@@ -8,13 +10,7 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-qtHaveModule(scxml-private) {
-    QT += scxml-private
-    DEFINES += USE_SCXML_TRIGGERED_TRANSITIONS
-}
-
 INCLUDEPATH += \
-    ../Include \
     Src \
     Model
 
@@ -23,9 +19,6 @@ SOURCES += \
     Src/mainwindow.cpp
 
 HEADERS += \
-    ../Include/scxmlexternmonitor2.h \
-    ../Include/scxmlsvgitem.h \
-    ../Include/scxmlsvgview.h \
     Src/childmodel.h \
     Src/mainwindow.h \
     Src/rootmodel.h

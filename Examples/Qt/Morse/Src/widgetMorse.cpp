@@ -44,6 +44,8 @@ WidgetMorse::WidgetMorse(const QString &sScxmlFile, QWidget *parent) :
 
     _machine->connectToEvent("dot", this, &WidgetMorse::onDotReceived);
 
+    _monitor = new Scxmlmonitor::UDPScxmlExternMonitor(_machine);
+
     _svgStaticItem = new QGraphicsSvgItem;
     _svgStaticItem->setSharedRenderer(renderer);
     _svgStaticItem->setElementId(s_STATIC_GROUP);
@@ -77,13 +79,13 @@ WidgetMorse::~WidgetMorse()
     }
 }
 
-void WidgetMorse::onDashReceived(const QScxmlEvent &event) {
+void WidgetMorse::onDashReceived(const QScxmlEvent &) {
     ui->editMorseCode->moveCursor(QTextCursor::End);
     ui->editMorseCode->insertPlainText("— ");
     ui->editMorseCode->moveCursor(QTextCursor::End);
 }
 
-void WidgetMorse::onDotReceived(const QScxmlEvent &event) {
+void WidgetMorse::onDotReceived(const QScxmlEvent &) {
     ui->editMorseCode->moveCursor(QTextCursor::End);
     ui->editMorseCode->insertPlainText(". ");
     ui->editMorseCode->moveCursor(QTextCursor::End);
@@ -160,5 +162,11 @@ void WidgetMorse::on_pushButtonPopBack_clicked() {
         QString sOutput = ui->labelOutput->text();
         sOutput.chop(1);
         ui->labelOutput->setText(sOutput);
+    }
+}
+
+void WidgetMorse::on_checkMonitor_toggled(bool checked) {
+    if (_monitor && _machine) {
+        _monitor->setScxmlStateMachine(checked ? _machine : nullptr);
     }
 }

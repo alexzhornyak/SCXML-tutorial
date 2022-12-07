@@ -113,10 +113,12 @@ void ProcessMainWindow::processTest(const QString &fileName, const bool isSpecia
 
                 const QString out = _interpreter->readAllStandardOutput();
 
-                QRegExp rx(_editPassRegex->text());
-                for (auto it : out.split("\n")) {
-                    if (rx.exactMatch(it.trimmed()))
-                        _flagTestPassed = rx.exactMatch(it.trimmed());
+                QRegularExpression rx(_editPassRegex->text());
+                for (const auto &it : out.split("\n")) {
+                    auto match = rx.match(it.trimmed());
+                    bool b_has_match = match.hasMatch();
+                    if (b_has_match)
+                        _flagTestPassed = b_has_match;
                 }
 
                 this->log(out, QtDebugMsg);

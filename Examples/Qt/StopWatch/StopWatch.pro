@@ -1,17 +1,14 @@
-QT += quick scxml xml network svg
+QT += quick
 
 CONFIG += c++11
+
+include(../Include/scxmlsvgqml.pri)
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Refer to the documentation for the
 # deprecated API to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
-
-qtHaveModule(scxml-private) {
-    QT += scxml-private
-    DEFINES += USE_SCXML_TRIGGERED_TRANSITIONS
-}
 
 # You can also make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -35,10 +32,3 @@ STATECHARTS = StopWatch.scxml
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-INCLUDEPATH += ../Include
-
-HEADERS += \
-    ../Include/scxmlexternmonitor2.h \
-    ../Include/scxmlsvgitem.h \
-    ../Include/scxmlsvgqmlitem.h

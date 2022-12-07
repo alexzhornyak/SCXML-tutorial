@@ -4,14 +4,16 @@
 #
 #-------------------------------------------------
 
-QT       += core gui svg scxml xml
+QT       += core gui svg
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+greaterThan(QT_MAJOR_VERSION, 5): QT += svgwidgets
+
+include(../../Include/scxmlnetwork.pri)
+
 TARGET = MorseNullDecoderC
 TEMPLATE = app
-
-include(../Morse.pri)
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings

@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QScxmlStateMachine>
 
+#include "scxmlexternmonitor2.h"
+
 namespace Ui {
 class WidgetMorse;
 }
@@ -34,6 +36,7 @@ protected:
     Ui::WidgetMorse *ui;
 
     QScxmlStateMachine *_machine = nullptr;
+    Scxmlmonitor::UDPScxmlExternMonitor *_monitor = nullptr;
 
 private slots:
     void on_pushButton_pressed();
@@ -43,6 +46,8 @@ private slots:
     void on_pushButtonClear_clicked();
 
     void on_pushButtonPopBack_clicked();
+
+    void on_checkMonitor_toggled(bool checked);
 
 private:
 
