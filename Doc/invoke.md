@@ -229,6 +229,33 @@ A boolean flag indicating whether to forward events to the invoked process. Defa
 </state>
 ```
 
+> NOTE: Autoforwared events may cause circlular event loops. To prevent this you need to disable autoforward and send events by submachine ID
+
+> In the example below parent and child machine will generate the same events and we need to convince that they do not affect each other
+
+**parent.scxml**
+
+![image](../Images/invoke_autoforward_parent.png)
+
+**child.scxml**
+
+![image](../Images/invoke_autoforward_child.png)
+
+**Output:**
+```
+[Log] CHILD COUNT: 0
+[Log] PARENT COUNT: 0
+[Log] CHILD COUNT: 1
+[Log] PARENT COUNT: 1
+[Log] CHILD COUNT: 2
+[Log] PARENT COUNT: 2
+[Log] CHILD COUNT: 3
+[Log] PARENT COUNT: 3
+...
+```
+
+![image](../Images/invoke_autoforward.gif)
+
 ## [Dining Philosophers Problem example](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/DiningPhilosophers)
 The example shows how to communicate between multiple invoked submachines
 [![PreviewPhil](../Images/DiningPhilosophers_Img_Raw.gif)](https://github.com/alexzhornyak/SCXML-tutorial/tree/master/Examples/Qt/DiningPhilosophers)
