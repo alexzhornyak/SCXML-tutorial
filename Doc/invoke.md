@@ -233,13 +233,88 @@ A boolean flag indicating whether to forward events to the invoked process. Defa
 
 > In the example below parent and child machine will generate the same events and we need to convince that they do not affect each other
 
-**parent.scxml**
-
 ![image](../Images/invoke_autoforward_parent.png)
 
-**child.scxml**
+<details><summary><b>Source code - parent.scxml</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="ecmascript" name="ScxmlParent" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data expr="0" id="i_CHILD_COUNT"/>
+	</datamodel>
+	<state id="StateShape1">
+		<invoke id="ID_CHILD" src="child.scxml"/>
+		<transition event="out.counter">
+			<assign expr="i_CHILD_COUNT + 1" location="i_CHILD_COUNT"/>
+		</transition>
+		<state id="off">
+			<onentry>
+				<send delay="1s" event="do.timer" id="ID.do.timer"/>
+				<log expr="i_CHILD_COUNT" label="CHILD COUNT"/>
+			</onentry>
+			<onexit>
+				<cancel sendid="ID.do.timer"/>
+			</onexit>
+			<transition event="do.timer" target="on"/>
+		</state>
+		<state id="on">
+			<onentry>
+				<send delay="1s" event="do.timer" id="ID.do.timer"/>
+				<send delay="1s" event="in.counter" target="#_ID_CHILD"/>
+			</onentry>
+			<onexit>
+				<cancel sendid="ID.do.timer"/>
+			</onexit>
+			<transition event="do.timer" target="off"/>
+		</state>
+	</state>
+</scxml>
+```
+
+</p></details>
+
 
 ![image](../Images/invoke_autoforward_child.png)
+
+<details><summary><b>Source code - child.scxml</b></summary>
+<p>
+  
+```xml
+<scxml datamodel="ecmascript" name="ScxmlChild" version="1.0" xmlns="http://www.w3.org/2005/07/scxml">
+	<datamodel>
+		<data expr="0" id="i_PARENT_COUNT"/>
+	</datamodel>
+	<state id="StateShape1">
+		<transition event="in.counter">
+			<assign expr="i_PARENT_COUNT + 1" location="i_PARENT_COUNT"/>
+		</transition>
+		<state id="on">
+			<onentry>
+				<send delay="1s" event="do.timer" id="ID.do.timer"/>
+				<send delay="1s" event="out.counter" target="#_parent"/>
+			</onentry>
+			<onexit>
+				<cancel sendid="ID.do.timer"/>
+			</onexit>
+			<transition event="do.timer" target="off"/>
+		</state>
+		<state id="off">
+			<onentry>
+				<log expr="i_PARENT_COUNT" label="PARENT COUNT"/>
+				<send delay="1s" event="do.timer" id="ID.do.timer"/>
+			</onentry>
+			<onexit>
+				<cancel sendid="ID.do.timer"/>
+			</onexit>
+			<transition event="do.timer" target="on"/>
+		</state>
+	</state>
+</scxml>
+```
+
+</p></details>
+
 
 **Output:**
 ```
