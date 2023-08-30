@@ -278,8 +278,10 @@ In the example below, assume that state `s11` is active when event `'e'` occurs.
 LCCA (The Least Common Compound Ancestor) is the [\<state\>](state.md) or [\<scxml\>](scxml.md) element `S` such that `S` is a proper ancestor of all states on stateList and no descendant of `S` has this property. Note that there is guaranteed to be such an element since the [\<scxml\>](scxml.md) wrapper element is a common ancestor of all states. Note also that since we are speaking of proper ancestor (parent or parent of a parent, etc.) the LCCA is never a member of stateList.
 
 > **NOTE: Parallel states can not be LCCA**
-![](../Images/transition%20-%20lcca%20-%20in%20parallel.png)
-When `External` event occurs, we will leave `StateShape3`, `StateShape4` and `ParallelShape2` until LCCA `StateShape1` is found
+
+| ![](../Images/transition%20-%20lcca%20-%20in%20parallel.png) |
+|---|
+| When `External` event occurs, we will leave `StateShape3`, `StateShape4` and `ParallelShape2` until LCCA `StateShape1` is found |
 
 ## [W3C IRP tests](https://www.w3.org/Voice/2013/scxml-irp)
 
