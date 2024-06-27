@@ -1,3 +1,16 @@
+# [PyBlendSCXML](https://github.com/alexzhornyak/PyBlendSCXML) [W3C Mandatory tests](https://www.w3.org/Voice/2013/scxml-irp/) passing results
+PyBlendSCXML 1.0.0 Python datamodel
+
+## OS
+Windows-10-10.0.19045-SP0 64 Bits
+
+## Tools
+**Blender Version 4.1.0**: branch: blender-v4.1-release, commit date: 2024-03-25 20:42, hash: `40a5e739e270`
+
+**Python Script:** [PyBlendSCXML/scxml_tester.py](https://raw.githubusercontent.com/alexzhornyak/PyBlendSCXML/master/scxml_tester.py)
+
+---
+
 | Test | Result | Description |
 |---|---|---|
 | [test144.scxml](test144.scxml) | Pass | test that events are inserted into the queue in the order in which they are raised. If foo occurs before bar, success, otherwise failure |
