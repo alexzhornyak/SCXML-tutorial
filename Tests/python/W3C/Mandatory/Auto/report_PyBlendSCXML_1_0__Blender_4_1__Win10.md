@@ -9,6 +9,5953 @@ Windows-10-10.0.19045-SP0 64 Bits
 
 **Python Script:** [PyBlendSCXML/scxml_tester.py](https://raw.githubusercontent.com/alexzhornyak/PyBlendSCXML/master/scxml_tester.py)
 
+## Summary info
+- Elapsed: **00:04:30.699**
+- All **159** tests were completed!
+- Passed: **159**
+- Timeout: **0**
+- Failed: **0**
+- Total Failed: **0**
+
+---
+
+<details><summary><b>Test passing log</b></summary>
+<p>
+  
+```
+Starting test144.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test144.scxml
+
+INFO:pyscxml.pyscxml_session_2074099559504:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test144.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2074099559504' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test144.scxml] passed!
+Starting test147.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test147.scxml
+
+INFO:pyscxml.pyscxml_session_1840231984208:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test147.scxml
+
+INFO:pyscxml:enter:ScxmlTest147 __main__
+INFO:pyscxml:enter:ScxmlTest147 s0
+
+INFO:pyscxml:exit:ScxmlTest147 s0
+
+INFO:pyscxml:transition:ScxmlTest147 0
+INFO:pyscxml:enter:ScxmlTest147 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest147 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1840231984208' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test147.scxml] passed!
+Starting test148.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test148.scxml
+
+INFO:pyscxml.pyscxml_session_1483582581840:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test148.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1483582581840' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test148.scxml] passed!
+Starting test149.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test149.scxml
+
+INFO:pyscxml.pyscxml_session_1830192262224:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test149.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1830192262224' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test149.scxml] passed!
+Starting test150.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test150.scxml
+
+INFO:pyscxml.pyscxml_session_2268527897680:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test150.scxml
+
+INFO:pyscxml:enter:ScxmlTest150 __main__
+INFO:pyscxml:enter:ScxmlTest150 s0
+
+INFO:pyscxml:exit:ScxmlTest150 s0
+
+INFO:pyscxml:transition:ScxmlTest150 1
+INFO:pyscxml:enter:ScxmlTest150 s1
+INFO:pyscxml:exit:ScxmlTest150 s1
+INFO:pyscxml:transition:ScxmlTest150 1
+
+INFO:pyscxml:enter:ScxmlTest150 s2
+INFO:pyscxml:exit:ScxmlTest150 s2
+INFO:pyscxml:transition:ScxmlTest150 0
+INFO:pyscxml:enter:ScxmlTest150 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest150 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2268527897680' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test150.scxml] passed!
+Starting test151.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test151.scxml
+
+INFO:pyscxml.pyscxml_session_1806700293200:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test151.scxml
+
+INFO:pyscxml:enter:ScxmlTest151 __main__
+
+INFO:pyscxml:enter:ScxmlTest151 s0
+
+INFO:pyscxml:exit:ScxmlTest151 s0
+
+INFO:pyscxml:transition:ScxmlTest151 1
+INFO:pyscxml:enter:ScxmlTest151 s1
+INFO:pyscxml:exit:ScxmlTest151 s1
+INFO:pyscxml:transition:ScxmlTest151 1
+
+INFO:pyscxml:enter:ScxmlTest151 s2
+INFO:pyscxml:exit:ScxmlTest151 s2
+INFO:pyscxml:transition:ScxmlTest151 0
+INFO:pyscxml:enter:ScxmlTest151 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest151 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1806700293200' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test151.scxml] passed!
+Starting test152.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test152.scxml
+
+INFO:pyscxml.pyscxml_session_2453012786256:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test152.scxml
+
+INFO:pyscxml:enter:ScxmlTest152 __main__
+INFO:pyscxml:enter:ScxmlTest152 s0
+
+ERROR:pyscxml.pyscxml_session_2453012786256.compiler:An unknown error occurred when executing content in block on line <ns0:onentry xmlns:ns0="http://www.w3.org/2005/07/scxml">
+			<ns0:foreach array="Var4" index="Var3" item="Var2">
+				<ns0:assign expr="Var1 + 1" location="Var1" />
+			</ns0:foreach>
+			<ns0:raise event="foo" />
+		</ns0:onentry>
+		.
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 184, in try_execute_content
+    self.do_execute_content(parent)
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 263, in do_execute_content
+    for index, item in enumerate(array, startIndex):
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not iterable
+
+INFO:pyscxml:exit:ScxmlTest152 s0
+
+INFO:pyscxml:transition:ScxmlTest152 0
+INFO:pyscxml:enter:ScxmlTest152 s1
+ERROR:pyscxml.pyscxml_session_2453012786256.compiler:A DataModelError occurred when evaluating foreach's item attribute on line <ns0:foreach xmlns:ns0="http://www.w3.org/2005/07/scxml" array="Var5" index="Var3" item="'continue'">
+				<ns0:assign expr="Var1 + 1" location="Var1" />
+			</ns0:foreach>
+			:
+    You can't assign to the name ''continue''.  
+INFO:pyscxml:exit:ScxmlTest152 s1
+
+INFO:pyscxml:transition:ScxmlTest152 0
+INFO:pyscxml:enter:ScxmlTest152 s2
+INFO:pyscxml:exit:ScxmlTest152 s2
+INFO:pyscxml:transition:ScxmlTest152 0
+INFO:pyscxml:enter:ScxmlTest152 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest152 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2453012786256' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test152.scxml] passed!
+Starting test153.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test153.scxml
+
+INFO:pyscxml.pyscxml_session_2531546344528:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test153.scxml
+
+INFO:pyscxml:enter:ScxmlTest153 __main__
+INFO:pyscxml:enter:ScxmlTest153 s0
+
+INFO:pyscxml:exit:ScxmlTest153 s0
+
+INFO:pyscxml:transition:ScxmlTest153 1
+INFO:pyscxml:enter:ScxmlTest153 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest153 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2531546344528' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test153.scxml] passed!
+Starting test155.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test155.scxml
+
+INFO:pyscxml.pyscxml_session_2385160219728:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test155.scxml
+
+INFO:pyscxml:enter:ScxmlTest155 __main__
+
+INFO:pyscxml:enter:ScxmlTest155 s0
+
+INFO:pyscxml:exit:ScxmlTest155 s0
+
+INFO:pyscxml:transition:ScxmlTest155 0
+INFO:pyscxml:enter:ScxmlTest155 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest155 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2385160219728' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test155.scxml] passed!
+Starting test156.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test156.scxml
+
+INFO:pyscxml.pyscxml_session_1279039810640:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test156.scxml
+
+INFO:pyscxml:enter:ScxmlTest156 __main__
+INFO:pyscxml:enter:ScxmlTest156 s0
+
+ERROR:pyscxml.pyscxml_session_1279039810640.compiler:Stopped executing children of foreach on line <ns0:foreach xmlns:ns0="http://www.w3.org/2005/07/scxml" array="Var3" item="Var2">
+				<ns0:assign expr="Var1 + 1" location="Var1" />
+				<ns0:assign expr="return" location="Var5" />
+			</ns0:foreach>
+		 after assign raised an error:
+    An 'IllegalLocationError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" expr="return" location="Var5" />
+			:
+    The location expression 'Var5' was not instantiated in the datamodel.  
+
+INFO:pyscxml:exit:ScxmlTest156 s0
+
+INFO:pyscxml:transition:ScxmlTest156 0
+INFO:pyscxml:enter:ScxmlTest156 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest156 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1279039810640' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test156.scxml] passed!
+Starting test158.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test158.scxml
+
+INFO:pyscxml.pyscxml_session_2068568845392:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test158.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2068568845392' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test158.scxml] passed!
+Starting test159.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test159.scxml
+
+INFO:pyscxml.pyscxml_session_2261963156560:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test159.scxml
+
+INFO:pyscxml:enter:ScxmlTest159 __main__
+INFO:pyscxml:enter:ScxmlTest159 s0
+
+ERROR:pyscxml.pyscxml_session_2261963156560.compiler:Parsing of send node failed on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" event="thisWillFail" target="baz" />
+			.
+ERROR:pyscxml.pyscxml_session_2261963156560.compiler:A 'SendExecutionError' occurred when evaluating 'send' on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" event="thisWillFail" target="baz" />
+			:
+    The send target 'baz' is malformed or unsupported by the platform for the send type 'scxml'.  
+
+INFO:pyscxml:exit:ScxmlTest159 s0
+
+INFO:pyscxml:transition:ScxmlTest159 1
+INFO:pyscxml:enter:ScxmlTest159 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest159 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2261963156560' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test159.scxml] passed!
+Starting test172.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test172.scxml
+
+INFO:pyscxml.pyscxml_session_2479117151312:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test172.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2479117151312' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test172.scxml] passed!
+Starting test173.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test173.scxml
+
+INFO:pyscxml.pyscxml_session_1264576605264:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test173.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1264576605264' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test173.scxml] passed!
+Starting test174.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test174.scxml
+
+INFO:pyscxml.pyscxml_session_2552006159440:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test174.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2552006159440' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test174.scxml] passed!
+Starting test175.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test175.scxml
+
+INFO:pyscxml.pyscxml_session_2498749967440:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test175.scxml
+
+INFO:pyscxml:enter:ScxmlTest175 __main__
+INFO:pyscxml:enter:ScxmlTest175 s0
+
+INFO:pyscxml:exit:ScxmlTest175 s0
+
+INFO:pyscxml:transition:ScxmlTest175 0
+INFO:pyscxml:enter:ScxmlTest175 s1
+
+INFO:pyscxml:exit:ScxmlTest175 s1
+
+INFO:pyscxml:transition:ScxmlTest175 0
+INFO:pyscxml:enter:ScxmlTest175 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest175 pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2498749967440' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test175.scxml] passed!
+Starting test176.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test176.scxml
+
+INFO:pyscxml.pyscxml_session_2277382728784:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test176.scxml
+
+INFO:pyscxml:enter:ScxmlTest176 __main__
+INFO:pyscxml:enter:ScxmlTest176 s0
+
+INFO:pyscxml:exit:ScxmlTest176 s0
+
+INFO:pyscxml:transition:ScxmlTest176 0
+INFO:pyscxml:enter:ScxmlTest176 s1
+
+INFO:pyscxml:exit:ScxmlTest176 s1
+
+INFO:pyscxml:transition:ScxmlTest176 0
+INFO:pyscxml:enter:ScxmlTest176 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest176 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2277382728784' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test176.scxml] passed!
+Starting test179.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test179.scxml
+
+INFO:pyscxml.pyscxml_session_1916799331408:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test179.scxml
+
+INFO:pyscxml:enter:ScxmlTest179 __main__
+INFO:pyscxml:enter:ScxmlTest179 s0
+
+INFO:pyscxml:exit:ScxmlTest179 s0
+
+INFO:pyscxml:transition:ScxmlTest179 0
+INFO:pyscxml:enter:ScxmlTest179 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest179 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1916799331408' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test179.scxml] passed!
+Starting test183.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test183.scxml
+
+INFO:pyscxml.pyscxml_session_2121625873488:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test183.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2121625873488' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test183.scxml] passed!
+Starting test185.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test185.scxml
+
+INFO:pyscxml.pyscxml_session_2453277813840:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test185.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2453277813840' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test185.scxml] passed!
+Starting test186.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test186.scxml
+
+INFO:pyscxml.pyscxml_session_1247312129104:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test186.scxml
+
+INFO:pyscxml:enter:ScxmlTest186 __main__
+INFO:pyscxml:enter:ScxmlTest186 s0
+
+INFO:pyscxml:exit:ScxmlTest186 s0
+
+INFO:pyscxml:transition:ScxmlTest186 0
+
+INFO:pyscxml:enter:ScxmlTest186 s1
+
+INFO:pyscxml:exit:ScxmlTest186 s1
+INFO:pyscxml:transition:ScxmlTest186 0
+INFO:pyscxml:enter:ScxmlTest186 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest186 pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1247312129104' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test186.scxml] passed!
+Starting test187.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test187.scxml
+
+INFO:pyscxml.pyscxml_session_2224285592656:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test187.scxml
+
+INFO:pyscxml:enter:ScxmlTest187 __main__
+INFO:pyscxml:enter:ScxmlTest187 s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2224285592656.s0.3.0' finished
+
+INFO:pyscxml:exit:ScxmlTest187 s0
+
+INFO:pyscxml:transition:ScxmlTest187 1
+INFO:pyscxml:enter:ScxmlTest187 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest187 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2224285592656' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test187.scxml] passed!
+Starting test189.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test189.scxml
+
+INFO:pyscxml.pyscxml_session_1670626847824:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test189.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1670626847824' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test189.scxml] passed!
+Starting test190.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test190.scxml
+
+INFO:pyscxml.pyscxml_session_2852649610320:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test190.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2852649610320' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test190.scxml] passed!
+Starting test191.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test191.scxml
+
+INFO:pyscxml.pyscxml_session_3060191898704:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test191.scxml
+
+INFO:pyscxml:enter:ScxmlTest191 __main__
+INFO:pyscxml:enter:ScxmlTest191 s0
+
+INFO:pyscxml:exit:ScxmlTest191 s0
+
+INFO:pyscxml:transition:ScxmlTest191 0
+INFO:pyscxml:enter:ScxmlTest191 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest191 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_3060191898704' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test191.scxml] passed!
+Starting test192.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test192.scxml
+
+INFO:pyscxml.pyscxml_session_2189043805264:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test192.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2189043805264.invokedChild' finished
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2189043805264' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test192.scxml] passed!
+Starting test194.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test194.scxml
+
+INFO:pyscxml.pyscxml_session_2093861612624:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test194.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_2093861612624.compiler:Parsing of send node failed on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="baz" event="event2" />
+   
+   .
+ERROR:pyscxml.pyscxml_session_2093861612624.compiler:A 'SendExecutionError' occurred when evaluating 'send' on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="baz" event="event2" />
+   
+   :
+    The send target 'baz' is malformed or unsupported by the platform for the send type 'scxml'.  
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2093861612624' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test194.scxml] passed!
+Starting test198.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test198.scxml
+
+INFO:pyscxml.pyscxml_session_2584326417488:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test198.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2584326417488' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test198.scxml] passed!
+Starting test199.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test199.scxml
+
+INFO:pyscxml.pyscxml_session_1803934018640:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test199.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_1803934018640.compiler:Parsing of send node failed on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" type="27" event="event1" />
+   .
+ERROR:pyscxml.pyscxml_session_1803934018640.compiler:An 'AttributeError' occurred when evaluating 'send' on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" type="27" event="event1" />
+   :
+    'NoneType' object has no attribute 'startswith'  
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1803934018640' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test199.scxml] passed!
+Starting test200.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test200.scxml
+
+INFO:pyscxml.pyscxml_session_2238779010128:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test200.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2238779010128' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test200.scxml] passed!
+Starting test205.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test205.scxml
+
+INFO:pyscxml.pyscxml_session_2207351614544:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test205.scxml
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2207351614544' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test205.scxml] passed!
+Starting test207.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test207.scxml
+
+INFO:pyscxml.pyscxml_session_2479506435152:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test207.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2479506435152.s0.3.0' finished
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2479506435152' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test207.scxml] passed!
+Starting test208.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test208.scxml
+
+INFO:pyscxml.pyscxml_session_1742609165392:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test208.scxml
+
+INFO:pyscxml:enter:ScxmlTest208 __main__
+
+INFO:pyscxml:enter:ScxmlTest208 s0
+
+INFO:pyscxml:exit:ScxmlTest208 s0
+
+INFO:pyscxml:transition:ScxmlTest208 0
+INFO:pyscxml:enter:ScxmlTest208 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest208 pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1742609165392' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test208.scxml] passed!
+Starting test210.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test210.scxml
+
+INFO:pyscxml.pyscxml_session_1895338585168:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test210.scxml
+
+INFO:pyscxml:enter:ScxmlTest210 __main__
+INFO:pyscxml:enter:ScxmlTest210 s0
+
+INFO:pyscxml:exit:ScxmlTest210 s0
+
+INFO:pyscxml:transition:ScxmlTest210 0
+INFO:pyscxml:enter:ScxmlTest210 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest210 pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1895338585168' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test210.scxml] passed!
+Starting test215.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test215.scxml
+
+INFO:pyscxml.pyscxml_session_1392352734288:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test215.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1392352734288.s0.4.0' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1392352734288' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test215.scxml] passed!
+Starting test216.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test216.scxml
+
+INFO:pyscxml.pyscxml_session_1812906617936:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test216.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1812906617936.s0.4.0' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1812906617936' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test216.scxml] passed!
+Starting test220.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test220.scxml
+
+INFO:pyscxml.pyscxml_session_2279103114320:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test220.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2279103114320.s0.3.0' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2279103114320' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test220.scxml] passed!
+Starting test223.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test223.scxml
+
+INFO:pyscxml.pyscxml_session_2302627392592:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test223.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2302627392592.s0.4.0' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2302627392592' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test223.scxml] passed!
+Starting test224.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test224.scxml
+
+INFO:pyscxml.pyscxml_session_2463215496272:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test224.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2463215496272.s0.4.0' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2463215496272' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test224.scxml] passed!
+Starting test225.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test225.scxml
+
+INFO:pyscxml.pyscxml_session_1649896762448:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test225.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1649896762448.s0.4.0' finished
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1649896762448.s0.5.1' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1649896762448' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test225.scxml] passed!
+Starting test226.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test226.scxml
+
+INFO:pyscxml.pyscxml_session_3102977338448:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test226.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_3102977338448.s0.3.0' finished
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_3102977338448' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test226.scxml] passed!
+Starting test228.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test228.scxml
+
+INFO:pyscxml.pyscxml_session_2934663523408:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test228.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2934663523408.foo' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2934663523408' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test228.scxml] passed!
+Starting test229.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test229.scxml
+
+INFO:pyscxml.pyscxml_session_1836126219344:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test229.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 1
+
+INFO:pyscxml:enter: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1836126219344.s0.3.0' finished
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1836126219344' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test229.scxml] passed!
+Starting test232.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test232.scxml
+
+INFO:pyscxml.pyscxml_session_2394655140944:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test232.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s03
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2394655140944.s0.3.0' finished
+
+INFO:pyscxml:exit: s03
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2394655140944' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test232.scxml] passed!
+Starting test233.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test233.scxml
+
+INFO:pyscxml.pyscxml_session_2399476034640:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test233.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2399476034640' finished
+
+INFO:pyscxml:socket was closed
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2399476034640.s0.4.0' finished
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test233.scxml] passed!
+Starting test234.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test234.scxml
+
+INFO:pyscxml.pyscxml_session_2500590480464:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test234.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: p0
+
+INFO:pyscxml:enter: p01
+INFO:pyscxml:enter: p02
+
+INFO:pyscxml:exit: p02
+
+INFO:pyscxml:exit: p01
+INFO:pyscxml:exit: p0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2500590480464.p01.6.0' finished
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2500590480464' finished
+
+INFO:pyscxml:socket was closed
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2500590480464.p02.10.1' finished
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test234.scxml] passed!
+Starting test235.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test235.scxml
+
+INFO:pyscxml.pyscxml_session_2586146286672:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test235.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2586146286672.foo' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2586146286672' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test235.scxml] passed!
+Starting test236.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test236.scxml
+
+INFO:pyscxml.pyscxml_session_1626226469968:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test236.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1626226469968.s0.3.0' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s2
+
+INFO:pyscxml:exit: s2
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1626226469968' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test236.scxml] passed!
+Starting test237.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test237.scxml
+
+INFO:pyscxml.pyscxml_session_1451721731152:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test237.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: s1
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1451721731152.s0.3.0' finished
+
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1451721731152' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test237.scxml] passed!
+Starting test239.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test239.scxml
+
+INFO:pyscxml.pyscxml_session_2519889259600:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test239.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2519889259600.s01.5.0' finished
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2519889259600.s02.8.1' finished
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2519889259600' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test239.scxml] passed!
+Starting test240.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test240.scxml
+
+INFO:pyscxml.pyscxml_session_1875336539216:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test240.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1875336539216.s01.6.0' finished
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1875336539216.s02.10.1' finished
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1875336539216' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test240.scxml] passed!
+Starting test241.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test241.scxml
+
+INFO:pyscxml.pyscxml_session_2166624267344:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test241.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2166624267344.s01.6.0' finished
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2166624267344.s02.10.1' finished
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2166624267344' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test241.scxml] passed!
+Starting test242.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test242.scxml
+
+INFO:pyscxml.pyscxml_session_2342167817296:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test242.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2342167817296.s0.4.0' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s02
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2342167817296.s02.9.1' finished
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2342167817296' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test242.scxml] passed!
+Starting test243.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test243.scxml
+
+INFO:pyscxml.pyscxml_session_1362037156944:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test243.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1362037156944.s0.3.0' finished
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1362037156944' finished
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test243.scxml] passed!
+Starting test244.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test244.scxml
+
+INFO:pyscxml.pyscxml_session_1885112937552:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test244.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1885112937552.s0.4.0' finished
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1885112937552' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test244.scxml] passed!
+Starting test245.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test245.scxml
+
+INFO:pyscxml.pyscxml_session_2216744365136:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test245.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_2216744365136.s0.4.0.compiler:Evaluation of cond failed on line <ns0:final xmlns:ns0="http://www.w3.org/2005/07/scxml" id="subFinal" />
+           : Var2 :Traceback (most recent call last):
+NameError: name 'Var2' is not defined
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2216744365136.s0.4.0' finished
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2216744365136' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test245.scxml] passed!
+Starting test247.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test247.scxml
+
+INFO:pyscxml.pyscxml_session_1941243866192:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test247.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1941243866192.s0.3.0' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1941243866192' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test247.scxml] passed!
+Starting test252.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test252.scxml
+
+INFO:pyscxml.pyscxml_session_2166234524752:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test252.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: s02
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2166234524752.s01.8.0' finished
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2166234524752' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test252.scxml] passed!
+Starting test253.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test253.scxml
+
+INFO:pyscxml.pyscxml_session_2923711409232:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test253.scxml
+
+INFO:pyscxml:enter:ScxmlTest253 __main__
+INFO:pyscxml:enter:ScxmlTest253 s0
+
+INFO:pyscxml:enter:ScxmlTest253 s01
+
+INFO:pyscxml:exit:ScxmlTest253 s01
+
+INFO:pyscxml:transition:ScxmlTest253 0
+INFO:pyscxml:enter:ScxmlTest253 s02
+
+INFO:pyscxml:exit:ScxmlTest253 s02
+
+INFO:pyscxml:transition:ScxmlTest253 0
+INFO:pyscxml:enter:ScxmlTest253 s03
+
+INFO:pyscxml:exit:ScxmlTest253 s03
+
+INFO:pyscxml:exit:ScxmlTest253 s0
+INFO:pyscxml:transition:ScxmlTest253 0
+
+INFO:pyscxml:enter:ScxmlTest253 pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2923711409232.foo' finished
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest253 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2923711409232' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test253.scxml] passed!
+Starting test276.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test276.scxml
+
+INFO:pyscxml.pyscxml_session_1740979743824:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test276.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1740979743824.s0.2.0' finished
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1740979743824' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test276.scxml] passed!
+Starting test277.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test277.scxml
+
+WARNING:pyscxml.pyscxml_session_2101514841168.compiler:Your document lacks the correct default namespace declaration. It has been added for you, for parsing purposes.
+
+INFO:pyscxml.pyscxml_session_2101514841168:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test277.scxml
+
+ERROR:pyscxml.pyscxml_session_2101514841168.compiler:Failed to parse data element at line <ns0:data xmlns:ns0="http://www.w3.org/2005/07/scxml" id="Var1" expr="1 = 1" />
+     :
+Traceback (most recent call last):
+SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='? (<string>, line 1)
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2101514841168' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test277.scxml] passed!
+Starting test279.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test279.scxml
+
+INFO:pyscxml.pyscxml_session_2770684259408:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test279.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2770684259408' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test279.scxml] passed!
+Starting test280.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test280.scxml
+
+INFO:pyscxml.pyscxml_session_1655157140560:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test280.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1655157140560' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test280.scxml] passed!
+Starting test286.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test286.scxml
+
+INFO:pyscxml.pyscxml_session_2190004038736:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test286.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+ERROR:pyscxml.pyscxml_session_2190004038736.compiler:An 'IllegalLocationError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="Var1" expr="1" />
+   :
+    The location expression 'Var1' was not instantiated in the datamodel.  
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2190004038736' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test286.scxml] passed!
+Starting test287.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test287.scxml
+
+INFO:pyscxml.pyscxml_session_2579024227408:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test287.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2579024227408' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test287.scxml] passed!
+Starting test294.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test294.scxml
+
+INFO:pyscxml.pyscxml_session_2153817877584:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test294.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+INFO:pyscxml:exit: s02
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2153817877584' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test294.scxml] passed!
+Starting test298.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test298.scxml
+
+INFO:pyscxml.pyscxml_session_2637017623632:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test298.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+ERROR:pyscxml.pyscxml_session_2637017623632.compiler:Line <ns0:donedata xmlns:ns0="http://www.w3.org/2005/07/scxml">
+      <ns0:param name="Var3" location="Var2" />
+      </ns0:donedata>
+     : Donedata crashed.
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 39, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 167, in evalExpr
+    return eval(expr, self)
+           ^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'Var2' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 613, in donedata
+    data = self.parseData(node, forSend=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 386, in parseData
+    (p.get("name"), self.getExprValue(expr))
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 706, in getExprValue
+    return self.dm.evalExpr(expr)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 42, in wrapper
+    raise ExprEvalError(e, traceback)
+blend_scxml.errors.ExprEvalError: Traceback (most recent call last):
+NameError: name 'Var2' is not defined
+INFO:pyscxml:exit: s02
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2637017623632' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test298.scxml] passed!
+Starting test302.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test302.scxml
+
+INFO:pyscxml.pyscxml_session_2088963189840:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test302.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2088963189840' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test302.scxml] passed!
+Starting test303.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test303.scxml
+
+INFO:pyscxml.pyscxml_session_1312654732368:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test303.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1312654732368' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test303.scxml] passed!
+Starting test304.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test304.scxml
+
+INFO:pyscxml.pyscxml_session_2578423065680:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test304.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2578423065680' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test304.scxml] passed!
+Starting test309.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test309.scxml
+
+INFO:pyscxml.pyscxml_session_2953693736016:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test309.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_2953693736016.compiler:Evaluation of cond failed on line <ns0:onentry xmlns:ns0="http://www.w3.org/2005/07/scxml"><ns0:log label="Outcome" expr="'fail'" /></ns0:onentry>: 1 = 1 :Traceback (most recent call last):
+SyntaxError: invalid syntax (<string>, line 1)
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2953693736016' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test309.scxml] passed!
+Starting test310.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test310.scxml
+
+INFO:pyscxml.pyscxml_session_2108915756112:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test310.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: p
+
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:exit: p
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2108915756112' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test310.scxml] passed!
+Starting test311.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test311.scxml
+
+INFO:pyscxml.pyscxml_session_2245342243920:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test311.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_2245342243920.compiler:An 'IllegalLocationError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="Var1" expr="1" />
+   :
+    The location expression 'Var1' was not instantiated in the datamodel.  
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2245342243920' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test311.scxml] passed!
+Starting test312.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test312.scxml
+
+INFO:pyscxml.pyscxml_session_1845657316432:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test312.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_1845657316432.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="Var1" expr="1 = 1" />
+   :
+    Traceback (most recent call last):
+SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='? (<string>, line 1)  
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1845657316432' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test312.scxml] passed!
+Starting test318.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test318.scxml
+
+INFO:pyscxml.pyscxml_session_2539123944528:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test318.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+INFO:pyscxml:exit:machineName s1
+INFO:pyscxml:transition:machineName 0
+
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2539123944528' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test318.scxml] passed!
+Starting test319.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test319.scxml
+
+INFO:pyscxml.pyscxml_session_2374601387088:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test319.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2374601387088' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test319.scxml] passed!
+Starting test321.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test321.scxml
+
+INFO:pyscxml.pyscxml_session_1767563373648:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test321.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1767563373648' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test321.scxml] passed!
+Starting test322.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test322.scxml
+
+INFO:pyscxml.pyscxml_session_2890692340816:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test322.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+ERROR:pyscxml.pyscxml_session_2890692340816.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_sessionid" expr="'otherName'" />
+    :
+    You can't assign to the name '_sessionid'.  
+INFO:pyscxml:exit:machineName s1
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s2
+INFO:pyscxml:exit:machineName s2
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2890692340816' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test322.scxml] passed!
+Starting test323.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test323.scxml
+
+INFO:pyscxml.pyscxml_session_2803806874704:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test323.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2803806874704' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test323.scxml] passed!
+Starting test324.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test324.scxml
+
+INFO:pyscxml.pyscxml_session_1888486992976:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test324.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+ERROR:pyscxml.pyscxml_session_1888486992976.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_name" expr="'otherName'" />
+    :
+    You can't assign to the name '_name'.  
+INFO:pyscxml:exit:machineName s1
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1888486992976' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test324.scxml] passed!
+Starting test325.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test325.scxml
+
+INFO:pyscxml.pyscxml_session_1820495686736:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test325.scxml
+
+INFO:pyscxml:enter:machineName __main__
+
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1820495686736' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test325.scxml] passed!
+Starting test326.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test326.scxml
+
+INFO:pyscxml.pyscxml_session_1447325445200:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test326.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+ERROR:pyscxml.pyscxml_session_1447325445200.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_ioprocessors" expr="'otherName'" />
+    :
+    You can't assign to the name '_ioprocessors'.  
+INFO:pyscxml:exit:machineName s1
+INFO:pyscxml:transition:machineName 0
+
+INFO:pyscxml:enter:machineName s2
+INFO:pyscxml:exit:machineName s2
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1447325445200' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test326.scxml] passed!
+Starting test329.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test329.scxml
+
+INFO:pyscxml.pyscxml_session_2395789306960:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test329.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+ERROR:pyscxml.pyscxml_session_2395789306960.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_sessionid" expr="27" />
+   :
+    You can't assign to the name '_sessionid'.  
+
+INFO:pyscxml:exit:machineName s0
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+
+ERROR:pyscxml.pyscxml_session_2395789306960.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_event" expr="27" />
+    :
+    You can't assign to the name '_event'.  
+INFO:pyscxml:exit:machineName s1
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s2
+
+ERROR:pyscxml.pyscxml_session_2395789306960.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_name" expr="27" />
+    :
+    You can't assign to the name '_name'.  
+INFO:pyscxml:exit:machineName s2
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s3
+ERROR:pyscxml.pyscxml_session_2395789306960.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_ioprocessors" expr="27" />
+    :
+    You can't assign to the name '_ioprocessors'.  
+INFO:pyscxml:exit:machineName s3
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2395789306960' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test329.scxml] passed!
+Starting test330.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test330.scxml
+
+WARNING:pyscxml.pyscxml_session_1563541417040.compiler:Your document lacks the correct default namespace declaration. It has been added for you, for parsing purposes.
+
+INFO:pyscxml.pyscxml_session_1563541417040:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test330.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+INFO:pyscxml:exit:machineName s1
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1563541417040' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test330.scxml] passed!
+Starting test331.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test331.scxml
+
+INFO:pyscxml.pyscxml_session_3178019531856:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test331.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+
+INFO:pyscxml:exit:machineName s1
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s2
+ERROR:pyscxml.pyscxml_session_3178019531856.compiler:An 'IllegalLocationError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="Var2" expr="1" />
+   :
+    The location expression 'Var2' was not instantiated in the datamodel.  
+INFO:pyscxml:exit:machineName s2
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s3
+INFO:pyscxml:exit:machineName s3
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s4
+INFO:pyscxml:exit:machineName s4
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s5
+
+INFO:pyscxml:exit:machineName s5
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_3178019531856' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test331.scxml] passed!
+Starting test332.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test332.scxml
+
+INFO:pyscxml.pyscxml_session_2081803643984:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test332.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+ERROR:pyscxml.pyscxml_session_2081803643984.compiler:Parsing of send node failed on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="baz" event="foo" idlocation="Var1" />
+   .
+ERROR:pyscxml.pyscxml_session_2081803643984.compiler:A 'SendExecutionError' occurred when evaluating 'send' on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="baz" event="foo" idlocation="Var1" />
+   :
+    The send target 'baz' is malformed or unsupported by the platform for the send type 'scxml'.  
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+INFO:pyscxml:exit:machineName s1
+INFO:pyscxml:transition:machineName 0
+
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2081803643984' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test332.scxml] passed!
+Starting test333.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test333.scxml
+
+INFO:pyscxml.pyscxml_session_1725413502032:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test333.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1725413502032' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test333.scxml] passed!
+Starting test335.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test335.scxml
+
+INFO:pyscxml.pyscxml_session_1764732087376:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test335.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1764732087376' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test335.scxml] passed!
+Starting test336.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test336.scxml
+
+WARNING:pyscxml.pyscxml_session_1519356521552.compiler:Your document lacks the correct default namespace declaration. It has been added for you, for parsing purposes.
+
+INFO:pyscxml.pyscxml_session_1519356521552:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test336.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+
+INFO:pyscxml:exit:machineName s1
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1519356521552' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test336.scxml] passed!
+Starting test337.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test337.scxml
+
+INFO:pyscxml.pyscxml_session_2056426466384:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test337.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2056426466384' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test337.scxml] passed!
+Starting test338.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test338.scxml
+
+INFO:pyscxml.pyscxml_session_1654131829840:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test338.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1654131829840.s0.4.0' finished
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1654131829840' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test338.scxml] passed!
+Starting test339.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test339.scxml
+
+INFO:pyscxml.pyscxml_session_1604845022288:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test339.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1604845022288' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test339.scxml] passed!
+Starting test342.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test342.scxml
+
+INFO:pyscxml.pyscxml_session_1204179938384:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test342.scxml
+
+INFO:pyscxml:enter:machineName __main__
+
+INFO:pyscxml:enter:machineName s0
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+
+INFO:pyscxml:exit:machineName s1
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1204179938384' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test342.scxml] passed!
+Starting test343.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test343.scxml
+
+INFO:pyscxml.pyscxml_session_1834457082960:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test343.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+ERROR:pyscxml.pyscxml_session_1834457082960.compiler:Line <ns0:donedata xmlns:ns0="http://www.w3.org/2005/07/scxml">
+        <ns0:param location="foo.bar.baz " name="someParam" />
+      </ns0:donedata>
+    : Donedata crashed.
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 39, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 167, in evalExpr
+    return eval(expr, self)
+           ^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'foo' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 613, in donedata
+    data = self.parseData(node, forSend=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 386, in parseData
+    (p.get("name"), self.getExprValue(expr))
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 706, in getExprValue
+    return self.dm.evalExpr(expr)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 42, in wrapper
+    raise ExprEvalError(e, traceback)
+blend_scxml.errors.ExprEvalError: Traceback (most recent call last):
+NameError: name 'foo' is not defined
+INFO:pyscxml:exit: s02
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1834457082960' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test343.scxml] passed!
+Starting test344.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test344.scxml
+
+INFO:pyscxml.pyscxml_session_1854545767504:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test344.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_1854545767504.compiler:Evaluation of cond failed on line <ns0:onentry xmlns:ns0="http://www.w3.org/2005/07/scxml"><ns0:log label="Outcome" expr="'fail'" /></ns0:onentry>: 1 = 1 :Traceback (most recent call last):
+SyntaxError: invalid syntax (<string>, line 1)
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1854545767504' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test344.scxml] passed!
+Starting test346.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test346.scxml
+
+INFO:pyscxml.pyscxml_session_2136142883920:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test346.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s0
+
+ERROR:pyscxml.pyscxml_session_2136142883920.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_sessionid" expr="'otherName'" />
+    :
+    You can't assign to the name '_sessionid'.  
+
+INFO:pyscxml:exit:machineName s0
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s1
+ERROR:pyscxml.pyscxml_session_2136142883920.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_event" expr="'otherName'" />
+    :
+    You can't assign to the name '_event'.  
+
+INFO:pyscxml:exit:machineName s1
+INFO:pyscxml:transition:machineName 1
+INFO:pyscxml:enter:machineName s2
+ERROR:pyscxml.pyscxml_session_2136142883920.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_ioprocessors" expr="'otherName'" />
+    :
+    You can't assign to the name '_ioprocessors'.  
+INFO:pyscxml:exit:machineName s2
+INFO:pyscxml:transition:machineName 1
+INFO:pyscxml:enter:machineName s3
+ERROR:pyscxml.pyscxml_session_2136142883920.compiler:An 'AtomicError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="_name" expr="'otherName'" />
+    :
+    You can't assign to the name '_name'.  
+INFO:pyscxml:exit:machineName s3
+INFO:pyscxml:transition:machineName 1
+INFO:pyscxml:enter:machineName pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2136142883920' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test346.scxml] passed!
+Starting test347.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test347.scxml
+
+INFO:pyscxml.pyscxml_session_2036651109456:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test347.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2036651109456.child' finished
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2036651109456' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test347.scxml] passed!
+Starting test348.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test348.scxml
+
+INFO:pyscxml.pyscxml_session_2037402283088:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test348.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2037402283088' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test348.scxml] passed!
+Starting test349.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test349.scxml
+
+INFO:pyscxml.pyscxml_session_1904307121232:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test349.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s2
+
+INFO:pyscxml:exit: s2
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1904307121232' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test349.scxml] passed!
+Starting test350.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test350.scxml
+
+INFO:pyscxml.pyscxml_session_1930234014800:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test350.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1930234014800' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test350.scxml] passed!
+Starting test351.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test351.scxml
+
+INFO:pyscxml.pyscxml_session_1786055470160:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test351.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s2
+
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s3
+
+INFO:pyscxml:exit: s3
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1786055470160' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test351.scxml] passed!
+Starting test352.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test352.scxml
+
+INFO:pyscxml.pyscxml_session_2118263417936:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test352.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2118263417936' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test352.scxml] passed!
+Starting test354.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test354.scxml
+
+INFO:pyscxml.pyscxml_session_2903114886224:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test354.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s2
+
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s3
+
+INFO:pyscxml:exit: s3
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2903114886224' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test354.scxml] passed!
+Starting test355.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test355.scxml
+
+INFO:pyscxml.pyscxml_session_1971140602960:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test355.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1971140602960' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test355.scxml] passed!
+Starting test364.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test364.scxml
+
+INFO:pyscxml.pyscxml_session_2884949945424:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test364.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:enter: s11p112
+INFO:pyscxml:enter: s11p122
+
+INFO:pyscxml:exit: s11p122
+
+INFO:pyscxml:exit: s11p112
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s2
+
+INFO:pyscxml:enter: s21p112
+INFO:pyscxml:enter: s21p122
+INFO:pyscxml:exit: s21p122
+INFO:pyscxml:exit: s21p112
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s3
+INFO:pyscxml:enter: s31
+INFO:pyscxml:enter: s311
+INFO:pyscxml:enter: s3111
+INFO:pyscxml:exit: s3111
+INFO:pyscxml:exit: s311
+INFO:pyscxml:exit: s31
+INFO:pyscxml:exit: s3
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2884949945424' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test364.scxml] passed!
+Starting test372.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test372.scxml
+
+INFO:pyscxml.pyscxml_session_2725841513552:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test372.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s0final
+
+INFO:pyscxml:exit: s0final
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2725841513552' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test372.scxml] passed!
+Starting test375.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test375.scxml
+
+INFO:pyscxml.pyscxml_session_2407038757968:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test375.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2407038757968' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test375.scxml] passed!
+Starting test376.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test376.scxml
+
+INFO:pyscxml.pyscxml_session_1772849114192:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test376.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_1772849114192.compiler:Parsing of send node failed on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="baz" event="event1" />
+    .
+ERROR:pyscxml.pyscxml_session_1772849114192.compiler:A 'SendExecutionError' occurred when evaluating 'send' on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="baz" event="event1" />
+    :
+    The send target 'baz' is malformed or unsupported by the platform for the send type 'scxml'.  
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1772849114192' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test376.scxml] passed!
+Starting test377.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test377.scxml
+
+INFO:pyscxml.pyscxml_session_1512455056464:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test377.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s2
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1512455056464' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test377.scxml] passed!
+Starting test378.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test378.scxml
+
+INFO:pyscxml.pyscxml_session_2007086443600:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test378.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_2007086443600.compiler:Parsing of send node failed on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="baz" event="event1" />
+    .
+
+ERROR:pyscxml.pyscxml_session_2007086443600.compiler:A 'SendExecutionError' occurred when evaluating 'send' on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="baz" event="event1" />
+    :
+    The send target 'baz' is malformed or unsupported by the platform for the send type 'scxml'.  
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2007086443600' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test378.scxml] passed!
+Starting test387.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test387.scxml
+
+INFO:pyscxml.pyscxml_session_1973617994832:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test387.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s022
+INFO:pyscxml:exit: s022
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1973617994832' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test387.scxml] passed!
+Starting test388.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test388.scxml
+
+INFO:pyscxml.pyscxml_session_2008987315280:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test388.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+INFO:pyscxml:enter: s012
+
+INFO:pyscxml:exit: s012
+
+INFO:pyscxml:exit: s01
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s01
+INFO:pyscxml:enter: s012
+INFO:pyscxml:exit: s012
+INFO:pyscxml:exit: s01
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s2
+INFO:pyscxml:exit: s2
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s01
+INFO:pyscxml:enter: s011
+INFO:pyscxml:exit: s011
+INFO:pyscxml:exit: s01
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 3
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2008987315280' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test388.scxml] passed!
+Starting test396.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test396.scxml
+
+INFO:pyscxml.pyscxml_session_2638147333200:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test396.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2638147333200' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test396.scxml] passed!
+Starting test399.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test399.scxml
+
+INFO:pyscxml.pyscxml_session_2744511802448:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test399.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+INFO:pyscxml:exit: s02
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s03
+
+INFO:pyscxml:exit: s03
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s04
+INFO:pyscxml:exit: s04
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s05
+INFO:pyscxml:exit: s05
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s06
+INFO:pyscxml:exit: s06
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2744511802448' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test399.scxml] passed!
+Starting test401.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test401.scxml
+
+INFO:pyscxml.pyscxml_session_2342404205648:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test401.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_2342404205648.compiler:An 'IllegalLocationError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" id="Var1" expr="2" />
+    :
+    The location expression 'None' was not instantiated in the datamodel.  
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2342404205648' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test401.scxml] passed!
+Starting test402.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test402.scxml
+
+INFO:pyscxml.pyscxml_session_1391597169744:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test402.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+ERROR:pyscxml.pyscxml_session_1391597169744.compiler:An 'IllegalLocationError' occurred when evaluating 'assign' on line <ns0:assign xmlns:ns0="http://www.w3.org/2005/07/scxml" location="Var1" expr="2" /> 
+   :
+    The location expression 'Var1' was not instantiated in the datamodel.  
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+INFO:pyscxml:exit: s02
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: s03
+INFO:pyscxml:exit: s03
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1391597169744' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test402.scxml] passed!
+Starting test403a.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test403a.scxml
+
+INFO:pyscxml.pyscxml_session_2234564848720:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test403a.scxml
+
+INFO:pyscxml:enter:ScxmlTest403a __main__
+INFO:pyscxml:enter:ScxmlTest403a s0
+
+INFO:pyscxml:enter:ScxmlTest403a s01
+
+INFO:pyscxml:exit:ScxmlTest403a s01
+
+INFO:pyscxml:transition:ScxmlTest403a 0
+INFO:pyscxml:enter:ScxmlTest403a s02
+ERROR:pyscxml.pyscxml_session_2234564848720.compiler:Evaluation of cond failed on line <ns0:onentry xmlns:ns0="http://www.w3.org/2005/07/scxml">
+			<ns0:log expr="'fail'" label="Outcome" />
+		</ns0:onentry>
+	: false :Traceback (most recent call last):
+NameError: name 'false' is not defined
+
+INFO:pyscxml:exit:ScxmlTest403a s02
+INFO:pyscxml:exit:ScxmlTest403a s0
+INFO:pyscxml:transition:ScxmlTest403a 2
+INFO:pyscxml:enter:ScxmlTest403a pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest403a pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2234564848720' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test403a.scxml] passed!
+Starting test403b.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test403b.scxml
+
+INFO:pyscxml.pyscxml_session_2818963123280:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test403b.scxml
+
+INFO:pyscxml:enter:ScxmlTest403b __main__
+INFO:pyscxml:enter:ScxmlTest403b s0
+
+INFO:pyscxml:enter:ScxmlTest403b p0
+INFO:pyscxml:enter:ScxmlTest403b p0s1
+INFO:pyscxml:enter:ScxmlTest403b p0s2
+
+INFO:pyscxml:transition:ScxmlTest403b 0
+
+INFO:pyscxml:exit:ScxmlTest403b p0s2
+INFO:pyscxml:exit:ScxmlTest403b p0s1
+INFO:pyscxml:exit:ScxmlTest403b p0
+
+INFO:pyscxml:exit:ScxmlTest403b s0
+INFO:pyscxml:transition:ScxmlTest403b 0
+INFO:pyscxml:enter:ScxmlTest403b pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest403b pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2818963123280' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test403b.scxml] passed!
+Starting test403c.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test403c.scxml
+
+INFO:pyscxml.pyscxml_session_2005526424656:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test403c.scxml
+
+INFO:pyscxml:enter:ScxmlTest403c __main__
+INFO:pyscxml:enter:ScxmlTest403c s0
+
+INFO:pyscxml:enter:ScxmlTest403c p0
+INFO:pyscxml:enter:ScxmlTest403c p0s1
+INFO:pyscxml:enter:ScxmlTest403c p0s2
+INFO:pyscxml:enter:ScxmlTest403c p0s3
+INFO:pyscxml:enter:ScxmlTest403c p0s4
+
+INFO:pyscxml:exit:ScxmlTest403c p0s4
+
+INFO:pyscxml:exit:ScxmlTest403c p0s3
+INFO:pyscxml:exit:ScxmlTest403c p0s2
+INFO:pyscxml:exit:ScxmlTest403c p0s1
+INFO:pyscxml:exit:ScxmlTest403c p0
+INFO:pyscxml:transition:ScxmlTest403c 0
+
+INFO:pyscxml:transition:ScxmlTest403c 0
+INFO:pyscxml:transition:ScxmlTest403c 0
+INFO:pyscxml:enter:ScxmlTest403c p0
+INFO:pyscxml:enter:ScxmlTest403c p0s1
+INFO:pyscxml:enter:ScxmlTest403c p0s2
+INFO:pyscxml:enter:ScxmlTest403c p0s3
+INFO:pyscxml:enter:ScxmlTest403c p0s4
+INFO:pyscxml:exit:ScxmlTest403c p0s4
+INFO:pyscxml:exit:ScxmlTest403c p0s3
+INFO:pyscxml:exit:ScxmlTest403c p0s2
+INFO:pyscxml:exit:ScxmlTest403c p0s1
+INFO:pyscxml:exit:ScxmlTest403c p0
+INFO:pyscxml:exit:ScxmlTest403c s0
+INFO:pyscxml:transition:ScxmlTest403c 1
+INFO:pyscxml:transition:ScxmlTest403c 1
+INFO:pyscxml:transition:ScxmlTest403c 0
+
+INFO:pyscxml:enter:ScxmlTest403c s1
+INFO:pyscxml:exit:ScxmlTest403c s1
+INFO:pyscxml:transition:ScxmlTest403c 0
+INFO:pyscxml:enter:ScxmlTest403c pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest403c pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2005526424656' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test403c.scxml] passed!
+Starting test404.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test404.scxml
+
+INFO:pyscxml.pyscxml_session_2685511183440:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test404.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01p
+INFO:pyscxml:enter: s01p1
+INFO:pyscxml:enter: s01p2
+
+INFO:pyscxml:exit: s01p2
+
+INFO:pyscxml:exit: s01p1
+INFO:pyscxml:exit: s01p
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+INFO:pyscxml:exit: s02
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s03
+INFO:pyscxml:exit: s03
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s04
+INFO:pyscxml:exit: s04
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s05
+INFO:pyscxml:exit: s05
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2685511183440' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test404.scxml] passed!
+Starting test405.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test405.scxml
+
+INFO:pyscxml.pyscxml_session_1841816054864:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test405.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01p
+INFO:pyscxml:enter: s01p1
+INFO:pyscxml:enter: s01p11
+INFO:pyscxml:enter: s01p2
+INFO:pyscxml:enter: s01p21
+
+INFO:pyscxml:exit: s01p21
+
+INFO:pyscxml:exit: s01p11
+INFO:pyscxml:transition: 0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s01p12
+INFO:pyscxml:enter: s01p22
+
+INFO:pyscxml:exit: s01p22
+INFO:pyscxml:exit: s01p2
+INFO:pyscxml:exit: s01p12
+INFO:pyscxml:exit: s01p1
+INFO:pyscxml:exit: s01p
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+INFO:pyscxml:exit: s02
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s03
+INFO:pyscxml:exit: s03
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s04
+INFO:pyscxml:exit: s04
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1841816054864' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test405.scxml] passed!
+Starting test406.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test406.scxml
+
+INFO:pyscxml.pyscxml_session_2547615247440:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test406.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s0p2
+INFO:pyscxml:enter: s01p21
+INFO:pyscxml:enter: s01p22
+
+INFO:pyscxml:exit: s01p22
+INFO:pyscxml:exit: s01p21
+INFO:pyscxml:exit: s0p2
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s03
+INFO:pyscxml:exit: s03
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s04
+INFO:pyscxml:exit: s04
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s05
+INFO:pyscxml:exit: s05
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2547615247440' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test406.scxml] passed!
+Starting test407.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test407.scxml
+
+INFO:pyscxml.pyscxml_session_2726741388368:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test407.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2726741388368' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test407.scxml] passed!
+Starting test409.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test409.scxml
+
+INFO:pyscxml.pyscxml_session_1647712250960:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test409.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+INFO:pyscxml:enter: s011
+
+INFO:pyscxml:exit: s011
+
+INFO:pyscxml:exit: s01
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1647712250960' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test409.scxml] passed!
+Starting test411.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test411.scxml
+
+INFO:pyscxml.pyscxml_session_2825548508240:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test411.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 2
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2825548508240' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test411.scxml] passed!
+Starting test412.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test412.scxml
+
+INFO:pyscxml.pyscxml_session_2566936112208:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test412.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+INFO:pyscxml:enter: s011
+
+INFO:pyscxml:exit: s011
+
+INFO:pyscxml:exit: s01
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+INFO:pyscxml:exit: s02
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s03
+INFO:pyscxml:exit: s03
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s04
+INFO:pyscxml:exit: s04
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2566936112208' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test412.scxml] passed!
+Starting test413.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test413.scxml
+
+INFO:pyscxml.pyscxml_session_2584766360656:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test413.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s2
+
+INFO:pyscxml:enter: s2p1
+INFO:pyscxml:enter: s2p11
+INFO:pyscxml:enter: s2p112
+INFO:pyscxml:enter: s2p12
+INFO:pyscxml:enter: s2p122
+
+INFO:pyscxml:exit: s2p122
+
+INFO:pyscxml:exit: s2p12
+INFO:pyscxml:exit: s2p112
+INFO:pyscxml:exit: s2p11
+INFO:pyscxml:exit: s2p1
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2584766360656' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test413.scxml] passed!
+Starting test416.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test416.scxml
+
+INFO:pyscxml.pyscxml_session_2562077994064:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test416.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:enter: s11
+INFO:pyscxml:enter: s111
+
+INFO:pyscxml:exit: s111
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s11final
+INFO:pyscxml:exit: s11final
+
+INFO:pyscxml:exit: s11
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2562077994064' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test416.scxml] passed!
+Starting test417.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test417.scxml
+
+INFO:pyscxml.pyscxml_session_2269917916240:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test417.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:enter: s1p1
+INFO:pyscxml:enter: s1p11
+INFO:pyscxml:enter: s1p111
+INFO:pyscxml:enter: s1p12
+INFO:pyscxml:enter: s1p121
+
+INFO:pyscxml:exit: s1p121
+
+INFO:pyscxml:exit: s1p111
+INFO:pyscxml:transition: 0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1p11final
+INFO:pyscxml:enter: s1p12final
+
+INFO:pyscxml:exit: s1p12final
+INFO:pyscxml:exit: s1p12
+INFO:pyscxml:exit: s1p11final
+INFO:pyscxml:exit: s1p11
+INFO:pyscxml:exit: s1p1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2269917916240' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test417.scxml] passed!
+Starting test419.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test419.scxml
+
+INFO:pyscxml.pyscxml_session_2495549910096:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test419.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2495549910096' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test419.scxml] passed!
+Starting test421.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test421.scxml
+
+INFO:pyscxml.pyscxml_session_3129014529104:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test421.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:enter: s11
+
+INFO:pyscxml:exit: s11
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s12
+INFO:pyscxml:exit: s12
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_3129014529104' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test421.scxml] passed!
+Starting test422.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test422.scxml
+
+INFO:pyscxml.pyscxml_session_1884806884432:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test422.scxml
+
+INFO:pyscxml:enter:ScxmlTest422 __main__
+
+INFO:pyscxml:enter:ScxmlTest422 s1
+INFO:pyscxml:enter:ScxmlTest422 s11
+
+INFO:pyscxml:exit:ScxmlTest422 s11
+
+INFO:pyscxml:transition:ScxmlTest422 0
+INFO:pyscxml:enter:ScxmlTest422 s12
+
+INFO:pyscxml:transition:ScxmlTest422 0
+
+INFO:pyscxml:transition:ScxmlTest422 0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1884806884432.s1.4.0' finished
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1884806884432.s12.13.1' finished
+
+INFO:pyscxml:exit:ScxmlTest422 s12
+
+INFO:pyscxml:exit:ScxmlTest422 s1
+INFO:pyscxml:transition:ScxmlTest422 2
+
+INFO:pyscxml:enter:ScxmlTest422 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest422 pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1884806884432' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test422.scxml] passed!
+Starting test423.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test423.scxml
+
+INFO:pyscxml.pyscxml_session_1767481912400:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test423.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1767481912400' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test423.scxml] passed!
+Starting test487.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test487.scxml
+
+INFO:pyscxml.pyscxml_session_2469429816400:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test487.scxml
+
+ERROR:pyscxml.pyscxml_session_2469429816400.compiler:Failed to parse data element at line <ns0:data xmlns:ns0="http://www.w3.org/2005/07/scxml" id="Var1" expr="1 = 1" />
+  :
+Traceback (most recent call last):
+SyntaxError: cannot assign to literal here. Maybe you meant '==' instead of '='? (<string>, line 1)
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2469429816400' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test487.scxml] passed!
+Starting test488.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test488.scxml
+
+INFO:pyscxml.pyscxml_session_1230424747088:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test488.scxml
+
+INFO:pyscxml:enter:ScxmlTest488 __main__
+INFO:pyscxml:enter:ScxmlTest488 s0
+
+INFO:pyscxml:enter:ScxmlTest488 s01
+
+INFO:pyscxml:exit:ScxmlTest488 s01
+
+INFO:pyscxml:transition:ScxmlTest488 0
+INFO:pyscxml:enter:ScxmlTest488 s02
+
+ERROR:pyscxml.pyscxml_session_1230424747088.compiler:Line <ns0:donedata xmlns:ns0="http://www.w3.org/2005/07/scxml">
+				<ns0:param expr="return" name="someParam" />
+			</ns0:donedata>
+		: Donedata crashed.
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 39, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 167, in evalExpr
+    return eval(expr, self)
+           ^^^^^^^^^^^^^^^^
+  File "<string>", line 1
+    return
+    ^^^^^^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 613, in donedata
+    data = self.parseData(node, forSend=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 386, in parseData
+    (p.get("name"), self.getExprValue(expr))
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 706, in getExprValue
+    return self.dm.evalExpr(expr)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 42, in wrapper
+    raise ExprEvalError(e, traceback)
+blend_scxml.errors.ExprEvalError: Traceback (most recent call last):
+SyntaxError: invalid syntax (<string>, line 1)
+INFO:pyscxml:exit:ScxmlTest488 s02
+INFO:pyscxml:exit:ScxmlTest488 s0
+INFO:pyscxml:transition:ScxmlTest488 0
+INFO:pyscxml:enter:ScxmlTest488 s1
+INFO:pyscxml:exit:ScxmlTest488 s1
+INFO:pyscxml:transition:ScxmlTest488 0
+INFO:pyscxml:enter:ScxmlTest488 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest488 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1230424747088' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test488.scxml] passed!
+Starting test495.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test495.scxml
+
+INFO:pyscxml.pyscxml_session_2254360390736:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test495.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2254360390736' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test495.scxml] passed!
+Starting test496.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test496.scxml
+
+INFO:pyscxml.pyscxml_session_1962813336656:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test496.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_1962813336656.compiler:Parsing of send node failed on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" type="http://www.w3.org/TR/scxml/#SCXMLEventProcessor" event="event" target="#_scxml_foo" />
+     .
+ERROR:pyscxml.pyscxml_session_1962813336656.compiler:A 'SendCommunicationError' occurred when evaluating 'send' on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" type="http://www.w3.org/TR/scxml/#SCXMLEventProcessor" event="event" target="#_scxml_foo" />
+     :
+    The session 'foo' is inaccessible.  
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1962813336656' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test496.scxml] passed!
+Starting test500.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test500.scxml
+
+INFO:pyscxml.pyscxml_session_3214029073488:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test500.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_3214029073488' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test500.scxml] passed!
+Starting test501.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test501.scxml
+
+INFO:pyscxml.pyscxml_session_2459353001040:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test501.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2459353001040' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test501.scxml] passed!
+Starting test503.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test503.scxml
+
+INFO:pyscxml.pyscxml_session_2179916934224:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test503.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s2
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s3
+INFO:pyscxml:exit: s3
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2179916934224' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test503.scxml] passed!
+Starting test504.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test504.scxml
+
+INFO:pyscxml.pyscxml_session_1679071554640:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test504.scxml
+
+INFO:pyscxml:enter:machineName __main__
+INFO:pyscxml:enter:machineName s1
+
+INFO:pyscxml:exit:machineName s1
+
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName p
+INFO:pyscxml:enter:machineName ps1
+
+INFO:pyscxml:enter:machineName ps2
+INFO:pyscxml:exit:machineName ps2
+INFO:pyscxml:exit:machineName ps1
+INFO:pyscxml:exit:machineName p
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName p
+INFO:pyscxml:enter:machineName ps1
+INFO:pyscxml:enter:machineName ps2
+INFO:pyscxml:exit:machineName ps2
+INFO:pyscxml:exit:machineName ps1
+INFO:pyscxml:exit:machineName p
+
+exit ps2None
+exit ps1None
+exit pNone
+exit ps2None
+exit ps1None
+exit pNone
+
+INFO:pyscxml:transition:machineName 1
+INFO:pyscxml:enter:machineName s2
+INFO:pyscxml:exit:machineName s2
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s3
+INFO:pyscxml:exit:machineName s3
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName s4
+INFO:pyscxml:exit:machineName s4
+INFO:pyscxml:transition:machineName 0
+INFO:pyscxml:enter:machineName pass
+
+pass: 2
+2
+2
+1
+Outcome: pass
+
+INFO:pyscxml:exit:machineName pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1679071554640' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test504.scxml] passed!
+Starting test505.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test505.scxml
+
+INFO:pyscxml.pyscxml_session_2261947427920:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test505.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:enter: s11
+
+INFO:pyscxml:exit: s11
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s11
+INFO:pyscxml:exit: s11
+
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s2
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s3
+INFO:pyscxml:exit: s3
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2261947427920' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test505.scxml] passed!
+Starting test506.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test506.scxml
+
+INFO:pyscxml.pyscxml_session_2250001067088:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test506.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s2
+INFO:pyscxml:enter: s21
+
+INFO:pyscxml:exit: s21
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s2
+INFO:pyscxml:enter: s21
+INFO:pyscxml:exit: s21
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s3
+INFO:pyscxml:exit: s3
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s4
+
+INFO:pyscxml:exit: s4
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2250001067088' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test506.scxml] passed!
+Starting test521.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test521.scxml
+
+INFO:pyscxml.pyscxml_session_2087151774800:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test521.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_2087151774800.compiler:Parsing of send node failed on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="#_scxml_foo" event="event2" />
+   
+   .
+ERROR:pyscxml.pyscxml_session_2087151774800.compiler:A 'SendCommunicationError' occurred when evaluating 'send' on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" target="#_scxml_foo" event="event2" />
+   
+   :
+    The session 'foo' is inaccessible.  
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2087151774800' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test521.scxml] passed!
+Starting test525.scxml...
+INFO:scxml_tester:remote_port=11005
+
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test525.scxml
+
+INFO:pyscxml.pyscxml_session_3257598717008:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test525.scxml
+
+INFO:pyscxml:enter:ScxmlTest525 __main__
+INFO:pyscxml:enter:ScxmlTest525 s0
+
+INFO:pyscxml:exit:ScxmlTest525 s0
+
+INFO:pyscxml:transition:ScxmlTest525 0
+INFO:pyscxml:enter:ScxmlTest525 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest525 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_3257598717008' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test525.scxml] passed!
+Starting test527.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test527.scxml
+
+INFO:pyscxml.pyscxml_session_1542530313296:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test527.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+INFO:pyscxml:exit: s02
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1542530313296' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test527.scxml] passed!
+Starting test528.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test528.scxml
+
+INFO:pyscxml.pyscxml_session_1771859258448:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test528.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+
+ERROR:pyscxml.pyscxml_session_1771859258448.compiler:Line <ns0:donedata xmlns:ns0="http://www.w3.org/2005/07/scxml">
+        <ns0:content expr="return" />
+      </ns0:donedata>
+    : Donedata crashed.
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 39, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 167, in evalExpr
+    return eval(expr, self)
+           ^^^^^^^^^^^^^^^^
+  File "<string>", line 1
+    (return)
+     ^^^^^^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 613, in donedata
+    data = self.parseData(node, forSend=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 378, in parseData
+    return self.parseContent(contentNode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 398, in parseContent
+    return self.dm.parseContent(contentNode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 150, in parseContent
+    output = self.evalExpr(f"({s_expr})")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 42, in wrapper
+    raise ExprEvalError(e, traceback)
+blend_scxml.errors.ExprEvalError: Traceback (most recent call last):
+SyntaxError: invalid syntax (<string>, line 1)
+INFO:pyscxml:exit: s02
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1771859258448' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test528.scxml] passed!
+Starting test529.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test529.scxml
+
+INFO:pyscxml.pyscxml_session_1865969085520:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test529.scxml
+
+INFO:pyscxml:enter:ScxmlTest529 __main__
+INFO:pyscxml:enter:ScxmlTest529 s0
+
+INFO:pyscxml:enter:ScxmlTest529 s01
+
+INFO:pyscxml:exit:ScxmlTest529 s01
+
+INFO:pyscxml:transition:ScxmlTest529 0
+INFO:pyscxml:enter:ScxmlTest529 s02
+INFO:pyscxml:exit:ScxmlTest529 s02
+INFO:pyscxml:exit:ScxmlTest529 s0
+
+INFO:pyscxml:transition:ScxmlTest529 0
+INFO:pyscxml:enter:ScxmlTest529 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest529 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1865969085520' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test529.scxml] passed!
+Starting test530.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test530.scxml
+
+INFO:pyscxml.pyscxml_session_2306628955216:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test530.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2306628955216.s0.4.0' finished
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2306628955216' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test530.scxml] passed!
+Starting test533.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test533.scxml
+
+INFO:pyscxml.pyscxml_session_1822300154960:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test533.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: p
+INFO:pyscxml:enter: ps1
+INFO:pyscxml:enter: ps2
+
+INFO:pyscxml:exit: ps2
+INFO:pyscxml:exit: ps1
+INFO:pyscxml:exit: p
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: p
+INFO:pyscxml:enter: ps1
+INFO:pyscxml:enter: ps2
+INFO:pyscxml:exit: ps2
+INFO:pyscxml:exit: ps1
+INFO:pyscxml:exit: p
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s2
+
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s3
+INFO:pyscxml:exit: s3
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s4
+INFO:pyscxml:exit: s4
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1822300154960' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test533.scxml] passed!
+Starting test550.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test550.scxml
+
+INFO:pyscxml.pyscxml_session_2262985845840:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test550.scxml
+
+INFO:pyscxml:enter: __main__
+
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2262985845840' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test550.scxml] passed!
+Starting test551.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test551.scxml
+
+INFO:pyscxml.pyscxml_session_1583868193872:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test551.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1583868193872' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test551.scxml] passed!
+Starting test552.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test552.scxml
+
+INFO:pyscxml.pyscxml_session_1991214476368:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test552.scxml
+
+INFO:pyscxml:enter:ScxmlTest552 __main__
+
+INFO:pyscxml:enter:ScxmlTest552 s0
+
+INFO:pyscxml:exit:ScxmlTest552 s0
+
+INFO:pyscxml:transition:ScxmlTest552 0
+INFO:pyscxml:enter:ScxmlTest552 pass
+
+Outcome: pass
+
+INFO:pyscxml:exit:ScxmlTest552 pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1991214476368' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test552.scxml] passed!
+Starting test553.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test553.scxml
+
+INFO:pyscxml.pyscxml_session_1763855674448:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test553.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_1763855674448.compiler:Line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" event="event1" namelist="Var2" /> 
+    : send not executed: parsing of data failed
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 39, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 167, in evalExpr
+    return eval(expr, self)
+           ^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'Var2' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 432, in parseSend
+    raw = self.parseData(sendNode, forSend=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 392, in parseData
+    (name, self.getExprValue(name))
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 706, in getExprValue
+    return self.dm.evalExpr(expr)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 42, in wrapper
+    raise ExprEvalError(e, traceback)
+blend_scxml.errors.ExprEvalError: Traceback (most recent call last):
+NameError: name 'Var2' is not defined
+ERROR:pyscxml.pyscxml_session_1763855674448.compiler:Parsing of send node failed on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" event="event1" namelist="Var2" /> 
+    .
+ERROR:pyscxml.pyscxml_session_1763855674448.compiler:An 'ExprEvalError' occurred when evaluating 'send' on line <ns0:send xmlns:ns0="http://www.w3.org/2005/07/scxml" event="event1" namelist="Var2" /> 
+    :
+    Traceback (most recent call last):
+NameError: name 'Var2' is not defined  
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1763855674448' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test553.scxml] passed!
+Starting test554.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test554.scxml
+
+INFO:pyscxml.pyscxml_session_1975005195344:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test554.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+ERROR:pyscxml.pyscxml_session_1975005195344.compiler:Line <ns0:invoke xmlns:ns0="http://www.w3.org/2005/07/scxml" type="http://www.w3.org/TR/scxml/" namelist="Var2">
+      <ns0:content>
+       <ns0:scxml initial="subFinal" version="1.0" datamodel="python">
+             <ns0:final id="subFinal" />
+            </ns0:scxml>
+            </ns0:content>
+            </ns0:invoke>
+     : Exception while parsing invoke.
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 39, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 167, in evalExpr
+    return eval(expr, self)
+           ^^^^^^^^^^^^^^^^
+  File "<string>", line 1, in <module>
+NameError: name 'Var2' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 712, in start_invoke
+    inv = self.parseInvoke(node, parentId, n)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 767, in parseInvoke
+    data = self.parseData(node, getContent=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 392, in parseData
+    (name, self.getExprValue(name))
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\compiler.py", line 706, in getExprValue
+    return self.dm.evalExpr(expr)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "PyBlendSCXML\src\blend_scxml\datamodel.py", line 42, in wrapper
+    raise ExprEvalError(e, traceback)
+blend_scxml.errors.ExprEvalError: Traceback (most recent call last):
+NameError: name 'Var2' is not defined
+
+INFO:pyscxml:exit: s0
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1975005195344' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test554.scxml] passed!
+Starting test570.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test570.scxml
+
+INFO:pyscxml.pyscxml_session_2356914859088:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test570.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: p0
+
+INFO:pyscxml:enter: p0s1
+INFO:pyscxml:enter: p0s11
+INFO:pyscxml:enter: p0s2
+INFO:pyscxml:enter: p0s21
+
+INFO:pyscxml:exit: p0s11
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: p0s1final
+INFO:pyscxml:exit: p0s21
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: p0s2final
+
+INFO:pyscxml:exit: p0s2final
+INFO:pyscxml:exit: p0s2
+INFO:pyscxml:exit: p0s1final
+INFO:pyscxml:exit: p0s1
+INFO:pyscxml:exit: p0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:exit: s1
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_2356914859088' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test570.scxml] passed!
+Starting test576.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test576.scxml
+
+INFO:pyscxml.pyscxml_session_1625747926096:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test576.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s1
+
+INFO:pyscxml:enter: s11
+INFO:pyscxml:enter: s11p1
+INFO:pyscxml:enter: s11p11
+INFO:pyscxml:enter: s11p112
+INFO:pyscxml:enter: s11p12
+INFO:pyscxml:enter: s11p122
+
+INFO:pyscxml:exit: s11p122
+
+INFO:pyscxml:exit: s11p12
+INFO:pyscxml:exit: s11p112
+INFO:pyscxml:exit: s11p11
+INFO:pyscxml:exit: s11p1
+INFO:pyscxml:exit: s11
+INFO:pyscxml:exit: s1
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1625747926096' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test576.scxml] passed!
+Starting test579.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test579.scxml
+
+INFO:pyscxml.pyscxml_session_1841227410512:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test579.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+
+INFO:pyscxml:enter: s01
+
+INFO:pyscxml:exit: s01
+
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s02
+INFO:pyscxml:exit: s02
+INFO:pyscxml:transition: 0
+
+INFO:pyscxml:enter: s03
+INFO:pyscxml:exit: s03
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s03
+INFO:pyscxml:exit: s03
+INFO:pyscxml:exit: s0
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s2
+INFO:pyscxml:exit: s2
+INFO:pyscxml:transition: 0
+INFO:pyscxml:enter: s3
+
+INFO:pyscxml:exit: s3
+
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1841227410512' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test579.scxml] passed!
+Starting test580.scxml...
+INFO:scxml_tester:remote_port=11005
+INFO:scxml_tester:local_port=11001
+
+INFO:scxml_tester:file_path=SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test580.scxml
+
+INFO:pyscxml.pyscxml_session_1282490870864:Starting SCXML-tutorial\Tests\python\W3C\Mandatory\Auto\test580.scxml
+
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: p1
+
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:enter: s11
+
+INFO:pyscxml:exit: s11
+
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: s12
+INFO:pyscxml:exit: s12
+
+INFO:pyscxml:exit: s1
+INFO:pyscxml:exit: s0
+INFO:pyscxml:exit: p1
+INFO:pyscxml:transition: 1
+INFO:pyscxml:enter: __main__
+INFO:pyscxml:enter: p1
+INFO:pyscxml:enter: s0
+INFO:pyscxml:enter: s1
+INFO:pyscxml:enter: s12
+INFO:pyscxml:exit: s12
+INFO:pyscxml:exit: s1
+INFO:pyscxml:exit: s0
+INFO:pyscxml:exit: p1
+
+INFO:pyscxml:transition: 2
+INFO:pyscxml:enter: pass
+
+Outcome: pass
+
+INFO:pyscxml:exit: pass
+
+DEBUG:pyscxml.multisession:The session 'pyscxml_session_1282490870864' finished
+
+INFO:pyscxml:socket was closed
+
+Saved session recovery to "C:\Users\AppData\Local\Temp\quit.blend"
+
+Blender quit
+
+Test [test580.scxml] passed!
+Elapsed: 00:04:30.699
+All 159 tests were completed!
+Passed: 159
+Manual or restricted: 0
+Timeout: 0
+Failed: 0
+Total Failed: 0
+```
+
+</p></details>
+
+
 ---
 
 | Test | Result | Description |
